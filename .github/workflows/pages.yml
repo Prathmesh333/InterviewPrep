@@ -21,6 +21,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm test
+      - run: python scripts/check_examples.py
       - run: npx playwright install --with-deps chromium
       - run: npm run test:browser
       - run: npm run build
