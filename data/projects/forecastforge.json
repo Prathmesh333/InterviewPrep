@@ -1,0 +1,156 @@
+[
+  {
+    "id": "forecastforge-01",
+    "project": "forecastforge",
+    "topic": "Machine Learning",
+    "question": "How does ForecastForge avoid temporal leakage?",
+    "quick": "The backtest builds historical data up to each origin and evaluates later horizons.",
+    "standard": "The backtest builds historical data up to each origin and evaluates later horizons.\n\nrun_backtest constructs history using date <= origin, fits its artifact on that history and evaluates future windows. Actual future spend is used as the planned budget, which is a conditional scenario assumption, not knowledge of future revenue.",
+    "deep": "The backtest builds historical data up to each origin and evaluates later horizons.\n\nrun_backtest constructs history using date <= origin, fits its artifact on that history and evaluates future windows. Actual future spend is used as the planned budget, which is a conditional scenario assumption, not knowledge of future revenue.\n\nReport that budget assumption explicitly because real plans can differ from actual spend. Compare rolling-origin folds and unseen-campaign slices. Forecast intervals need coverage and sharpness checks; a good point estimate alone does not validate P10/P90 ranges.",
+    "followups": [
+      "What information exists at the origin?",
+      "Why is future spend allowed?"
+    ],
+    "mistake": "Calling conditional backtest results an unconditional future guarantee.",
+    "difficulty": "Intermediate",
+    "type": "Project",
+    "tags": [
+      "Machine Learning",
+      "Forecasting",
+      "XGBoost"
+    ],
+    "sources": [
+      {
+        "label": "ForecastForge/src/backtest.py",
+        "url": "https://github.com/Prathmesh333/ForecastForge/blob/5b5cf354c1c33b7f2508ae5e5b070aa1c528e2da/src/backtest.py"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "machine-learning-02",
+      "machine-learning-04",
+      "machine-learning-05"
+    ],
+    "evidence": "Code + README"
+  },
+  {
+    "id": "forecastforge-02",
+    "project": "forecastforge",
+    "topic": "Machine Learning",
+    "question": "What did you personally implement in ForecastForge?",
+    "quick": "I need to connect my own contribution to specific files, commits and decisions before giving this answer.",
+    "standard": "I need to connect my own contribution to specific files, commits and decisions before giving this answer.\n\nUse the source links to identify the execution path, then name the part you owned and what changed. Repository ownership alone does not establish sole authorship, the hardest bug, a team disagreement or the outcome of an experiment.",
+    "deep": "I need to connect my own contribution to specific files, commits and decisions before giving this answer.\n\nUse the source links to identify the execution path, then name the part you owned and what changed. Repository ownership alone does not establish sole authorship, the hardest bug, a team disagreement or the outcome of an experiment.\n\nPrepare a concrete before/after example, the relevant commit, a test or experiment and one limitation. Say “the project implements” for verified code and “I implemented” only for work you can personally confirm. Leave numerical results out until tied to a run artifact.",
+    "followups": [
+      "Which commit is yours?",
+      "What broke?",
+      "What would you change today?"
+    ],
+    "mistake": "Inventing a personal debugging story from repository contents.",
+    "difficulty": "Intermediate",
+    "type": "Behavioral",
+    "tags": [
+      "Machine Learning",
+      "Forecasting",
+      "XGBoost"
+    ],
+    "sources": [
+      {
+        "label": "ForecastForge/README.md",
+        "url": "https://github.com/Prathmesh333/ForecastForge/blob/5b5cf354c1c33b7f2508ae5e5b070aa1c528e2da/README.md"
+      },
+      {
+        "label": "ForecastForge/src/backtest.py",
+        "url": "https://github.com/Prathmesh333/ForecastForge/blob/5b5cf354c1c33b7f2508ae5e5b070aa1c528e2da/src/backtest.py"
+      }
+    ],
+    "clarification": "Needs clarification from Prathmesh. Personal contribution, motivation, debugging history and measured outcomes are not established by code alone.",
+    "related": [
+      "f1-02",
+      "machine-learning-11",
+      "machine-learning-13"
+    ],
+    "evidence": "Concept / practice",
+    "star": {
+      "Situation": "Use the actual project context.",
+      "Task": "State your personal responsibility.",
+      "Action": "Identify your change and reasoning.",
+      "Result": "Give a verified outcome, or state what remains unmeasured."
+    }
+  },
+  {
+    "id": "forecastforge-03",
+    "project": "forecastforge",
+    "topic": "Machine Learning",
+    "question": "Walk through the implementation boundary in ForecastForge.",
+    "quick": "The backtest builds historical data up to each origin and evaluates later horizons.",
+    "standard": "The backtest builds historical data up to each origin and evaluates later horizons.\n\nrun_backtest constructs history using date <= origin, fits its artifact on that history and evaluates future windows. Actual future spend is used as the planned budget, which is a conditional scenario assumption, not knowledge of future revenue.",
+    "deep": "The backtest builds historical data up to each origin and evaluates later horizons.\n\nrun_backtest constructs history using date <= origin, fits its artifact on that history and evaluates future windows. Actual future spend is used as the planned budget, which is a conditional scenario assumption, not knowledge of future revenue.\n\nBegin at the linked implementation file, identify its input shape and ownership, then trace the output and error path.\n\nReport that budget assumption explicitly because real plans can differ from actual spend. Compare rolling-origin folds and unseen-campaign slices. Forecast intervals need coverage and sharpness checks; a good point estimate alone does not validate P10/P90 ranges.",
+    "followups": [
+      "What information exists at the origin?",
+      "What would you test before deploying this path?"
+    ],
+    "mistake": "Calling conditional backtest results an unconditional future guarantee.",
+    "difficulty": "Intermediate",
+    "type": "Architecture",
+    "tags": [
+      "Machine Learning",
+      "Forecasting",
+      "XGBoost"
+    ],
+    "sources": [
+      {
+        "label": "ForecastForge/README.md",
+        "url": "https://github.com/Prathmesh333/ForecastForge/blob/5b5cf354c1c33b7f2508ae5e5b070aa1c528e2da/README.md"
+      },
+      {
+        "label": "ForecastForge/src/backtest.py",
+        "url": "https://github.com/Prathmesh333/ForecastForge/blob/5b5cf354c1c33b7f2508ae5e5b070aa1c528e2da/src/backtest.py"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "f1-03",
+      "trace-03",
+      "f1-01"
+    ]
+  },
+  {
+    "id": "forecastforge-04",
+    "project": "forecastforge",
+    "topic": "Machine Learning",
+    "question": "How would you test and improve ForecastForge?",
+    "quick": "I would establish a reproducible baseline and test the specific failure boundary exposed by this implementation.",
+    "standard": "I would establish a reproducible baseline and test the specific failure boundary exposed by this implementation.\n\nReport that budget assumption explicitly because real plans can differ from actual spend. Compare rolling-origin folds and unseen-campaign slices. Forecast intervals need coverage and sharpness checks; a good point estimate alone does not validate P10/P90 ranges.",
+    "deep": "I would establish a reproducible baseline and test the specific failure boundary exposed by this implementation.\n\nReport that budget assumption explicitly because real plans can differ from actual spend. Compare rolling-origin folds and unseen-campaign slices. Forecast intervals need coverage and sharpness checks; a good point estimate alone does not validate P10/P90 ranges.\n\nKeep the current implementation separate from the proposed improvement. Save representative inputs, expected outputs and a versioned configuration. Test normal inputs, malformed inputs and the failure case described above. For model outputs, include a held-out evaluation and inspect errors rather than treating a confidence field as proof.\n\nrun_backtest constructs history using date <= origin, fits its artifact on that history and evaluates future windows. Actual future spend is used as the planned budget, which is a conditional scenario assumption, not knowledge of future revenue.",
+    "followups": [
+      "What is the baseline?",
+      "What is the acceptance criterion?",
+      "How do you avoid leakage?"
+    ],
+    "mistake": "Presenting a proposed improvement as an already measured result.",
+    "difficulty": "Intermediate",
+    "type": "Research",
+    "tags": [
+      "Machine Learning",
+      "Forecasting",
+      "XGBoost"
+    ],
+    "sources": [
+      {
+        "label": "ForecastForge/README.md",
+        "url": "https://github.com/Prathmesh333/ForecastForge/blob/5b5cf354c1c33b7f2508ae5e5b070aa1c528e2da/README.md"
+      },
+      {
+        "label": "ForecastForge/src/backtest.py",
+        "url": "https://github.com/Prathmesh333/ForecastForge/blob/5b5cf354c1c33b7f2508ae5e5b070aa1c528e2da/src/backtest.py"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "f1-04",
+      "trace-04",
+      "machine-learning-07"
+    ]
+  }
+]

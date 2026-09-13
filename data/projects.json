@@ -1,0 +1,477 @@
+[
+  {
+    "id": "hqde",
+    "name": "HQDE",
+    "repo": "HQDE-PyPI",
+    "summary": "Explain the boundary between independent ensembles, federated updates, and prediction fusion.",
+    "tags": [
+      "Distributed Systems",
+      "Ray",
+      "PyTorch",
+      "Ensembles"
+    ],
+    "sourceFiles": [
+      {
+        "label": "HQDE-PyPI/README.md",
+        "url": "https://github.com/Prathmesh333/HQDE-PyPI/blob/725a32adb5ac35d74df41ee51c55a6d533f1d957/README.md"
+      },
+      {
+        "label": "HQDE-PyPI/hqde/core/hqde_system.py",
+        "url": "https://github.com/Prathmesh333/HQDE-PyPI/blob/725a32adb5ac35d74df41ee51c55a6d533f1d957/hqde/core/hqde_system.py"
+      }
+    ],
+    "diagram": [
+      "Dataset / batches",
+      "Manager",
+      "Stateful workers: model + optimizer",
+      "Independent → logit fusion | FedAvg → epoch deltas",
+      "Server update → broadcast"
+    ],
+    "notice": ""
+  },
+  {
+    "id": "ta-rs",
+    "name": "TA-RS / PsychoTA",
+    "repo": "PsychoTA",
+    "summary": "Reason through speaker-aware dialogue modeling, four task heads, and the limits of weak labels.",
+    "tags": [
+      "NLP",
+      "DeBERTa",
+      "PyTorch",
+      "Multi-task learning"
+    ],
+    "sourceFiles": [
+      {
+        "label": "PsychoTA/README.md",
+        "url": "https://github.com/Prathmesh333/PsychoTA/blob/c5ccc0c393bf76b7d4e45738f262fc0ad7984bd7/README.md"
+      },
+      {
+        "label": "PsychoTA/psychota/model.py",
+        "url": "https://github.com/Prathmesh333/PsychoTA/blob/c5ccc0c393bf76b7d4e45738f262fc0ad7984bd7/psychota/model.py"
+      },
+      {
+        "label": "PsychoTA/psychota/trainer.py",
+        "url": "https://github.com/Prathmesh333/PsychoTA/blob/c5ccc0c393bf76b7d4e45738f262fc0ad7984bd7/psychota/trainer.py"
+      },
+      {
+        "label": "prathmesh333.github.io/script.js",
+        "url": "https://github.com/Prathmesh333/prathmesh333.github.io/blob/5cc977acc50a5435fda1134d8aa7e1956f885f3a/script.js"
+      }
+    ],
+    "diagram": [
+      "Token + speaker + turn + type",
+      "Utterance vectors Hu",
+      "Parallel: Hu → causal attention Hp → transaction | Hu → BiGRU Hs → ego + stroke",
+      "Detached ego + stroke probabilities → script integrator",
+      "Script + speaker representations → life position"
+    ],
+    "notice": "TA-RS / PsychoTA naming is supported by the portfolio. Code confirms the architecture; personal contribution and experiment results need confirmation."
+  },
+  {
+    "id": "fh-rag",
+    "name": "FH-RAG",
+    "repo": null,
+    "summary": "Prepare hierarchical retrieval concepts while keeping unverified implementation and results explicit.",
+    "tags": [
+      "RAG",
+      "Retrieval",
+      "Embeddings"
+    ],
+    "sourceFiles": [
+      {
+        "label": "prathmesh333.github.io/script.js",
+        "url": "https://github.com/Prathmesh333/prathmesh333.github.io/blob/5cc977acc50a5435fda1134d8aa7e1956f885f3a/script.js"
+      }
+    ],
+    "diagram": [
+      "Document",
+      "Hierarchical chunks",
+      "Embedding + query scoring",
+      "Beam expansion + pruning",
+      "Retrieved context",
+      "Generator + citations"
+    ],
+    "notice": "Needs clarification from Prathmesh. No public FH-RAG implementation was located in the repository inventory or code search. The portfolio describes the project, but code, formulas, datasets and results remain unverified."
+  },
+  {
+    "id": "caniplay",
+    "name": "CanIPlay",
+    "repo": "CanIPlay",
+    "summary": "Discuss browser networking, concurrent probes, cancellation, and honest measurement.",
+    "tags": [
+      "Computer Networks",
+      "JavaScript",
+      "Browser APIs"
+    ],
+    "sourceFiles": [
+      {
+        "label": "CanIPlay/README.md",
+        "url": "https://github.com/Prathmesh333/CanIPlay/blob/acf951b5e5353830e8ead892eb83b23048d1f22f/README.md"
+      },
+      {
+        "label": "CanIPlay/js/tester.js",
+        "url": "https://github.com/Prathmesh333/CanIPlay/blob/acf951b5e5353830e8ead892eb83b23048d1f22f/js/tester.js"
+      }
+    ],
+    "diagram": [
+      "Server list",
+      "Four probes per batch",
+      "Fetch or image timing",
+      "Reachability heuristics",
+      "Stability statistics → UI"
+    ],
+    "notice": ""
+  },
+  {
+    "id": "vsfeed",
+    "name": "VSFeed",
+    "repo": "vsfeed",
+    "summary": "Walk through an editor extension, browser commands, local state, and focus timers.",
+    "tags": [
+      "Software Engineering",
+      "TypeScript",
+      "VS Code"
+    ],
+    "sourceFiles": [
+      {
+        "label": "vsfeed/README.md",
+        "url": "https://github.com/Prathmesh333/vsfeed/blob/f7370ba6ae8da56b0c6333f2883b7755a0990f97/README.md"
+      },
+      {
+        "label": "vsfeed/src/extension.ts",
+        "url": "https://github.com/Prathmesh333/vsfeed/blob/f7370ba6ae8da56b0c6333f2883b7755a0990f97/src/extension.ts"
+      },
+      {
+        "label": "vsfeed/src/components/BrowserManager.ts",
+        "url": "https://github.com/Prathmesh333/vsfeed/blob/f7370ba6ae8da56b0c6333f2883b7755a0990f97/src/components/BrowserManager.ts"
+      }
+    ],
+    "diagram": [
+      "VS Code activation",
+      "Commands + panel",
+      "Validated URL",
+      "Integrated browser / fallback",
+      "Navigation state + focus timer"
+    ],
+    "notice": ""
+  },
+  {
+    "id": "evidencemem",
+    "name": "EvidenceMem",
+    "repo": "evidencemem",
+    "summary": "Inspectable visual memory over a frozen encoder.",
+    "tags": [
+      "Computer Vision",
+      "Embeddings",
+      "FAISS"
+    ],
+    "sourceFiles": [
+      {
+        "label": "evidencemem/README.md",
+        "url": "https://github.com/Prathmesh333/evidencemem/blob/1eb8badd97c341a24be726b912a92c6b190bad7d/README.md"
+      },
+      {
+        "label": "evidencemem/src/evidencemem/classifier.py",
+        "url": "https://github.com/Prathmesh333/evidencemem/blob/1eb8badd97c341a24be726b912a92c6b190bad7d/src/evidencemem/classifier.py"
+      }
+    ],
+    "diagram": [
+      "Image → frozen encoder",
+      "Normalized query embedding",
+      "Medoid retrieval + text-label scores",
+      "Reliability-weighted fusion",
+      "Prediction + evidence + unknown flag"
+    ],
+    "notice": ""
+  },
+  {
+    "id": "forecastforge",
+    "name": "ForecastForge",
+    "repo": "ForecastForge",
+    "summary": "Probabilistic forecasting with an auditable backtest boundary.",
+    "tags": [
+      "Machine Learning",
+      "Forecasting",
+      "XGBoost"
+    ],
+    "sourceFiles": [
+      {
+        "label": "ForecastForge/README.md",
+        "url": "https://github.com/Prathmesh333/ForecastForge/blob/5b5cf354c1c33b7f2508ae5e5b070aa1c528e2da/README.md"
+      },
+      {
+        "label": "ForecastForge/src/backtest.py",
+        "url": "https://github.com/Prathmesh333/ForecastForge/blob/5b5cf354c1c33b7f2508ae5e5b070aa1c528e2da/src/backtest.py"
+      }
+    ],
+    "diagram": [
+      "Historical media data",
+      "Cutoff-safe features + lifecycle",
+      "Empirical Bayes + capped XGBoost",
+      "Simulation + hierarchy reconciliation",
+      "Forecast ranges + evidence labels"
+    ],
+    "notice": ""
+  },
+  {
+    "id": "treestack",
+    "name": "TreeStack CNN",
+    "repo": "WeakEnsembleStrongDecisionTree",
+    "summary": "Learned ensemble combination and leakage-resistant experiments.",
+    "tags": [
+      "Computer Vision",
+      "Ensembles",
+      "scikit-learn"
+    ],
+    "sourceFiles": [
+      {
+        "label": "WeakEnsembleStrongDecisionTree/README.md",
+        "url": "https://github.com/Prathmesh333/WeakEnsembleStrongDecisionTree/blob/dbfe9811ee58663f4bb5f42913f818bd6549136f/README.md"
+      },
+      {
+        "label": "WeakEnsembleStrongDecisionTree/src/treestack_cnn/stacking.py",
+        "url": "https://github.com/Prathmesh333/WeakEnsembleStrongDecisionTree/blob/dbfe9811ee58663f4bb5f42913f818bd6549136f/src/treestack_cnn/stacking.py"
+      }
+    ],
+    "diagram": [
+      "Base CNN probability outputs",
+      "Out-of-fold meta training set",
+      "Soft / hard / enhanced features",
+      "Learned combiner or voting",
+      "Held-out predictions"
+    ],
+    "notice": ""
+  },
+  {
+    "id": "researchhub",
+    "name": "ResearchHub",
+    "repo": "ResearchHub",
+    "summary": "Authentication, authorization and project membership.",
+    "tags": [
+      "Software Engineering",
+      "Express",
+      "PostgreSQL"
+    ],
+    "sourceFiles": [
+      {
+        "label": "ResearchHub/README.md",
+        "url": "https://github.com/Prathmesh333/ResearchHub/blob/04316339e8b27e53ed31c566be1c8201cbd739b7/README.md"
+      },
+      {
+        "label": "ResearchHub/src/server/middleware/auth.ts",
+        "url": "https://github.com/Prathmesh333/ResearchHub/blob/04316339e8b27e53ed31c566be1c8201cbd739b7/src/server/middleware/auth.ts"
+      }
+    ],
+    "diagram": [
+      "HTTP request + Bearer token",
+      "JWT verification → current DB user",
+      "Role + project membership check",
+      "Authorized database operation",
+      "Response"
+    ],
+    "notice": ""
+  },
+  {
+    "id": "consensus",
+    "name": "Neural Consensus Engine",
+    "repo": "Neural-Consensus-Engine",
+    "summary": "Parallel expert generation followed by a synthesis stage.",
+    "tags": [
+      "LLMs",
+      "asyncio",
+      "LangGraph"
+    ],
+    "sourceFiles": [
+      {
+        "label": "Neural-Consensus-Engine/README.md",
+        "url": "https://github.com/Prathmesh333/Neural-Consensus-Engine/blob/2f62699714531abbf09d3adba3f6c000971610e7/README.md"
+      },
+      {
+        "label": "Neural-Consensus-Engine/backend/core/orchestrator.py",
+        "url": "https://github.com/Prathmesh333/Neural-Consensus-Engine/blob/2f62699714531abbf09d3adba3f6c000971610e7/backend/core/orchestrator.py"
+      }
+    ],
+    "diagram": [
+      "Query + expert configuration",
+      "asyncio.gather expert calls",
+      "Expert response map",
+      "Synthesis graph node",
+      "Consensus + disagreements (generated)"
+    ],
+    "notice": ""
+  },
+  {
+    "id": "janseva",
+    "name": "JanSeva AI",
+    "repo": "AI4Bharat-JansevaAI",
+    "summary": "Conversation assistance with explicit eligibility rules.",
+    "tags": [
+      "Software Engineering",
+      "TypeScript",
+      "RAG"
+    ],
+    "sourceFiles": [
+      {
+        "label": "AI4Bharat-JansevaAI/README.md",
+        "url": "https://github.com/Prathmesh333/AI4Bharat-JansevaAI/blob/f8689837d78d27b3a12fdb552d9686c9ff445930/README.md"
+      },
+      {
+        "label": "AI4Bharat-JansevaAI/src/services/eligibility/matcher.ts",
+        "url": "https://github.com/Prathmesh333/AI4Bharat-JansevaAI/blob/f8689837d78d27b3a12fdb552d9686c9ff445930/src/services/eligibility/matcher.ts"
+      }
+    ],
+    "diagram": [
+      "User profile + scheme criteria",
+      "Required-field check",
+      "Evaluate each scheme",
+      "Sort by match score",
+      "Results + missing criteria"
+    ],
+    "notice": ""
+  },
+  {
+    "id": "f1",
+    "name": "F1 Race Prediction",
+    "repo": "F1-Race-Prediction",
+    "summary": "Feature availability, temporal splits and regression evaluation.",
+    "tags": [
+      "Machine Learning",
+      "scikit-learn",
+      "Gradio"
+    ],
+    "sourceFiles": [
+      {
+        "label": "F1-Race-Prediction/README.md",
+        "url": "https://github.com/Prathmesh333/F1-Race-Prediction/blob/cd389129e9cb42a855457ed35b728598684aeffd/README.md"
+      },
+      {
+        "label": "F1-Race-Prediction/f1_final.py",
+        "url": "https://github.com/Prathmesh333/F1-Race-Prediction/blob/cd389129e9cb42a855457ed35b728598684aeffd/f1_final.py"
+      }
+    ],
+    "diagram": [
+      "Input",
+      "Validation / representation",
+      "Core model or rules",
+      "Evaluation",
+      "Output + limitations"
+    ],
+    "notice": ""
+  },
+  {
+    "id": "shortlist",
+    "name": "Shortlist’d",
+    "repo": "ShortList-D",
+    "summary": "Resume editing with source preservation and per-user storage.",
+    "tags": [
+      "Software Engineering",
+      "Gemini",
+      "Firebase"
+    ],
+    "sourceFiles": [
+      {
+        "label": "ShortList-D/README.md",
+        "url": "https://github.com/Prathmesh333/ShortList-D/blob/0c614a3e3728141fedde7c6e4da61de90fc4a34a/README.md"
+      },
+      {
+        "label": "ShortList-D/firestore.rules",
+        "url": "https://github.com/Prathmesh333/ShortList-D/blob/0c614a3e3728141fedde7c6e4da61de90fc4a34a/firestore.rules"
+      }
+    ],
+    "diagram": [
+      "Resume + job + supplied evidence",
+      "Gemini request → output parsing",
+      "User review",
+      "Firebase identity",
+      "UID-scoped Firestore records"
+    ],
+    "notice": ""
+  },
+  {
+    "id": "iris",
+    "name": "Iris Visual Agent",
+    "repo": "iris-visual-agent",
+    "summary": "Opt-in browser activity capture with explicit privacy boundaries.",
+    "tags": [
+      "Software Engineering",
+      "Browser APIs",
+      "Privacy"
+    ],
+    "sourceFiles": [
+      {
+        "label": "iris-visual-agent/README.md",
+        "url": "https://github.com/Prathmesh333/iris-visual-agent/blob/31041756dcde79e78c8c18330d461707a37e6245/README.md"
+      },
+      {
+        "label": "iris-visual-agent/apps/extension/src/lib/privacy.js",
+        "url": "https://github.com/Prathmesh333/iris-visual-agent/blob/31041756dcde79e78c8c18330d461707a37e6245/apps/extension/src/lib/privacy.js"
+      }
+    ],
+    "diagram": [
+      "User-controlled browser session",
+      "URL protocol / denylist gate",
+      "Metadata scrub + capture restrictions",
+      "Authenticated localhost API",
+      "Local activity ledger"
+    ],
+    "notice": ""
+  },
+  {
+    "id": "takeone",
+    "name": "TakeOne",
+    "repo": "TakeOne",
+    "summary": "Scene-description retrieval over indexed video segments.",
+    "tags": [
+      "RAG",
+      "Sentence Transformers",
+      "ChromaDB"
+    ],
+    "sourceFiles": [
+      {
+        "label": "TakeOne/README.md",
+        "url": "https://github.com/Prathmesh333/TakeOne/blob/eacfaf107662b353d0b0c75d4d6dd9ea7dee4029/README.md"
+      },
+      {
+        "label": "TakeOne/search/vector_search.py",
+        "url": "https://github.com/Prathmesh333/TakeOne/blob/eacfaf107662b353d0b0c75d4d6dd9ea7dee4029/search/vector_search.py"
+      }
+    ],
+    "diagram": [
+      "Video scenes → descriptions",
+      "Sentence Transformer text embeddings",
+      "Persistent Chroma collection",
+      "Query → optional expansion → search",
+      "Scene matches + metadata"
+    ],
+    "notice": ""
+  },
+  {
+    "id": "trace",
+    "name": "TRACE",
+    "repo": "TRACE_Transparent_Results_and_Academic_Compliance_Engine",
+    "summary": "Grading support with explicit confidence heuristics and review limits.",
+    "tags": [
+      "Machine Learning",
+      "FastAPI",
+      "Evaluation"
+    ],
+    "sourceFiles": [
+      {
+        "label": "TRACE_Transparent_Results_and_Academic_Compliance_Engine/README.md",
+        "url": "https://github.com/Prathmesh333/TRACE_Transparent_Results_and_Academic_Compliance_Engine/blob/26177ebf5b223c27f38fd98726509334d604024c/README.md"
+      },
+      {
+        "label": "TRACE_Transparent_Results_and_Academic_Compliance_Engine/app/services/grading/confidence.py",
+        "url": "https://github.com/Prathmesh333/TRACE_Transparent_Results_and_Academic_Compliance_Engine/blob/26177ebf5b223c27f38fd98726509334d604024c/app/services/grading/confidence.py"
+      }
+    ],
+    "diagram": [
+      "Grading result",
+      "Coverage + score range + reasoning length",
+      "Weighted confidence heuristic",
+      "Threshold comparison",
+      "Human-review flag"
+    ],
+    "notice": ""
+  }
+]

@@ -1,0 +1,186 @@
+[
+  {
+    "id": "vsfeed-01",
+    "project": "vsfeed",
+    "topic": "Software Engineering",
+    "question": "Explain the VSFeed architecture.",
+    "quick": "VSFeed uses a webview for its control panel and VS Code’s integrated browser to open sites.",
+    "standard": "VSFeed uses a webview for its control panel and VS Code’s integrated browser to open sites.\n\nextension.ts wires commands and components. BrowserManager manages URLs and launch history, while a focus controller limits a session. The current README identifies integrated-browser media limitations; this is not a custom browser engine.",
+    "deep": "VSFeed uses a webview for its control panel and VS Code’s integrated browser to open sites.\n\nextension.ts wires commands and components. BrowserManager manages URLs and launch history, while a focus controller limits a session. The current README identifies integrated-browser media limitations; this is not a custom browser engine.\n\nTrace activation, command registration, URL validation and launchUrl. BrowserManager first calls workbench.action.browser.open and falls back to simpleBrowser.show. Distinguish extension launch history from the complete navigation history inside an external website.",
+    "followups": [
+      "Which file opens a URL?",
+      "Why a fallback command?"
+    ],
+    "mistake": "Calling the panel a full replacement browser.",
+    "difficulty": "Intermediate",
+    "type": "Architecture",
+    "tags": [
+      "Software Engineering",
+      "TypeScript",
+      "VS Code"
+    ],
+    "sources": [
+      {
+        "label": "vsfeed/src/components/BrowserManager.ts",
+        "url": "https://github.com/Prathmesh333/vsfeed/blob/f7370ba6ae8da56b0c6333f2883b7755a0990f97/src/components/BrowserManager.ts"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "vsfeed-04",
+      "software-engineering-01",
+      "software-engineering-02"
+    ],
+    "evidence": "Code + README"
+  },
+  {
+    "id": "vsfeed-02",
+    "project": "vsfeed",
+    "topic": "Software Engineering",
+    "question": "How would you secure extension messages and URLs?",
+    "quick": "Validate message shapes and restrict navigations to intended HTTP or HTTPS destinations before executing actions.",
+    "standard": "Validate message shapes and restrict navigations to intended HTTP or HTTPS destinations before executing actions.\n\nThe code checks URL protocols and passes navigation through BrowserManager. A webview is a separate trust boundary: messages from it should be treated as input. Persisted shortcuts also need validation when restored, not only when created.",
+    "deep": "Validate message shapes and restrict navigations to intended HTTP or HTTPS destinations before executing actions.\n\nThe code checks URL protocols and passes navigation through BrowserManager. A webview is a separate trust boundary: messages from it should be treated as input. Persisted shortcuts also need validation when restored, not only when created.\n\nUse a strict message schema, a constrained content security policy and explicit command handling. Test javascript URLs, malformed messages and unexpected restored state. These are review criteria; the presence of one URL check does not establish a complete security audit.",
+    "followups": [
+      "Where do webview messages enter?",
+      "Could restored state bypass validation?"
+    ],
+    "mistake": "Trusting a message because it comes from your own panel.",
+    "difficulty": "Intermediate",
+    "type": "Project",
+    "tags": [
+      "Software Engineering",
+      "TypeScript",
+      "VS Code"
+    ],
+    "sources": [
+      {
+        "label": "vsfeed/src/extension.ts",
+        "url": "https://github.com/Prathmesh333/vsfeed/blob/f7370ba6ae8da56b0c6333f2883b7755a0990f97/src/extension.ts"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "software-engineering-03",
+      "researchhub-04",
+      "janseva-04"
+    ],
+    "evidence": "Code + README"
+  },
+  {
+    "id": "vsfeed-03",
+    "project": "vsfeed",
+    "topic": "Software Engineering",
+    "question": "What makes focus timers and state hard to test?",
+    "quick": "Timers, panel visibility and user activity can change in different orders, so the state transitions need explicit tests.",
+    "standard": "Timers, panel visibility and user activity can change in different orders, so the state transitions need explicit tests.\n\nFocusController is separate from browser navigation, allowing timed focus behavior to be tested independently. The repository includes unit and property-based test files. Use fake clocks to verify warning, expiry, reset and disposal without slow real-time waits.",
+    "deep": "Timers, panel visibility and user activity can change in different orders, so the state transitions need explicit tests.\n\nFocusController is separate from browser navigation, allowing timed focus behavior to be tested independently. The repository includes unit and property-based test files. Use fake clocks to verify warning, expiry, reset and disposal without slow real-time waits.\n\nEnumerate transitions such as start → pause → resume → expire and close → reopen. Verify that listeners and timers are disposed and that an old timeout cannot mutate a new session. Test behavior, not just private implementation details.",
+    "followups": [
+      "What happens when the panel closes?",
+      "How do you prevent duplicate timers?"
+    ],
+    "mistake": "Using arbitrary sleep calls as the main timer test strategy.",
+    "difficulty": "Intermediate",
+    "type": "Project",
+    "tags": [
+      "Software Engineering",
+      "TypeScript",
+      "VS Code"
+    ],
+    "sources": [
+      {
+        "label": "vsfeed/src/components/FocusController.ts",
+        "url": "https://github.com/Prathmesh333/vsfeed/blob/f7370ba6ae8da56b0c6333f2883b7755a0990f97/src/components/FocusController.ts"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "software-engineering-03",
+      "software-engineering-01",
+      "software-engineering-04"
+    ],
+    "evidence": "Code + README"
+  },
+  {
+    "id": "vsfeed-04",
+    "project": "vsfeed",
+    "topic": "Software Engineering",
+    "question": "What did you personally implement in VSFeed?",
+    "quick": "I need to connect my own contribution to specific files, commits and decisions before giving this answer.",
+    "standard": "I need to connect my own contribution to specific files, commits and decisions before giving this answer.\n\nUse the source links to identify the execution path, then name the part you owned and what changed. Repository ownership alone does not establish sole authorship, the hardest bug, a team disagreement or the outcome of an experiment.",
+    "deep": "I need to connect my own contribution to specific files, commits and decisions before giving this answer.\n\nUse the source links to identify the execution path, then name the part you owned and what changed. Repository ownership alone does not establish sole authorship, the hardest bug, a team disagreement or the outcome of an experiment.\n\nPrepare a concrete before/after example, the relevant commit, a test or experiment and one limitation. Say “the project implements” for verified code and “I implemented” only for work you can personally confirm. Leave numerical results out until tied to a run artifact.",
+    "followups": [
+      "Which commit is yours?",
+      "What broke?",
+      "What would you change today?"
+    ],
+    "mistake": "Inventing a personal debugging story from repository contents.",
+    "difficulty": "Intermediate",
+    "type": "Behavioral",
+    "tags": [
+      "Software Engineering",
+      "TypeScript",
+      "VS Code"
+    ],
+    "sources": [
+      {
+        "label": "vsfeed/README.md",
+        "url": "https://github.com/Prathmesh333/vsfeed/blob/f7370ba6ae8da56b0c6333f2883b7755a0990f97/README.md"
+      },
+      {
+        "label": "vsfeed/src/extension.ts",
+        "url": "https://github.com/Prathmesh333/vsfeed/blob/f7370ba6ae8da56b0c6333f2883b7755a0990f97/src/extension.ts"
+      },
+      {
+        "label": "vsfeed/src/components/BrowserManager.ts",
+        "url": "https://github.com/Prathmesh333/vsfeed/blob/f7370ba6ae8da56b0c6333f2883b7755a0990f97/src/components/BrowserManager.ts"
+      }
+    ],
+    "clarification": "Needs clarification from Prathmesh. Personal contribution, motivation, debugging history and measured outcomes are not established by code alone.",
+    "related": [
+      "researchhub-02",
+      "janseva-02",
+      "shortlist-02"
+    ],
+    "evidence": "Concept / practice",
+    "star": {
+      "Situation": "Use the actual project context.",
+      "Task": "State your personal responsibility.",
+      "Action": "Identify your change and reasoning.",
+      "Result": "Give a verified outcome, or state what remains unmeasured."
+    }
+  },
+  {
+    "id": "vsfeed-05",
+    "project": "vsfeed",
+    "topic": "Software Engineering",
+    "question": "Why does VSFeed keep a fallback browser command?",
+    "quick": "The preferred integrated-browser command may be unavailable or fail, so BrowserManager tries simpleBrowser.show as a fallback.",
+    "standard": "The preferred integrated-browser command may be unavailable or fail, so BrowserManager tries simpleBrowser.show as a fallback.\n\nThe method awaits the first command, catches failure and invokes the fallback. On success it keeps the opened editor and updates navigation state; on failure it sends an overlay and a navigationFailed event.",
+    "deep": "The preferred integrated-browser command may be unavailable or fail, so BrowserManager tries simpleBrowser.show as a fallback.\n\nThe method awaits the first command, catches failure and invokes the fallback. On success it keeps the opened editor and updates navigation state; on failure it sends an overlay and a navigationFailed event.\n\nA command resolving successfully only confirms command handling, not that media played or the destination application loaded correctly. Test unsupported commands and both failures, and keep the UI state consistent when a late result arrives.",
+    "followups": [
+      "What does command success guarantee?",
+      "What if both commands fail?"
+    ],
+    "mistake": "Claiming fallback guarantees that every website works.",
+    "difficulty": "Intermediate",
+    "type": "Architecture",
+    "tags": [
+      "Software Engineering",
+      "TypeScript",
+      "VS Code"
+    ],
+    "sources": [
+      {
+        "label": "vsfeed/src/components/BrowserManager.ts",
+        "url": "https://github.com/Prathmesh333/vsfeed/blob/f7370ba6ae8da56b0c6333f2883b7755a0990f97/src/components/BrowserManager.ts"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "software-engineering-01",
+      "iris-01",
+      "vsfeed-01"
+    ]
+  }
+]

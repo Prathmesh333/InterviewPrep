@@ -1,0 +1,153 @@
+[
+  {
+    "id": "trace-01",
+    "project": "trace",
+    "topic": "Machine Learning",
+    "question": "Is TRACE’s confidence score a calibrated probability?",
+    "quick": "The inspected confidence score is a weighted heuristic, not a demonstrated probability that a grade is correct.",
+    "standard": "The inspected confidence score is a weighted heuristic, not a demonstrated probability that a grade is correct.\n\nConfidenceQuantifier uses 40% rubric coverage, 30% score-distribution preference and 30% reasoning-length signals. It clamps the result to [0,1] and compares it with a review threshold. Longer reasoning is only a proxy and can be wrong.",
+    "deep": "The inspected confidence score is a weighted heuristic, not a demonstrated probability that a grade is correct.\n\nConfidenceQuantifier uses 40% rubric coverage, 30% score-distribution preference and 30% reasoning-length signals. It clamps the result to [0,1] and compares it with a review threshold. Longer reasoning is only a proxy and can be wrong.\n\nEvaluate against human-reviewed grading errors with reliability diagrams and precision/recall for review flags. Correct extreme scores may receive lower heuristic confidence; verbose incorrect reasoning may receive higher confidence. Calibration and review policy need evidence beyond a bounded numeric output.",
+    "followups": [
+      "How would you calibrate it?",
+      "Can a long explanation be wrong?"
+    ],
+    "mistake": "Interpreting 0.9 as 90% correctness without calibration.",
+    "difficulty": "Intermediate",
+    "type": "Architecture",
+    "tags": [
+      "Machine Learning",
+      "FastAPI",
+      "Evaluation"
+    ],
+    "sources": [
+      {
+        "label": "TRACE_Transparent_Results_and_Academic_Compliance_Engine/app/services/grading/confidence.py",
+        "url": "https://github.com/Prathmesh333/TRACE_Transparent_Results_and_Academic_Compliance_Engine/blob/26177ebf5b223c27f38fd98726509334d604024c/app/services/grading/confidence.py"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "machine-learning-09",
+      "machine-learning-13",
+      "machine-learning-19"
+    ]
+  },
+  {
+    "id": "trace-02",
+    "project": "trace",
+    "topic": "Machine Learning",
+    "question": "What contribution and result can you substantiate in TRACE?",
+    "quick": "I would point to the exact file and commit I owned, then show a test or result that supports the outcome.",
+    "standard": "I would point to the exact file and commit I owned, then show a test or result that supports the outcome.\n\nExplain the problem and your scope before describing the solution. The linked repository shows project behavior, but it cannot establish your personal motivation, hardest bug or team role by itself.",
+    "deep": "I would point to the exact file and commit I owned, then show a test or result that supports the outcome.\n\nExplain the problem and your scope before describing the solution. The linked repository shows project behavior, but it cannot establish your personal motivation, hardest bug or team role by itself.\n\nNeeds clarification from Prathmesh. Add one real Situation, Task, Action and Result in your notes. Use a concrete before/after and a verified outcome; do not turn README marketing text into a personal achievement.",
+    "followups": [
+      "Which commit is yours?",
+      "What evidence demonstrates the outcome?"
+    ],
+    "mistake": "Inventing personal experience from a repository name.",
+    "difficulty": "Intermediate",
+    "type": "Behavioral",
+    "tags": [
+      "Machine Learning",
+      "FastAPI",
+      "Evaluation"
+    ],
+    "sources": [
+      {
+        "label": "TRACE_Transparent_Results_and_Academic_Compliance_Engine/README.md",
+        "url": "https://github.com/Prathmesh333/TRACE_Transparent_Results_and_Academic_Compliance_Engine/blob/26177ebf5b223c27f38fd98726509334d604024c/README.md"
+      },
+      {
+        "label": "TRACE_Transparent_Results_and_Academic_Compliance_Engine/app/services/grading/confidence.py",
+        "url": "https://github.com/Prathmesh333/TRACE_Transparent_Results_and_Academic_Compliance_Engine/blob/26177ebf5b223c27f38fd98726509334d604024c/app/services/grading/confidence.py"
+      }
+    ],
+    "clarification": "Needs clarification from Prathmesh. Personal contribution and measured outcomes need confirmation.",
+    "related": [
+      "machine-learning-11",
+      "machine-learning-13",
+      "machine-learning-21"
+    ],
+    "star": {
+      "Situation": "Use the actual project context.",
+      "Task": "State your personal responsibility.",
+      "Action": "Identify your change and reasoning.",
+      "Result": "Give a verified outcome, or state what remains unmeasured."
+    }
+  },
+  {
+    "id": "trace-03",
+    "project": "trace",
+    "topic": "Machine Learning",
+    "question": "Walk through the implementation boundary in TRACE.",
+    "quick": "The inspected confidence score is a weighted heuristic, not a demonstrated probability that a grade is correct.",
+    "standard": "The inspected confidence score is a weighted heuristic, not a demonstrated probability that a grade is correct.\n\nConfidenceQuantifier uses 40% rubric coverage, 30% score-distribution preference and 30% reasoning-length signals. It clamps the result to [0,1] and compares it with a review threshold. Longer reasoning is only a proxy and can be wrong.",
+    "deep": "The inspected confidence score is a weighted heuristic, not a demonstrated probability that a grade is correct.\n\nConfidenceQuantifier uses 40% rubric coverage, 30% score-distribution preference and 30% reasoning-length signals. It clamps the result to [0,1] and compares it with a review threshold. Longer reasoning is only a proxy and can be wrong.\n\nBegin at the linked implementation file, identify its input shape and ownership, then trace the output and error path.\n\nEvaluate against human-reviewed grading errors with reliability diagrams and precision/recall for review flags. Correct extreme scores may receive lower heuristic confidence; verbose incorrect reasoning may receive higher confidence. Calibration and review policy need evidence beyond a bounded numeric output.",
+    "followups": [
+      "How would you calibrate it?",
+      "What would you test before deploying this path?"
+    ],
+    "mistake": "Interpreting 0.9 as 90% correctness without calibration.",
+    "difficulty": "Intermediate",
+    "type": "Architecture",
+    "tags": [
+      "Machine Learning",
+      "FastAPI",
+      "Evaluation"
+    ],
+    "sources": [
+      {
+        "label": "TRACE_Transparent_Results_and_Academic_Compliance_Engine/README.md",
+        "url": "https://github.com/Prathmesh333/TRACE_Transparent_Results_and_Academic_Compliance_Engine/blob/26177ebf5b223c27f38fd98726509334d604024c/README.md"
+      },
+      {
+        "label": "TRACE_Transparent_Results_and_Academic_Compliance_Engine/app/services/grading/confidence.py",
+        "url": "https://github.com/Prathmesh333/TRACE_Transparent_Results_and_Academic_Compliance_Engine/blob/26177ebf5b223c27f38fd98726509334d604024c/app/services/grading/confidence.py"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "forecastforge-03",
+      "f1-03",
+      "f1-01"
+    ]
+  },
+  {
+    "id": "trace-04",
+    "project": "trace",
+    "topic": "Machine Learning",
+    "question": "How would you test and improve TRACE?",
+    "quick": "I would establish a reproducible baseline and test the specific failure boundary exposed by this implementation.",
+    "standard": "I would establish a reproducible baseline and test the specific failure boundary exposed by this implementation.\n\nEvaluate against human-reviewed grading errors with reliability diagrams and precision/recall for review flags. Correct extreme scores may receive lower heuristic confidence; verbose incorrect reasoning may receive higher confidence. Calibration and review policy need evidence beyond a bounded numeric output.",
+    "deep": "I would establish a reproducible baseline and test the specific failure boundary exposed by this implementation.\n\nEvaluate against human-reviewed grading errors with reliability diagrams and precision/recall for review flags. Correct extreme scores may receive lower heuristic confidence; verbose incorrect reasoning may receive higher confidence. Calibration and review policy need evidence beyond a bounded numeric output.\n\nKeep the current implementation separate from the proposed improvement. Save representative inputs, expected outputs and a versioned configuration. Test normal inputs, malformed inputs and the failure case described above. For model outputs, include a held-out evaluation and inspect errors rather than treating a confidence field as proof.\n\nConfidenceQuantifier uses 40% rubric coverage, 30% score-distribution preference and 30% reasoning-length signals. It clamps the result to [0,1] and compares it with a review threshold. Longer reasoning is only a proxy and can be wrong.",
+    "followups": [
+      "What is the baseline?",
+      "What is the acceptance criterion?",
+      "How do you avoid leakage?"
+    ],
+    "mistake": "Presenting a proposed improvement as an already measured result.",
+    "difficulty": "Intermediate",
+    "type": "Research",
+    "tags": [
+      "Machine Learning",
+      "FastAPI",
+      "Evaluation"
+    ],
+    "sources": [
+      {
+        "label": "TRACE_Transparent_Results_and_Academic_Compliance_Engine/README.md",
+        "url": "https://github.com/Prathmesh333/TRACE_Transparent_Results_and_Academic_Compliance_Engine/blob/26177ebf5b223c27f38fd98726509334d604024c/README.md"
+      },
+      {
+        "label": "TRACE_Transparent_Results_and_Academic_Compliance_Engine/app/services/grading/confidence.py",
+        "url": "https://github.com/Prathmesh333/TRACE_Transparent_Results_and_Academic_Compliance_Engine/blob/26177ebf5b223c27f38fd98726509334d604024c/app/services/grading/confidence.py"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "forecastforge-04",
+      "f1-04",
+      "machine-learning-07"
+    ]
+  }
+]

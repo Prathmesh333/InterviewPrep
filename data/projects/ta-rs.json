@@ -1,0 +1,475 @@
+[
+  {
+    "id": "ta-rs-01",
+    "project": "ta-rs",
+    "topic": "NLP",
+    "question": "Explain TA-RS / PsychoTA.",
+    "quick": "I would present PsychoTA as a hierarchical multi-task model for Transactional Analysis on dialogue.",
+    "standard": "I would present PsychoTA as a hierarchical multi-task model for Transactional Analysis on dialogue.\n\nIt builds utterance representations, models interactions between turns and uses a bidirectional conversation encoder. Four heads predict ego states, transaction types, stroke types and speaker life positions. The life-position path also includes continuous scores and a script integrator.",
+    "deep": "I would present PsychoTA as a hierarchical multi-task model for Transactional Analysis on dialogue.\n\nIt builds utterance representations, models interactions between turns and uses a bidirectional conversation encoder. Four heads predict ego states, transaction types, stroke types and speaker life positions. The life-position path also includes continuous scores and a script integrator.\n\nThe public portfolio names this TA-RS / PsychoTA. The implementation is evidence for architecture, not clinical validity or a recommendation system deployed to users. I would walk through model.py and explain exactly which components I contributed before using ownership language.",
+    "followups": [
+      "What are the four outputs?",
+      "Where is the recommendation layer?"
+    ],
+    "mistake": "Claiming clinical accuracy or a deployed recommender.",
+    "difficulty": "Intermediate",
+    "type": "Project",
+    "tags": [
+      "NLP",
+      "DeBERTa",
+      "PyTorch",
+      "Multi-task learning"
+    ],
+    "sources": [
+      {
+        "label": "PsychoTA/README.md",
+        "url": "https://github.com/Prathmesh333/PsychoTA/blob/c5ccc0c393bf76b7d4e45738f262fc0ad7984bd7/README.md"
+      }
+    ],
+    "clarification": "TA-RS / PsychoTA naming is supported by the portfolio. Code confirms the architecture; personal contribution and experiment results need confirmation.",
+    "related": [
+      "ta-rs-12",
+      "ta-rs-05",
+      "ta-rs-11"
+    ],
+    "evidence": "Code + README"
+  },
+  {
+    "id": "ta-rs-02",
+    "project": "ta-rs",
+    "topic": "NLP",
+    "question": "Why use multi-task learning and four losses?",
+    "quick": "Related labels can share dialogue features while separate heads retain task-specific outputs.",
+    "standard": "Related labels can share dialogue features while separate heads retain task-specific outputs.\n\nThe loss combines ego, transaction and stroke cross-entropies with life-position classification and regression terms. Configurable lambda weights control their contributions. Sharing can help sparse tasks, but it can also create negative transfer when objectives disagree.",
+    "deep": "Related labels can share dialogue features while separate heads retain task-specific outputs.\n\nThe loss combines ego, transaction and stroke cross-entropies with life-position classification and regression terms. Configurable lambda weights control their contributions. Sharing can help sparse tasks, but it can also create negative transfer when objectives disagree.\n\nInspect per-task validation curves and gradient scales. Compare single-task models, equal weighting and tuned weights. A lower combined loss can hide worse performance on one task. Use label masks and normalize losses on valid targets so missing labels do not become artificial classes.",
+    "followups": [
+      "How would you detect negative transfer?",
+      "Why regression plus classification?"
+    ],
+    "mistake": "Reporting only the combined loss.",
+    "difficulty": "Intermediate",
+    "type": "Project",
+    "tags": [
+      "NLP",
+      "DeBERTa",
+      "PyTorch",
+      "Multi-task learning"
+    ],
+    "sources": [
+      {
+        "label": "PsychoTA/psychota/model.py",
+        "url": "https://github.com/Prathmesh333/PsychoTA/blob/c5ccc0c393bf76b7d4e45738f262fc0ad7984bd7/psychota/model.py"
+      }
+    ],
+    "clarification": "TA-RS / PsychoTA naming is supported by the portfolio. Code confirms the architecture; personal contribution and experiment results need confirmation.",
+    "related": [
+      "nlp-01",
+      "nlp-02",
+      "nlp-03"
+    ],
+    "evidence": "Code + README"
+  },
+  {
+    "id": "ta-rs-03",
+    "project": "ta-rs",
+    "topic": "NLP",
+    "question": "How does speaker awareness enter the model?",
+    "quick": "Speaker identity contributes to the input representation and the custom attention implementation contains a learned cross-speaker bias.",
+    "standard": "Speaker identity contributes to the input representation and the custom attention implementation contains a learned cross-speaker bias.\n\nThe embeddings combine token, speaker, turn-position and utterance-type signals. SpeakerAwareSelfAttention compares speaker IDs and adds a per-head bias for cross-speaker pairs before softmax. This offers a mechanism for distinguishing who is speaking.",
+    "deep": "Speaker identity contributes to the input representation and the custom attention implementation contains a learned cross-speaker bias.\n\nThe embeddings combine token, speaker, turn-position and utterance-type signals. SpeakerAwareSelfAttention compares speaker IDs and adds a per-head bias for cross-speaker pairs before softmax. This offers a mechanism for distinguishing who is speaking.\n\nCheck the actual shape and values passed into the attention layer. If every token in a separately encoded utterance has the same speaker ID, its within-utterance cross-speaker mask is all false. The existence of a bias parameter does not show that it changes every execution path.",
+    "followups": [
+      "Can the cross-speaker mask be all zero?",
+      "What does the ablation remove?"
+    ],
+    "mistake": "Assuming a named mechanism necessarily activates on the chosen inputs.",
+    "difficulty": "Intermediate",
+    "type": "Project",
+    "tags": [
+      "NLP",
+      "DeBERTa",
+      "PyTorch",
+      "Multi-task learning"
+    ],
+    "sources": [
+      {
+        "label": "PsychoTA/psychota/model.py",
+        "url": "https://github.com/Prathmesh333/PsychoTA/blob/c5ccc0c393bf76b7d4e45738f262fc0ad7984bd7/psychota/model.py"
+      }
+    ],
+    "clarification": "TA-RS / PsychoTA naming is supported by the portfolio. Code confirms the architecture; personal contribution and experiment results need confirmation.",
+    "related": [
+      "nlp-06",
+      "nlp-07",
+      "ta-rs-05"
+    ],
+    "evidence": "Code + README"
+  },
+  {
+    "id": "ta-rs-04",
+    "project": "ta-rs",
+    "topic": "NLP",
+    "question": "Why DeBERTa after tokenization?",
+    "quick": "DeBERTa-style attention separates content and position interactions, providing a structured utterance encoder.",
+    "standard": "DeBERTa-style attention separates content and position interactions, providing a structured utterance encoder.\n\nThe model uses custom disentangled blocks with content-to-content, content-to-position and position-to-content score terms. A pretrained backbone and custom block path should be distinguished when explaining initialization. Speaker and turn information add dialogue structure.",
+    "deep": "DeBERTa-style attention separates content and position interactions, providing a structured utterance encoder.\n\nThe model uses custom disentangled blocks with content-to-content, content-to-position and position-to-content score terms. A pretrained backbone and custom block path should be distinguished when explaining initialization. Speaker and turn information add dialogue structure.\n\nInspect which weights are loaded from the pretrained model and which custom projections are initialized separately. Do not call every custom block a fully pretrained DeBERTa layer. Benchmark a simpler frozen encoder baseline before attributing gains to custom attention.",
+    "followups": [
+      "Which weights are pretrained?",
+      "Why not BERT?"
+    ],
+    "mistake": "Equating a DeBERTa-style block with an unchanged pretrained DeBERTa.",
+    "difficulty": "Intermediate",
+    "type": "Project",
+    "tags": [
+      "NLP",
+      "DeBERTa",
+      "PyTorch",
+      "Multi-task learning"
+    ],
+    "sources": [
+      {
+        "label": "PsychoTA/psychota/model.py",
+        "url": "https://github.com/Prathmesh333/PsychoTA/blob/c5ccc0c393bf76b7d4e45738f262fc0ad7984bd7/psychota/model.py"
+      }
+    ],
+    "clarification": "TA-RS / PsychoTA naming is supported by the portfolio. Code confirms the architecture; personal contribution and experiment results need confirmation.",
+    "related": [
+      "ta-rs-06",
+      "nlp-02",
+      "nlp-08"
+    ],
+    "evidence": "Code + README"
+  },
+  {
+    "id": "ta-rs-05",
+    "project": "ta-rs",
+    "topic": "NLP",
+    "question": "Is the complete TA-RS model causal?",
+    "quick": "The cross-utterance attention is causal, but the later bidirectional GRU makes the full conversation path non-causal.",
+    "standard": "The cross-utterance attention is causal, but the later bidirectional GRU makes the full conversation path non-causal.\n\nforward builds Hu utterance vectors. CrossUtteranceAttention(Hu) produces Hp for transaction predictions; separately, ConversationEncoder(Hu) produces bidirectional Hs for ego and stroke predictions. The GRU does not consume Hp. Life-position features include speaker pooling and script integration. The complete model therefore cannot be described as strictly causal.",
+    "deep": "The cross-utterance attention is causal, but the later bidirectional GRU makes the full conversation path non-causal.\n\nforward builds Hu utterance vectors. CrossUtteranceAttention(Hu) produces Hp for transaction predictions; separately, ConversationEncoder(Hu) produces bidirectional Hs for ego and stroke predictions. The GRU does not consume Hp. Life-position features include speaker pooling and script integration. The complete model therefore cannot be described as strictly causal.\n\nFor streaming inference, audit each output separately. The transaction path has a causal turn mask, while ego/stroke use the bidirectional GRU and life-position pools conversation information. Test future-utterance perturbations for each head. Replace or constrain non-causal paths when the use case requires past-only predictions; this is a proposed redesign, not current behavior.",
+    "followups": [
+      "How would you test leakage?",
+      "What must change for live dialogue?"
+    ],
+    "mistake": "Calling the whole model causal because one attention layer is masked.",
+    "difficulty": "Advanced",
+    "type": "Project",
+    "tags": [
+      "NLP",
+      "DeBERTa",
+      "PyTorch",
+      "Multi-task learning"
+    ],
+    "sources": [
+      {
+        "label": "PsychoTA/psychota/model.py",
+        "url": "https://github.com/Prathmesh333/PsychoTA/blob/c5ccc0c393bf76b7d4e45738f262fc0ad7984bd7/psychota/model.py"
+      }
+    ],
+    "clarification": "TA-RS / PsychoTA naming is supported by the portfolio. Code confirms the architecture; personal contribution and experiment results need confirmation.",
+    "related": [
+      "ta-rs-01",
+      "ta-rs-03",
+      "ta-rs-12"
+    ],
+    "evidence": "Code + README"
+  },
+  {
+    "id": "ta-rs-06",
+    "project": "ta-rs",
+    "topic": "NLP",
+    "question": "Why put a GRU after transformer embeddings?",
+    "quick": "The transformer handles token-level representation; the GRU adds an ordered conversation-level state across utterances.",
+    "standard": "The transformer handles token-level representation; the GRU adds an ordered conversation-level state across utterances.\n\nThe hierarchy reduces a dialogue to a sequence of utterance vectors and then models temporal dependencies. The GRU uses packed padded sequences when lengths are supplied, projects its bidirectional output and normalizes it. This is a different role from word-level contextualization.",
+    "deep": "The transformer handles token-level representation; the GRU adds an ordered conversation-level state across utterances.\n\nThe hierarchy reduces a dialogue to a sequence of utterance vectors and then models temporal dependencies. The GRU uses packed padded sequences when lengths are supplied, projects its bidirectional output and normalizes it. This is a different role from word-level contextualization.\n\nAblate the GRU against pooling and turn-level attention alone. Packing avoids processing padding as valid turns, but still check all mask paths and length validation. The extra encoder adds sequential compute and prevents strict streaming use in its bidirectional form.",
+    "followups": [
+      "Why GRU instead of LSTM?",
+      "What is the padded sequence length?"
+    ],
+    "mistake": "Saying more layers automatically create better context.",
+    "difficulty": "Intermediate",
+    "type": "Project",
+    "tags": [
+      "NLP",
+      "DeBERTa",
+      "PyTorch",
+      "Multi-task learning"
+    ],
+    "sources": [
+      {
+        "label": "PsychoTA/psychota/model.py",
+        "url": "https://github.com/Prathmesh333/PsychoTA/blob/c5ccc0c393bf76b7d4e45738f262fc0ad7984bd7/psychota/model.py"
+      }
+    ],
+    "clarification": "TA-RS / PsychoTA naming is supported by the portfolio. Code confirms the architecture; personal contribution and experiment results need confirmation.",
+    "related": [
+      "ta-rs-04",
+      "nlp-03",
+      "ta-rs-02"
+    ],
+    "evidence": "Code + README"
+  },
+  {
+    "id": "ta-rs-07",
+    "project": "ta-rs",
+    "topic": "NLP",
+    "question": "How does windowed cross-utterance attention work?",
+    "quick": "Each turn attends to itself and permitted earlier turns within a configured window.",
+    "standard": "Each turn attends to itself and permitted earlier turns within a configured window.\n\nThe code builds a triangular boolean mask, removes keys older than the window and combines it with a valid-turn mask. It supports scaled_dot_product_attention and a manual score-softmax path. Padded query outputs are zeroed afterward.",
+    "deep": "Each turn attends to itself and permitted earlier turns within a configured window.\n\nThe code builds a triangular boolean mask, removes keys older than the window and combines it with a valid-turn mask. It supports scaled_dot_product_attention and a manual score-softmax path. Padded query outputs are zeroed afterward.\n\nThe implementation still constructs T by T masks and projections for the whole conversation. A window mask alone does not prove sparse O(Tw) memory or compute. Verify the backend and profile long conversations; test that manual and SDPA paths agree with dropout disabled.",
+    "followups": [
+      "Is the implementation computationally sparse?",
+      "What happens to padded turns?"
+    ],
+    "mistake": "Confusing masked attention with a sparse attention kernel.",
+    "difficulty": "Advanced",
+    "type": "Project",
+    "tags": [
+      "NLP",
+      "DeBERTa",
+      "PyTorch",
+      "Multi-task learning"
+    ],
+    "sources": [
+      {
+        "label": "PsychoTA/psychota/model.py",
+        "url": "https://github.com/Prathmesh333/PsychoTA/blob/c5ccc0c393bf76b7d4e45738f262fc0ad7984bd7/psychota/model.py"
+      }
+    ],
+    "clarification": "TA-RS / PsychoTA naming is supported by the portfolio. Code confirms the architecture; personal contribution and experiment results need confirmation.",
+    "related": [
+      "nlp-07",
+      "ta-rs-03",
+      "nlp-01"
+    ],
+    "evidence": "Code + README"
+  },
+  {
+    "id": "ta-rs-08",
+    "project": "ta-rs",
+    "topic": "NLP",
+    "question": "How do weak, noisy and missing labels affect training?",
+    "quick": "Heuristic silver labels bootstrap learning, but they are noisy targets rather than ground truth.",
+    "standard": "Heuristic silver labels bootstrap learning, but they are noisy targets rather than ground truth.\n\ndataset.py provides silver-label helpers and validation. The README explicitly says a full weak-pretrain, gold-finetune, calibration sequence is not fully codified. The model uses an ignore index for classification labels and supports masked continuous targets.",
+    "deep": "Heuristic silver labels bootstrap learning, but they are noisy targets rather than ground truth.\n\ndataset.py provides silver-label helpers and validation. The README explicitly says a full weak-pretrain, gold-finetune, calibration sequence is not fully codified. The model uses an ignore index for classification labels and supports masked continuous targets.\n\nCreate a manually reviewed evaluation set, split by conversation and inspect label coverage by task. Check all-ignored batches because a mean loss over no valid labels can become undefined. Compare filtering, confidence weighting and a gold-only baseline as proposed experiments, not completed results.",
+    "followups": [
+      "Who labeled the gold set?",
+      "How do you detect all-missing labels?"
+    ],
+    "mistake": "Calling heuristic annotations validated psychological states.",
+    "difficulty": "Intermediate",
+    "type": "Project",
+    "tags": [
+      "NLP",
+      "DeBERTa",
+      "PyTorch",
+      "Multi-task learning"
+    ],
+    "sources": [
+      {
+        "label": "PsychoTA/README.md",
+        "url": "https://github.com/Prathmesh333/PsychoTA/blob/c5ccc0c393bf76b7d4e45738f262fc0ad7984bd7/README.md"
+      }
+    ],
+    "clarification": "TA-RS / PsychoTA naming is supported by the portfolio. Code confirms the architecture; personal contribution and experiment results need confirmation.",
+    "related": [
+      "nlp-03",
+      "nlp-05",
+      "nlp-06"
+    ],
+    "evidence": "Code + README"
+  },
+  {
+    "id": "ta-rs-09",
+    "project": "ta-rs",
+    "topic": "NLP",
+    "question": "How would you evaluate the four tasks?",
+    "quick": "Report task-specific macro-F1 and inspect each confusion matrix, then evaluate continuous scores separately.",
+    "standard": "Report task-specific macro-F1 and inspect each confusion matrix, then evaluate continuous scores separately.\n\nThe trainer computes ego, transaction, stroke and life-position macro-F1 and averages them into a composite. It also records speaker slices. A composite is useful for selection but should not conceal poor minority-class or speaker performance.",
+    "deep": "Report task-specific macro-F1 and inspect each confusion matrix, then evaluate continuous scores separately.\n\nThe trainer computes ego, transaction, stroke and life-position macro-F1 and averages them into a composite. It also records speaker slices. A composite is useful for selection but should not conceal poor minority-class or speaker performance.\n\nSplit at the conversation or participant level to prevent leakage. Separate gold labels from silver labels in reports, include per-class support and uncertainty, and inspect calibration and regression error for continuous outputs. Performance on a heuristic label distribution does not establish real-world validity.",
+    "followups": [
+      "Why macro rather than micro F1?",
+      "What is the split unit?"
+    ],
+    "mistake": "Using only the average of four scores.",
+    "difficulty": "Intermediate",
+    "type": "Project",
+    "tags": [
+      "NLP",
+      "DeBERTa",
+      "PyTorch",
+      "Multi-task learning"
+    ],
+    "sources": [
+      {
+        "label": "PsychoTA/psychota/trainer.py",
+        "url": "https://github.com/Prathmesh333/PsychoTA/blob/c5ccc0c393bf76b7d4e45738f262fc0ad7984bd7/psychota/trainer.py"
+      }
+    ],
+    "clarification": "TA-RS / PsychoTA naming is supported by the portfolio. Code confirms the architecture; personal contribution and experiment results need confirmation.",
+    "related": [
+      "nlp-01",
+      "nlp-09",
+      "nlp-10"
+    ],
+    "evidence": "Code + README"
+  },
+  {
+    "id": "ta-rs-10",
+    "project": "ta-rs",
+    "topic": "NLP",
+    "question": "What does the script integrator contribute?",
+    "quick": "It pools a sequence built from ego and stroke probabilities to support the life-position head.",
+    "standard": "It pools a sequence built from ego and stroke probabilities to support the life-position head.\n\nScriptIntegrator concatenates task probabilities, projects them, applies multi-head attention with padding masks, adds a residual normalization and computes a masked mean. This lets life-position reasoning depend on predicted patterns across turns.",
+    "deep": "It pools a sequence built from ego and stroke probabilities to support the life-position head.\n\nScriptIntegrator concatenates task probabilities, projects them, applies multi-head attention with padding masks, adds a residual normalization and computes a masked mean. This lets life-position reasoning depend on predicted patterns across turns.\n\nforward explicitly detaches ego_logits and stroke_logits before softmax, so life-position loss does not backpropagate through those probability inputs into the upstream heads along that edge. It can still train the integrator and other connected representations. The integrator pools probabilities across valid turns, allowing upstream prediction errors to influence life-position features. Compare against a no-script ablation and distinguish this detached path from joint end-to-end supervision.",
+    "followups": [
+      "Can errors propagate between heads?",
+      "Does pooling preserve order?"
+    ],
+    "mistake": "Describing predicted task probabilities as ground-truth psychological evidence.",
+    "difficulty": "Intermediate",
+    "type": "Project",
+    "tags": [
+      "NLP",
+      "DeBERTa",
+      "PyTorch",
+      "Multi-task learning"
+    ],
+    "sources": [
+      {
+        "label": "PsychoTA/psychota/model.py",
+        "url": "https://github.com/Prathmesh333/PsychoTA/blob/c5ccc0c393bf76b7d4e45738f262fc0ad7984bd7/psychota/model.py"
+      }
+    ],
+    "clarification": "TA-RS / PsychoTA naming is supported by the portfolio. Code confirms the architecture; personal contribution and experiment results need confirmation.",
+    "related": [
+      "ta-rs-03",
+      "nlp-01",
+      "nlp-07"
+    ],
+    "evidence": "Code + README"
+  },
+  {
+    "id": "ta-rs-11",
+    "project": "ta-rs",
+    "topic": "NLP",
+    "question": "What privacy and ethical limits would you explain?",
+    "quick": "Dialogue labels are model outputs with uncertainty, and this repository does not establish diagnostic validity.",
+    "standard": "Dialogue labels are model outputs with uncertainty, and this repository does not establish diagnostic validity.\n\nI would minimize stored dialogue, separate identifiers, control access and specify a narrow intended use. Gold-set review should check cultural and language differences. Consent and retention requirements must be defined for the actual deployment context.",
+    "deep": "Dialogue labels are model outputs with uncertainty, and this repository does not establish diagnostic validity.\n\nI would minimize stored dialogue, separate identifiers, control access and specify a narrow intended use. Gold-set review should check cultural and language differences. Consent and retention requirements must be defined for the actual deployment context.\n\nEvaluate abstention and human review for uncertain cases. Test errors across speakers and domains before making personal inferences. A model trained on heuristic labels can reproduce the assumptions of those heuristics; it should not silently become a high-stakes assessment tool.",
+    "followups": [
+      "Can the system abstain?",
+      "How would you audit demographic bias?"
+    ],
+    "mistake": "Treating a class label as a diagnosis.",
+    "difficulty": "Intermediate",
+    "type": "Project",
+    "tags": [
+      "NLP",
+      "DeBERTa",
+      "PyTorch",
+      "Multi-task learning"
+    ],
+    "sources": [
+      {
+        "label": "PsychoTA/README.md",
+        "url": "https://github.com/Prathmesh333/PsychoTA/blob/c5ccc0c393bf76b7d4e45738f262fc0ad7984bd7/README.md"
+      }
+    ],
+    "clarification": "TA-RS / PsychoTA naming is supported by the portfolio. Code confirms the architecture; personal contribution and experiment results need confirmation.",
+    "related": [
+      "nlp-01",
+      "nlp-09",
+      "nlp-10"
+    ],
+    "evidence": "Code + README"
+  },
+  {
+    "id": "ta-rs-12",
+    "project": "ta-rs",
+    "topic": "NLP",
+    "question": "What did you personally implement in TA-RS / PsychoTA?",
+    "quick": "I need to connect my own contribution to specific files, commits and decisions before giving this answer.",
+    "standard": "I need to connect my own contribution to specific files, commits and decisions before giving this answer.\n\nUse the source links to identify the execution path, then name the part you owned and what changed. Repository ownership alone does not establish sole authorship, the hardest bug, a team disagreement or the outcome of an experiment.",
+    "deep": "I need to connect my own contribution to specific files, commits and decisions before giving this answer.\n\nUse the source links to identify the execution path, then name the part you owned and what changed. Repository ownership alone does not establish sole authorship, the hardest bug, a team disagreement or the outcome of an experiment.\n\nPrepare a concrete before/after example, the relevant commit, a test or experiment and one limitation. Say “the project implements” for verified code and “I implemented” only for work you can personally confirm. Leave numerical results out until tied to a run artifact.",
+    "followups": [
+      "Which commit is yours?",
+      "What broke?",
+      "What would you change today?"
+    ],
+    "mistake": "Inventing a personal debugging story from repository contents.",
+    "difficulty": "Intermediate",
+    "type": "Behavioral",
+    "tags": [
+      "NLP",
+      "DeBERTa",
+      "PyTorch",
+      "Multi-task learning"
+    ],
+    "sources": [
+      {
+        "label": "PsychoTA/README.md",
+        "url": "https://github.com/Prathmesh333/PsychoTA/blob/c5ccc0c393bf76b7d4e45738f262fc0ad7984bd7/README.md"
+      },
+      {
+        "label": "PsychoTA/psychota/model.py",
+        "url": "https://github.com/Prathmesh333/PsychoTA/blob/c5ccc0c393bf76b7d4e45738f262fc0ad7984bd7/psychota/model.py"
+      },
+      {
+        "label": "PsychoTA/psychota/trainer.py",
+        "url": "https://github.com/Prathmesh333/PsychoTA/blob/c5ccc0c393bf76b7d4e45738f262fc0ad7984bd7/psychota/trainer.py"
+      },
+      {
+        "label": "prathmesh333.github.io/script.js",
+        "url": "https://github.com/Prathmesh333/prathmesh333.github.io/blob/5cc977acc50a5435fda1134d8aa7e1956f885f3a/script.js"
+      }
+    ],
+    "clarification": "Needs clarification from Prathmesh. Personal contribution, motivation, debugging history and measured outcomes are not established by code alone.",
+    "related": [
+      "ta-rs-01",
+      "nlp-01",
+      "nlp-09"
+    ],
+    "evidence": "Concept / practice",
+    "star": {
+      "Situation": "Use the actual project context.",
+      "Task": "State your personal responsibility.",
+      "Action": "Identify your change and reasoning.",
+      "Result": "Give a verified outcome, or state what remains unmeasured."
+    }
+  },
+  {
+    "id": "ta-rs-13",
+    "project": "ta-rs",
+    "topic": "NLP",
+    "question": "Where can sparse task labels break the loss path?",
+    "quick": "The loss block is entered only when ego_labels is provided, so task availability is not completely independent in the inspected forward method.",
+    "standard": "The loss block is entered only when ego_labels is provided, so task availability is not completely independent in the inspected forward method.\n\nInside that block, some other classification labels are optional and missing losses become zero. ignore_index handles invalid class labels, but an all-ignored tensor can still produce an undefined mean. These details matter when describing arbitrary sparse multi-task support.",
+    "deep": "The loss block is entered only when ego_labels is provided, so task availability is not completely independent in the inspected forward method.\n\nInside that block, some other classification labels are optional and missing losses become zero. ignore_index handles invalid class labels, but an all-ignored tensor can still produce an undefined mean. These details matter when describing arbitrary sparse multi-task support.\n\nTest batches with only transaction labels, only life-position scores and all labels ignored. A more flexible design would compute each available task independently and normalize by valid targets. Describe this as a proposed fix rather than claiming the existing implementation handles every sparse-label pattern.",
+    "followups": [
+      "What happens when ego_labels is None?",
+      "How would you test all-ignored targets?"
+    ],
+    "mistake": "Saying ignore_index solves every missing-label edge case.",
+    "difficulty": "Intermediate",
+    "type": "Architecture",
+    "tags": [
+      "NLP",
+      "DeBERTa",
+      "PyTorch",
+      "Multi-task learning"
+    ],
+    "sources": [
+      {
+        "label": "PsychoTA/psychota/model.py",
+        "url": "https://github.com/Prathmesh333/PsychoTA/blob/c5ccc0c393bf76b7d4e45738f262fc0ad7984bd7/psychota/model.py"
+      }
+    ],
+    "clarification": "TA-RS / PsychoTA naming is supported by the portfolio. Code confirms the architecture; personal contribution and experiment results need confirmation.",
+    "related": [
+      "ta-rs-02",
+      "ta-rs-03",
+      "ta-rs-05"
+    ]
+  }
+]

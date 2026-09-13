@@ -1,0 +1,153 @@
+[
+  {
+    "id": "shortlist-01",
+    "project": "shortlist",
+    "topic": "Software Engineering",
+    "question": "How does Shortlist’d isolate each user’s saved records?",
+    "quick": "Firestore rules compare the authenticated UID with the user ID in the document path.",
+    "standard": "Firestore rules compare the authenticated UID with the user ID in the document path.\n\nFor resume and template writes, rules also check ownerUid and document ID consistency. Template writes validate name and source sizes. This is server-enforced authorization, unlike merely hiding another user’s records in the UI.",
+    "deep": "Firestore rules compare the authenticated UID with the user ID in the document path.\n\nFor resume and template writes, rules also check ownerUid and document ID consistency. Template writes validate name and source sizes. This is server-enforced authorization, unlike merely hiding another user’s records in the UI.\n\nTest unauthenticated requests, a different user ID in the path, mismatched ownerUid and oversized template source. These rules do not by themselves validate every resume field or prove that a generated claim is supported. Separate storage authorization from AI output correctness.",
+    "followups": [
+      "What can client code bypass?",
+      "How would you test rules?"
+    ],
+    "mistake": "Assuming Firebase public configuration is a private administrator key.",
+    "difficulty": "Intermediate",
+    "type": "Architecture",
+    "tags": [
+      "Software Engineering",
+      "Gemini",
+      "Firebase"
+    ],
+    "sources": [
+      {
+        "label": "ShortList-D/firestore.rules",
+        "url": "https://github.com/Prathmesh333/ShortList-D/blob/0c614a3e3728141fedde7c6e4da61de90fc4a34a/firestore.rules"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "shortlist-04",
+      "researchhub-01",
+      "software-engineering-01"
+    ]
+  },
+  {
+    "id": "shortlist-02",
+    "project": "shortlist",
+    "topic": "Software Engineering",
+    "question": "What contribution and result can you substantiate in Shortlist’d?",
+    "quick": "I would point to the exact file and commit I owned, then show a test or result that supports the outcome.",
+    "standard": "I would point to the exact file and commit I owned, then show a test or result that supports the outcome.\n\nExplain the problem and your scope before describing the solution. The linked repository shows project behavior, but it cannot establish your personal motivation, hardest bug or team role by itself.",
+    "deep": "I would point to the exact file and commit I owned, then show a test or result that supports the outcome.\n\nExplain the problem and your scope before describing the solution. The linked repository shows project behavior, but it cannot establish your personal motivation, hardest bug or team role by itself.\n\nNeeds clarification from Prathmesh. Add one real Situation, Task, Action and Result in your notes. Use a concrete before/after and a verified outcome; do not turn README marketing text into a personal achievement.",
+    "followups": [
+      "Which commit is yours?",
+      "What evidence demonstrates the outcome?"
+    ],
+    "mistake": "Inventing personal experience from a repository name.",
+    "difficulty": "Intermediate",
+    "type": "Behavioral",
+    "tags": [
+      "Software Engineering",
+      "Gemini",
+      "Firebase"
+    ],
+    "sources": [
+      {
+        "label": "ShortList-D/README.md",
+        "url": "https://github.com/Prathmesh333/ShortList-D/blob/0c614a3e3728141fedde7c6e4da61de90fc4a34a/README.md"
+      },
+      {
+        "label": "ShortList-D/firestore.rules",
+        "url": "https://github.com/Prathmesh333/ShortList-D/blob/0c614a3e3728141fedde7c6e4da61de90fc4a34a/firestore.rules"
+      }
+    ],
+    "clarification": "Needs clarification from Prathmesh. Personal contribution and measured outcomes need confirmation.",
+    "related": [
+      "iris-02",
+      "shortlist-04",
+      "vsfeed-04"
+    ],
+    "star": {
+      "Situation": "Use the actual project context.",
+      "Task": "State your personal responsibility.",
+      "Action": "Identify your change and reasoning.",
+      "Result": "Give a verified outcome, or state what remains unmeasured."
+    }
+  },
+  {
+    "id": "shortlist-03",
+    "project": "shortlist",
+    "topic": "Software Engineering",
+    "question": "Walk through the implementation boundary in Shortlist’d.",
+    "quick": "Firestore rules compare the authenticated UID with the user ID in the document path.",
+    "standard": "Firestore rules compare the authenticated UID with the user ID in the document path.\n\nFor resume and template writes, rules also check ownerUid and document ID consistency. Template writes validate name and source sizes. This is server-enforced authorization, unlike merely hiding another user’s records in the UI.",
+    "deep": "Firestore rules compare the authenticated UID with the user ID in the document path.\n\nFor resume and template writes, rules also check ownerUid and document ID consistency. Template writes validate name and source sizes. This is server-enforced authorization, unlike merely hiding another user’s records in the UI.\n\nBegin at the linked implementation file, identify its input shape and ownership, then trace the output and error path.\n\nTest unauthenticated requests, a different user ID in the path, mismatched ownerUid and oversized template source. These rules do not by themselves validate every resume field or prove that a generated claim is supported. Separate storage authorization from AI output correctness.",
+    "followups": [
+      "What can client code bypass?",
+      "What would you test before deploying this path?"
+    ],
+    "mistake": "Assuming Firebase public configuration is a private administrator key.",
+    "difficulty": "Intermediate",
+    "type": "Architecture",
+    "tags": [
+      "Software Engineering",
+      "Gemini",
+      "Firebase"
+    ],
+    "sources": [
+      {
+        "label": "ShortList-D/README.md",
+        "url": "https://github.com/Prathmesh333/ShortList-D/blob/0c614a3e3728141fedde7c6e4da61de90fc4a34a/README.md"
+      },
+      {
+        "label": "ShortList-D/firestore.rules",
+        "url": "https://github.com/Prathmesh333/ShortList-D/blob/0c614a3e3728141fedde7c6e4da61de90fc4a34a/firestore.rules"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "researchhub-03",
+      "janseva-03",
+      "iris-03"
+    ]
+  },
+  {
+    "id": "shortlist-04",
+    "project": "shortlist",
+    "topic": "Software Engineering",
+    "question": "How would you test and improve Shortlist’d?",
+    "quick": "I would establish a reproducible baseline and test the specific failure boundary exposed by this implementation.",
+    "standard": "I would establish a reproducible baseline and test the specific failure boundary exposed by this implementation.\n\nTest unauthenticated requests, a different user ID in the path, mismatched ownerUid and oversized template source. These rules do not by themselves validate every resume field or prove that a generated claim is supported. Separate storage authorization from AI output correctness.",
+    "deep": "I would establish a reproducible baseline and test the specific failure boundary exposed by this implementation.\n\nTest unauthenticated requests, a different user ID in the path, mismatched ownerUid and oversized template source. These rules do not by themselves validate every resume field or prove that a generated claim is supported. Separate storage authorization from AI output correctness.\n\nKeep the current implementation separate from the proposed improvement. Save representative inputs, expected outputs and a versioned configuration. Test normal inputs, malformed inputs and the failure case described above. For model outputs, include a held-out evaluation and inspect errors rather than treating a confidence field as proof.\n\nFor resume and template writes, rules also check ownerUid and document ID consistency. Template writes validate name and source sizes. This is server-enforced authorization, unlike merely hiding another user’s records in the UI.",
+    "followups": [
+      "What is the baseline?",
+      "What is the acceptance criterion?",
+      "How do you avoid leakage?"
+    ],
+    "mistake": "Presenting a proposed improvement as an already measured result.",
+    "difficulty": "Intermediate",
+    "type": "Research",
+    "tags": [
+      "Software Engineering",
+      "Gemini",
+      "Firebase"
+    ],
+    "sources": [
+      {
+        "label": "ShortList-D/README.md",
+        "url": "https://github.com/Prathmesh333/ShortList-D/blob/0c614a3e3728141fedde7c6e4da61de90fc4a34a/README.md"
+      },
+      {
+        "label": "ShortList-D/firestore.rules",
+        "url": "https://github.com/Prathmesh333/ShortList-D/blob/0c614a3e3728141fedde7c6e4da61de90fc4a34a/firestore.rules"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "software-engineering-03",
+      "researchhub-04",
+      "janseva-04"
+    ]
+  }
+]

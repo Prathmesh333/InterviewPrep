@@ -1,0 +1,342 @@
+[
+  {
+    "id": "fh-rag-01",
+    "project": "fh-rag",
+    "topic": "RAG",
+    "question": "Explain FH-RAG without overstating the evidence.",
+    "quick": "The supplied project brief describes hierarchical retrieval for long documents. I can explain that design, but I need the implementation before claiming its exact behavior.",
+    "standard": "The supplied project brief describes hierarchical retrieval for long documents. I can explain that design, but I need the implementation before claiming its exact behavior.\n\nA hierarchy can connect broad document sections to small evidence chunks. Retrieval may explore promising branches before selecting local context for generation. The portfolio corroborates the project name; it does not verify the supplied fuzzy propagation formula, six variants or dataset results.",
+    "deep": "The supplied project brief describes hierarchical retrieval for long documents. I can explain that design, but I need the implementation before claiming its exact behavior.\n\nA hierarchy can connect broad document sections to small evidence chunks. Retrieval may explore promising branches before selecting local context for generation. The portfolio corroborates the project name; it does not verify the supplied fuzzy propagation formula, six variants or dataset results.\n\nPrepare the repository URL, entry point, chunk schema, retrieval pseudocode and executed evaluation logs. Then replace conceptual language with the actual choices. The diagram here is a conceptual reading of the brief, not a verified execution graph.",
+    "followups": [
+      "Where is the code?",
+      "Which claims are verified?"
+    ],
+    "mistake": "Repeating the supplied sample answer as audited fact.",
+    "difficulty": "Intermediate",
+    "type": "Research",
+    "tags": [
+      "RAG",
+      "Retrieval",
+      "Embeddings"
+    ],
+    "sources": [
+      {
+        "label": "prathmesh333.github.io/script.js",
+        "url": "https://github.com/Prathmesh333/prathmesh333.github.io/blob/5cc977acc50a5435fda1134d8aa7e1956f885f3a/script.js"
+      }
+    ],
+    "clarification": "Needs clarification from Prathmesh. No public FH-RAG implementation was located in the repository inventory or code search. The portfolio describes the project, but code, formulas, datasets and results remain unverified.",
+    "related": [
+      "fh-rag-09",
+      "rag-01",
+      "rag-02"
+    ],
+    "evidence": "Conceptual / unverified"
+  },
+  {
+    "id": "fh-rag-02",
+    "project": "fh-rag",
+    "topic": "RAG",
+    "question": "Why hierarchical retrieval instead of flat chunking?",
+    "quick": "A hierarchy can preserve section context and narrow retrieval before selecting small evidence chunks.",
+    "standard": "A hierarchy can preserve section context and narrow retrieval before selecting small evidence chunks.\n\nFlat retrieval treats chunks as independent candidates, which can separate a claim from its heading or supporting explanation. Parent-child links let a retriever use coarse context and then descend. The tradeoff is index construction complexity and the risk of pruning the right branch early.",
+    "deep": "A hierarchy can preserve section context and narrow retrieval before selecting small evidence chunks.\n\nFlat retrieval treats chunks as independent candidates, which can separate a claim from its heading or supporting explanation. Parent-child links let a retriever use coarse context and then descend. The tradeoff is index construction complexity and the risk of pruning the right branch early.\n\nCompare flat dense retrieval, parent expansion and hierarchical search at matched context budgets. Include cross-section questions and exact-detail questions. A parent embedding may dilute a small fact, so hierarchy is a hypothesis to test rather than an automatic recall improvement.",
+    "followups": [
+      "What if the correct leaf has a weak parent?",
+      "How would you build a baseline?"
+    ],
+    "mistake": "Assuming hierarchy always improves recall.",
+    "difficulty": "Intermediate",
+    "type": "Research",
+    "tags": [
+      "RAG",
+      "Retrieval",
+      "Embeddings"
+    ],
+    "sources": [
+      {
+        "label": "prathmesh333.github.io/script.js",
+        "url": "https://github.com/Prathmesh333/prathmesh333.github.io/blob/5cc977acc50a5435fda1134d8aa7e1956f885f3a/script.js"
+      }
+    ],
+    "clarification": "Needs clarification from Prathmesh. No public FH-RAG implementation was located in the repository inventory or code search. The portfolio describes the project, but code, formulas, datasets and results remain unverified.",
+    "related": [
+      "rag-01",
+      "rag-03",
+      "rag-04"
+    ],
+    "evidence": "Conceptual / unverified"
+  },
+  {
+    "id": "fh-rag-03",
+    "project": "fh-rag",
+    "topic": "RAG",
+    "question": "How would you construct a retrieval tree?",
+    "quick": "Start from document structure, then attach smaller chunks with stable parent IDs and source offsets.",
+    "standard": "Start from document structure, then attach smaller chunks with stable parent IDs and source offsets.\n\nA conceptual index might use document, section, paragraph and token-budgeted leaf levels. Store provenance, overlap policy and embedding-model version. Parent representations could use text embeddings, summaries or aggregates; the FH-RAG choice is unverified.",
+    "deep": "Start from document structure, then attach smaller chunks with stable parent IDs and source offsets.\n\nA conceptual index might use document, section, paragraph and token-budgeted leaf levels. Store provenance, overlap policy and embedding-model version. Parent representations could use text embeddings, summaries or aggregates; the FH-RAG choice is unverified.\n\nAvoid losing tables and cross-references at boundaries. Use incremental versioning so changed leaves invalidate affected parents. Check the tokenizer budget rather than character count, and test that citations recover the original evidence span.",
+    "followups": [
+      "How is overlap handled?",
+      "What invalidates a parent embedding?"
+    ],
+    "mistake": "Inventing the exact chunk size or tree fan-out.",
+    "difficulty": "Intermediate",
+    "type": "Research",
+    "tags": [
+      "RAG",
+      "Retrieval",
+      "Embeddings"
+    ],
+    "sources": [
+      {
+        "label": "prathmesh333.github.io/script.js",
+        "url": "https://github.com/Prathmesh333/prathmesh333.github.io/blob/5cc977acc50a5435fda1134d8aa7e1956f885f3a/script.js"
+      }
+    ],
+    "clarification": "Needs clarification from Prathmesh. No public FH-RAG implementation was located in the repository inventory or code search. The portfolio describes the project, but code, formulas, datasets and results remain unverified.",
+    "related": [
+      "fh-rag-08",
+      "rag-02",
+      "rag-09"
+    ],
+    "evidence": "Conceptual / unverified"
+  },
+  {
+    "id": "fh-rag-04",
+    "project": "fh-rag",
+    "topic": "RAG",
+    "question": "What is fuzzy relevance propagation?",
+    "quick": "Conceptually, relevance can be a soft degree that influences connected nodes instead of a binary keep/drop label.",
+    "standard": "Conceptually, relevance can be a soft degree that influences connected nodes instead of a binary keep/drop label.\n\nA propagation rule could combine a node’s direct query similarity with information from parents or children. The exact membership function, normalization and update direction define the algorithm. Those formulas have not been verified for FH-RAG.",
+    "deep": "Conceptually, relevance can be a soft degree that influences connected nodes instead of a binary keep/drop label.\n\nA propagation rule could combine a node’s direct query similarity with information from parents or children. The exact membership function, normalization and update direction define the algorithm. Those formulas have not been verified for FH-RAG.\n\nRequest the equation and implementation, then test boundedness, monotonicity and termination. Ablate propagation against raw similarity. Distinguish fuzzy membership from calibrated probability: a relevance score of 0.8 does not automatically mean an 80% chance of containing the answer.",
+    "followups": [
+      "What is the membership function?",
+      "Can irrelevant ancestors amplify a score?"
+    ],
+    "mistake": "Fabricating a propagation equation.",
+    "difficulty": "Advanced",
+    "type": "Research",
+    "tags": [
+      "RAG",
+      "Retrieval",
+      "Embeddings"
+    ],
+    "sources": [
+      {
+        "label": "prathmesh333.github.io/script.js",
+        "url": "https://github.com/Prathmesh333/prathmesh333.github.io/blob/5cc977acc50a5435fda1134d8aa7e1956f885f3a/script.js"
+      }
+    ],
+    "clarification": "Needs clarification from Prathmesh. No public FH-RAG implementation was located in the repository inventory or code search. The portfolio describes the project, but code, formulas, datasets and results remain unverified.",
+    "related": [
+      "rag-01",
+      "fh-rag-05",
+      "fh-rag-06"
+    ],
+    "evidence": "Conceptual / unverified"
+  },
+  {
+    "id": "fh-rag-05",
+    "project": "fh-rag",
+    "topic": "RAG",
+    "question": "What is level-aware beam search?",
+    "quick": "Beam search retains a bounded set of promising candidates while exploring a tree; level-aware rules can vary that budget by depth.",
+    "standard": "Beam search retains a bounded set of promising candidates while exploring a tree; level-aware rules can vary that budget by depth.\n\nAt each level, expand candidates, compute scores and retain the best beam. A larger beam improves exploration but increases work and context redundancy. A level-aware strategy might allocate different budgets to broad and fine levels; FH-RAG’s exact schedule needs code.",
+    "deep": "Beam search retains a bounded set of promising candidates while exploring a tree; level-aware rules can vary that budget by depth.\n\nAt each level, expand candidates, compute scores and retain the best beam. A larger beam improves exploration but increases work and context redundancy. A level-aware strategy might allocate different budgets to broad and fine levels; FH-RAG’s exact schedule needs code.\n\nFor depth d, beam b and fan-out f, candidate scoring can be roughly O(dbf) under bounded expansion, excluding embedding and sorting costs. This is not a universal complexity result: unbalanced trees, initial search and fallback scans change it.",
+    "followups": [
+      "Why not greedy search?",
+      "What happens if the answer branch is pruned?"
+    ],
+    "mistake": "Claiming logarithmic retrieval without assumptions.",
+    "difficulty": "Advanced",
+    "type": "Research",
+    "tags": [
+      "RAG",
+      "Retrieval",
+      "Embeddings"
+    ],
+    "sources": [
+      {
+        "label": "prathmesh333.github.io/script.js",
+        "url": "https://github.com/Prathmesh333/prathmesh333.github.io/blob/5cc977acc50a5435fda1134d8aa7e1956f885f3a/script.js"
+      }
+    ],
+    "clarification": "Needs clarification from Prathmesh. No public FH-RAG implementation was located in the repository inventory or code search. The portfolio describes the project, but code, formulas, datasets and results remain unverified.",
+    "related": [
+      "rag-01",
+      "fh-rag-04",
+      "fh-rag-06"
+    ],
+    "evidence": "Conceptual / unverified"
+  },
+  {
+    "id": "fh-rag-06",
+    "project": "fh-rag",
+    "topic": "RAG",
+    "question": "What is soft-threshold pruning?",
+    "quick": "A soft threshold reduces a candidate’s influence near a cutoff instead of necessarily discarding it abruptly.",
+    "standard": "A soft threshold reduces a candidate’s influence near a cutoff instead of necessarily discarding it abruptly.\n\nThis can make selection less brittle around a score boundary, but the transformation and eventual context selection still need definition. Temperature, threshold and normalization affect which nodes survive. The supplied brief names this mechanism but does not provide its implementation.",
+    "deep": "A soft threshold reduces a candidate’s influence near a cutoff instead of necessarily discarding it abruptly.\n\nThis can make selection less brittle around a score boundary, but the transformation and eventual context selection still need definition. Temperature, threshold and normalization affect which nodes survive. The supplied brief names this mechanism but does not provide its implementation.\n\nCompare hard cutoff, smooth weighting and top-k at matched token and latency budgets. Plot recall near the threshold and inspect long-tail queries. A soft weight is not useful if later code discards the same candidate unconditionally.",
+    "followups": [
+      "How do you tune the threshold?",
+      "What ultimately decides the context set?"
+    ],
+    "mistake": "Presenting an invented sigmoid as the project formula.",
+    "difficulty": "Intermediate",
+    "type": "Research",
+    "tags": [
+      "RAG",
+      "Retrieval",
+      "Embeddings"
+    ],
+    "sources": [
+      {
+        "label": "prathmesh333.github.io/script.js",
+        "url": "https://github.com/Prathmesh333/prathmesh333.github.io/blob/5cc977acc50a5435fda1134d8aa7e1956f885f3a/script.js"
+      }
+    ],
+    "clarification": "Needs clarification from Prathmesh. No public FH-RAG implementation was located in the repository inventory or code search. The portfolio describes the project, but code, formulas, datasets and results remain unverified.",
+    "related": [
+      "rag-01",
+      "fh-rag-04",
+      "fh-rag-05"
+    ],
+    "evidence": "Conceptual / unverified"
+  },
+  {
+    "id": "fh-rag-07",
+    "project": "fh-rag",
+    "topic": "RAG",
+    "question": "How would embeddings and similarity be chosen?",
+    "quick": "Choose a retrieval-trained embedding model and a similarity function consistent with its training and normalization.",
+    "standard": "Choose a retrieval-trained embedding model and a similarity function consistent with its training and normalization.\n\nSentence Transformers is an ecosystem for embedding models, not a single model. With unit-normalized vectors, dot product equals cosine similarity. Model choice depends on language, domain, chunk length and latency. FH-RAG’s exact checkpoint and similarity configuration need confirmation.",
+    "deep": "Choose a retrieval-trained embedding model and a similarity function consistent with its training and normalization.\n\nSentence Transformers is an ecosystem for embedding models, not a single model. With unit-normalized vectors, dot product equals cosine similarity. Model choice depends on language, domain, chunk length and latency. FH-RAG’s exact checkpoint and similarity configuration need confirmation.\n\nEvaluate retrieval recall and ranking on representative queries before changing the generator. Cache embeddings by text hash and model version. An embedding upgrade usually requires re-indexing and compatibility checks across the whole corpus.",
+    "followups": [
+      "Are vectors normalized?",
+      "Which checkpoint generated the index?"
+    ],
+    "mistake": "Naming a model that is absent from verified source.",
+    "difficulty": "Intermediate",
+    "type": "Research",
+    "tags": [
+      "RAG",
+      "Retrieval",
+      "Embeddings"
+    ],
+    "sources": [
+      {
+        "label": "prathmesh333.github.io/script.js",
+        "url": "https://github.com/Prathmesh333/prathmesh333.github.io/blob/5cc977acc50a5435fda1134d8aa7e1956f885f3a/script.js"
+      }
+    ],
+    "clarification": "Needs clarification from Prathmesh. No public FH-RAG implementation was located in the repository inventory or code search. The portfolio describes the project, but code, formulas, datasets and results remain unverified.",
+    "related": [
+      "rag-02",
+      "fh-rag-10",
+      "rag-03"
+    ],
+    "evidence": "Conceptual / unverified"
+  },
+  {
+    "id": "fh-rag-08",
+    "project": "fh-rag",
+    "topic": "RAG",
+    "question": "How would you evaluate retrieval separately from generation?",
+    "quick": "First ask whether the evidence was retrieved; then ask whether the generated answer uses it correctly.",
+    "standard": "First ask whether the evidence was retrieved; then ask whether the generated answer uses it correctly.\n\nMRR tracks how early the first relevant result appears. nDCG@5 measures graded ranking quality near the top. Recall@k checks evidence coverage. Generation metrics such as token F1 and ROUGE compare reference overlap, while faithfulness examines support in retrieved context.",
+    "deep": "First ask whether the evidence was retrieved; then ask whether the generated answer uses it correctly.\n\nMRR tracks how early the first relevant result appears. nDCG@5 measures graded ranking quality near the top. Recall@k checks evidence coverage. Generation metrics such as token F1 and ROUGE compare reference overlap, while faithfulness examines support in retrieved context.\n\nUse gold evidence for a retrieval test and fixed contexts for a generation test. Run an oracle-context condition to expose the generator ceiling. The supplied SQuAD, BookSum and six-variant claims need executable logs before entering a personal results answer.",
+    "followups": [
+      "Can ROUGE detect hallucination?",
+      "What is the oracle-context baseline?"
+    ],
+    "mistake": "Treating answer overlap as faithfulness.",
+    "difficulty": "Intermediate",
+    "type": "Research",
+    "tags": [
+      "RAG",
+      "Retrieval",
+      "Embeddings"
+    ],
+    "sources": [
+      {
+        "label": "prathmesh333.github.io/script.js",
+        "url": "https://github.com/Prathmesh333/prathmesh333.github.io/blob/5cc977acc50a5435fda1134d8aa7e1956f885f3a/script.js"
+      }
+    ],
+    "clarification": "Needs clarification from Prathmesh. No public FH-RAG implementation was located in the repository inventory or code search. The portfolio describes the project, but code, formulas, datasets and results remain unverified.",
+    "related": [
+      "fh-rag-03",
+      "rag-02",
+      "rag-09"
+    ],
+    "evidence": "Conceptual / unverified"
+  },
+  {
+    "id": "fh-rag-09",
+    "project": "fh-rag",
+    "topic": "RAG",
+    "question": "How would FH-RAG scale to a million-page corpus?",
+    "quick": "I would separate offline indexing from online retrieval and measure latency, memory, update cost and evidence recall.",
+    "standard": "I would separate offline indexing from online retrieval and measure latency, memory, update cost and evidence recall.\n\nUse stable document IDs, incremental ingestion, batched embedding and a partitioned ANN index. Add access-control filtering before context reaches the model. Hierarchical routing could narrow search, but it needs a fallback when a routing decision misses the evidence.",
+    "deep": "I would separate offline indexing from online retrieval and measure latency, memory, update cost and evidence recall.\n\nUse stable document IDs, incremental ingestion, batched embedding and a partitioned ANN index. Add access-control filtering before context reaches the model. Hierarchical routing could narrow search, but it needs a fallback when a routing decision misses the evidence.\n\nBenchmark cold and warm caches, p95 latency, updates and deletion propagation. Rerank only a bounded candidate set. An ANN or sharded design is a proposed production extension here; it must not be described as an implemented FH-RAG capability.",
+    "followups": [
+      "How do deletes propagate?",
+      "What if one shard is slow?"
+    ],
+    "mistake": "Claiming production scale from a small benchmark.",
+    "difficulty": "Intermediate",
+    "type": "Research",
+    "tags": [
+      "RAG",
+      "Retrieval",
+      "Embeddings"
+    ],
+    "sources": [
+      {
+        "label": "prathmesh333.github.io/script.js",
+        "url": "https://github.com/Prathmesh333/prathmesh333.github.io/blob/5cc977acc50a5435fda1134d8aa7e1956f885f3a/script.js"
+      }
+    ],
+    "clarification": "Needs clarification from Prathmesh. No public FH-RAG implementation was located in the repository inventory or code search. The portfolio describes the project, but code, formulas, datasets and results remain unverified.",
+    "related": [
+      "rag-09",
+      "fh-rag-03",
+      "rag-02"
+    ],
+    "evidence": "Conceptual / unverified"
+  },
+  {
+    "id": "fh-rag-10",
+    "project": "fh-rag",
+    "topic": "RAG",
+    "question": "How would you reduce hallucinations and improve faithfulness?",
+    "quick": "Retrieve relevant evidence, preserve citations and allow the system to abstain when support is insufficient.",
+    "standard": "Retrieve relevant evidence, preserve citations and allow the system to abstain when support is insufficient.\n\nGeneration should answer from retrieved spans and identify unsupported parts. A reranker can improve context quality, but irrelevant or malicious retrieved instructions must remain data. Faithfulness asks whether claims follow from the supplied context; truthfulness also requires that the context itself be reliable.",
+    "deep": "Retrieve relevant evidence, preserve citations and allow the system to abstain when support is insufficient.\n\nGeneration should answer from retrieved spans and identify unsupported parts. A reranker can improve context quality, but irrelevant or malicious retrieved instructions must remain data. Faithfulness asks whether claims follow from the supplied context; truthfulness also requires that the context itself be reliable.\n\nEvaluate citation precision and support at claim level. Include unanswerable queries and contradictory documents. Do not assume that a larger context window, a confidence score or a prompt instruction guarantees grounding. Distinguish proposed safeguards from verified FH-RAG code.",
+    "followups": [
+      "Can a faithful answer still be false?",
+      "How do you test abstention?"
+    ],
+    "mistake": "Assuming RAG eliminates hallucinations.",
+    "difficulty": "Intermediate",
+    "type": "Research",
+    "tags": [
+      "RAG",
+      "Retrieval",
+      "Embeddings"
+    ],
+    "sources": [
+      {
+        "label": "prathmesh333.github.io/script.js",
+        "url": "https://github.com/Prathmesh333/prathmesh333.github.io/blob/5cc977acc50a5435fda1134d8aa7e1956f885f3a/script.js"
+      }
+    ],
+    "clarification": "Needs clarification from Prathmesh. No public FH-RAG implementation was located in the repository inventory or code search. The portfolio describes the project, but code, formulas, datasets and results remain unverified.",
+    "related": [
+      "rag-02",
+      "takeone-04",
+      "rag-08"
+    ],
+    "evidence": "Conceptual / unverified"
+  }
+]

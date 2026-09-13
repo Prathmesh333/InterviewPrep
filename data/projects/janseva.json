@@ -1,0 +1,156 @@
+[
+  {
+    "id": "janseva-01",
+    "project": "janseva",
+    "topic": "Software Engineering",
+    "question": "Why separate eligibility matching from conversation generation?",
+    "quick": "Explicit rules make eligibility decisions easier to inspect than free-form model responses.",
+    "standard": "Explicit rules make eligibility decisions easier to inspect than free-form model responses.\n\ncheckEligibility validates required profile fields, evaluates each scheme and sorts by match score. The conversational layer can gather missing information and explain results, but should not silently replace rule evaluation with a generated guess.",
+    "deep": "Explicit rules make eligibility decisions easier to inspect than free-form model responses.\n\ncheckEligibility validates required profile fields, evaluates each scheme and sorts by match score. The conversational layer can gather missing information and explain results, but should not silently replace rule evaluation with a generated guess.\n\nDistinguish insufficient information from ineligibility, version the scheme criteria and test boundary ages and income values. Confirm deployed services separately from the architecture README. The code is not proof that every listed AWS component is running in production.",
+    "followups": [
+      "What happens when age is missing?",
+      "How are changing rules updated?"
+    ],
+    "mistake": "Equating a high match score with officially confirmed eligibility.",
+    "difficulty": "Intermediate",
+    "type": "Project",
+    "tags": [
+      "Software Engineering",
+      "TypeScript",
+      "RAG"
+    ],
+    "sources": [
+      {
+        "label": "AI4Bharat-JansevaAI/src/services/eligibility/matcher.ts",
+        "url": "https://github.com/Prathmesh333/AI4Bharat-JansevaAI/blob/f8689837d78d27b3a12fdb552d9686c9ff445930/src/services/eligibility/matcher.ts"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "researchhub-01",
+      "software-engineering-01",
+      "software-engineering-02"
+    ],
+    "evidence": "Code + README"
+  },
+  {
+    "id": "janseva-02",
+    "project": "janseva",
+    "topic": "Software Engineering",
+    "question": "What did you personally implement in JanSeva AI?",
+    "quick": "I need to connect my own contribution to specific files, commits and decisions before giving this answer.",
+    "standard": "I need to connect my own contribution to specific files, commits and decisions before giving this answer.\n\nUse the source links to identify the execution path, then name the part you owned and what changed. Repository ownership alone does not establish sole authorship, the hardest bug, a team disagreement or the outcome of an experiment.",
+    "deep": "I need to connect my own contribution to specific files, commits and decisions before giving this answer.\n\nUse the source links to identify the execution path, then name the part you owned and what changed. Repository ownership alone does not establish sole authorship, the hardest bug, a team disagreement or the outcome of an experiment.\n\nPrepare a concrete before/after example, the relevant commit, a test or experiment and one limitation. Say “the project implements” for verified code and “I implemented” only for work you can personally confirm. Leave numerical results out until tied to a run artifact.",
+    "followups": [
+      "Which commit is yours?",
+      "What broke?",
+      "What would you change today?"
+    ],
+    "mistake": "Inventing a personal debugging story from repository contents.",
+    "difficulty": "Intermediate",
+    "type": "Behavioral",
+    "tags": [
+      "Software Engineering",
+      "TypeScript",
+      "RAG"
+    ],
+    "sources": [
+      {
+        "label": "AI4Bharat-JansevaAI/README.md",
+        "url": "https://github.com/Prathmesh333/AI4Bharat-JansevaAI/blob/f8689837d78d27b3a12fdb552d9686c9ff445930/README.md"
+      },
+      {
+        "label": "AI4Bharat-JansevaAI/src/services/eligibility/matcher.ts",
+        "url": "https://github.com/Prathmesh333/AI4Bharat-JansevaAI/blob/f8689837d78d27b3a12fdb552d9686c9ff445930/src/services/eligibility/matcher.ts"
+      }
+    ],
+    "clarification": "Needs clarification from Prathmesh. Personal contribution, motivation, debugging history and measured outcomes are not established by code alone.",
+    "related": [
+      "vsfeed-04",
+      "researchhub-02",
+      "shortlist-02"
+    ],
+    "evidence": "Concept / practice",
+    "star": {
+      "Situation": "Use the actual project context.",
+      "Task": "State your personal responsibility.",
+      "Action": "Identify your change and reasoning.",
+      "Result": "Give a verified outcome, or state what remains unmeasured."
+    }
+  },
+  {
+    "id": "janseva-03",
+    "project": "janseva",
+    "topic": "Software Engineering",
+    "question": "Walk through the implementation boundary in JanSeva AI.",
+    "quick": "Explicit rules make eligibility decisions easier to inspect than free-form model responses.",
+    "standard": "Explicit rules make eligibility decisions easier to inspect than free-form model responses.\n\ncheckEligibility validates required profile fields, evaluates each scheme and sorts by match score. The conversational layer can gather missing information and explain results, but should not silently replace rule evaluation with a generated guess.",
+    "deep": "Explicit rules make eligibility decisions easier to inspect than free-form model responses.\n\ncheckEligibility validates required profile fields, evaluates each scheme and sorts by match score. The conversational layer can gather missing information and explain results, but should not silently replace rule evaluation with a generated guess.\n\nBegin at the linked implementation file, identify its input shape and ownership, then trace the output and error path.\n\nDistinguish insufficient information from ineligibility, version the scheme criteria and test boundary ages and income values. Confirm deployed services separately from the architecture README. The code is not proof that every listed AWS component is running in production.",
+    "followups": [
+      "What happens when age is missing?",
+      "What would you test before deploying this path?"
+    ],
+    "mistake": "Equating a high match score with officially confirmed eligibility.",
+    "difficulty": "Intermediate",
+    "type": "Architecture",
+    "tags": [
+      "Software Engineering",
+      "TypeScript",
+      "RAG"
+    ],
+    "sources": [
+      {
+        "label": "AI4Bharat-JansevaAI/README.md",
+        "url": "https://github.com/Prathmesh333/AI4Bharat-JansevaAI/blob/f8689837d78d27b3a12fdb552d9686c9ff445930/README.md"
+      },
+      {
+        "label": "AI4Bharat-JansevaAI/src/services/eligibility/matcher.ts",
+        "url": "https://github.com/Prathmesh333/AI4Bharat-JansevaAI/blob/f8689837d78d27b3a12fdb552d9686c9ff445930/src/services/eligibility/matcher.ts"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "researchhub-03",
+      "shortlist-03",
+      "iris-03"
+    ]
+  },
+  {
+    "id": "janseva-04",
+    "project": "janseva",
+    "topic": "Software Engineering",
+    "question": "How would you test and improve JanSeva AI?",
+    "quick": "I would establish a reproducible baseline and test the specific failure boundary exposed by this implementation.",
+    "standard": "I would establish a reproducible baseline and test the specific failure boundary exposed by this implementation.\n\nDistinguish insufficient information from ineligibility, version the scheme criteria and test boundary ages and income values. Confirm deployed services separately from the architecture README. The code is not proof that every listed AWS component is running in production.",
+    "deep": "I would establish a reproducible baseline and test the specific failure boundary exposed by this implementation.\n\nDistinguish insufficient information from ineligibility, version the scheme criteria and test boundary ages and income values. Confirm deployed services separately from the architecture README. The code is not proof that every listed AWS component is running in production.\n\nKeep the current implementation separate from the proposed improvement. Save representative inputs, expected outputs and a versioned configuration. Test normal inputs, malformed inputs and the failure case described above. For model outputs, include a held-out evaluation and inspect errors rather than treating a confidence field as proof.\n\ncheckEligibility validates required profile fields, evaluates each scheme and sorts by match score. The conversational layer can gather missing information and explain results, but should not silently replace rule evaluation with a generated guess.",
+    "followups": [
+      "What is the baseline?",
+      "What is the acceptance criterion?",
+      "How do you avoid leakage?"
+    ],
+    "mistake": "Presenting a proposed improvement as an already measured result.",
+    "difficulty": "Intermediate",
+    "type": "Research",
+    "tags": [
+      "Software Engineering",
+      "TypeScript",
+      "RAG"
+    ],
+    "sources": [
+      {
+        "label": "AI4Bharat-JansevaAI/README.md",
+        "url": "https://github.com/Prathmesh333/AI4Bharat-JansevaAI/blob/f8689837d78d27b3a12fdb552d9686c9ff445930/README.md"
+      },
+      {
+        "label": "AI4Bharat-JansevaAI/src/services/eligibility/matcher.ts",
+        "url": "https://github.com/Prathmesh333/AI4Bharat-JansevaAI/blob/f8689837d78d27b3a12fdb552d9686c9ff445930/src/services/eligibility/matcher.ts"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "software-engineering-03",
+      "researchhub-04",
+      "shortlist-04"
+    ]
+  }
+]

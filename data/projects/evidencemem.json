@@ -1,0 +1,156 @@
+[
+  {
+    "id": "evidencemem-01",
+    "project": "evidencemem",
+    "topic": "Computer Vision",
+    "question": "How does EvidenceMem combine retrieval and text evidence?",
+    "quick": "The classifier combines reliability-weighted visual retrieval with text-label similarity from a frozen vision-language representation.",
+    "standard": "The classifier combines reliability-weighted visual retrieval with text-label similarity from a frozen vision-language representation.\n\nThe memory stores real training examples near cluster centers, so retrieved evidence can be inspected. Classification computes visual and text components, then returns scores, confidence and an unknown flag. It does not retrain the encoder when adding memory entries.",
+    "deep": "The classifier combines reliability-weighted visual retrieval with text-label similarity from a frozen vision-language representation.\n\nThe memory stores real training examples near cluster centers, so retrieved evidence can be inspected. Classification computes visual and text components, then returns scores, confidence and an unknown flag. It does not retrain the encoder when adding memory entries.\n\nA medoid is an actual example; a centroid is an average. Unknown thresholds must be selected using validation data. The README explicitly limits performance claims, so do not describe memory retrieval as universally better than supervised baselines.",
+    "followups": [
+      "Why medoids?",
+      "How is unknown rejection calibrated?"
+    ],
+    "mistake": "Treating nearest-neighbor similarity as calibrated confidence.",
+    "difficulty": "Intermediate",
+    "type": "Project",
+    "tags": [
+      "Computer Vision",
+      "Embeddings",
+      "FAISS"
+    ],
+    "sources": [
+      {
+        "label": "evidencemem/src/evidencemem/classifier.py",
+        "url": "https://github.com/Prathmesh333/evidencemem/blob/1eb8badd97c341a24be726b912a92c6b190bad7d/src/evidencemem/classifier.py"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "computer-vision-01",
+      "computer-vision-02",
+      "computer-vision-04"
+    ],
+    "evidence": "Code + README"
+  },
+  {
+    "id": "evidencemem-02",
+    "project": "evidencemem",
+    "topic": "Computer Vision",
+    "question": "What did you personally implement in EvidenceMem?",
+    "quick": "I need to connect my own contribution to specific files, commits and decisions before giving this answer.",
+    "standard": "I need to connect my own contribution to specific files, commits and decisions before giving this answer.\n\nUse the source links to identify the execution path, then name the part you owned and what changed. Repository ownership alone does not establish sole authorship, the hardest bug, a team disagreement or the outcome of an experiment.",
+    "deep": "I need to connect my own contribution to specific files, commits and decisions before giving this answer.\n\nUse the source links to identify the execution path, then name the part you owned and what changed. Repository ownership alone does not establish sole authorship, the hardest bug, a team disagreement or the outcome of an experiment.\n\nPrepare a concrete before/after example, the relevant commit, a test or experiment and one limitation. Say “the project implements” for verified code and “I implemented” only for work you can personally confirm. Leave numerical results out until tied to a run artifact.",
+    "followups": [
+      "Which commit is yours?",
+      "What broke?",
+      "What would you change today?"
+    ],
+    "mistake": "Inventing a personal debugging story from repository contents.",
+    "difficulty": "Intermediate",
+    "type": "Behavioral",
+    "tags": [
+      "Computer Vision",
+      "Embeddings",
+      "FAISS"
+    ],
+    "sources": [
+      {
+        "label": "evidencemem/README.md",
+        "url": "https://github.com/Prathmesh333/evidencemem/blob/1eb8badd97c341a24be726b912a92c6b190bad7d/README.md"
+      },
+      {
+        "label": "evidencemem/src/evidencemem/classifier.py",
+        "url": "https://github.com/Prathmesh333/evidencemem/blob/1eb8badd97c341a24be726b912a92c6b190bad7d/src/evidencemem/classifier.py"
+      }
+    ],
+    "clarification": "Needs clarification from Prathmesh. Personal contribution, motivation, debugging history and measured outcomes are not established by code alone.",
+    "related": [
+      "treestack-02",
+      "computer-vision-03",
+      "computer-vision-05"
+    ],
+    "evidence": "Concept / practice",
+    "star": {
+      "Situation": "Use the actual project context.",
+      "Task": "State your personal responsibility.",
+      "Action": "Identify your change and reasoning.",
+      "Result": "Give a verified outcome, or state what remains unmeasured."
+    }
+  },
+  {
+    "id": "evidencemem-03",
+    "project": "evidencemem",
+    "topic": "Computer Vision",
+    "question": "Walk through the implementation boundary in EvidenceMem.",
+    "quick": "The classifier combines reliability-weighted visual retrieval with text-label similarity from a frozen vision-language representation.",
+    "standard": "The classifier combines reliability-weighted visual retrieval with text-label similarity from a frozen vision-language representation.\n\nThe memory stores real training examples near cluster centers, so retrieved evidence can be inspected. Classification computes visual and text components, then returns scores, confidence and an unknown flag. It does not retrain the encoder when adding memory entries.",
+    "deep": "The classifier combines reliability-weighted visual retrieval with text-label similarity from a frozen vision-language representation.\n\nThe memory stores real training examples near cluster centers, so retrieved evidence can be inspected. Classification computes visual and text components, then returns scores, confidence and an unknown flag. It does not retrain the encoder when adding memory entries.\n\nBegin at the linked implementation file, identify its input shape and ownership, then trace the output and error path.\n\nA medoid is an actual example; a centroid is an average. Unknown thresholds must be selected using validation data. The README explicitly limits performance claims, so do not describe memory retrieval as universally better than supervised baselines.",
+    "followups": [
+      "Why medoids?",
+      "What would you test before deploying this path?"
+    ],
+    "mistake": "Treating nearest-neighbor similarity as calibrated confidence.",
+    "difficulty": "Intermediate",
+    "type": "Architecture",
+    "tags": [
+      "Computer Vision",
+      "Embeddings",
+      "FAISS"
+    ],
+    "sources": [
+      {
+        "label": "evidencemem/README.md",
+        "url": "https://github.com/Prathmesh333/evidencemem/blob/1eb8badd97c341a24be726b912a92c6b190bad7d/README.md"
+      },
+      {
+        "label": "evidencemem/src/evidencemem/classifier.py",
+        "url": "https://github.com/Prathmesh333/evidencemem/blob/1eb8badd97c341a24be726b912a92c6b190bad7d/src/evidencemem/classifier.py"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "treestack-03",
+      "evidencemem-02",
+      "evidencemem-01"
+    ]
+  },
+  {
+    "id": "evidencemem-04",
+    "project": "evidencemem",
+    "topic": "Computer Vision",
+    "question": "How would you test and improve EvidenceMem?",
+    "quick": "I would establish a reproducible baseline and test the specific failure boundary exposed by this implementation.",
+    "standard": "I would establish a reproducible baseline and test the specific failure boundary exposed by this implementation.\n\nA medoid is an actual example; a centroid is an average. Unknown thresholds must be selected using validation data. The README explicitly limits performance claims, so do not describe memory retrieval as universally better than supervised baselines.",
+    "deep": "I would establish a reproducible baseline and test the specific failure boundary exposed by this implementation.\n\nA medoid is an actual example; a centroid is an average. Unknown thresholds must be selected using validation data. The README explicitly limits performance claims, so do not describe memory retrieval as universally better than supervised baselines.\n\nKeep the current implementation separate from the proposed improvement. Save representative inputs, expected outputs and a versioned configuration. Test normal inputs, malformed inputs and the failure case described above. For model outputs, include a held-out evaluation and inspect errors rather than treating a confidence field as proof.\n\nThe memory stores real training examples near cluster centers, so retrieved evidence can be inspected. Classification computes visual and text components, then returns scores, confidence and an unknown flag. It does not retrain the encoder when adding memory entries.",
+    "followups": [
+      "What is the baseline?",
+      "What is the acceptance criterion?",
+      "How do you avoid leakage?"
+    ],
+    "mistake": "Presenting a proposed improvement as an already measured result.",
+    "difficulty": "Intermediate",
+    "type": "Research",
+    "tags": [
+      "Computer Vision",
+      "Embeddings",
+      "FAISS"
+    ],
+    "sources": [
+      {
+        "label": "evidencemem/README.md",
+        "url": "https://github.com/Prathmesh333/evidencemem/blob/1eb8badd97c341a24be726b912a92c6b190bad7d/README.md"
+      },
+      {
+        "label": "evidencemem/src/evidencemem/classifier.py",
+        "url": "https://github.com/Prathmesh333/evidencemem/blob/1eb8badd97c341a24be726b912a92c6b190bad7d/src/evidencemem/classifier.py"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "treestack-04",
+      "computer-vision-05",
+      "evidencemem-01"
+    ]
+  }
+]

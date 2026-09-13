@@ -1,0 +1,156 @@
+[
+  {
+    "id": "f1-01",
+    "project": "f1",
+    "topic": "Machine Learning",
+    "question": "What is the biggest leakage risk in race prediction?",
+    "quick": "A feature may describe information that is only known after the race, even if the train-test split is chronological.",
+    "standard": "A feature may describe information that is only known after the race, even if the train-test split is chronological.\n\nThe script loads several racing tables and builds preprocessing and regression pipelines. A chronological split is useful, but the interviewer should also ask when standings, lap-time and result-derived features become available relative to the prediction target.",
+    "deep": "A feature may describe information that is only known after the race, even if the train-test split is chronological.\n\nThe script loads several racing tables and builds preprocessing and regression pipelines. A chronological split is useful, but the interviewer should also ask when standings, lap-time and result-derived features become available relative to the prediction target.\n\nCreate a feature-availability contract for pre-race versus in-race predictions. Use time-respecting tuning folds and audit joined rows for future aggregates. Evaluate MAE against a simple prior-rank baseline and inspect race-level errors rather than presenting only an overall R².",
+    "followups": [
+      "Can chronological splits still leak?",
+      "What is the prediction timestamp?"
+    ],
+    "mistake": "Assuming a date split makes all engineered features safe.",
+    "difficulty": "Intermediate",
+    "type": "Project",
+    "tags": [
+      "Machine Learning",
+      "scikit-learn",
+      "Gradio"
+    ],
+    "sources": [
+      {
+        "label": "F1-Race-Prediction/f1_final.py",
+        "url": "https://github.com/Prathmesh333/F1-Race-Prediction/blob/cd389129e9cb42a855457ed35b728598684aeffd/f1_final.py"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "f1-02",
+      "f1-03",
+      "machine-learning-09"
+    ],
+    "evidence": "Code + README"
+  },
+  {
+    "id": "f1-02",
+    "project": "f1",
+    "topic": "Machine Learning",
+    "question": "What did you personally implement in F1 Race Prediction?",
+    "quick": "I need to connect my own contribution to specific files, commits and decisions before giving this answer.",
+    "standard": "I need to connect my own contribution to specific files, commits and decisions before giving this answer.\n\nUse the source links to identify the execution path, then name the part you owned and what changed. Repository ownership alone does not establish sole authorship, the hardest bug, a team disagreement or the outcome of an experiment.",
+    "deep": "I need to connect my own contribution to specific files, commits and decisions before giving this answer.\n\nUse the source links to identify the execution path, then name the part you owned and what changed. Repository ownership alone does not establish sole authorship, the hardest bug, a team disagreement or the outcome of an experiment.\n\nPrepare a concrete before/after example, the relevant commit, a test or experiment and one limitation. Say “the project implements” for verified code and “I implemented” only for work you can personally confirm. Leave numerical results out until tied to a run artifact.",
+    "followups": [
+      "Which commit is yours?",
+      "What broke?",
+      "What would you change today?"
+    ],
+    "mistake": "Inventing a personal debugging story from repository contents.",
+    "difficulty": "Intermediate",
+    "type": "Behavioral",
+    "tags": [
+      "Machine Learning",
+      "scikit-learn",
+      "Gradio"
+    ],
+    "sources": [
+      {
+        "label": "F1-Race-Prediction/README.md",
+        "url": "https://github.com/Prathmesh333/F1-Race-Prediction/blob/cd389129e9cb42a855457ed35b728598684aeffd/README.md"
+      },
+      {
+        "label": "F1-Race-Prediction/f1_final.py",
+        "url": "https://github.com/Prathmesh333/F1-Race-Prediction/blob/cd389129e9cb42a855457ed35b728598684aeffd/f1_final.py"
+      }
+    ],
+    "clarification": "Needs clarification from Prathmesh. Personal contribution, motivation, debugging history and measured outcomes are not established by code alone.",
+    "related": [
+      "forecastforge-02",
+      "f1-01",
+      "f1-03"
+    ],
+    "evidence": "Concept / practice",
+    "star": {
+      "Situation": "Use the actual project context.",
+      "Task": "State your personal responsibility.",
+      "Action": "Identify your change and reasoning.",
+      "Result": "Give a verified outcome, or state what remains unmeasured."
+    }
+  },
+  {
+    "id": "f1-03",
+    "project": "f1",
+    "topic": "Machine Learning",
+    "question": "Walk through the implementation boundary in F1 Race Prediction.",
+    "quick": "A feature may describe information that is only known after the race, even if the train-test split is chronological.",
+    "standard": "A feature may describe information that is only known after the race, even if the train-test split is chronological.\n\nThe script loads several racing tables and builds preprocessing and regression pipelines. A chronological split is useful, but the interviewer should also ask when standings, lap-time and result-derived features become available relative to the prediction target.",
+    "deep": "A feature may describe information that is only known after the race, even if the train-test split is chronological.\n\nThe script loads several racing tables and builds preprocessing and regression pipelines. A chronological split is useful, but the interviewer should also ask when standings, lap-time and result-derived features become available relative to the prediction target.\n\nBegin at the linked implementation file, identify its input shape and ownership, then trace the output and error path.\n\nCreate a feature-availability contract for pre-race versus in-race predictions. Use time-respecting tuning folds and audit joined rows for future aggregates. Evaluate MAE against a simple prior-rank baseline and inspect race-level errors rather than presenting only an overall R².",
+    "followups": [
+      "Can chronological splits still leak?",
+      "What would you test before deploying this path?"
+    ],
+    "mistake": "Assuming a date split makes all engineered features safe.",
+    "difficulty": "Intermediate",
+    "type": "Architecture",
+    "tags": [
+      "Machine Learning",
+      "scikit-learn",
+      "Gradio"
+    ],
+    "sources": [
+      {
+        "label": "F1-Race-Prediction/README.md",
+        "url": "https://github.com/Prathmesh333/F1-Race-Prediction/blob/cd389129e9cb42a855457ed35b728598684aeffd/README.md"
+      },
+      {
+        "label": "F1-Race-Prediction/f1_final.py",
+        "url": "https://github.com/Prathmesh333/F1-Race-Prediction/blob/cd389129e9cb42a855457ed35b728598684aeffd/f1_final.py"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "forecastforge-03",
+      "trace-03",
+      "f1-01"
+    ]
+  },
+  {
+    "id": "f1-04",
+    "project": "f1",
+    "topic": "Machine Learning",
+    "question": "How would you test and improve F1 Race Prediction?",
+    "quick": "I would establish a reproducible baseline and test the specific failure boundary exposed by this implementation.",
+    "standard": "I would establish a reproducible baseline and test the specific failure boundary exposed by this implementation.\n\nCreate a feature-availability contract for pre-race versus in-race predictions. Use time-respecting tuning folds and audit joined rows for future aggregates. Evaluate MAE against a simple prior-rank baseline and inspect race-level errors rather than presenting only an overall R².",
+    "deep": "I would establish a reproducible baseline and test the specific failure boundary exposed by this implementation.\n\nCreate a feature-availability contract for pre-race versus in-race predictions. Use time-respecting tuning folds and audit joined rows for future aggregates. Evaluate MAE against a simple prior-rank baseline and inspect race-level errors rather than presenting only an overall R².\n\nKeep the current implementation separate from the proposed improvement. Save representative inputs, expected outputs and a versioned configuration. Test normal inputs, malformed inputs and the failure case described above. For model outputs, include a held-out evaluation and inspect errors rather than treating a confidence field as proof.\n\nThe script loads several racing tables and builds preprocessing and regression pipelines. A chronological split is useful, but the interviewer should also ask when standings, lap-time and result-derived features become available relative to the prediction target.",
+    "followups": [
+      "What is the baseline?",
+      "What is the acceptance criterion?",
+      "How do you avoid leakage?"
+    ],
+    "mistake": "Presenting a proposed improvement as an already measured result.",
+    "difficulty": "Intermediate",
+    "type": "Research",
+    "tags": [
+      "Machine Learning",
+      "scikit-learn",
+      "Gradio"
+    ],
+    "sources": [
+      {
+        "label": "F1-Race-Prediction/README.md",
+        "url": "https://github.com/Prathmesh333/F1-Race-Prediction/blob/cd389129e9cb42a855457ed35b728598684aeffd/README.md"
+      },
+      {
+        "label": "F1-Race-Prediction/f1_final.py",
+        "url": "https://github.com/Prathmesh333/F1-Race-Prediction/blob/cd389129e9cb42a855457ed35b728598684aeffd/f1_final.py"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "forecastforge-04",
+      "trace-04",
+      "f1-02"
+    ]
+  }
+]

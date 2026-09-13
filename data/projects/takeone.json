@@ -1,0 +1,153 @@
+[
+  {
+    "id": "takeone-01",
+    "project": "takeone",
+    "topic": "RAG",
+    "question": "Does TakeOne directly embed raw video for scene search?",
+    "quick": "The inspected SceneSearchEngine embeds text scene descriptions and stores them in ChromaDB.",
+    "standard": "The inspected SceneSearchEngine embeds text scene descriptions and stores them in ChromaDB.\n\nThe search engine defaults to all-MiniLM-L6-v2 and creates a persistent cosine-space collection. Its descriptions are produced by an ingestion pipeline; this path is not direct end-to-end raw-video embedding. Optional Gemini query expansion is initialized lazily.",
+    "deep": "The inspected SceneSearchEngine embeds text scene descriptions and stores them in ChromaDB.\n\nThe search engine defaults to all-MiniLM-L6-v2 and creates a persistent cosine-space collection. Its descriptions are produced by an ingestion pipeline; this path is not direct end-to-end raw-video embedding. Optional Gemini query expansion is initialized lazily.\n\nRetrieval can miss a visual detail that the description never mentioned. Evaluate description coverage separately from text retrieval and preserve scene IDs and timestamps. An alternative direct multimodal embedding path would be a proposed extension unless traced in another implementation.",
+    "followups": [
+      "What information is lost in descriptions?",
+      "How do timestamps reach search results?"
+    ],
+    "mistake": "Calling text-description search direct visual understanding.",
+    "difficulty": "Intermediate",
+    "type": "Architecture",
+    "tags": [
+      "RAG",
+      "Sentence Transformers",
+      "ChromaDB"
+    ],
+    "sources": [
+      {
+        "label": "TakeOne/search/vector_search.py",
+        "url": "https://github.com/Prathmesh333/TakeOne/blob/eacfaf107662b353d0b0c75d4d6dd9ea7dee4029/search/vector_search.py"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "rag-03",
+      "rag-05",
+      "rag-09"
+    ]
+  },
+  {
+    "id": "takeone-02",
+    "project": "takeone",
+    "topic": "RAG",
+    "question": "What contribution and result can you substantiate in TakeOne?",
+    "quick": "I would point to the exact file and commit I owned, then show a test or result that supports the outcome.",
+    "standard": "I would point to the exact file and commit I owned, then show a test or result that supports the outcome.\n\nExplain the problem and your scope before describing the solution. The linked repository shows project behavior, but it cannot establish your personal motivation, hardest bug or team role by itself.",
+    "deep": "I would point to the exact file and commit I owned, then show a test or result that supports the outcome.\n\nExplain the problem and your scope before describing the solution. The linked repository shows project behavior, but it cannot establish your personal motivation, hardest bug or team role by itself.\n\nNeeds clarification from Prathmesh. Add one real Situation, Task, Action and Result in your notes. Use a concrete before/after and a verified outcome; do not turn README marketing text into a personal achievement.",
+    "followups": [
+      "Which commit is yours?",
+      "What evidence demonstrates the outcome?"
+    ],
+    "mistake": "Inventing personal experience from a repository name.",
+    "difficulty": "Intermediate",
+    "type": "Behavioral",
+    "tags": [
+      "RAG",
+      "Sentence Transformers",
+      "ChromaDB"
+    ],
+    "sources": [
+      {
+        "label": "TakeOne/README.md",
+        "url": "https://github.com/Prathmesh333/TakeOne/blob/eacfaf107662b353d0b0c75d4d6dd9ea7dee4029/README.md"
+      },
+      {
+        "label": "TakeOne/search/vector_search.py",
+        "url": "https://github.com/Prathmesh333/TakeOne/blob/eacfaf107662b353d0b0c75d4d6dd9ea7dee4029/search/vector_search.py"
+      }
+    ],
+    "clarification": "Needs clarification from Prathmesh. Personal contribution and measured outcomes need confirmation.",
+    "related": [
+      "rag-02",
+      "rag-07",
+      "takeone-04"
+    ],
+    "star": {
+      "Situation": "Use the actual project context.",
+      "Task": "State your personal responsibility.",
+      "Action": "Identify your change and reasoning.",
+      "Result": "Give a verified outcome, or state what remains unmeasured."
+    }
+  },
+  {
+    "id": "takeone-03",
+    "project": "takeone",
+    "topic": "RAG",
+    "question": "Walk through the implementation boundary in TakeOne.",
+    "quick": "The inspected SceneSearchEngine embeds text scene descriptions and stores them in ChromaDB.",
+    "standard": "The inspected SceneSearchEngine embeds text scene descriptions and stores them in ChromaDB.\n\nThe search engine defaults to all-MiniLM-L6-v2 and creates a persistent cosine-space collection. Its descriptions are produced by an ingestion pipeline; this path is not direct end-to-end raw-video embedding. Optional Gemini query expansion is initialized lazily.",
+    "deep": "The inspected SceneSearchEngine embeds text scene descriptions and stores them in ChromaDB.\n\nThe search engine defaults to all-MiniLM-L6-v2 and creates a persistent cosine-space collection. Its descriptions are produced by an ingestion pipeline; this path is not direct end-to-end raw-video embedding. Optional Gemini query expansion is initialized lazily.\n\nBegin at the linked implementation file, identify its input shape and ownership, then trace the output and error path.\n\nRetrieval can miss a visual detail that the description never mentioned. Evaluate description coverage separately from text retrieval and preserve scene IDs and timestamps. An alternative direct multimodal embedding path would be a proposed extension unless traced in another implementation.",
+    "followups": [
+      "What information is lost in descriptions?",
+      "What would you test before deploying this path?"
+    ],
+    "mistake": "Calling text-description search direct visual understanding.",
+    "difficulty": "Intermediate",
+    "type": "Architecture",
+    "tags": [
+      "RAG",
+      "Sentence Transformers",
+      "ChromaDB"
+    ],
+    "sources": [
+      {
+        "label": "TakeOne/README.md",
+        "url": "https://github.com/Prathmesh333/TakeOne/blob/eacfaf107662b353d0b0c75d4d6dd9ea7dee4029/README.md"
+      },
+      {
+        "label": "TakeOne/search/vector_search.py",
+        "url": "https://github.com/Prathmesh333/TakeOne/blob/eacfaf107662b353d0b0c75d4d6dd9ea7dee4029/search/vector_search.py"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "takeone-02",
+      "fh-rag-01",
+      "rag-01"
+    ]
+  },
+  {
+    "id": "takeone-04",
+    "project": "takeone",
+    "topic": "RAG",
+    "question": "How would you test and improve TakeOne?",
+    "quick": "I would establish a reproducible baseline and test the specific failure boundary exposed by this implementation.",
+    "standard": "I would establish a reproducible baseline and test the specific failure boundary exposed by this implementation.\n\nRetrieval can miss a visual detail that the description never mentioned. Evaluate description coverage separately from text retrieval and preserve scene IDs and timestamps. An alternative direct multimodal embedding path would be a proposed extension unless traced in another implementation.",
+    "deep": "I would establish a reproducible baseline and test the specific failure boundary exposed by this implementation.\n\nRetrieval can miss a visual detail that the description never mentioned. Evaluate description coverage separately from text retrieval and preserve scene IDs and timestamps. An alternative direct multimodal embedding path would be a proposed extension unless traced in another implementation.\n\nKeep the current implementation separate from the proposed improvement. Save representative inputs, expected outputs and a versioned configuration. Test normal inputs, malformed inputs and the failure case described above. For model outputs, include a held-out evaluation and inspect errors rather than treating a confidence field as proof.\n\nThe search engine defaults to all-MiniLM-L6-v2 and creates a persistent cosine-space collection. Its descriptions are produced by an ingestion pipeline; this path is not direct end-to-end raw-video embedding. Optional Gemini query expansion is initialized lazily.",
+    "followups": [
+      "What is the baseline?",
+      "What is the acceptance criterion?",
+      "How do you avoid leakage?"
+    ],
+    "mistake": "Presenting a proposed improvement as an already measured result.",
+    "difficulty": "Intermediate",
+    "type": "Research",
+    "tags": [
+      "RAG",
+      "Sentence Transformers",
+      "ChromaDB"
+    ],
+    "sources": [
+      {
+        "label": "TakeOne/README.md",
+        "url": "https://github.com/Prathmesh333/TakeOne/blob/eacfaf107662b353d0b0c75d4d6dd9ea7dee4029/README.md"
+      },
+      {
+        "label": "TakeOne/search/vector_search.py",
+        "url": "https://github.com/Prathmesh333/TakeOne/blob/eacfaf107662b353d0b0c75d4d6dd9ea7dee4029/search/vector_search.py"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "fh-rag-10",
+      "rag-02",
+      "rag-09"
+    ]
+  }
+]

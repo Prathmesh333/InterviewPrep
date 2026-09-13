@@ -1,0 +1,182 @@
+[
+  {
+    "id": "caniplay-01",
+    "project": "caniplay",
+    "topic": "Computer Networks",
+    "question": "What does CanIPlay measure?",
+    "quick": "I would describe it as browser-level endpoint timing and reachability heuristics, not an ICMP ping tool.",
+    "standard": "I would describe it as browser-level endpoint timing and reachability heuristics, not an ICMP ping tool.\n\ntestFetch times a no-cors fetch with performance.now; testImage times an image load. DNS, TLS, server behavior and browser policy can affect both. A response says little about the actual UDP game path.",
+    "deep": "I would describe it as browser-level endpoint timing and reachability heuristics, not an ICMP ping tool.\n\ntestFetch times a no-cors fetch with performance.now; testImage times an image load. DNS, TLS, server behavior and browser policy can affect both. A response says little about the actual UDP game path.\n\nThe fast-error branch labels some failures reachable. Fast failure could also be DNS rejection or local policy, so a safer design would expose an inconclusive state. Validate against controlled endpoints and explain that HTTP reachability cannot establish that a game session is playable.",
+    "followups": [
+      "Why not ICMP?",
+      "Does no-cors bypass browser security?"
+    ],
+    "mistake": "Calling browser fetch timing game-server ping.",
+    "difficulty": "Intermediate",
+    "type": "Project",
+    "tags": [
+      "Computer Networks",
+      "JavaScript",
+      "Browser APIs"
+    ],
+    "sources": [
+      {
+        "label": "CanIPlay/js/tester.js",
+        "url": "https://github.com/Prathmesh333/CanIPlay/blob/acf951b5e5353830e8ead892eb83b23048d1f22f/js/tester.js"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "caniplay-04",
+      "computer-networks-03",
+      "computer-networks-04"
+    ],
+    "evidence": "Code + README"
+  },
+  {
+    "id": "caniplay-02",
+    "project": "caniplay",
+    "topic": "Computer Networks",
+    "question": "How are jitter and packet loss calculated?",
+    "quick": "The stability test averages successful timings, uses mean absolute deviation for jitter and failed probes for a failure percentage.",
+    "standard": "The stability test averages successful timings, uses mean absolute deviation for jitter and failed probes for a failure percentage.\n\nrunStabilityTest runs multiple probes with delays. It computes the mean, min and max of reachable timings. The variable packetLoss is one minus the successful-probe fraction, and jitter is the average absolute deviation from the mean.",
+    "deep": "The stability test averages successful timings, uses mean absolute deviation for jitter and failed probes for a failure percentage.\n\nrunStabilityTest runs multiple probes with delays. It computes the mean, min and max of reachable timings. The variable packetLoss is one minus the successful-probe fraction, and jitter is the average absolute deviation from the mean.\n\nThose names should be qualified: HTTP probe failure rate is not measured network packet loss. Results also inherit the fast-error reachability heuristic. Report sample count and uncertainty; a handful of successes cannot prove a stable low-latency connection.",
+    "followups": [
+      "Why average absolute deviation?",
+      "What if every probe fails?"
+    ],
+    "mistake": "Interpreting an application failure rate as UDP packet loss.",
+    "difficulty": "Intermediate",
+    "type": "Project",
+    "tags": [
+      "Computer Networks",
+      "JavaScript",
+      "Browser APIs"
+    ],
+    "sources": [
+      {
+        "label": "CanIPlay/js/tester.js",
+        "url": "https://github.com/Prathmesh333/CanIPlay/blob/acf951b5e5353830e8ead892eb83b23048d1f22f/js/tester.js"
+      }
+    ],
+    "clarification": "Needs clarification from Prathmesh for personal benchmark numbers, hardware, dataset split and contribution. The linked code supports the described behavior.",
+    "related": [
+      "computer-networks-06",
+      "computer-networks-01",
+      "computer-networks-05"
+    ],
+    "evidence": "Code + README"
+  },
+  {
+    "id": "caniplay-03",
+    "project": "caniplay",
+    "topic": "Computer Networks",
+    "question": "How does cancellation interact with concurrency?",
+    "quick": "testAllServers runs batches of four, while cancel marks the outer controller aborted.",
+    "standard": "testAllServers runs batches of four, while cancel marks the outer controller aborted.\n\nThe loop checks the outer signal before new probes and between batches. Each fetch creates its own AbortController. Canceling the outer controller therefore does not directly abort every in-flight request. A new run can overlap with old work if state is reset early.",
+    "deep": "testAllServers runs batches of four, while cancel marks the outer controller aborted.\n\nThe loop checks the outer signal before new probes and between batches. Each fetch creates its own AbortController. Canceling the outer controller therefore does not directly abort every in-flight request. A new run can overlap with old work if state is reset early.\n\nI would pass a shared cancellation signal into probes or link child controllers, use a run ID to ignore stale results and clean timers in finally. Test cancellation mid-batch, an immediate restart and delayed responses arriving after cancellation. These are proposed fixes to explain from the inspected code.",
+    "followups": [
+      "Does cancel stop the current fetch?",
+      "How do stale results affect a new run?"
+    ],
+    "mistake": "Assuming one AbortController automatically cancels unrelated controllers.",
+    "difficulty": "Intermediate",
+    "type": "Project",
+    "tags": [
+      "Computer Networks",
+      "JavaScript",
+      "Browser APIs"
+    ],
+    "sources": [
+      {
+        "label": "CanIPlay/js/tester.js",
+        "url": "https://github.com/Prathmesh333/CanIPlay/blob/acf951b5e5353830e8ead892eb83b23048d1f22f/js/tester.js"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "computer-networks-01",
+      "computer-networks-05",
+      "computer-networks-06"
+    ],
+    "evidence": "Code + README"
+  },
+  {
+    "id": "caniplay-04",
+    "project": "caniplay",
+    "topic": "Computer Networks",
+    "question": "What did you personally implement in CanIPlay?",
+    "quick": "I need to connect my own contribution to specific files, commits and decisions before giving this answer.",
+    "standard": "I need to connect my own contribution to specific files, commits and decisions before giving this answer.\n\nUse the source links to identify the execution path, then name the part you owned and what changed. Repository ownership alone does not establish sole authorship, the hardest bug, a team disagreement or the outcome of an experiment.",
+    "deep": "I need to connect my own contribution to specific files, commits and decisions before giving this answer.\n\nUse the source links to identify the execution path, then name the part you owned and what changed. Repository ownership alone does not establish sole authorship, the hardest bug, a team disagreement or the outcome of an experiment.\n\nPrepare a concrete before/after example, the relevant commit, a test or experiment and one limitation. Say “the project implements” for verified code and “I implemented” only for work you can personally confirm. Leave numerical results out until tied to a run artifact.",
+    "followups": [
+      "Which commit is yours?",
+      "What broke?",
+      "What would you change today?"
+    ],
+    "mistake": "Inventing a personal debugging story from repository contents.",
+    "difficulty": "Intermediate",
+    "type": "Behavioral",
+    "tags": [
+      "Computer Networks",
+      "JavaScript",
+      "Browser APIs"
+    ],
+    "sources": [
+      {
+        "label": "CanIPlay/README.md",
+        "url": "https://github.com/Prathmesh333/CanIPlay/blob/acf951b5e5353830e8ead892eb83b23048d1f22f/README.md"
+      },
+      {
+        "label": "CanIPlay/js/tester.js",
+        "url": "https://github.com/Prathmesh333/CanIPlay/blob/acf951b5e5353830e8ead892eb83b23048d1f22f/js/tester.js"
+      }
+    ],
+    "clarification": "Needs clarification from Prathmesh. Personal contribution, motivation, debugging history and measured outcomes are not established by code alone.",
+    "related": [
+      "computer-networks-03",
+      "caniplay-01",
+      "computer-networks-04"
+    ],
+    "evidence": "Concept / practice",
+    "star": {
+      "Situation": "Use the actual project context.",
+      "Task": "State your personal responsibility.",
+      "Action": "Identify your change and reasoning.",
+      "Result": "Give a verified outcome, or state what remains unmeasured."
+    }
+  },
+  {
+    "id": "caniplay-05",
+    "project": "caniplay",
+    "topic": "Computer Networks",
+    "question": "How would you make CanIPlay’s measurements reproducible?",
+    "quick": "Use controlled endpoints, record raw samples and disclose what each timing includes.",
+    "standard": "Use controlled endpoints, record raw samples and disclose what each timing includes.\n\nThe existing history keeps a bounded set of recent results and the probe count is configurable. Results vary with cache, DNS, TLS, browser policy and endpoint behavior. Repeat measurements and compare distributions rather than a single number.",
+    "deep": "Use controlled endpoints, record raw samples and disclose what each timing includes.\n\nThe existing history keeps a bounded set of recent results and the probe count is configurable. Results vary with cache, DNS, TLS, browser policy and endpoint behavior. Repeat measurements and compare distributions rather than a single number.\n\nAdd run IDs, browser/network metadata and a distinction between successful response, fast failure and timeout. Cross-check against a trusted network tool on the same host without pretending the two measurements are identical. Benchmarks should retain the actual endpoint and timestamp.",
+    "followups": [
+      "How do caches affect results?",
+      "What is your uncertainty interval?"
+    ],
+    "mistake": "Labeling a handful of HTTP probes a rigorous game network benchmark.",
+    "difficulty": "Intermediate",
+    "type": "Architecture",
+    "tags": [
+      "Computer Networks",
+      "JavaScript",
+      "Browser APIs"
+    ],
+    "sources": [
+      {
+        "label": "CanIPlay/js/tester.js",
+        "url": "https://github.com/Prathmesh333/CanIPlay/blob/acf951b5e5353830e8ead892eb83b23048d1f22f/js/tester.js"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "caniplay-04",
+      "computer-networks-01",
+      "computer-networks-03"
+    ]
+  }
+]

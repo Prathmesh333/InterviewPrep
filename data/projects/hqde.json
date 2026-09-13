@@ -1,0 +1,687 @@
+[
+  {
+    "id": "hqde-01",
+    "project": "hqde",
+    "topic": "Distributed Systems",
+    "question": "Tell me about HQDE.",
+    "quick": "In my HQDE walkthrough, I separate two modes: independent model replicas and epoch-level federated synchronization. Both can run with Ray or local workers.",
+    "standard": "In my HQDE walkthrough, I separate two modes: independent model replicas and epoch-level federated synchronization. Both can run with Ray or local workers.\n\nThe package exposes HQDESystem over PyTorch models. Independent workers keep separate trajectories and combine logits at inference. In fedavg mode, workers start from a common state, train locally, then send states for delta aggregation and a server update. The current defaults include sample weighting, FedAdam and local BatchNorm preservation.",
+    "deep": "In my HQDE walkthrough, I separate two modes: independent model replicas and epoch-level federated synchronization. Both can run with Ray or local workers.\n\nThe package exposes HQDESystem over PyTorch models. Independent workers keep separate trajectories and combine logits at inference. In fedavg mode, workers start from a common state, train locally, then send states for delta aggregation and a server update. The current defaults include sample weighting, FedAdam and local BatchNorm preservation.\n\nTrace HQDESystem.initialize_ensemble into create_ensemble_workers, then train_ensemble. The same API does not imply the same algorithm: independent mode has no epoch weight broadcast. I would demonstrate a small repeatable run and show mode-specific accuracy and runtime logs before claiming a gain.",
+    "followups": [
+      "Which mode did your experiment use?",
+      "Why Ray?",
+      "Where are the benchmarks?"
+    ],
+    "mistake": "Claiming quantum hardware or measured speedup from the project name.",
+    "difficulty": "Intermediate",
+    "type": "Project",
+    "tags": [
+      "Distributed Systems",
+      "Ray",
+      "PyTorch",
+      "Ensembles"
+    ],
+    "sources": [
+      {
+        "label": "HQDE-PyPI/hqde/core/hqde_system.py:1219",
+        "url": "https://github.com/Prathmesh333/HQDE-PyPI/blob/725a32adb5ac35d74df41ee51c55a6d533f1d957/hqde/core/hqde_system.py#L1219"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "hqde-07",
+      "hqde-11",
+      "hqde-13"
+    ],
+    "evidence": "Code + README"
+  },
+  {
+    "id": "hqde-02",
+    "project": "hqde",
+    "topic": "Distributed Systems",
+    "question": "Walk through Algorithm 1 and the training entry point.",
+    "quick": "I would first identify the paper version. The executable path is HQDESystem.train → train_ensemble → worker train_step.",
+    "standard": "I would first identify the paper version. The executable path is HQDESystem.train → train_ensemble → worker train_step.\n\nThe manager configures worker optimizers, loops over epochs and batches, assigns replicated or split batches, launches worker calls and resolves their results. Federated aggregation runs at the epoch boundary, then learning-rate schedulers step and optional validation runs.",
+    "deep": "I would first identify the paper version. The executable path is HQDESystem.train → train_ensemble → worker train_step.\n\nThe manager configures worker optimizers, loops over epochs and batches, assigns replicated or split batches, launches worker calls and resolves their results. Federated aggregation runs at the epoch boundary, then learning-rate schedulers step and optional validation runs.\n\nAlgorithm numbering is not a stable code identifier. Map the supplied pseudocode line by line to this implementation and record differences. Need the exact paper/version before claiming that every proposed Algorithm 1 step is implemented. Batch barriers and epoch aggregation are separate synchronization points.",
+    "followups": [
+      "Where is synchronization?",
+      "What happens on a short batch?"
+    ],
+    "mistake": "Inventing an Algorithm 1 mapping without the paper.",
+    "difficulty": "Intermediate",
+    "type": "Architecture",
+    "tags": [
+      "Distributed Systems",
+      "Ray",
+      "PyTorch",
+      "Ensembles"
+    ],
+    "sources": [
+      {
+        "label": "HQDE-PyPI/hqde/core/hqde_system.py:1131",
+        "url": "https://github.com/Prathmesh333/HQDE-PyPI/blob/725a32adb5ac35d74df41ee51c55a6d533f1d957/hqde/core/hqde_system.py#L1131"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "distributed-systems-05",
+      "hqde-11",
+      "distributed-systems-01"
+    ],
+    "evidence": "Code + README"
+  },
+  {
+    "id": "hqde-03",
+    "project": "hqde",
+    "topic": "Distributed Systems",
+    "question": "Why use Ray actors instead of tasks, multiprocessing, or DDP?",
+    "quick": "Each worker keeps its model, optimizer and scheduler alive across calls, which fits a stateful Ray actor.",
+    "standard": "Each worker keeps its model, optimizer and scheduler alive across calls, which fits a stateful Ray actor.\n\nA task suits a stateless unit of work; an actor owns mutable training state. Multiprocessing can support a single-machine worker pool but needs extra distributed orchestration. DDP targets synchronized gradient data parallelism. HQDE instead controls independent or local-update training with explicit aggregation.",
+    "deep": "Each worker keeps its model, optimizer and scheduler alive across calls, which fits a stateful Ray actor.\n\nA task suits a stateless unit of work; an actor owns mutable training state. Multiprocessing can support a single-machine worker pool but needs extra distributed orchestration. DDP targets synchronized gradient data parallelism. HQDE instead controls independent or local-update training with explicit aggregation.\n\nRay does not make this loop asynchronous by itself. The manager submits calls, then resolves a collection before continuing. Cluster scheduling, object transfer and model memory still need measurement. I would compare DDP for one jointly trained model and Ray for this replica-oriented experiment.",
+    "followups": [
+      "Why not Spark?",
+      "How does an ObjectRef work?",
+      "What persists in the actor?"
+    ],
+    "mistake": "Calling all distributed training DDP.",
+    "difficulty": "Intermediate",
+    "type": "Project",
+    "tags": [
+      "Distributed Systems",
+      "Ray",
+      "PyTorch",
+      "Ensembles"
+    ],
+    "sources": [
+      {
+        "label": "HQDE-PyPI/hqde/core/hqde_system.py:710",
+        "url": "https://github.com/Prathmesh333/HQDE-PyPI/blob/725a32adb5ac35d74df41ee51c55a6d533f1d957/hqde/core/hqde_system.py#L710"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "hqde-07",
+      "hqde-09",
+      "hqde-12"
+    ],
+    "evidence": "Code + README"
+  },
+  {
+    "id": "hqde-04",
+    "project": "hqde",
+    "topic": "Distributed Systems",
+    "question": "How does independent training create worker diversity?",
+    "quick": "The constructor offers learning-rate and dropout variation, but the normal training setup passes a common learning rate. I would not claim effective learning-rate diversity from constructor values alone.",
+    "standard": "The constructor offers learning-rate and dropout variation, but the normal training setup passes a common learning rate. I would not claim effective learning-rate diversity from constructor values alone.\n\ncreate_ensemble_workers records distinct learning rates in independent mode and uniform values in fedavg mode. However, setup_workers_training passes the same configured learning rate to every setup_training call, overriding the constructor values in the usual train path. Dropout variation only applies if the model accepts dropout_rate and model_kwargs does not already set it.",
+    "deep": "The constructor offers learning-rate and dropout variation, but the normal training setup passes a common learning rate. I would not claim effective learning-rate diversity from constructor values alone.\n\ncreate_ensemble_workers records distinct learning rates in independent mode and uniform values in fedavg mode. However, setup_workers_training passes the same configured learning rate to every setup_training call, overriding the constructor values in the usual train path. Dropout variation only applies if the model accepts dropout_rate and model_kwargs does not already set it.\n\nThis is an ownership-level debugging question: trace configuration all the way to optimizer.param_groups, not just object construction. Log the effective rate and dropout modules on each worker. A proposed fix would preserve per-worker multipliers through optimizer setup, then compare identical workers, rate diversity, dropout diversity and both at equal compute. The inspected code does not prove that rate diversity improves quality.",
+    "followups": [
+      "Why not use diversity in FedAvg?",
+      "How would you measure error correlation?"
+    ],
+    "mistake": "Assuming worker count alone guarantees an ensemble improvement.",
+    "difficulty": "Intermediate",
+    "type": "Project",
+    "tags": [
+      "Distributed Systems",
+      "Ray",
+      "PyTorch",
+      "Ensembles"
+    ],
+    "sources": [
+      {
+        "label": "HQDE-PyPI/hqde/core/hqde_system.py:831",
+        "url": "https://github.com/Prathmesh333/HQDE-PyPI/blob/725a32adb5ac35d74df41ee51c55a6d533f1d957/hqde/core/hqde_system.py#L831"
+      },
+      {
+        "label": "HQDE-PyPI/hqde/core/hqde_system.py:503",
+        "url": "https://github.com/Prathmesh333/HQDE-PyPI/blob/725a32adb5ac35d74df41ee51c55a6d533f1d957/hqde/core/hqde_system.py#L503"
+      },
+      {
+        "label": "HQDE-PyPI/hqde/core/hqde_system.py:889",
+        "url": "https://github.com/Prathmesh333/HQDE-PyPI/blob/725a32adb5ac35d74df41ee51c55a6d533f1d957/hqde/core/hqde_system.py#L889"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "hqde-11",
+      "distributed-systems-01",
+      "distributed-systems-03"
+    ],
+    "evidence": "Code + README"
+  },
+  {
+    "id": "hqde-05",
+    "project": "hqde",
+    "topic": "Distributed Systems",
+    "question": "Explain prediction fusion.",
+    "quick": "The manager obtains worker logits for the same batch and combines them using a mean or efficiency-weighted aggregation.",
+    "standard": "The manager obtains worker logits for the same batch and combines them using a mean or efficiency-weighted aggregation.\n\npredict_batch dispatches predict on every worker and resolves the outputs. The mean path stacks logits and averages across the worker dimension. The alternative delegates to efficiency_weighted_aggregation. This produces an inference output without changing model parameters.",
+    "deep": "The manager obtains worker logits for the same batch and combines them using a mean or efficiency-weighted aggregation.\n\npredict_batch dispatches predict on every worker and resolves the outputs. The mean path stacks logits and averages across the worker dimension. The alternative delegates to efficiency_weighted_aggregation. This produces an inference output without changing model parameters.\n\nAveraging logits differs from voting on argmax classes or averaging softmax probabilities. Calibration and scale can affect the result. I would compare these on a held-out set, fixing worker models and measuring both classification quality and added inference latency.",
+    "followups": [
+      "Are logits probabilities?",
+      "How are weights normalized?"
+    ],
+    "mistake": "Confusing prediction fusion with model-state aggregation.",
+    "difficulty": "Intermediate",
+    "type": "Project",
+    "tags": [
+      "Distributed Systems",
+      "Ray",
+      "PyTorch",
+      "Ensembles"
+    ],
+    "sources": [
+      {
+        "label": "HQDE-PyPI/hqde/core/hqde_system.py:1004",
+        "url": "https://github.com/Prathmesh333/HQDE-PyPI/blob/725a32adb5ac35d74df41ee51c55a6d533f1d957/hqde/core/hqde_system.py#L1004"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "distributed-systems-02",
+      "hqde-06",
+      "distributed-systems-01"
+    ],
+    "evidence": "Code + README"
+  },
+  {
+    "id": "hqde-06",
+    "project": "hqde",
+    "topic": "Distributed Systems",
+    "question": "Explain delta aggregation and FedAdam.",
+    "quick": "A worker delta is its local parameter minus the shared reference. HQDE combines these deltas and applies a server update.",
+    "standard": "A worker delta is its local parameter minus the shared reference. HQDE combines these deltas and applies a server update.\n\naggregate_weights fetches local states, subtracts reference_weights, optionally quantizes each delta, and chooses sample, mean or efficiency weighting. With the mean server optimizer it adds the aggregate delta to the reference. FedAdam instead maintains first and second moments and scales the update.",
+    "deep": "A worker delta is its local parameter minus the shared reference. HQDE combines these deltas and applies a server update.\n\naggregate_weights fetches local states, subtracts reference_weights, optionally quantizes each delta, and chooses sample, mean or efficiency weighting. With the mean server optimizer it adds the aggregate delta to the reference. FedAdam instead maintains first and second moments and scales the update.\n\nFor worker i, delta_i = theta_i − theta_ref. Sample weighting uses the observed round sample counts. FedAdam uses bias-corrected moments of the aggregate update; this code adds the resulting direction to the reference. Delta values alone have the same element count as full weights; compression needs an additional encoding.",
+    "followups": [
+      "Why use a shared initialization?",
+      "Does a delta automatically reduce bytes?",
+      "Where is optimizer state stored?"
+    ],
+    "mistake": "Saying delta aggregation alone compresses communication.",
+    "difficulty": "Advanced",
+    "type": "Project",
+    "tags": [
+      "Distributed Systems",
+      "Ray",
+      "PyTorch",
+      "Ensembles"
+    ],
+    "sources": [
+      {
+        "label": "HQDE-PyPI/hqde/core/hqde_system.py:900",
+        "url": "https://github.com/Prathmesh333/HQDE-PyPI/blob/725a32adb5ac35d74df41ee51c55a6d533f1d957/hqde/core/hqde_system.py#L900"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "distributed-systems-02",
+      "distributed-systems-01",
+      "distributed-systems-03"
+    ],
+    "evidence": "Code + README"
+  },
+  {
+    "id": "hqde-07",
+    "project": "hqde",
+    "topic": "Distributed Systems",
+    "question": "Does HQDE quantization reduce actual Ray network traffic?",
+    "quick": "The current core simulates delta quantization after fetching worker states. Its byte counters are not an end-to-end Ray traffic measurement.",
+    "standard": "The current core simulates delta quantization after fetching worker states. Its byte counters are not an end-to-end Ray traffic measurement.\n\naggregate_weights first resolves get_weights for all workers, then computes and quantizes deltas on the manager. AdaptiveQuantizer reconstructs tensors and records an estimated encoded size. This can measure numerical effects and an encoding budget, but full worker states have already reached the manager.",
+    "deep": "The current core simulates delta quantization after fetching worker states. Its byte counters are not an end-to-end Ray traffic measurement.\n\naggregate_weights first resolves get_weights for all workers, then computes and quantizes deltas on the manager. AdaptiveQuantizer reconstructs tensors and records an estimated encoded size. This can measure numerical effects and an encoding budget, but full worker states have already reached the manager.\n\nA real communication-compression path would quantize on the worker, serialize packed integers plus scale metadata, transmit that payload, and decode at the receiver. Measure wire bytes including metadata, broadcast, retries and object-store transfers. Compare that with accuracy and wall-clock time.",
+    "followups": [
+      "Where does quantization execute?",
+      "Are 12-bit integers actually packed?"
+    ],
+    "mistake": "Presenting an estimated compression ratio as measured network savings.",
+    "difficulty": "Advanced",
+    "type": "Project",
+    "tags": [
+      "Distributed Systems",
+      "Ray",
+      "PyTorch",
+      "Ensembles"
+    ],
+    "sources": [
+      {
+        "label": "HQDE-PyPI/hqde/core/hqde_system.py:900",
+        "url": "https://github.com/Prathmesh333/HQDE-PyPI/blob/725a32adb5ac35d74df41ee51c55a6d533f1d957/hqde/core/hqde_system.py#L900"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "hqde-11",
+      "distributed-systems-04",
+      "distributed-systems-06"
+    ],
+    "evidence": "Code + README"
+  },
+  {
+    "id": "hqde-08",
+    "project": "hqde",
+    "topic": "Distributed Systems",
+    "question": "How do adaptive quantization and error feedback work?",
+    "quick": "The quantizer uses blockwise symmetric rounding, skips sensitive tensors and stores residual error for later rounds.",
+    "standard": "The quantizer uses blockwise symmetric rounding, skips sensitive tensors and stores residual error for later rounds.\n\nFor each block, a scale maps values to a signed integer range. The reconstructed tensor approximates the delta. Error feedback retains the difference between the working delta and reconstruction per worker and parameter, then adds that residual to a later update. Warmup rounds and skip rules reduce early damage.",
+    "deep": "The quantizer uses blockwise symmetric rounding, skips sensitive tensors and stores residual error for later rounds.\n\nFor each block, a scale maps values to a signed integer range. The reconstructed tensor approximates the delta. Error feedback retains the difference between the working delta and reconstruction per worker and parameter, then adds that residual to a later update. Warmup rounds and skip rules reduce early damage.\n\nAn outlier can inflate a block scale and make small values disappear. Smaller blocks improve resolution but require more scale metadata. Persist residual buffers in checkpoints; otherwise restart behavior differs. Evaluate bias, normalization and small-tensor skips separately from the bit schedule.",
+    "followups": [
+      "Why skip normalization tensors?",
+      "What is the residual buffer key?"
+    ],
+    "mistake": "Treating lower precision as free accuracy.",
+    "difficulty": "Advanced",
+    "type": "Project",
+    "tags": [
+      "Distributed Systems",
+      "Ray",
+      "PyTorch",
+      "Ensembles"
+    ],
+    "sources": [
+      {
+        "label": "HQDE-PyPI/hqde/core/hqde_system.py:240",
+        "url": "https://github.com/Prathmesh333/HQDE-PyPI/blob/725a32adb5ac35d74df41ee51c55a6d533f1d957/hqde/core/hqde_system.py#L240"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "distributed-systems-01",
+      "distributed-systems-03",
+      "distributed-systems-04"
+    ],
+    "evidence": "Code + README"
+  },
+  {
+    "id": "hqde-09",
+    "project": "hqde",
+    "topic": "Distributed Systems",
+    "question": "Why preserve local BatchNorm state?",
+    "quick": "Different worker data distributions can produce different normalization statistics, so the federated path can preserve local BatchNorm state.",
+    "standard": "Different worker data distributions can produce different normalization statistics, so the federated path can preserve local BatchNorm state.\n\nThe manager discovers normalization keys from a worker and excludes those keys from global replacement. Initial synchronization still broadcasts the starting state with preservation disabled. Later broadcasts preserve local keys when local_bn is active.",
+    "deep": "Different worker data distributions can produce different normalization statistics, so the federated path can preserve local BatchNorm state.\n\nThe manager discovers normalization keys from a worker and excludes those keys from global replacement. Initial synchronization still broadcasts the starting state with preservation disabled. Later broadcasts preserve local keys when local_bn is active.\n\nThis changes how inference should be interpreted: local normalization and global shared weights can coexist. Check which worker statistics are used during evaluation and compare local_bn against globally averaged normalization on IID and non-IID partitions. It is a design choice, not evidence of a guaranteed improvement.",
+    "followups": [
+      "Which keys are preserved?",
+      "What happens on the first broadcast?"
+    ],
+    "mistake": "Averaging every state_dict tensor without considering its meaning.",
+    "difficulty": "Advanced",
+    "type": "Project",
+    "tags": [
+      "Distributed Systems",
+      "Ray",
+      "PyTorch",
+      "Ensembles"
+    ],
+    "sources": [
+      {
+        "label": "HQDE-PyPI/hqde/core/hqde_system.py:995",
+        "url": "https://github.com/Prathmesh333/HQDE-PyPI/blob/725a32adb5ac35d74df41ee51c55a6d533f1d957/hqde/core/hqde_system.py#L995"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "hqde-03",
+      "hqde-15",
+      "distributed-systems-01"
+    ],
+    "evidence": "Code + README"
+  },
+  {
+    "id": "hqde-10",
+    "project": "hqde",
+    "topic": "Distributed Systems",
+    "question": "How are optimizer and checkpoint states handled?",
+    "quick": "Workers own optimization state; the system checkpoint also records manager state needed to continue federated updates.",
+    "standard": "Workers own optimization state; the system checkpoint also records manager state needed to continue federated updates.\n\nWorker checkpoints include model and optimizer-related state. save_model includes worker checkpoints and quantization state, which carries reference weights, round counters, residuals and server optimizer moments. These affect the next update, not just the next prediction.",
+    "deep": "Workers own optimization state; the system checkpoint also records manager state needed to continue federated updates.\n\nWorker checkpoints include model and optimizer-related state. save_model includes worker checkpoints and quantization state, which carries reference weights, round counters, residuals and server optimizer moments. These affect the next update, not just the next prediction.\n\nA weight-only checkpoint can restore inference but fail to reproduce resumed training. I would test uninterrupted versus interrupted/resumed runs with fixed batches and seeds. Also inspect scheduler, random number generator and dataloader position coverage before promising exact mid-epoch recovery.",
+    "followups": [
+      "Is saving weights enough?",
+      "What happens to residuals after restart?"
+    ],
+    "mistake": "Equating checkpoint support with automatic actor recovery.",
+    "difficulty": "Intermediate",
+    "type": "Project",
+    "tags": [
+      "Distributed Systems",
+      "Ray",
+      "PyTorch",
+      "Ensembles"
+    ],
+    "sources": [
+      {
+        "label": "HQDE-PyPI/hqde/core/hqde_system.py:1360",
+        "url": "https://github.com/Prathmesh333/HQDE-PyPI/blob/725a32adb5ac35d74df41ee51c55a6d533f1d957/hqde/core/hqde_system.py#L1360"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "distributed-systems-01",
+      "distributed-systems-03",
+      "distributed-systems-04"
+    ],
+    "evidence": "Code + README"
+  },
+  {
+    "id": "hqde-11",
+    "project": "hqde",
+    "topic": "Distributed Systems",
+    "question": "Does the default HQDE training path guarantee Byzantine tolerance?",
+    "quick": "The repository has a separate ByzantineFaultTolerantAggregator, but its presence does not prove the core training path uses it.",
+    "standard": "The repository has a separate ByzantineFaultTolerantAggregator, but its presence does not prove the core training path uses it.\n\nThe fault_tolerance module offers filtering and robust aggregation utilities. The inspected core manager uses QuantumInspiredAggregator and ordinary weighting paths. I would name the actual configured call path before claiming protection from corrupted workers.",
+    "deep": "The repository has a separate ByzantineFaultTolerantAggregator, but its presence does not prove the core training path uses it.\n\nThe fault_tolerance module offers filtering and robust aggregation utilities. The inspected core manager uses QuantumInspiredAggregator and ordinary weighting paths. I would name the actual configured call path before claiming protection from corrupted workers.\n\nA crash stops producing results; a Byzantine worker can return plausible but harmful results. Test malformed tensors, sign flips, scaled updates and coordinated attacks. Robust aggregation assumptions depend on worker count and honest-data variation. A parameter named byzantine_threshold is not a proof.",
+    "followups": [
+      "Where is the robust aggregator called?",
+      "What if honest workers are non-IID?"
+    ],
+    "mistake": "Claiming a universal one-third fault guarantee from a configuration default.",
+    "difficulty": "Advanced",
+    "type": "Architecture",
+    "tags": [
+      "Distributed Systems",
+      "Ray",
+      "PyTorch",
+      "Ensembles"
+    ],
+    "sources": [
+      {
+        "label": "HQDE-PyPI/hqde/core/hqde_system.py:900",
+        "url": "https://github.com/Prathmesh333/HQDE-PyPI/blob/725a32adb5ac35d74df41ee51c55a6d533f1d957/hqde/core/hqde_system.py#L900"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "distributed-systems-05",
+      "distributed-systems-06",
+      "hqde-02"
+    ],
+    "evidence": "Code + README"
+  },
+  {
+    "id": "hqde-12",
+    "project": "hqde",
+    "topic": "Distributed Systems",
+    "question": "What happens when a worker is slow or crashes?",
+    "quick": "The batch loop resolves a collection of worker calls, so a slow worker can delay the next batch.",
+    "standard": "The batch loop resolves a collection of worker calls, so a slow worker can delay the next batch.\n\ntrain_ensemble waits for batch results. Checkpoint utilities help recover state, but the inspected worker declaration does not configure an application recovery protocol. A production design needs bounded waits, restart settings, checkpoint restore and a rule for partial participation.",
+    "deep": "The batch loop resolves a collection of worker calls, so a slow worker can delay the next batch.\n\ntrain_ensemble waits for batch results. Checkpoint utilities help recover state, but the inspected worker declaration does not configure an application recovery protocol. A production design needs bounded waits, restart settings, checkpoint restore and a rule for partial participation.\n\nDropping a late worker changes sample weighting and possibly class coverage. Asynchronous updates reduce barriers but introduce stale deltas and harder reproducibility. Measure p50 and p95 step time and failure recovery separately; do not claim automatic fault tolerance because Ray is installed.",
+    "followups": [
+      "Would you use ray.wait?",
+      "How do stale updates affect training?"
+    ],
+    "mistake": "Assuming scheduling is the same thing as application recovery.",
+    "difficulty": "Intermediate",
+    "type": "Project",
+    "tags": [
+      "Distributed Systems",
+      "Ray",
+      "PyTorch",
+      "Ensembles"
+    ],
+    "sources": [
+      {
+        "label": "HQDE-PyPI/hqde/core/hqde_system.py:1131",
+        "url": "https://github.com/Prathmesh333/HQDE-PyPI/blob/725a32adb5ac35d74df41ee51c55a6d533f1d957/hqde/core/hqde_system.py#L1131"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "distributed-systems-05",
+      "distributed-systems-04",
+      "distributed-systems-06"
+    ],
+    "evidence": "Code + README"
+  },
+  {
+    "id": "hqde-13",
+    "project": "hqde",
+    "topic": "Distributed Systems",
+    "question": "How would you scale HQDE from one machine to a cluster?",
+    "quick": "I would make resource placement, dataset distribution and checkpoint storage explicit, then benchmark communication and stragglers.",
+    "standard": "I would make resource placement, dataset distribution and checkpoint storage explicit, then benchmark communication and stragglers.\n\nThe code computes per-worker GPU requests from visible GPU count and uses optional Ray workers. A real cluster needs consistent environments, appropriate resource requests, accessible data and a connected Ray runtime. Fractional GPU scheduling does not partition GPU memory.",
+    "deep": "I would make resource placement, dataset distribution and checkpoint storage explicit, then benchmark communication and stragglers.\n\nThe code computes per-worker GPU requests from visible GPU count and uses optional Ray workers. A real cluster needs consistent environments, appropriate resource requests, accessible data and a connected Ray runtime. Fractional GPU scheduling does not partition GPU memory.\n\nCompare 1, 2 and 4 workers at fixed total samples and at fixed per-worker work. Record setup time separately, GPU utilization, object-store pressure and aggregate bytes. Validate that worker placement matches intended hardware. Scaling claims need executed logs, not configuration examples.",
+    "followups": [
+      "What if all actors share one GPU?",
+      "Strong or weak scaling?"
+    ],
+    "mistake": "Treating num_workers as a measured speedup.",
+    "difficulty": "Intermediate",
+    "type": "Project",
+    "tags": [
+      "Distributed Systems",
+      "Ray",
+      "PyTorch",
+      "Ensembles"
+    ],
+    "sources": [
+      {
+        "label": "HQDE-PyPI/hqde/core/hqde_system.py:831",
+        "url": "https://github.com/Prathmesh333/HQDE-PyPI/blob/725a32adb5ac35d74df41ee51c55a6d533f1d957/hqde/core/hqde_system.py#L831"
+      }
+    ],
+    "clarification": "Needs clarification from Prathmesh for personal benchmark numbers, hardware, dataset split and contribution. The linked code supports the described behavior.",
+    "related": [
+      "hqde-16",
+      "distributed-systems-04",
+      "hqde-17"
+    ],
+    "evidence": "Code + README"
+  },
+  {
+    "id": "hqde-14",
+    "project": "hqde",
+    "topic": "Distributed Systems",
+    "question": "What does quantum-inspired mean here?",
+    "quick": "The core includes classical tensor operations and noise-based aggregation utilities. I would not describe that as quantum hardware execution.",
+    "standard": "The core includes classical tensor operations and noise-based aggregation utilities. I would not describe that as quantum hardware execution.\n\nQuantumInspiredAggregator includes noise injection and efficiency-weighted combination. Other quantum utilities live in a separate package area. The exact experiment must identify which operations are invoked, and a quantum advantage claim would need a different kind of evidence.",
+    "deep": "The core includes classical tensor operations and noise-based aggregation utilities. I would not describe that as quantum hardware execution.\n\nQuantumInspiredAggregator includes noise injection and efficiency-weighted combination. Other quantum utilities live in a separate package area. The exact experiment must identify which operations are invoked, and a quantum advantage claim would need a different kind of evidence.\n\nSeparate branding, mathematical inspiration and measured algorithmic benefit. Ablate stochastic noise and weighting against a plain mean with multiple seeds. Check whether evaluation is deterministic and whether noise improves anything beyond ordinary randomized regularization.",
+    "followups": [
+      "Which function adds noise?",
+      "Did you run a quantum circuit?"
+    ],
+    "mistake": "Claiming quantum speedup without hardware and benchmark evidence.",
+    "difficulty": "Intermediate",
+    "type": "Project",
+    "tags": [
+      "Distributed Systems",
+      "Ray",
+      "PyTorch",
+      "Ensembles"
+    ],
+    "sources": [
+      {
+        "label": "HQDE-PyPI/hqde/core/hqde_system.py:436",
+        "url": "https://github.com/Prathmesh333/HQDE-PyPI/blob/725a32adb5ac35d74df41ee51c55a6d533f1d957/hqde/core/hqde_system.py#L436"
+      }
+    ],
+    "clarification": "Needs clarification from Prathmesh for personal benchmark numbers, hardware, dataset split and contribution. The linked code supports the described behavior.",
+    "related": [
+      "distributed-systems-06",
+      "distributed-systems-05",
+      "hqde-04"
+    ],
+    "evidence": "Code + README"
+  },
+  {
+    "id": "hqde-15",
+    "project": "hqde",
+    "topic": "Distributed Systems",
+    "question": "Why ResNet, SmallResNet, MNIST, CIFAR-10 and SVHN?",
+    "quick": "Residual vision models provide a controlled test bed, but model and dataset names must match the actual experiment configuration.",
+    "standard": "Residual vision models provide a controlled test bed, but model and dataset names must match the actual experiment configuration.\n\nThe repository includes vision models such as SmallImageResNet18 and benchmark examples. MNIST is grayscale digits, CIFAR-10 is small natural images and SVHN is street-view digits. Input channels, normalization and augmentation must match each dataset.",
+    "deep": "Residual vision models provide a controlled test bed, but model and dataset names must match the actual experiment configuration.\n\nThe repository includes vision models such as SmallImageResNet18 and benchmark examples. MNIST is grayscale digits, CIFAR-10 is small natural images and SVHN is street-view digits. Input channels, normalization and augmentation must match each dataset.\n\nCompare a single model and the ensemble under equal compute and identical splits. A large standard ImageNet stem can discard too much detail on small images; inspect the selected model class. Dataset examples prove support or intent, not that every experiment was executed successfully.",
+    "followups": [
+      "Which class did your run instantiate?",
+      "How did preprocessing differ?"
+    ],
+    "mistake": "Reporting numbers that are not in an executed result artifact.",
+    "difficulty": "Intermediate",
+    "type": "Project",
+    "tags": [
+      "Distributed Systems",
+      "Ray",
+      "PyTorch",
+      "Ensembles"
+    ],
+    "sources": [
+      {
+        "label": "HQDE-PyPI/hqde/core/hqde_system.py:1265",
+        "url": "https://github.com/Prathmesh333/HQDE-PyPI/blob/725a32adb5ac35d74df41ee51c55a6d533f1d957/hqde/core/hqde_system.py#L1265"
+      }
+    ],
+    "clarification": "Needs clarification from Prathmesh for personal benchmark numbers, hardware, dataset split and contribution. The linked code supports the described behavior.",
+    "related": [
+      "distributed-systems-01",
+      "distributed-systems-02",
+      "distributed-systems-03"
+    ],
+    "evidence": "Code + README"
+  },
+  {
+    "id": "hqde-16",
+    "project": "hqde",
+    "topic": "Distributed Systems",
+    "question": "How would you design HQDE ablations?",
+    "quick": "I would change one mechanism at a time and keep data splits, compute budgets and seeds comparable.",
+    "standard": "I would change one mechanism at a time and keep data splits, compute budgets and seeds comparable.\n\nUse a single-worker baseline, independent mean ensemble, federated mean updates, FedAdam, local BatchNorm and quantization variants. Record accuracy together with training time, inference time and memory. Pair runs on the same seeds to reduce irrelevant variance.",
+    "deep": "I would change one mechanism at a time and keep data splits, compute budgets and seeds comparable.\n\nUse a single-worker baseline, independent mean ensemble, federated mean updates, FedAdam, local BatchNorm and quantization variants. Record accuracy together with training time, inference time and memory. Pair runs on the same seeds to reduce irrelevant variance.\n\nA factorial subset can expose interactions: quantization might behave differently with server moments or local normalization. Report confidence intervals over runs, not variation over individual test examples alone. Keep hyperparameter selection away from the test set and retain failed runs in the experiment log.",
+    "followups": [
+      "What is the hypothesis?",
+      "Which comparison isolates quantization?"
+    ],
+    "mistake": "Attributing an improvement to one component when several changed.",
+    "difficulty": "Intermediate",
+    "type": "Project",
+    "tags": [
+      "Distributed Systems",
+      "Ray",
+      "PyTorch",
+      "Ensembles"
+    ],
+    "sources": [
+      {
+        "label": "HQDE-PyPI/hqde/core/hqde_system.py:1131",
+        "url": "https://github.com/Prathmesh333/HQDE-PyPI/blob/725a32adb5ac35d74df41ee51c55a6d533f1d957/hqde/core/hqde_system.py#L1131"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "hqde-13",
+      "hqde-17",
+      "distributed-systems-01"
+    ],
+    "evidence": "Code + README"
+  },
+  {
+    "id": "hqde-17",
+    "project": "hqde",
+    "topic": "Distributed Systems",
+    "question": "What did you personally implement in HQDE?",
+    "quick": "I need to connect my own contribution to specific files, commits and decisions before giving this answer.",
+    "standard": "I need to connect my own contribution to specific files, commits and decisions before giving this answer.\n\nUse the source links to identify the execution path, then name the part you owned and what changed. Repository ownership alone does not establish sole authorship, the hardest bug, a team disagreement or the outcome of an experiment.",
+    "deep": "I need to connect my own contribution to specific files, commits and decisions before giving this answer.\n\nUse the source links to identify the execution path, then name the part you owned and what changed. Repository ownership alone does not establish sole authorship, the hardest bug, a team disagreement or the outcome of an experiment.\n\nPrepare a concrete before/after example, the relevant commit, a test or experiment and one limitation. Say “the project implements” for verified code and “I implemented” only for work you can personally confirm. Leave numerical results out until tied to a run artifact.",
+    "followups": [
+      "Which commit is yours?",
+      "What broke?",
+      "What would you change today?"
+    ],
+    "mistake": "Inventing a personal debugging story from repository contents.",
+    "difficulty": "Intermediate",
+    "type": "Behavioral",
+    "tags": [
+      "Distributed Systems",
+      "Ray",
+      "PyTorch",
+      "Ensembles"
+    ],
+    "sources": [
+      {
+        "label": "HQDE-PyPI/README.md",
+        "url": "https://github.com/Prathmesh333/HQDE-PyPI/blob/725a32adb5ac35d74df41ee51c55a6d533f1d957/README.md"
+      },
+      {
+        "label": "HQDE-PyPI/hqde/core/hqde_system.py",
+        "url": "https://github.com/Prathmesh333/HQDE-PyPI/blob/725a32adb5ac35d74df41ee51c55a6d533f1d957/hqde/core/hqde_system.py"
+      }
+    ],
+    "clarification": "Needs clarification from Prathmesh. Personal contribution, motivation, debugging history and measured outcomes are not established by code alone.",
+    "related": [
+      "hqde-13",
+      "hqde-16",
+      "distributed-systems-05"
+    ],
+    "evidence": "Concept / practice",
+    "star": {
+      "Situation": "Use the actual project context.",
+      "Task": "State your personal responsibility.",
+      "Action": "Identify your change and reasoning.",
+      "Result": "Give a verified outcome, or state what remains unmeasured."
+    }
+  },
+  {
+    "id": "hqde-18",
+    "project": "hqde",
+    "topic": "Distributed Systems",
+    "question": "How does the separate MapReduce module differ from the core manager?",
+    "quick": "The repository contains a MapReduce-inspired module with Ray-backed weight storage, but the main trainer does not automatically use every utility.",
+    "standard": "The repository contains a MapReduce-inspired module with Ray-backed weight storage, but the main trainer does not automatically use every utility.\n\nDistributedWeightStore is a remote actor with CPU tensors, metadata and access counters. It is separate from DistributedEnsembleManager in core/hqde_system.py. Explain which entry point invokes it before attributing MapReduce behavior to a benchmark.",
+    "deep": "The repository contains a MapReduce-inspired module with Ray-backed weight storage, but the main trainer does not automatically use every utility.\n\nDistributedWeightStore is a remote actor with CPU tensors, metadata and access counters. It is separate from DistributedEnsembleManager in core/hqde_system.py. Explain which entry point invokes it before attributing MapReduce behavior to a benchmark.\n\nThe presence of replication_factor in a constructor does not by itself prove durable replicated storage. Trace writes, copies, failure recovery and reductions. If integrating this module, test loss of a store and numerical consistency against a single-process aggregation baseline.",
+    "followups": [
+      "Where is the module called?",
+      "Is replication durable?"
+    ],
+    "mistake": "Assuming a module name describes every training run.",
+    "difficulty": "Intermediate",
+    "type": "Architecture",
+    "tags": [
+      "Distributed Systems",
+      "Ray",
+      "PyTorch",
+      "Ensembles"
+    ],
+    "sources": [
+      {
+        "label": "HQDE-PyPI/hqde/distributed/mapreduce_ensemble.py",
+        "url": "https://github.com/Prathmesh333/HQDE-PyPI/blob/725a32adb5ac35d74df41ee51c55a6d533f1d957/hqde/distributed/mapreduce_ensemble.py"
+      }
+    ],
+    "clarification": "Needs clarification from Prathmesh for personal benchmark numbers, hardware, dataset split and contribution. The linked code supports the described behavior.",
+    "related": [
+      "distributed-systems-01",
+      "distributed-systems-03",
+      "distributed-systems-04"
+    ]
+  },
+  {
+    "id": "hqde-19",
+    "project": "hqde",
+    "topic": "Distributed Systems",
+    "question": "How are local optimization and evaluation performed?",
+    "quick": "Each worker configures its own optimizer, criterion and scheduler, and the manager aggregates reported training statistics.",
+    "standard": "Each worker configures its own optimizer, criterion and scheduler, and the manager aggregates reported training statistics.\n\nsetup_training supports SGD, Adam or AdamW, a cosine schedule with optional warmup, label smoothing and conditional mixed precision. The worker state survives calls. Validation uses the ensemble output rather than assuming average worker accuracy equals ensemble accuracy.",
+    "deep": "Each worker configures its own optimizer, criterion and scheduler, and the manager aggregates reported training statistics.\n\nsetup_training supports SGD, Adam or AdamW, a cosine schedule with optional warmup, label smoothing and conditional mixed precision. The worker state survives calls. Validation uses the ensemble output rather than assuming average worker accuracy equals ensemble accuracy.\n\nBatchNorm and dropout modes must match training or evaluation. Track effective learning rates from the actual optimizer, not just configuration. Distinguish accuracy averaged over worker batches from the accuracy of fused logits on one shared evaluation set.",
+    "followups": [
+      "Why is mean worker accuracy different from ensemble accuracy?",
+      "When does the scheduler step?"
+    ],
+    "mistake": "Reporting a training statistic as held-out ensemble performance.",
+    "difficulty": "Intermediate",
+    "type": "Architecture",
+    "tags": [
+      "Distributed Systems",
+      "Ray",
+      "PyTorch",
+      "Ensembles"
+    ],
+    "sources": [
+      {
+        "label": "HQDE-PyPI/hqde/core/hqde_system.py",
+        "url": "https://github.com/Prathmesh333/HQDE-PyPI/blob/725a32adb5ac35d74df41ee51c55a6d533f1d957/hqde/core/hqde_system.py"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "hqde-10",
+      "distributed-systems-01",
+      "distributed-systems-03"
+    ]
+  }
+]

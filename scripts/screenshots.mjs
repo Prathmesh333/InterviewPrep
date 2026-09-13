@@ -1,0 +1,11 @@
+import {chromium} from '@playwright/test';
+import {mkdir} from 'node:fs/promises';
+await mkdir('docs/screenshots',{recursive:true});
+const browser=await chromium.launch();
+const page=await browser.newPage({viewport:{width:1440,height:1080},deviceScaleFactor:1});
+await page.goto('http://127.0.0.1:4173/InterviewPrep/');await page.locator('.project-card').first().waitFor();
+await page.screenshot({path:'docs/screenshots/dashboard-dark.png',fullPage:true});
+await page.evaluate(()=>document.documentElement.dataset.theme='light');await page.screenshot({path:'docs/screenshots/dashboard-light.png',fullPage:true});
+await page.setViewportSize({width:390,height:844});await page.evaluate(()=>document.documentElement.dataset.theme='dark');await page.screenshot({path:'docs/screenshots/mobile.png',fullPage:true});
+await page.setViewportSize({width:1440,height:1080});await page.goto('http://127.0.0.1:4173/InterviewPrep/#project/hqde');await page.getByRole('button',{name:'Deep dive',exact:true}).first().click();await page.screenshot({path:'docs/screenshots/question.png'});
+await browser.close();

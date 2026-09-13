@@ -1,0 +1,153 @@
+[
+  {
+    "id": "iris-01",
+    "project": "iris",
+    "topic": "Software Engineering",
+    "question": "How does Iris reduce sensitive browser metadata?",
+    "quick": "The privacy helper removes URL credentials, query strings and fragments, and rejects unsupported protocols.",
+    "standard": "The privacy helper removes URL credentials, query strings and fragments, and rejects unsupported protocols.\n\nisDeniedUrl includes a default denylist and matches both exact hosts and subdomains. scrubText replaces email-like text, long number sequences and hex-like IDs and truncates the output. These are concrete data-minimization controls.",
+    "deep": "The privacy helper removes URL credentials, query strings and fragments, and rejects unsupported protocols.\n\nisDeniedUrl includes a default denylist and matches both exact hosts and subdomains. scrubText replaces email-like text, long number sequences and hex-like IDs and truncates the output. These are concrete data-minimization controls.\n\nA scrubber is not a proof of anonymization. Sensitive data can remain in URL paths, free text or screenshots. Test adversarial examples, capture gating and retention separately. The README’s opt-in and visible-session claims should be checked in the extension’s session path before making a complete privacy guarantee.",
+    "followups": [
+      "What remains in a URL path?",
+      "Does a denylist cover every sensitive site?"
+    ],
+    "mistake": "Equating regex redaction with guaranteed anonymity.",
+    "difficulty": "Intermediate",
+    "type": "Architecture",
+    "tags": [
+      "Software Engineering",
+      "Browser APIs",
+      "Privacy"
+    ],
+    "sources": [
+      {
+        "label": "iris-visual-agent/apps/extension/src/lib/privacy.js",
+        "url": "https://github.com/Prathmesh333/iris-visual-agent/blob/31041756dcde79e78c8c18330d461707a37e6245/apps/extension/src/lib/privacy.js"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "researchhub-01",
+      "software-engineering-01",
+      "software-engineering-03"
+    ]
+  },
+  {
+    "id": "iris-02",
+    "project": "iris",
+    "topic": "Software Engineering",
+    "question": "What contribution and result can you substantiate in Iris Visual Agent?",
+    "quick": "I would point to the exact file and commit I owned, then show a test or result that supports the outcome.",
+    "standard": "I would point to the exact file and commit I owned, then show a test or result that supports the outcome.\n\nExplain the problem and your scope before describing the solution. The linked repository shows project behavior, but it cannot establish your personal motivation, hardest bug or team role by itself.",
+    "deep": "I would point to the exact file and commit I owned, then show a test or result that supports the outcome.\n\nExplain the problem and your scope before describing the solution. The linked repository shows project behavior, but it cannot establish your personal motivation, hardest bug or team role by itself.\n\nNeeds clarification from Prathmesh. Add one real Situation, Task, Action and Result in your notes. Use a concrete before/after and a verified outcome; do not turn README marketing text into a personal achievement.",
+    "followups": [
+      "Which commit is yours?",
+      "What evidence demonstrates the outcome?"
+    ],
+    "mistake": "Inventing personal experience from a repository name.",
+    "difficulty": "Intermediate",
+    "type": "Behavioral",
+    "tags": [
+      "Software Engineering",
+      "Browser APIs",
+      "Privacy"
+    ],
+    "sources": [
+      {
+        "label": "iris-visual-agent/README.md",
+        "url": "https://github.com/Prathmesh333/iris-visual-agent/blob/31041756dcde79e78c8c18330d461707a37e6245/README.md"
+      },
+      {
+        "label": "iris-visual-agent/apps/extension/src/lib/privacy.js",
+        "url": "https://github.com/Prathmesh333/iris-visual-agent/blob/31041756dcde79e78c8c18330d461707a37e6245/apps/extension/src/lib/privacy.js"
+      }
+    ],
+    "clarification": "Needs clarification from Prathmesh. Personal contribution and measured outcomes need confirmation.",
+    "related": [
+      "shortlist-02",
+      "iris-04",
+      "iris-03"
+    ],
+    "star": {
+      "Situation": "Use the actual project context.",
+      "Task": "State your personal responsibility.",
+      "Action": "Identify your change and reasoning.",
+      "Result": "Give a verified outcome, or state what remains unmeasured."
+    }
+  },
+  {
+    "id": "iris-03",
+    "project": "iris",
+    "topic": "Software Engineering",
+    "question": "Walk through the implementation boundary in Iris Visual Agent.",
+    "quick": "The privacy helper removes URL credentials, query strings and fragments, and rejects unsupported protocols.",
+    "standard": "The privacy helper removes URL credentials, query strings and fragments, and rejects unsupported protocols.\n\nisDeniedUrl includes a default denylist and matches both exact hosts and subdomains. scrubText replaces email-like text, long number sequences and hex-like IDs and truncates the output. These are concrete data-minimization controls.",
+    "deep": "The privacy helper removes URL credentials, query strings and fragments, and rejects unsupported protocols.\n\nisDeniedUrl includes a default denylist and matches both exact hosts and subdomains. scrubText replaces email-like text, long number sequences and hex-like IDs and truncates the output. These are concrete data-minimization controls.\n\nBegin at the linked implementation file, identify its input shape and ownership, then trace the output and error path.\n\nA scrubber is not a proof of anonymization. Sensitive data can remain in URL paths, free text or screenshots. Test adversarial examples, capture gating and retention separately. The README’s opt-in and visible-session claims should be checked in the extension’s session path before making a complete privacy guarantee.",
+    "followups": [
+      "What remains in a URL path?",
+      "What would you test before deploying this path?"
+    ],
+    "mistake": "Equating regex redaction with guaranteed anonymity.",
+    "difficulty": "Intermediate",
+    "type": "Architecture",
+    "tags": [
+      "Software Engineering",
+      "Browser APIs",
+      "Privacy"
+    ],
+    "sources": [
+      {
+        "label": "iris-visual-agent/README.md",
+        "url": "https://github.com/Prathmesh333/iris-visual-agent/blob/31041756dcde79e78c8c18330d461707a37e6245/README.md"
+      },
+      {
+        "label": "iris-visual-agent/apps/extension/src/lib/privacy.js",
+        "url": "https://github.com/Prathmesh333/iris-visual-agent/blob/31041756dcde79e78c8c18330d461707a37e6245/apps/extension/src/lib/privacy.js"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "researchhub-03",
+      "janseva-03",
+      "shortlist-03"
+    ]
+  },
+  {
+    "id": "iris-04",
+    "project": "iris",
+    "topic": "Software Engineering",
+    "question": "How would you test and improve Iris Visual Agent?",
+    "quick": "I would establish a reproducible baseline and test the specific failure boundary exposed by this implementation.",
+    "standard": "I would establish a reproducible baseline and test the specific failure boundary exposed by this implementation.\n\nA scrubber is not a proof of anonymization. Sensitive data can remain in URL paths, free text or screenshots. Test adversarial examples, capture gating and retention separately. The README’s opt-in and visible-session claims should be checked in the extension’s session path before making a complete privacy guarantee.",
+    "deep": "I would establish a reproducible baseline and test the specific failure boundary exposed by this implementation.\n\nA scrubber is not a proof of anonymization. Sensitive data can remain in URL paths, free text or screenshots. Test adversarial examples, capture gating and retention separately. The README’s opt-in and visible-session claims should be checked in the extension’s session path before making a complete privacy guarantee.\n\nKeep the current implementation separate from the proposed improvement. Save representative inputs, expected outputs and a versioned configuration. Test normal inputs, malformed inputs and the failure case described above. For model outputs, include a held-out evaluation and inspect errors rather than treating a confidence field as proof.\n\nisDeniedUrl includes a default denylist and matches both exact hosts and subdomains. scrubText replaces email-like text, long number sequences and hex-like IDs and truncates the output. These are concrete data-minimization controls.",
+    "followups": [
+      "What is the baseline?",
+      "What is the acceptance criterion?",
+      "How do you avoid leakage?"
+    ],
+    "mistake": "Presenting a proposed improvement as an already measured result.",
+    "difficulty": "Intermediate",
+    "type": "Research",
+    "tags": [
+      "Software Engineering",
+      "Browser APIs",
+      "Privacy"
+    ],
+    "sources": [
+      {
+        "label": "iris-visual-agent/README.md",
+        "url": "https://github.com/Prathmesh333/iris-visual-agent/blob/31041756dcde79e78c8c18330d461707a37e6245/README.md"
+      },
+      {
+        "label": "iris-visual-agent/apps/extension/src/lib/privacy.js",
+        "url": "https://github.com/Prathmesh333/iris-visual-agent/blob/31041756dcde79e78c8c18330d461707a37e6245/apps/extension/src/lib/privacy.js"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "software-engineering-03",
+      "researchhub-04",
+      "janseva-04"
+    ]
+  }
+]
