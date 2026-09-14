@@ -1,0 +1,156 @@
+[
+  {
+    "id": "researchhub-01",
+    "project": "researchhub",
+    "topic": "Software Engineering",
+    "question": "How does ResearchHub separate authentication from authorization?",
+    "quick": "Authentication verifies a token and loads a user; authorization decides which actions that user may perform.",
+    "standard": "Authentication verifies a token and loads a user; authorization decides which actions that user may perform.\n\nauthenticate checks a Bearer token, verifies it and retrieves the current database user. requireAdmin checks the resulting role. Project routes also need membership-aware access. The development fallback secret is a deployment concern to resolve, not a production security feature.\n\nA valid token answers who the caller is, but it does not answer whether that caller may access a particular project. Loading the current database user helps avoid relying solely on stale role information in a token. The next step must still apply the relevant permission rule, such as administrator status or project membership.\n\nFor example, a normal member can have a perfectly valid login and still be forbidden from reading another team's project. Hiding that project in the interface is not enough because the caller can request its identifier directly.\n\nTest invalid tokens, deleted users, changed roles and access to another member’s project. A valid token must not grant access to arbitrary project IDs. Fail startup without a production secret and define revocation and token lifetime intentionally.",
+    "deep": "Authentication verifies a token and loads a user; authorization decides which actions that user may perform.\n\nauthenticate checks a Bearer token, verifies it and retrieves the current database user. requireAdmin checks the resulting role. Project routes also need membership-aware access. The development fallback secret is a deployment concern to resolve, not a production security feature.\n\nA valid token answers who the caller is, but it does not answer whether that caller may access a particular project. Loading the current database user helps avoid relying solely on stale role information in a token. The next step must still apply the relevant permission rule, such as administrator status or project membership.\n\nFor example, a normal member can have a perfectly valid login and still be forbidden from reading another team's project. Hiding that project in the interface is not enough because the caller can request its identifier directly.\n\nTest invalid tokens, deleted users, changed roles and access to another member’s project. A valid token must not grant access to arbitrary project IDs. Fail startup without a production secret and define revocation and token lifetime intentionally.\n\nI would trace permissions at every protected route and distinguish missing authentication from insufficient authorization. Role changes and deleted accounts should have defined effects on existing tokens. Production secret configuration is also part of the boundary: a predictable fallback secret undermines token verification. These observations identify review requirements rather than claiming every route has already passed a complete audit.",
+    "followups": [
+      "Why re-read the user?",
+      "What is object-level authorization?"
+    ],
+    "mistake": "Checking login but forgetting resource membership.",
+    "difficulty": "Intermediate",
+    "type": "Project",
+    "tags": [
+      "Software Engineering",
+      "Express",
+      "PostgreSQL"
+    ],
+    "sources": [
+      {
+        "label": "ResearchHub/src/server/middleware/auth.ts",
+        "url": "https://github.com/Prathmesh333/ResearchHub/blob/04316339e8b27e53ed31c566be1c8201cbd739b7/src/server/middleware/auth.ts"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "janseva-01",
+      "software-engineering-01",
+      "software-engineering-03"
+    ],
+    "evidence": "Code + README"
+  },
+  {
+    "id": "researchhub-02",
+    "project": "researchhub",
+    "topic": "Software Engineering",
+    "question": "What did you personally implement in ResearchHub?",
+    "quick": "I need to connect my own contribution to specific files, commits and decisions before giving this answer.",
+    "standard": "I need to connect my own contribution to specific files, commits and decisions before giving this answer.\n\nUse the source links to identify the execution path, then name the part you owned and what changed. Repository ownership alone does not establish sole authorship, the hardest bug, a team disagreement or the outcome of an experiment.\n\nI would identify the specific backend or collaboration feature I personally owned. If that was authentication middleware, I would describe token validation and user lookup. If it was authorization, I would explain the membership rule and the request that used to be incorrectly permitted or denied. These details make the scope concrete.\n\nThe result should be backed by a route-level test or demonstrated behavior. I would avoid claiming complete application security merely because one middleware function was implemented.\n\nPrepare a concrete before/after example, the relevant commit, a test or experiment and one limitation. Say “the project implements” for verified code and “I implemented” only for work you can personally confirm. Leave numerical results out until tied to a run artifact.",
+    "deep": "I need to connect my own contribution to specific files, commits and decisions before giving this answer.\n\nUse the source links to identify the execution path, then name the part you owned and what changed. Repository ownership alone does not establish sole authorship, the hardest bug, a team disagreement or the outcome of an experiment.\n\nI would identify the specific backend or collaboration feature I personally owned. If that was authentication middleware, I would describe token validation and user lookup. If it was authorization, I would explain the membership rule and the request that used to be incorrectly permitted or denied. These details make the scope concrete.\n\nThe result should be backed by a route-level test or demonstrated behavior. I would avoid claiming complete application security merely because one middleware function was implemented.\n\nPrepare a concrete before/after example, the relevant commit, a test or experiment and one limitation. Say “the project implements” for verified code and “I implemented” only for work you can personally confirm. Leave numerical results out until tied to a run artifact.\n\nPrepare the relevant commit, one allowed request, and one rejected request. Explain any reused framework or authentication library separately from the permission logic written for the project. Personal ownership, team context, and deployment outcomes remain information the author must supply; they cannot be inferred from public file contents.",
+    "followups": [
+      "Which commit is yours?",
+      "What broke?",
+      "What would you change today?"
+    ],
+    "mistake": "Inventing a personal debugging story from repository contents.",
+    "difficulty": "Intermediate",
+    "type": "Behavioral",
+    "tags": [
+      "Software Engineering",
+      "Express",
+      "PostgreSQL"
+    ],
+    "sources": [
+      {
+        "label": "ResearchHub/README.md",
+        "url": "https://github.com/Prathmesh333/ResearchHub/blob/04316339e8b27e53ed31c566be1c8201cbd739b7/README.md"
+      },
+      {
+        "label": "ResearchHub/src/server/middleware/auth.ts",
+        "url": "https://github.com/Prathmesh333/ResearchHub/blob/04316339e8b27e53ed31c566be1c8201cbd739b7/src/server/middleware/auth.ts"
+      }
+    ],
+    "clarification": "Needs clarification from Prathmesh. Personal contribution, motivation, debugging history and measured outcomes are not established by code alone.",
+    "related": [
+      "vsfeed-04",
+      "janseva-02",
+      "shortlist-02"
+    ],
+    "evidence": "Concept / practice",
+    "star": {
+      "Situation": "Use the actual project context.",
+      "Task": "State your personal responsibility.",
+      "Action": "Identify your change and reasoning.",
+      "Result": "Give a verified outcome, or state what remains unmeasured."
+    }
+  },
+  {
+    "id": "researchhub-03",
+    "project": "researchhub",
+    "topic": "Software Engineering",
+    "question": "Trace authentication and project authorization for a ResearchHub request.",
+    "quick": "authenticate checks a Bearer token, verifies it and retrieves the current database user. requireAdmin checks the resulting role. Project routes also need membership-aware access. The development fallback secret is a deployment concern to resolve, not a production security feature.",
+    "standard": "authenticate checks a Bearer token, verifies it and retrieves the current database user. requireAdmin checks the resulting role. Project routes also need membership-aware access. The development fallback secret is a deployment concern to resolve, not a production security feature.\n\nThe request path starts with the authorization header, continues through token verification and current-user lookup, and then reaches role or membership checks before the route action. I would show where each decision happens and what error the caller receives when it fails. This makes it clear which layer owns identity and which layer owns resource access.\n\nThe important adversarial example is changing a project ID while retaining a valid token. That should trigger a resource-specific permission decision rather than bypassing authorization.",
+    "deep": "authenticate checks a Bearer token, verifies it and retrieves the current database user. requireAdmin checks the resulting role. Project routes also need membership-aware access. The development fallback secret is a deployment concern to resolve, not a production security feature.\n\nThe request path starts with the authorization header, continues through token verification and current-user lookup, and then reaches role or membership checks before the route action. I would show where each decision happens and what error the caller receives when it fails. This makes it clear which layer owns identity and which layer owns resource access.\n\nThe important adversarial example is changing a project ID while retaining a valid token. That should trigger a resource-specific permission decision rather than bypassing authorization.\n\nTest invalid tokens, deleted users, changed roles and access to another member’s project. A valid token must not grant access to arbitrary project IDs. Fail startup without a production secret and define revocation and token lifetime intentionally.\n\nI would inspect whether all relevant read and write routes use the correct checks, including nested resources. A member removal should also have a defined effect on the next request. Tests should cover missing headers, malformed tokens, deleted users, changed roles, and cross-project access. Middleware success should never be treated as permission for every subsequent object.",
+    "followups": [
+      "Why re-read the user?",
+      "What would you test before deploying this path?"
+    ],
+    "mistake": "Checking login but forgetting resource membership.",
+    "difficulty": "Intermediate",
+    "type": "Architecture",
+    "tags": [
+      "Software Engineering",
+      "Express",
+      "PostgreSQL"
+    ],
+    "sources": [
+      {
+        "label": "ResearchHub/README.md",
+        "url": "https://github.com/Prathmesh333/ResearchHub/blob/04316339e8b27e53ed31c566be1c8201cbd739b7/README.md"
+      },
+      {
+        "label": "ResearchHub/src/server/middleware/auth.ts",
+        "url": "https://github.com/Prathmesh333/ResearchHub/blob/04316339e8b27e53ed31c566be1c8201cbd739b7/src/server/middleware/auth.ts"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "janseva-03",
+      "shortlist-03",
+      "iris-03"
+    ]
+  },
+  {
+    "id": "researchhub-04",
+    "project": "researchhub",
+    "topic": "Software Engineering",
+    "question": "How would you test and improve ResearchHub?",
+    "quick": "I would establish a reproducible baseline and test the specific failure boundary exposed by this implementation.",
+    "standard": "I would establish a reproducible baseline and test the specific failure boundary exposed by this implementation.\n\nTest invalid tokens, deleted users, changed roles and access to another member’s project. A valid token must not grant access to arbitrary project IDs. Fail startup without a production secret and define revocation and token lifetime intentionally.\n\nI would build an access matrix with anonymous users, members, nonmembers, and administrators against representative project actions. Each cell should state whether the action is allowed. This exposes missing checks more clearly than testing only a successful login flow.\n\nI would then test role changes, membership removal, and production configuration failure. The objective is to verify the application's actual authorization behavior under state changes, not just the cryptographic validity of a token.\n\nKeep the current implementation separate from the proposed improvement. Save representative inputs, expected outputs and a versioned configuration. Test normal inputs, malformed inputs and the failure case described above. For model outputs, include a held-out evaluation and inspect errors rather than treating a confidence field as proof.\n\nauthenticate checks a Bearer token, verifies it and retrieves the current database user. requireAdmin checks the resulting role. Project routes also need membership-aware access. The development fallback secret is a deployment concern to resolve, not a production security feature.",
+    "deep": "I would establish a reproducible baseline and test the specific failure boundary exposed by this implementation.\n\nTest invalid tokens, deleted users, changed roles and access to another member’s project. A valid token must not grant access to arbitrary project IDs. Fail startup without a production secret and define revocation and token lifetime intentionally.\n\nI would build an access matrix with anonymous users, members, nonmembers, and administrators against representative project actions. Each cell should state whether the action is allowed. This exposes missing checks more clearly than testing only a successful login flow.\n\nI would then test role changes, membership removal, and production configuration failure. The objective is to verify the application's actual authorization behavior under state changes, not just the cryptographic validity of a token.\n\nKeep the current implementation separate from the proposed improvement. Save representative inputs, expected outputs and a versioned configuration. Test normal inputs, malformed inputs and the failure case described above. For model outputs, include a held-out evaluation and inspect errors rather than treating a confidence field as proof.\n\nauthenticate checks a Bearer token, verifies it and retrieves the current database user. requireAdmin checks the resulting role. Project routes also need membership-aware access. The development fallback secret is a deployment concern to resolve, not a production security feature.\n\nResource IDs should be varied deliberately to detect cross-user or cross-project access. Tests should assert both status and absence of unintended data changes. A production deployment should fail clearly when its signing secret is absent instead of silently selecting a development fallback. These are proposed verification and hardening steps grounded in the inspected middleware.",
+    "followups": [
+      "What is the baseline?",
+      "What is the acceptance criterion?",
+      "How do you avoid leakage?"
+    ],
+    "mistake": "Presenting a proposed improvement as an already measured result.",
+    "difficulty": "Intermediate",
+    "type": "Research",
+    "tags": [
+      "Software Engineering",
+      "Express",
+      "PostgreSQL"
+    ],
+    "sources": [
+      {
+        "label": "ResearchHub/README.md",
+        "url": "https://github.com/Prathmesh333/ResearchHub/blob/04316339e8b27e53ed31c566be1c8201cbd739b7/README.md"
+      },
+      {
+        "label": "ResearchHub/src/server/middleware/auth.ts",
+        "url": "https://github.com/Prathmesh333/ResearchHub/blob/04316339e8b27e53ed31c566be1c8201cbd739b7/src/server/middleware/auth.ts"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "software-engineering-03",
+      "janseva-04",
+      "shortlist-04"
+    ]
+  }
+]

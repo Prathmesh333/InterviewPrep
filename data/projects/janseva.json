@@ -1,0 +1,156 @@
+[
+  {
+    "id": "janseva-01",
+    "project": "janseva",
+    "topic": "Software Engineering",
+    "question": "Why separate eligibility matching from conversation generation?",
+    "quick": "Explicit rules make eligibility decisions easier to inspect than free-form model responses.",
+    "standard": "Explicit rules make eligibility decisions easier to inspect than free-form model responses.\n\ncheckEligibility validates required profile fields, evaluates each scheme and sorts by match score. The conversational layer can gather missing information and explain results, but should not silently replace rule evaluation with a generated guess.\n\nEligibility is better treated as a decision over explicit criteria than as a free-form language completion. The conversational layer can ask for missing facts and explain a result, while the rule layer evaluates the supplied profile. This separation makes it possible to show which condition caused a match or rejection.\n\nFor example, missing age should not silently become an age of zero or an ineligibility decision. The system needs to distinguish unavailable information from a known value outside a rule's range. That distinction directly affects whether the guidance is understandable and useful.\n\nDistinguish insufficient information from ineligibility, version the scheme criteria and test boundary ages and income values. Confirm deployed services separately from the architecture README. The code is not proof that every listed AWS component is running in production.",
+    "deep": "Explicit rules make eligibility decisions easier to inspect than free-form model responses.\n\ncheckEligibility validates required profile fields, evaluates each scheme and sorts by match score. The conversational layer can gather missing information and explain results, but should not silently replace rule evaluation with a generated guess.\n\nEligibility is better treated as a decision over explicit criteria than as a free-form language completion. The conversational layer can ask for missing facts and explain a result, while the rule layer evaluates the supplied profile. This separation makes it possible to show which condition caused a match or rejection.\n\nFor example, missing age should not silently become an age of zero or an ineligibility decision. The system needs to distinguish unavailable information from a known value outside a rule's range. That distinction directly affects whether the guidance is understandable and useful.\n\nDistinguish insufficient information from ineligibility, version the scheme criteria and test boundary ages and income values. Confirm deployed services separately from the architecture README. The code is not proof that every listed AWS component is running in production.\n\nRule data needs a source and version because scheme conditions can change. I would test the exact lower and upper boundaries of each numeric condition and ensure the explanation corresponds to the rule actually executed. Match score should not be confused with an official eligibility determination. The repository's architecture description also does not prove that every named cloud service has been deployed.",
+    "followups": [
+      "What happens when age is missing?",
+      "How are changing rules updated?"
+    ],
+    "mistake": "Equating a high match score with officially confirmed eligibility.",
+    "difficulty": "Intermediate",
+    "type": "Project",
+    "tags": [
+      "Software Engineering",
+      "TypeScript",
+      "RAG"
+    ],
+    "sources": [
+      {
+        "label": "AI4Bharat-JansevaAI/src/services/eligibility/matcher.ts",
+        "url": "https://github.com/Prathmesh333/AI4Bharat-JansevaAI/blob/f8689837d78d27b3a12fdb552d9686c9ff445930/src/services/eligibility/matcher.ts"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "researchhub-01",
+      "software-engineering-01",
+      "software-engineering-02"
+    ],
+    "evidence": "Code + README"
+  },
+  {
+    "id": "janseva-02",
+    "project": "janseva",
+    "topic": "Software Engineering",
+    "question": "What did you personally implement in JanSeva AI?",
+    "quick": "I need to connect my own contribution to specific files, commits and decisions before giving this answer.",
+    "standard": "I need to connect my own contribution to specific files, commits and decisions before giving this answer.\n\nUse the source links to identify the execution path, then name the part you owned and what changed. Repository ownership alone does not establish sole authorship, the hardest bug, a team disagreement or the outcome of an experiment.\n\nI would identify whether my confirmed work concerned profile collection, eligibility rules, ranking, or conversational explanation. If I worked on the rules, I would show one scheme condition, its representation, and a boundary test. If I worked on the conversation, I would explain how missing information reaches the rule evaluator.\n\nThe result should be a verifiable behavior such as correctly requesting a missing field or explaining a failed condition. I would not infer public-service impact or deployment scale from a repository description.\n\nPrepare a concrete before/after example, the relevant commit, a test or experiment and one limitation. Say “the project implements” for verified code and “I implemented” only for work you can personally confirm. Leave numerical results out until tied to a run artifact.",
+    "deep": "I need to connect my own contribution to specific files, commits and decisions before giving this answer.\n\nUse the source links to identify the execution path, then name the part you owned and what changed. Repository ownership alone does not establish sole authorship, the hardest bug, a team disagreement or the outcome of an experiment.\n\nI would identify whether my confirmed work concerned profile collection, eligibility rules, ranking, or conversational explanation. If I worked on the rules, I would show one scheme condition, its representation, and a boundary test. If I worked on the conversation, I would explain how missing information reaches the rule evaluator.\n\nThe result should be a verifiable behavior such as correctly requesting a missing field or explaining a failed condition. I would not infer public-service impact or deployment scale from a repository description.\n\nPrepare a concrete before/after example, the relevant commit, a test or experiment and one limitation. Say “the project implements” for verified code and “I implemented” only for work you can personally confirm. Leave numerical results out until tied to a run artifact.\n\nComplete the answer with the actual commit, personal scope, and a demonstrated input-output example. Any real user outcome or service usage needs separate evidence. Explain reused services honestly, and keep an implemented eligibility function distinct from a fully operating cloud architecture.",
+    "followups": [
+      "Which commit is yours?",
+      "What broke?",
+      "What would you change today?"
+    ],
+    "mistake": "Inventing a personal debugging story from repository contents.",
+    "difficulty": "Intermediate",
+    "type": "Behavioral",
+    "tags": [
+      "Software Engineering",
+      "TypeScript",
+      "RAG"
+    ],
+    "sources": [
+      {
+        "label": "AI4Bharat-JansevaAI/README.md",
+        "url": "https://github.com/Prathmesh333/AI4Bharat-JansevaAI/blob/f8689837d78d27b3a12fdb552d9686c9ff445930/README.md"
+      },
+      {
+        "label": "AI4Bharat-JansevaAI/src/services/eligibility/matcher.ts",
+        "url": "https://github.com/Prathmesh333/AI4Bharat-JansevaAI/blob/f8689837d78d27b3a12fdb552d9686c9ff445930/src/services/eligibility/matcher.ts"
+      }
+    ],
+    "clarification": "Needs clarification from Prathmesh. Personal contribution, motivation, debugging history and measured outcomes are not established by code alone.",
+    "related": [
+      "vsfeed-04",
+      "researchhub-02",
+      "shortlist-02"
+    ],
+    "evidence": "Concept / practice",
+    "star": {
+      "Situation": "Use the actual project context.",
+      "Task": "State your personal responsibility.",
+      "Action": "Identify your change and reasoning.",
+      "Result": "Give a verified outcome, or state what remains unmeasured."
+    }
+  },
+  {
+    "id": "janseva-03",
+    "project": "janseva",
+    "topic": "Software Engineering",
+    "question": "How does JanSeva turn a user profile into ranked eligibility results?",
+    "quick": "checkEligibility validates required profile fields, evaluates each scheme and sorts by match score. The conversational layer can gather missing information and explain results, but should not silently replace rule evaluation with a generated guess.",
+    "standard": "checkEligibility validates required profile fields, evaluates each scheme and sorts by match score. The conversational layer can gather missing information and explain results, but should not silently replace rule evaluation with a generated guess.\n\nI would begin with the profile supplied to checkEligibility, follow required-field validation, and inspect how each scheme's conditions produce a result. The returned candidates are then sorted by match score. This trace clarifies where invalid input is rejected and where ranking happens after rule evaluation.\n\nThe explanation shown to the user should be derived from those same evaluated conditions. Otherwise, a conversational response could state a reason that does not match the actual rule outcome.",
+    "deep": "checkEligibility validates required profile fields, evaluates each scheme and sorts by match score. The conversational layer can gather missing information and explain results, but should not silently replace rule evaluation with a generated guess.\n\nI would begin with the profile supplied to checkEligibility, follow required-field validation, and inspect how each scheme's conditions produce a result. The returned candidates are then sorted by match score. This trace clarifies where invalid input is rejected and where ranking happens after rule evaluation.\n\nThe explanation shown to the user should be derived from those same evaluated conditions. Otherwise, a conversational response could state a reason that does not match the actual rule outcome.\n\nDistinguish insufficient information from ineligibility, version the scheme criteria and test boundary ages and income values. Confirm deployed services separately from the architecture README. The code is not proof that every listed AWS component is running in production.\n\nUseful fixtures include a missing required field, a boundary age, an unmatched state, and conflicting profile values. I would inspect how incomplete optional data affects a result rather than assuming every absence means rejection. A score order should be deterministic for ties if the interface depends on it. Scheme criteria themselves should be verified against current authoritative material before real guidance is issued.",
+    "followups": [
+      "What happens when age is missing?",
+      "What would you test before deploying this path?"
+    ],
+    "mistake": "Equating a high match score with officially confirmed eligibility.",
+    "difficulty": "Intermediate",
+    "type": "Architecture",
+    "tags": [
+      "Software Engineering",
+      "TypeScript",
+      "RAG"
+    ],
+    "sources": [
+      {
+        "label": "AI4Bharat-JansevaAI/README.md",
+        "url": "https://github.com/Prathmesh333/AI4Bharat-JansevaAI/blob/f8689837d78d27b3a12fdb552d9686c9ff445930/README.md"
+      },
+      {
+        "label": "AI4Bharat-JansevaAI/src/services/eligibility/matcher.ts",
+        "url": "https://github.com/Prathmesh333/AI4Bharat-JansevaAI/blob/f8689837d78d27b3a12fdb552d9686c9ff445930/src/services/eligibility/matcher.ts"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "researchhub-03",
+      "shortlist-03",
+      "iris-03"
+    ]
+  },
+  {
+    "id": "janseva-04",
+    "project": "janseva",
+    "topic": "Software Engineering",
+    "question": "How would you test and improve JanSeva AI?",
+    "quick": "I would establish a reproducible baseline and test the specific failure boundary exposed by this implementation.",
+    "standard": "I would establish a reproducible baseline and test the specific failure boundary exposed by this implementation.\n\nDistinguish insufficient information from ineligibility, version the scheme criteria and test boundary ages and income values. Confirm deployed services separately from the architecture README. The code is not proof that every listed AWS component is running in production.\n\nI would test the rule engine independently of the conversation layer using small, explicit profiles. Boundary values and missing fields matter more than a large number of nearly identical happy-path examples. Then I would check that the conversational explanation faithfully reflects the rule result and asks for unresolved information.\n\nA versioned fixture set would make changes to scheme criteria reviewable. When a rule changes, the expected decisions should change deliberately rather than appearing as unexplained model variation.\n\nKeep the current implementation separate from the proposed improvement. Save representative inputs, expected outputs and a versioned configuration. Test normal inputs, malformed inputs and the failure case described above. For model outputs, include a held-out evaluation and inspect errors rather than treating a confidence field as proof.\n\ncheckEligibility validates required profile fields, evaluates each scheme and sorts by match score. The conversational layer can gather missing information and explain results, but should not silently replace rule evaluation with a generated guess.",
+    "deep": "I would establish a reproducible baseline and test the specific failure boundary exposed by this implementation.\n\nDistinguish insufficient information from ineligibility, version the scheme criteria and test boundary ages and income values. Confirm deployed services separately from the architecture README. The code is not proof that every listed AWS component is running in production.\n\nI would test the rule engine independently of the conversation layer using small, explicit profiles. Boundary values and missing fields matter more than a large number of nearly identical happy-path examples. Then I would check that the conversational explanation faithfully reflects the rule result and asks for unresolved information.\n\nA versioned fixture set would make changes to scheme criteria reviewable. When a rule changes, the expected decisions should change deliberately rather than appearing as unexplained model variation.\n\nKeep the current implementation separate from the proposed improvement. Save representative inputs, expected outputs and a versioned configuration. Test normal inputs, malformed inputs and the failure case described above. For model outputs, include a held-out evaluation and inspect errors rather than treating a confidence field as proof.\n\ncheckEligibility validates required profile fields, evaluates each scheme and sorts by match score. The conversational layer can gather missing information and explain results, but should not silently replace rule evaluation with a generated guess.\n\nI would include contradictory information and verify that the system requests resolution instead of guessing. A deployment check would confirm actual service configuration separately from README diagrams. Any ranking score should be explained as the application's matching mechanism, with the official eligibility process distinguished from the software's preliminary guidance.",
+    "followups": [
+      "What is the baseline?",
+      "What is the acceptance criterion?",
+      "How do you avoid leakage?"
+    ],
+    "mistake": "Presenting a proposed improvement as an already measured result.",
+    "difficulty": "Intermediate",
+    "type": "Research",
+    "tags": [
+      "Software Engineering",
+      "TypeScript",
+      "RAG"
+    ],
+    "sources": [
+      {
+        "label": "AI4Bharat-JansevaAI/README.md",
+        "url": "https://github.com/Prathmesh333/AI4Bharat-JansevaAI/blob/f8689837d78d27b3a12fdb552d9686c9ff445930/README.md"
+      },
+      {
+        "label": "AI4Bharat-JansevaAI/src/services/eligibility/matcher.ts",
+        "url": "https://github.com/Prathmesh333/AI4Bharat-JansevaAI/blob/f8689837d78d27b3a12fdb552d9686c9ff445930/src/services/eligibility/matcher.ts"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "software-engineering-03",
+      "researchhub-04",
+      "shortlist-04"
+    ]
+  }
+]

@@ -1,0 +1,156 @@
+[
+  {
+    "id": "consensus-01",
+    "project": "consensus",
+    "topic": "LLMs",
+    "question": "Does expert consensus guarantee a correct answer?",
+    "quick": "No. The graph gathers expert responses and synthesizes them, but correlated model errors can survive agreement.",
+    "standard": "No. The graph gathers expert responses and synthesizes them, but correlated model errors can survive agreement.\n\ndispatch_experts creates expert coroutines and awaits asyncio.gather. The next graph node synthesizes their responses and emits agreements and disagreements along with confidence-like fields. Those fields are generated outputs, not automatically calibrated measurements.\n\nSeveral models can repeat the same error because they share training patterns, retrieved context, or assumptions in the prompt. Agreement therefore measures consistency among responses, not independent evidence of truth. A synthesis step can organize their reasoning, but it can also produce a polished version of a shared mistake.\n\nThe architecture is still useful to study: expert calls can explore different perspectives and expose disagreements. I would judge its value by evidence-supported answer quality relative to a single-model baseline, accounting for the additional calls and waiting time.\n\nMeasure answer quality against evidence, cost and latency relative to a single-model baseline. Inspect error handling in the wrapper and define timeouts and partial-result policy. Distinct prompts or model names do not prove independent errors.",
+    "deep": "No. The graph gathers expert responses and synthesizes them, but correlated model errors can survive agreement.\n\ndispatch_experts creates expert coroutines and awaits asyncio.gather. The next graph node synthesizes their responses and emits agreements and disagreements along with confidence-like fields. Those fields are generated outputs, not automatically calibrated measurements.\n\nSeveral models can repeat the same error because they share training patterns, retrieved context, or assumptions in the prompt. Agreement therefore measures consistency among responses, not independent evidence of truth. A synthesis step can organize their reasoning, but it can also produce a polished version of a shared mistake.\n\nThe architecture is still useful to study: expert calls can explore different perspectives and expose disagreements. I would judge its value by evidence-supported answer quality relative to a single-model baseline, accounting for the additional calls and waiting time.\n\nMeasure answer quality against evidence, cost and latency relative to a single-model baseline. Inspect error handling in the wrapper and define timeouts and partial-result policy. Distinct prompts or model names do not prove independent errors.\n\nA useful evaluation includes questions with plausible common misconceptions. Inspect whether synthesis corrects an error, copies the majority, or introduces a new unsupported claim. Generated confidence fields require separate calibration if they will drive decisions. Parallel dispatch lowers some waiting compared with sequential calls, but the overall latency still depends on the slowest required result and the synthesis call.",
+    "followups": [
+      "What happens if one expert fails?",
+      "How is confidence calibrated?"
+    ],
+    "mistake": "Treating agreement as factual verification.",
+    "difficulty": "Intermediate",
+    "type": "Project",
+    "tags": [
+      "LLMs",
+      "asyncio",
+      "LangGraph"
+    ],
+    "sources": [
+      {
+        "label": "Neural-Consensus-Engine/backend/core/orchestrator.py",
+        "url": "https://github.com/Prathmesh333/Neural-Consensus-Engine/blob/2f62699714531abbf09d3adba3f6c000971610e7/backend/core/orchestrator.py"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "llms-05",
+      "consensus-02",
+      "llms-01"
+    ],
+    "evidence": "Code + README"
+  },
+  {
+    "id": "consensus-02",
+    "project": "consensus",
+    "topic": "LLMs",
+    "question": "What did you personally implement in Neural Consensus Engine?",
+    "quick": "I need to connect my own contribution to specific files, commits and decisions before giving this answer.",
+    "standard": "I need to connect my own contribution to specific files, commits and decisions before giving this answer.\n\nUse the source links to identify the execution path, then name the part you owned and what changed. Repository ownership alone does not establish sole authorship, the hardest bug, a team disagreement or the outcome of an experiment.\n\nA personal contribution could concern graph orchestration, expert prompting, error handling, or evaluation. I would name the actual part and explain its input and output. For example, making partial failures explicit is an orchestration improvement; proving better factual accuracy requires a separate labeled evaluation.\n\nThe strongest story includes one request trace showing which experts ran, what they returned, and how synthesis used the results. That is more precise than claiming that a panel of models automatically reaches a correct consensus.\n\nPrepare a concrete before/after example, the relevant commit, a test or experiment and one limitation. Say “the project implements” for verified code and “I implemented” only for work you can personally confirm. Leave numerical results out until tied to a run artifact.",
+    "deep": "I need to connect my own contribution to specific files, commits and decisions before giving this answer.\n\nUse the source links to identify the execution path, then name the part you owned and what changed. Repository ownership alone does not establish sole authorship, the hardest bug, a team disagreement or the outcome of an experiment.\n\nA personal contribution could concern graph orchestration, expert prompting, error handling, or evaluation. I would name the actual part and explain its input and output. For example, making partial failures explicit is an orchestration improvement; proving better factual accuracy requires a separate labeled evaluation.\n\nThe strongest story includes one request trace showing which experts ran, what they returned, and how synthesis used the results. That is more precise than claiming that a panel of models automatically reaches a correct consensus.\n\nPrepare a concrete before/after example, the relevant commit, a test or experiment and one limitation. Say “the project implements” for verified code and “I implemented” only for work you can personally confirm. Leave numerical results out until tied to a run artifact.\n\nBefore completing the answer, add the relevant commit and a verified outcome. If a change reduced duplicate calls or improved timeout handling, describe that behavior directly. Do not invent an accuracy increase, independence assumption, or calibrated confidence interpretation from the architecture alone.",
+    "followups": [
+      "Which commit is yours?",
+      "What broke?",
+      "What would you change today?"
+    ],
+    "mistake": "Inventing a personal debugging story from repository contents.",
+    "difficulty": "Intermediate",
+    "type": "Behavioral",
+    "tags": [
+      "LLMs",
+      "asyncio",
+      "LangGraph"
+    ],
+    "sources": [
+      {
+        "label": "Neural-Consensus-Engine/README.md",
+        "url": "https://github.com/Prathmesh333/Neural-Consensus-Engine/blob/2f62699714531abbf09d3adba3f6c000971610e7/README.md"
+      },
+      {
+        "label": "Neural-Consensus-Engine/backend/core/orchestrator.py",
+        "url": "https://github.com/Prathmesh333/Neural-Consensus-Engine/blob/2f62699714531abbf09d3adba3f6c000971610e7/backend/core/orchestrator.py"
+      }
+    ],
+    "clarification": "Needs clarification from Prathmesh. Personal contribution, motivation, debugging history and measured outcomes are not established by code alone.",
+    "related": [
+      "consensus-03",
+      "consensus-04",
+      "llms-04"
+    ],
+    "evidence": "Concept / practice",
+    "star": {
+      "Situation": "Use the actual project context.",
+      "Task": "State your personal responsibility.",
+      "Action": "Identify your change and reasoning.",
+      "Result": "Give a verified outcome, or state what remains unmeasured."
+    }
+  },
+  {
+    "id": "consensus-03",
+    "project": "consensus",
+    "topic": "LLMs",
+    "question": "How do expert dispatch and synthesis work in Neural Consensus Engine?",
+    "quick": "dispatch_experts creates expert coroutines and awaits asyncio.gather. The next graph node synthesizes their responses and emits agreements and disagreements along with confidence-like fields. Those fields are generated outputs, not automatically calibrated measurements.",
+    "standard": "dispatch_experts creates expert coroutines and awaits asyncio.gather. The next graph node synthesizes their responses and emits agreements and disagreements along with confidence-like fields. Those fields are generated outputs, not automatically calibrated measurements.\n\nI would trace the graph from expert dispatch to synthesis. The dispatch stage creates coroutines and gathers their results, so the expert requests can overlap. The synthesis stage then receives those responses and produces a combined answer with agreements and disagreements. The transition between stages is where result completeness and failure policy matter.\n\nI would inspect what happens if one response is malformed, slow, or absent. A robust contract must define whether synthesis waits, fails, or proceeds with clearly identified partial input.",
+    "deep": "dispatch_experts creates expert coroutines and awaits asyncio.gather. The next graph node synthesizes their responses and emits agreements and disagreements along with confidence-like fields. Those fields are generated outputs, not automatically calibrated measurements.\n\nI would trace the graph from expert dispatch to synthesis. The dispatch stage creates coroutines and gathers their results, so the expert requests can overlap. The synthesis stage then receives those responses and produces a combined answer with agreements and disagreements. The transition between stages is where result completeness and failure policy matter.\n\nI would inspect what happens if one response is malformed, slow, or absent. A robust contract must define whether synthesis waits, fails, or proceeds with clearly identified partial input.\n\nMeasure answer quality against evidence, cost and latency relative to a single-model baseline. Inspect error handling in the wrapper and define timeouts and partial-result policy. Distinct prompts or model names do not prove independent errors.\n\nThe trace should retain model identifiers, prompt versions, timings, and evidence used for evaluation without exposing secrets. It should also distinguish an expert's original claim from the synthesizer's additions. That helps diagnose whether an error began in an expert response or was introduced during combination. Confidence-like output remains generated content until validated against actual correctness.",
+    "followups": [
+      "What happens if one expert fails?",
+      "What would you test before deploying this path?"
+    ],
+    "mistake": "Treating agreement as factual verification.",
+    "difficulty": "Intermediate",
+    "type": "Architecture",
+    "tags": [
+      "LLMs",
+      "asyncio",
+      "LangGraph"
+    ],
+    "sources": [
+      {
+        "label": "Neural-Consensus-Engine/README.md",
+        "url": "https://github.com/Prathmesh333/Neural-Consensus-Engine/blob/2f62699714531abbf09d3adba3f6c000971610e7/README.md"
+      },
+      {
+        "label": "Neural-Consensus-Engine/backend/core/orchestrator.py",
+        "url": "https://github.com/Prathmesh333/Neural-Consensus-Engine/blob/2f62699714531abbf09d3adba3f6c000971610e7/backend/core/orchestrator.py"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "consensus-02",
+      "consensus-04",
+      "consensus-01"
+    ]
+  },
+  {
+    "id": "consensus-04",
+    "project": "consensus",
+    "topic": "LLMs",
+    "question": "How would you test and improve Neural Consensus Engine?",
+    "quick": "I would establish a reproducible baseline and test the specific failure boundary exposed by this implementation.",
+    "standard": "I would establish a reproducible baseline and test the specific failure boundary exposed by this implementation.\n\nMeasure answer quality against evidence, cost and latency relative to a single-model baseline. Inspect error handling in the wrapper and define timeouts and partial-result policy. Distinct prompts or model names do not prove independent errors.\n\nI would compare one model, multiple experts without synthesis, and the complete graph on the same question set. This separates the value of diverse responses from the value of the final combining step. The evaluation should include disagreements, shared wrong answers, and requests with insufficient evidence.\n\nOperational tests would force one expert to time out or return invalid output and check the stated partial-result policy. A system that answers well only when every dependency succeeds needs that limitation documented.\n\nKeep the current implementation separate from the proposed improvement. Save representative inputs, expected outputs and a versioned configuration. Test normal inputs, malformed inputs and the failure case described above. For model outputs, include a held-out evaluation and inspect errors rather than treating a confidence field as proof.\n\ndispatch_experts creates expert coroutines and awaits asyncio.gather. The next graph node synthesizes their responses and emits agreements and disagreements along with confidence-like fields. Those fields are generated outputs, not automatically calibrated measurements.",
+    "deep": "I would establish a reproducible baseline and test the specific failure boundary exposed by this implementation.\n\nMeasure answer quality against evidence, cost and latency relative to a single-model baseline. Inspect error handling in the wrapper and define timeouts and partial-result policy. Distinct prompts or model names do not prove independent errors.\n\nI would compare one model, multiple experts without synthesis, and the complete graph on the same question set. This separates the value of diverse responses from the value of the final combining step. The evaluation should include disagreements, shared wrong answers, and requests with insufficient evidence.\n\nOperational tests would force one expert to time out or return invalid output and check the stated partial-result policy. A system that answers well only when every dependency succeeds needs that limitation documented.\n\nKeep the current implementation separate from the proposed improvement. Save representative inputs, expected outputs and a versioned configuration. Test normal inputs, malformed inputs and the failure case described above. For model outputs, include a held-out evaluation and inspect errors rather than treating a confidence field as proof.\n\ndispatch_experts creates expert coroutines and awaits asyncio.gather. The next graph node synthesizes their responses and emits agreements and disagreements along with confidence-like fields. Those fields are generated outputs, not automatically calibrated measurements.\n\nMeasure cost per request, tail latency, and evidence-supported correctness together. Increasing expert count can improve coverage while making the system slower and more expensive. For review thresholds based on confidence, compare scores with labeled outcomes rather than assuming a value in the unit interval is a probability. Keep proposed policies separate from the current wrapper's demonstrated behavior.",
+    "followups": [
+      "What is the baseline?",
+      "What is the acceptance criterion?",
+      "How do you avoid leakage?"
+    ],
+    "mistake": "Presenting a proposed improvement as an already measured result.",
+    "difficulty": "Intermediate",
+    "type": "Research",
+    "tags": [
+      "LLMs",
+      "asyncio",
+      "LangGraph"
+    ],
+    "sources": [
+      {
+        "label": "Neural-Consensus-Engine/README.md",
+        "url": "https://github.com/Prathmesh333/Neural-Consensus-Engine/blob/2f62699714531abbf09d3adba3f6c000971610e7/README.md"
+      },
+      {
+        "label": "Neural-Consensus-Engine/backend/core/orchestrator.py",
+        "url": "https://github.com/Prathmesh333/Neural-Consensus-Engine/blob/2f62699714531abbf09d3adba3f6c000971610e7/backend/core/orchestrator.py"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "consensus-02",
+      "llms-03",
+      "consensus-03"
+    ]
+  }
+]

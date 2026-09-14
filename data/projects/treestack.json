@@ -1,0 +1,156 @@
+[
+  {
+    "id": "treestack-01",
+    "project": "treestack",
+    "topic": "Computer Vision",
+    "question": "Why feed probabilities into a stacking model?",
+    "quick": "Probabilities preserve uncertainty that hard class votes discard.",
+    "standard": "Probabilities preserve uncertainty that hard class votes discard.\n\nsoft_features flattens model-by-class probability vectors into per-sample features. hard_features one-hot encodes argmax predictions. enhanced_features adds confidence, entropy and pairwise agreement. The module provides several learned combiners and voting baselines.\n\nFor example, two classifiers can predict the same class with probabilities 0.51 and 0.99. A hard vote treats them equally, while probability features preserve that difference. A learned combiner can use patterns of confidence and disagreement to decide when to trust each model. Enhanced features add summaries of those patterns rather than only the class scores.\n\nThe danger is training the combiner on overly optimistic predictions from models evaluated on their own training examples. It can learn relationships that disappear on new data, producing an apparently strong but misleading ensemble.\n\nTrain combiners on predictions from held-out or out-of-fold data, never on in-sample base-model predictions. Validate probability shape, finite values and row sums. A powerful meta-model can otherwise learn training artifacts and appear better without generalizing.",
+    "deep": "Probabilities preserve uncertainty that hard class votes discard.\n\nsoft_features flattens model-by-class probability vectors into per-sample features. hard_features one-hot encodes argmax predictions. enhanced_features adds confidence, entropy and pairwise agreement. The module provides several learned combiners and voting baselines.\n\nFor example, two classifiers can predict the same class with probabilities 0.51 and 0.99. A hard vote treats them equally, while probability features preserve that difference. A learned combiner can use patterns of confidence and disagreement to decide when to trust each model. Enhanced features add summaries of those patterns rather than only the class scores.\n\nThe danger is training the combiner on overly optimistic predictions from models evaluated on their own training examples. It can learn relationships that disappear on new data, producing an apparently strong but misleading ensemble.\n\nTrain combiners on predictions from held-out or out-of-fold data, never on in-sample base-model predictions. Validate probability shape, finite values and row sums. A powerful meta-model can otherwise learn training artifacts and appear better without generalizing.\n\nOut-of-fold predictions solve the meta-training data problem by generating each training row's base predictions from models that did not fit that row. The final base models can then be refit according to a defined procedure. I would compare the learned combiner with mean probabilities and simple voting to establish whether the additional parameters justify their complexity.",
+    "followups": [
+      "Why out-of-fold predictions?",
+      "How are voting ties broken?"
+    ],
+    "mistake": "Training and evaluating a combiner on leaked predictions.",
+    "difficulty": "Intermediate",
+    "type": "Project",
+    "tags": [
+      "Computer Vision",
+      "Ensembles",
+      "scikit-learn"
+    ],
+    "sources": [
+      {
+        "label": "WeakEnsembleStrongDecisionTree/src/treestack_cnn/stacking.py",
+        "url": "https://github.com/Prathmesh333/WeakEnsembleStrongDecisionTree/blob/dbfe9811ee58663f4bb5f42913f818bd6549136f/src/treestack_cnn/stacking.py"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "computer-vision-05",
+      "computer-vision-03",
+      "computer-vision-04"
+    ],
+    "evidence": "Code + README"
+  },
+  {
+    "id": "treestack-02",
+    "project": "treestack",
+    "topic": "Computer Vision",
+    "question": "What did you personally implement in TreeStack CNN?",
+    "quick": "I need to connect my own contribution to specific files, commits and decisions before giving this answer.",
+    "standard": "I need to connect my own contribution to specific files, commits and decisions before giving this answer.\n\nUse the source links to identify the execution path, then name the part you owned and what changed. Repository ownership alone does not establish sole authorship, the hardest bug, a team disagreement or the outcome of an experiment.\n\nA confirmed contribution might concern feature construction, the combiner, or the evaluation split. I would explain which one I changed and why. For example, adding entropy features aims to expose uncertainty to the meta-model, while using out-of-fold predictions aims to prevent leakage; they solve different problems.\n\nThe evidence should include a small feature example and a reproducible comparison. I would state whether the work changed correctness, predictive quality, or implementation usability rather than implying all three improved without measurement.\n\nPrepare a concrete before/after example, the relevant commit, a test or experiment and one limitation. Say “the project implements” for verified code and “I implemented” only for work you can personally confirm. Leave numerical results out until tied to a run artifact.",
+    "deep": "I need to connect my own contribution to specific files, commits and decisions before giving this answer.\n\nUse the source links to identify the execution path, then name the part you owned and what changed. Repository ownership alone does not establish sole authorship, the hardest bug, a team disagreement or the outcome of an experiment.\n\nA confirmed contribution might concern feature construction, the combiner, or the evaluation split. I would explain which one I changed and why. For example, adding entropy features aims to expose uncertainty to the meta-model, while using out-of-fold predictions aims to prevent leakage; they solve different problems.\n\nThe evidence should include a small feature example and a reproducible comparison. I would state whether the work changed correctness, predictive quality, or implementation usability rather than implying all three improved without measurement.\n\nPrepare a concrete before/after example, the relevant commit, a test or experiment and one limitation. Say “the project implements” for verified code and “I implemented” only for work you can personally confirm. Leave numerical results out until tied to a run artifact.\n\nTo complete the personal answer, identify the commit and an actual result with the base models and split used. If a simpler mean performs just as well, that is a useful finding about the value of learned stacking. Repository ownership alone cannot establish that I designed every combiner or ran every possible experiment.",
+    "followups": [
+      "Which commit is yours?",
+      "What broke?",
+      "What would you change today?"
+    ],
+    "mistake": "Inventing a personal debugging story from repository contents.",
+    "difficulty": "Intermediate",
+    "type": "Behavioral",
+    "tags": [
+      "Computer Vision",
+      "Ensembles",
+      "scikit-learn"
+    ],
+    "sources": [
+      {
+        "label": "WeakEnsembleStrongDecisionTree/README.md",
+        "url": "https://github.com/Prathmesh333/WeakEnsembleStrongDecisionTree/blob/dbfe9811ee58663f4bb5f42913f818bd6549136f/README.md"
+      },
+      {
+        "label": "WeakEnsembleStrongDecisionTree/src/treestack_cnn/stacking.py",
+        "url": "https://github.com/Prathmesh333/WeakEnsembleStrongDecisionTree/blob/dbfe9811ee58663f4bb5f42913f818bd6549136f/src/treestack_cnn/stacking.py"
+      }
+    ],
+    "clarification": "Needs clarification from Prathmesh. Personal contribution, motivation, debugging history and measured outcomes are not established by code alone.",
+    "related": [
+      "evidencemem-02",
+      "treestack-03",
+      "treestack-04"
+    ],
+    "evidence": "Concept / practice",
+    "star": {
+      "Situation": "Use the actual project context.",
+      "Task": "State your personal responsibility.",
+      "Action": "Identify your change and reasoning.",
+      "Result": "Give a verified outcome, or state what remains unmeasured."
+    }
+  },
+  {
+    "id": "treestack-03",
+    "project": "treestack",
+    "topic": "Computer Vision",
+    "question": "How does TreeStack convert model predictions into ensemble features?",
+    "quick": "soft_features flattens model-by-class probability vectors into per-sample features. hard_features one-hot encodes argmax predictions. enhanced_features adds confidence, entropy and pairwise agreement. The module provides several learned combiners and voting baselines.",
+    "standard": "soft_features flattens model-by-class probability vectors into per-sample features. hard_features one-hot encodes argmax predictions. enhanced_features adds confidence, entropy and pairwise agreement. The module provides several learned combiners and voting baselines.\n\nI would follow the prediction tensor into the feature builder. Soft features retain each model's probability for every class; hard features convert each model's top class into a one-hot vector. Enhanced features add summaries such as confidence, entropy, and agreement. The output must preserve sample order and class alignment before entering a combiner.\n\nA tiny two-model, two-class example is enough to show how the flattened columns are constructed and why probabilities contain more information than class labels.",
+    "deep": "soft_features flattens model-by-class probability vectors into per-sample features. hard_features one-hot encodes argmax predictions. enhanced_features adds confidence, entropy and pairwise agreement. The module provides several learned combiners and voting baselines.\n\nI would follow the prediction tensor into the feature builder. Soft features retain each model's probability for every class; hard features convert each model's top class into a one-hot vector. Enhanced features add summaries such as confidence, entropy, and agreement. The output must preserve sample order and class alignment before entering a combiner.\n\nA tiny two-model, two-class example is enough to show how the flattened columns are constructed and why probabilities contain more information than class labels.\n\nTrain combiners on predictions from held-out or out-of-fold data, never on in-sample base-model predictions. Validate probability shape, finite values and row sums. A powerful meta-model can otherwise learn training artifacts and appear better without generalizing.\n\nI would verify finite values, expected dimensions, and consistent class ordering across models. Ties and nearly equal probabilities need deterministic treatment where the API promises it. The execution trace should also identify where meta-training data comes from; correct feature arithmetic cannot compensate for in-sample predictions that leak training performance into the combiner.",
+    "followups": [
+      "Why out-of-fold predictions?",
+      "What would you test before deploying this path?"
+    ],
+    "mistake": "Training and evaluating a combiner on leaked predictions.",
+    "difficulty": "Intermediate",
+    "type": "Architecture",
+    "tags": [
+      "Computer Vision",
+      "Ensembles",
+      "scikit-learn"
+    ],
+    "sources": [
+      {
+        "label": "WeakEnsembleStrongDecisionTree/README.md",
+        "url": "https://github.com/Prathmesh333/WeakEnsembleStrongDecisionTree/blob/dbfe9811ee58663f4bb5f42913f818bd6549136f/README.md"
+      },
+      {
+        "label": "WeakEnsembleStrongDecisionTree/src/treestack_cnn/stacking.py",
+        "url": "https://github.com/Prathmesh333/WeakEnsembleStrongDecisionTree/blob/dbfe9811ee58663f4bb5f42913f818bd6549136f/src/treestack_cnn/stacking.py"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "evidencemem-03",
+      "treestack-02",
+      "treestack-04"
+    ]
+  },
+  {
+    "id": "treestack-04",
+    "project": "treestack",
+    "topic": "Computer Vision",
+    "question": "How would you test and improve TreeStack CNN?",
+    "quick": "I would establish a reproducible baseline and test the specific failure boundary exposed by this implementation.",
+    "standard": "I would establish a reproducible baseline and test the specific failure boundary exposed by this implementation.\n\nTrain combiners on predictions from held-out or out-of-fold data, never on in-sample base-model predictions. Validate probability shape, finite values and row sums. A powerful meta-model can otherwise learn training artifacts and appear better without generalizing.\n\nThe first test boundary is data leakage: every meta-training prediction must come from a base model that did not train on that example. The second is feature correctness: shapes, class columns, and uncertainty calculations must match the intended representation. The third is actual benefit compared with simple fusion.\n\nI would compare hard voting, probability averaging, and learned combiners on the same held-out data. This prevents a more expressive method from receiving credit merely because it had a more favorable split.\n\nKeep the current implementation separate from the proposed improvement. Save representative inputs, expected outputs and a versioned configuration. Test normal inputs, malformed inputs and the failure case described above. For model outputs, include a held-out evaluation and inspect errors rather than treating a confidence field as proof.\n\nsoft_features flattens model-by-class probability vectors into per-sample features. hard_features one-hot encodes argmax predictions. enhanced_features adds confidence, entropy and pairwise agreement. The module provides several learned combiners and voting baselines.",
+    "deep": "I would establish a reproducible baseline and test the specific failure boundary exposed by this implementation.\n\nTrain combiners on predictions from held-out or out-of-fold data, never on in-sample base-model predictions. Validate probability shape, finite values and row sums. A powerful meta-model can otherwise learn training artifacts and appear better without generalizing.\n\nThe first test boundary is data leakage: every meta-training prediction must come from a base model that did not train on that example. The second is feature correctness: shapes, class columns, and uncertainty calculations must match the intended representation. The third is actual benefit compared with simple fusion.\n\nI would compare hard voting, probability averaging, and learned combiners on the same held-out data. This prevents a more expressive method from receiving credit merely because it had a more favorable split.\n\nKeep the current implementation separate from the proposed improvement. Save representative inputs, expected outputs and a versioned configuration. Test normal inputs, malformed inputs and the failure case described above. For model outputs, include a held-out evaluation and inspect errors rather than treating a confidence field as proof.\n\nsoft_features flattens model-by-class probability vectors into per-sample features. hard_features one-hot encodes argmax predictions. enhanced_features adds confidence, entropy and pairwise agreement. The module provides several learned combiners and voting baselines.\n\nI would vary the number and diversity of base models and inspect where stacking changes the decision. If models share most errors, a combiner has limited information to recover the correct label. Calibration and inference cost should accompany accuracy. All hyperparameter choices belong to validation; the final test set should not select the stacking architecture.",
+    "followups": [
+      "What is the baseline?",
+      "What is the acceptance criterion?",
+      "How do you avoid leakage?"
+    ],
+    "mistake": "Presenting a proposed improvement as an already measured result.",
+    "difficulty": "Intermediate",
+    "type": "Research",
+    "tags": [
+      "Computer Vision",
+      "Ensembles",
+      "scikit-learn"
+    ],
+    "sources": [
+      {
+        "label": "WeakEnsembleStrongDecisionTree/README.md",
+        "url": "https://github.com/Prathmesh333/WeakEnsembleStrongDecisionTree/blob/dbfe9811ee58663f4bb5f42913f818bd6549136f/README.md"
+      },
+      {
+        "label": "WeakEnsembleStrongDecisionTree/src/treestack_cnn/stacking.py",
+        "url": "https://github.com/Prathmesh333/WeakEnsembleStrongDecisionTree/blob/dbfe9811ee58663f4bb5f42913f818bd6549136f/src/treestack_cnn/stacking.py"
+      }
+    ],
+    "clarification": "",
+    "related": [
+      "evidencemem-04",
+      "computer-vision-05",
+      "treestack-02"
+    ]
+  }
+]
