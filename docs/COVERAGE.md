@@ -16,7 +16,7 @@ The supplied 35-section prompt is preserved in `PROJECT_SPEC.md`. The implementa
 | Random interviews | Specified 15-question ML Engineer mixture; no duplicate IDs within a session |
 | Mock interviews | Project question → actual follow-up prompts → next project question |
 | Progress | Viewed answers, known/revision states, project and topic mastery, browser localStorage, export/import |
-| Answer quality | Source links, explicit uncertainty, common mistakes, related questions, code-level discrepancies |
+| Answer quality | All 230 interview/deep answers expanded with mechanisms, examples, tradeoffs and evaluation detail; source links, explicit uncertainty and code-level discrepancies; content reviewed before integration |
 | Mobile / theme / accessibility | Collapsible sidebar, dark/light persistence, keyboard controls, reduced motion, contrast checks |
 | Static deployment | Relative assets and hash routes beneath `/InterviewPrep/`; validated Pages artifact |
 | Documentation | README, original prompt, audit inventory, coverage map, screenshots, editing schema and test instructions |
@@ -27,4 +27,4 @@ FH-RAG formulas, implementation, variant counts and benchmark outcomes cannot be
 
 The repository inventory distinguishes source-inspected projects from README-only learning projects and sparse repositories. No claim is made that every notebook was executed or every source file audited. Model training and private datasets are outside website validation.
 
-The follow-up sequence is a rehearsal aid, not an AI evaluator. Answers are compact rather than padded to fixed durations. Code can be copied; execution happens in the user's development environment. The deployed site fetches its own static JSON on load, so offline first-load/service-worker caching is not claimed.
+The follow-up sequence is a rehearsal aid, not an AI evaluator. Quick answers are concise; interview answers explain the mechanism and practical implications, and deep answers add implementation, edge cases and evaluation detail. Length follows the question rather than a fixed speaking duration. Code can be copied; execution happens in the user's development environment. The deployed site fetches its own static JSON on load, so offline first-load/service-worker caching is not claimed.

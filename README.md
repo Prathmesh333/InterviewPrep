@@ -10,7 +10,7 @@ A personal interview handbook for Prathmesh Nikam, built around repository evide
 
 - 230 questions across 16 project sections and 16 fundamental topics.
 - HQDE, FH-RAG, TA-RS / PsychoTA, Ray, CanIPlay, VSFeed, EvidenceMem, ForecastForge, TreeStack CNN, ResearchHub, Neural Consensus Engine, JanSeva AI, F1 prediction, Shortlist’d, Iris, TakeOne and TRACE. Ray concepts connect to HQDE rather than treating the upstream Ray fork as original work.
-- Collapsed quick, interview and deep answers; likely follow-ups, common mistakes, related questions, source links and diagrams.
+- Collapsed quick answers, expanded interview explanations and deeper implementation discussions; worked examples, likely follow-ups, common mistakes, related questions, source links and diagrams.
 - Search across questions, answers, tags, projects and technologies. Combine project, topic, difficulty and question-type filters.
 - Focused study, balanced random 15-question interviews and project-defense sequences with follow-up prompts.
 - Bookmarks, viewed answers, self-rated mastery, revision flags and personal notes in localStorage. Export/import a progress backup from Sources & coverage.
@@ -23,7 +23,7 @@ Project links pin inspected source revisions. Code supports implementation behav
 
 FH-RAG appears in the public portfolio with `repo: null`. Its section explains the supplied concepts and explicitly leaves formulas, code, datasets and numerical results unverified. TA-RS is linked to PsychoTA by the portfolio. The handbook corrects several gaps between README descriptions and actual execution, including HQDE's effective learning-rate setup and PsychoTA's parallel attention/GRU branches. See [repository audit](docs/REPOSITORY_AUDIT.md) and [coverage map](docs/COVERAGE.md).
 
-First-person project walkthroughs are practice scaffolds. Confirm your own contribution in notes before saying “I implemented.” Mastery is a self-rating, not an automated assessment. The UI uses compact answers rather than artificially padding every explanation to a fixed speaking duration.
+First-person project walkthroughs are practice scaffolds. Confirm your own contribution in notes before saying “I implemented.” Mastery is a self-rating, not an automated assessment. All 230 interview and deep answers have been expanded with question-specific reasoning, examples and tradeoffs. Quick answers remain concise. See the [answer review](docs/ANSWER_REVIEW.md) for the content checks and evidence limits.
 
 ## Run locally
 
