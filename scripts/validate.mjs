@@ -86,6 +86,52 @@ for (const c of collections)
     `Empty collection: ${c}`,
   );
 assert.equal(data.repositories.length, 35);
+const platformIds = new Set();
+assert.equal(
+  data.platforms.length,
+  6,
+  "Expected six researched platform guides",
+);
+for (const p of data.platforms) {
+  assert.match(p.id, /^[a-z0-9-]+$/);
+  assert(!platformIds.has(p.id), `Duplicate platform: ${p.id}`);
+  platformIds.add(p.id);
+  for (const field of [
+    "name",
+    "initial",
+    "kind",
+    "summary",
+    "format",
+    "check",
+    "reviewed",
+  ])
+    assert(
+      typeof p[field] === "string" && p[field].length > 0,
+      `${p.id}: ${field}`,
+    );
+  assert.match(p.reviewed, /^\d{4}-\d{2}-\d{2}$/);
+  assert(p.steps.length >= 3 && p.focus.length >= 2);
+  assert(p.sources.length > 0);
+  for (const s of p.sources)
+    assert(new URL(s.url).protocol === "https:" && s.label);
+  assert(p.questionIds.length >= 4);
+  assert.equal(new Set(p.questionIds).size, p.questionIds.length);
+  for (const id of p.questionIds)
+    assert(ids.has(id), `${p.id}: missing practice question ${id}`);
+}
+for (const id of [
+  "mercor",
+  "micro1",
+  "alignerr",
+  "outlier",
+  "turing",
+  "hirevue",
+])
+  assert(platformIds.has(id));
+assert.equal(
+  data.questions.filter((q) => q.collection === "platform-prep").length,
+  12,
+);
 for (const file of [
   "index.html",
   "assets/styles.css",
@@ -93,8 +139,9 @@ for (const file of [
   "assets/favicon.svg",
   "docs/MASTER_SPEC.md",
   "docs/SOURCE_AUDIT.md",
+  "docs/PLATFORM_SOURCES.md",
 ])
   assert(fs.existsSync(new URL("../" + file, import.meta.url)));
 console.log(
-  `PASS: ${ids.size} complete questions, ${collections.size} collections, all 60 uploaded questions mapped to 40 answers, 35 repositories inventoried.`,
+  `PASS: ${ids.size} complete questions, ${collections.size} collections, ${platformIds.size} platform guides, all 60 uploaded questions mapped to 40 answers, 35 repositories inventoried.`,
 );

@@ -1,10 +1,11 @@
 # InterviewPrep
 
-A personal study desk for Prathamesh Nikam: 71 interview questions in 25 collections, grounded in public project documentation and the supplied ML/NLP question list. Plain HTML, CSS and JavaScript. No backend, API key, runtime package, external font or build tool is required.
+A personal study desk for Prathamesh Nikam: 83 interview questions in 26 collections, grounded in public project documentation and the supplied ML/NLP question list, plus six AI interview platform guides. Plain HTML, CSS and JavaScript. No backend, API key, runtime package, external font or build tool is required.
 
 ## Study
 
 - Browse repository collections or follow topics across projects and foundations.
+- Open **AI interview platforms** for Mercor, micro1, Alignerr, Outlier, Turing and HireVue. Each guide distinguishes official process facts from original practice advice and offers a six-question practice round.
 - Search full answers, deep dives, follow-ups and original uploaded question wording. Combine collection, topic, depth and revision filters.
 - Read a concise answer, detailed explanation, technical section, answered follow-ups and a pitfall. Five responsive diagrams include text equivalents.
 - Rehearse a shuffled selection with hidden answers. Mark questions practiced yourself; the site does not score your knowledge.
@@ -40,6 +41,8 @@ The deployment artifact contains only `index.html`, `assets/`, `data/` and publi
 The repository was initially empty. One minimal `.gitkeep` baseline commit on `main` was needed to create a reviewable PR. All website work belongs to the feature branch.
 
 ## Revise content
+
+Platform guides live in the `platforms` array of `data/content.json`. Each has a stable ID, category, sourced process summary, preparation steps, review date, official links and a `questionIds` practice selection. Details use links such as `#view=platforms&platform=mercor`. Search in the question bank also recognizes associated platform names. See [platform source notes](docs/PLATFORM_SOURCES.md) for evidence boundaries and updating instructions. The twelve additional exercises are original rehearsal prompts, not actual or guaranteed platform questions.
 
 Edit `data/content.json`. Content is separate from rendering. No regeneration or package installation is needed. Each question has:
 

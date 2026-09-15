@@ -1,5 +1,9 @@
 # InterviewPrep: master prompt and implementation specification
 
+## Platform-preparation extension — 15 September 2026
+
+Add a prominent AI interview platforms destination for Mercor, micro1 and related platforms. Cover Mercor, micro1, Alignerr, Outlier, Turing and HireVue with official links, dated process summaries, format distinctions, preparation plans and practice selections drawn from original exercises and the repository library. Do not imply that all platforms use the same AI interviewer, that practice prompts are actual assessment questions, or that screening guarantees work. Preserve existing IDs, notes and progress. Deliver the extension on a feature branch and open a new PR for review.
+
 Build a personal interview-preparation website for Prathamesh Nikam using https://github.com/Prathmesh333/InterviewPrep. Inspect the public repositories at https://github.com/Prathmesh333 and use their actual documentation and implementation to produce technically defensible interview material. The audience is the project author preparing for ML engineering, NLP, research engineering and software engineering interviews.
 
 ## Learning experience

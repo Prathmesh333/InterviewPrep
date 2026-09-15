@@ -1,5 +1,7 @@
 # Source audit and coverage
 
+Platform preparation added 15 September 2026: six guides and twelve original rehearsal questions. See [platform source notes](PLATFORM_SOURCES.md). The original repository survey below remains a snapshot from 13 September 2026.
+
 Inspected 13 September 2026. Public repository inventory: 35 repositories. This is a README-level account survey with targeted core-code inspection for HQDE-PyPI and PsychoTA, not an audit of every implementation. No ML training or benchmark was executed.
 
 ## Supplied material

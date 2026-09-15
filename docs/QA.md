@@ -1,5 +1,15 @@
 # Verification record
 
+## Platform extension — 15 September 2026
+
+Content validation passes for 83 questions in 26 collections, including 12 new original practice exercises, six sourced platform guides and every referenced practice-question ID. The original 60 uploaded-question mappings remain intact.
+
+Playwright/Chrome verifies all six platform detail routes and their practice rounds, search by platform name and format, zero-results recovery, unknown-platform recovery, official-link rendering, new-question bookmarks and notes after reload, and global question search using platform names. The prior functional regression suite also passes with the expanded content count.
+
+Desktop axe checks report no WCAG 2 A/AA or WCAG 2.1 AA violations on the platform directory, micro1 guide and response-ranking question. Home, directory, Mercor/micro1 guides and topics have no document overflow at 375px. Desktop directory and mobile micro1 screenshots were visually reviewed. Active navigation remains visible within the horizontally scrolling mobile navigation.
+
+The records below describe the original release and its source audit.
+
 Functional browser checks first ran on 13 September 2026 and passed again on 15 September 2026. The final accessibility pass and source-link pinning ran on 15 September 2026. These checks validate the website; no project ML benchmark or model-training run was executed.
 
 ## Automated content checks
