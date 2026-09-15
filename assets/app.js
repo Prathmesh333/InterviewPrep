@@ -105,6 +105,15 @@
       a.classList.toggle("active", active);
       if (active) a.setAttribute("aria-current", "page");
       else a.removeAttribute("aria-current");
+      if (active) {
+        const nav = a.parentElement;
+        if (nav.scrollWidth > nav.clientWidth) {
+          nav.scrollLeft +=
+            a.getBoundingClientRect().left -
+            nav.getBoundingClientRect().left -
+            (nav.clientWidth - a.clientWidth) / 2;
+        }
+      }
     });
   }
   const params = () => new URLSearchParams(location.hash.slice(1));
@@ -195,6 +204,7 @@
   function home() {
     main.innerHTML = `<section class="hero"><div><p class="eyebrow"><span class="dot"></span> A LITTLE PRACTICE. A CLEARER ANSWER.</p><h1>Your work.<br>Your next <em>great answer.</em></h1><p class="intro">Turn the projects you’ve built into stories you can explain.<br>Study the ideas, work through the tradeoffs, and make the answer yours.</p><div class="actions"><a class="button" href="#view=library">Explore question bank <span aria-hidden="true">→</span></a><a class="button secondary" href="#view=collections">Browse repositories</a></div></div><div class="practice-card"><span class="orbit" aria-hidden="true"></span><p class="eyebrow">THE RECALL ROUTINE</p><h2>Read less.<br>Recall more.</h2><p>Pick a question. Say your answer out loud. Then check the details you missed.</p><button data-action="practice-all">Start a practice round <span aria-hidden="true">↗</span></button></div></section>
     <div class="stats"><div class="stat"><strong>${data.questions.length}</strong><span>interview questions</span></div><div class="stat"><strong>${data.collections.length}</strong><span>study collections</span></div><div class="stat"><strong>${topics.length}</strong><span>connected topics</span></div><div class="stat"><strong>${state.practiced.length}<span style="display:inline;font-size:15px"> / ${data.questions.length}</span></strong><span>practiced by you</span></div></div>
+    ${platformShortcuts()}
     <section class="collections"><div class="section-heading"><h2>Start with your projects</h2><a href="#view=collections">All repositories <span aria-hidden="true">↗</span></a></div>${collectionRows(data.collections.slice(0, 3))}</section>
     <section><div class="section-heading"><h2>Find your next question</h2><span class="muted" style="font-size:10px">PROJECTS + FOUNDATIONS</span></div>${filterUI()}</section>`;
     refreshResults();
@@ -205,10 +215,53 @@
     refreshResults();
   }
   function collectionPage() {
-    main.innerHTML = `<p class="eyebrow">LEARN FROM WHAT YOU’VE BUILT</p><h1>The repository reading list.</h1><p class="page-intro">Project-specific questions connect architecture to the choices behind it. FH-RAG follows your supplied brief; source notes make the evidence clear.</p><div class="collections">${collectionRows(data.collections.filter((c) => !["ml", "nlp"].includes(c.id)))}</div><div class="section-heading"><h2>Strengthen the foundations</h2></div>${collectionRows(data.collections.filter((c) => ["ml", "nlp"].includes(c.id)))}<details class="inventory"><summary>Full GitHub inventory · ${data.repositories.length} repositories</summary><p class="page-intro" style="margin-top:15px">README-level survey with targeted code inspection for HQDE and PsychoTA. Forks and repositories with limited evidence remain listed without invented experience claims.</p>${data.repositories.map((r) => `<div class="inventory-item"><a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${esc(r.name)} ↗</a>${r.fork ? ' <span class="tag topic">Fork</span>' : ""}<p>${esc(r.note)}</p></div>`).join("")}</details>`;
+    main.innerHTML = `<p class="eyebrow">LEARN FROM WHAT YOU’VE BUILT</p><h1>The repository reading list.</h1><p class="page-intro">Project-specific questions connect architecture to the choices behind it. FH-RAG follows your supplied brief; source notes make the evidence clear.</p><div class="collections">${collectionRows(data.collections.filter((c) => !["ml", "nlp", "platform-prep"].includes(c.id)))}</div><div class="section-heading"><h2>Foundations & interview practice</h2></div>${collectionRows(data.collections.filter((c) => ["ml", "nlp", "platform-prep"].includes(c.id)))}<details class="inventory"><summary>Full GitHub inventory · ${data.repositories.length} repositories</summary><p class="page-intro" style="margin-top:15px">README-level survey with targeted code inspection for HQDE and PsychoTA. Forks and repositories with limited evidence remain listed without invented experience claims.</p>${data.repositories.map((r) => `<div class="inventory-item"><a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${esc(r.name)} ↗</a>${r.fork ? ' <span class="tag topic">Fork</span>' : ""}<p>${esc(r.note)}</p></div>`).join("")}</details>`;
+  }
+  function platformShortcuts() {
+    return `<section class="platform-shortcuts" aria-label="Prepare by interview platform"><div><p class="section-kicker">PREPARE FOR YOUR NEXT SCREENING</p><h2>Mercor, micro1 or somewhere else?</h2><p>Know the format. Rehearse the skills. Bring your own examples.</p></div><a class="button secondary" href="#view=platforms">Explore 6 platforms →</a><div class="platform-pills">${data.platforms.map((p) => `<a href="#view=platforms&platform=${esc(p.id)}">${esc(p.name)} <span aria-hidden="true">↗</span></a>`).join("")}</div></section>`;
+  }
+  function platformPage(id) {
+    const p = data.platforms.find((p) => p.id === id);
+    if (id && !p) {
+      main.innerHTML =
+        '<div class="empty"><h1>Platform not found.</h1><p>Choose one of the available preparation guides.</p><a class="button" href="#view=platforms">All platforms →</a></div>';
+      return;
+    }
+    if (!p) {
+      main.innerHTML = `<p class="eyebrow">THE INTERVIEW BEYOND YOUR RESUME</p><h1>Prepare for the platform.<br><em>Keep your answers yours.</em></h1><p class="page-intro">Mercor, micro1 and the other platforms below use different screening formats. Find official guidance and practice the relevant skills with your own project examples.</p><div class="platform-disclosure"><strong>Original practice, grounded guidance.</strong> These are our rehearsal exercises, not actual or guaranteed platform questions. Format notes link to official sources; follow the instructions in your current invitation.</div><div class="platform-tools"><label for="platform-search">Find a platform or format<input id="platform-search" type="search" placeholder="Try micro1, coding or AI-work…" autocomplete="off"></label><p id="platform-count" role="status" aria-live="polite"></p></div><div id="platform-list" class="platform-grid"></div><p class="platform-footer">Official information checked 15 Sep 2026 · <a href="docs/PLATFORM_SOURCES.md">Sources and update notes</a></p>`;
+      refreshPlatforms("");
+      return;
+    }
+    const items = p.questionIds.map((id) => questionMap.get(id));
+    document.title = `${p.name} interview preparation — InterviewPrep`;
+    main.innerHTML = `<a class="back" href="#view=platforms">← All interview platforms</a><header class="platform-detail-heading"><span class="platform-monogram" aria-hidden="true">${esc(p.initial)}</span><div><p class="eyebrow">${esc(p.kind)}</p><h1>${esc(p.name)} interview preparation</h1></div></header><p class="page-intro">${esc(p.summary)}</p><div class="platform-detail-grid"><section class="revision-panel"><h2>What the official guide says</h2><p>${esc(p.format)}</p><div class="platform-source-links">${p.sources.map((s) => `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.label)} ↗</a>`).join("")}</div><p class="platform-date">Checked ${esc(p.reviewed)}</p><div class="platform-check"><strong>Check your current invitation</strong><p>${esc(p.check)}</p></div></section><section class="revision-panel platform-plan"><p class="section-kicker">YOUR PREPARATION PLAN</p><h2>Build a clear, flexible answer.</h2><ol>${p.steps.map((s) => `<li>${esc(s)}</li>`).join("")}</ol><div class="tags">${p.focus.map((s) => `<span class="tag topic">${esc(s)}</span>`).join("")}</div></section></div><div class="section-heading"><h2>Your ${esc(p.name)} practice round</h2><button class="button" data-action="practice-platform" data-platform="${esc(p.id)}">Practice ${items.length} questions →</button></div><p class="page-intro">An editorial selection of original exercises and existing project questions. These are not claimed to appear in a ${esc(p.name)} assessment. Practice here uses no microphone, camera or external interview service.</p><div class="question-list">${questionRows(items)}</div><p class="platform-footer"><a href="docs/PLATFORM_SOURCES.md">Preparation scope and source notes</a> · <a href="#view=platforms">Compare platforms</a></p>`;
+  }
+  function refreshPlatforms(search) {
+    const terms = search
+      .toLocaleLowerCase()
+      .trim()
+      .split(/\s+/)
+      .filter(Boolean);
+    const items = data.platforms.filter((p) =>
+      terms.every((term) =>
+        JSON.stringify([p.name, p.kind, p.summary, p.format, p.focus])
+          .toLocaleLowerCase()
+          .includes(term),
+      ),
+    );
+    $("#platform-count").textContent =
+      `${items.length} ${items.length === 1 ? "platform" : "platforms"}`;
+    $("#platform-list").innerHTML = items.length
+      ? items
+          .map(
+            (p) =>
+              `<article class="platform-card"><div class="platform-card-top"><span class="platform-monogram" aria-hidden="true">${esc(p.initial)}</span><span class="tag topic">${esc(p.kind)}</span></div><h2><a href="#view=platforms&platform=${esc(p.id)}">${esc(p.name)}</a></h2><p>${esc(p.summary)}</p><div class="tags">${p.focus.map((s) => `<span class="tag">${esc(s)}</span>`).join("")}</div><div class="platform-card-bottom"><span>${p.questionIds.length} practice questions</span><a href="#view=platforms&platform=${esc(p.id)}" aria-label="Open ${esc(p.name)} preparation guide">Open guide →</a></div></article>`,
+          )
+          .join("")
+      : '<div class="empty"><h2>No matching platforms.</h2><p>Try a name such as Mercor or a format such as coding.</p><button class="button secondary" data-action="clear-platforms">Show all platforms</button></div>';
   }
   function topicPage() {
-    main.innerHTML = `<p class="eyebrow">CONNECT THE IDEAS</p><h1>Follow a topic.</h1><p class="page-intro">Move between foundations and your own projects. The same tradeoff often appears in more than one system.</p><div class="topic-grid">${topics.map((t, i) => `<a class="topic-card" href="#view=library&topic=${encodeURIComponent(t)}"><span>${String(i + 1).padStart(2, "0")} / TOPIC</span><h2>${esc(t)}</h2><span>${data.questions.filter((q) => q.topic === t).length} questions ↗</span></a>`).join("")}</div>`;
+    main.innerHTML = `<p class="eyebrow">CONNECT THE IDEAS</p><h1>Follow a topic.</h1><p class="page-intro">Move between foundations and your own projects. The same tradeoff often appears in more than one system.</p>${platformShortcuts()}<div class="topic-grid">${topics.map((t, i) => `<a class="topic-card" href="#view=library&topic=${encodeURIComponent(t)}"><span>${String(i + 1).padStart(2, "0")} / TOPIC</span><h2>${esc(t)}</h2><span>${data.questions.filter((q) => q.topic === t).length} questions ↗</span></a>`).join("")}</div>`;
   }
   function progressPage() {
     const practiced = data.questions.filter((q) => done(q.id));
@@ -315,7 +368,8 @@
     else if (view === "practice") {
       main.innerHTML =
         '<div class="empty"><h1>Start a fresh practice round.</h1><p>Your notes and marks are saved. Practice order resets after a reload.</p><button class="button" data-action="practice-all">Start practice →</button></div>';
-    } else if (view === "collections") collectionPage();
+    } else if (view === "platforms") platformPage(p.get("platform"));
+    else if (view === "collections") collectionPage();
     else if (view === "topics") topicPage();
     else if (view === "progress") progressPage();
     else if (view === "library" || view === "saved") library(view);
@@ -325,6 +379,7 @@
       library: "Question bank",
       collections: "Repositories",
       topics: "Topics",
+      platforms: "AI interview platforms",
       saved: "Bookmarks",
       progress: "My revision",
       practice: "Practice",
@@ -336,6 +391,7 @@
     window.scrollTo(0, 0);
   }
   main.addEventListener("input", (e) => {
+    if (e.target.id === "platform-search") refreshPlatforms(e.target.value);
     if (e.target.id === "search") {
       filters.search = e.target.value;
       refreshResults();
@@ -401,6 +457,16 @@
       return;
     }
     const action = b.dataset.action;
+    if (action === "clear-platforms") {
+      $("#platform-search").value = "";
+      refreshPlatforms("");
+      $("#platform-search").focus();
+    }
+    if (action === "practice-platform") {
+      const platform = data.platforms.find((p) => p.id === b.dataset.platform);
+      if (platform)
+        startPractice(platform.questionIds.map((id) => questionMap.get(id)));
+    }
     if (action === "clear") {
       filters = {
         search: "",
@@ -532,6 +598,9 @@
             q.originalQuestions,
             q.topic,
             collectionMap.get(q.collection).name,
+            data.platforms
+              .filter((p) => p.questionIds.includes(q.id))
+              .map((p) => p.name),
           ]).toLocaleLowerCase()),
       );
       state.bookmarks = state.bookmarks.filter((id) => questionMap.has(id));

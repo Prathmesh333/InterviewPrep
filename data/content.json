@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-13",
+  "updated": "2026-09-15",
   "collections": [
     {
       "id": "fh-rag",
@@ -201,6 +201,14 @@
       "repo": "controlled-technical-english-writing-skill",
       "note": "Learning/tooling repository; README inspection, not a claim of production experience.",
       "color": "green"
+    },
+    {
+      "id": "platform-prep",
+      "name": "AI interview preparation",
+      "subtitle": "Platform screening, clear explanations & evaluation tasks",
+      "repo": null,
+      "note": "Original rehearsal exercises for platform preparation. Not actual, leaked or guaranteed interview questions.",
+      "color": "orange"
     }
   ],
   "questions": [
@@ -2690,6 +2698,402 @@
         }
       ],
       "evidence": "Learning/tooling repository; README inspection, not a claim of production experience. Inspected 13 September 2026. Rehearsal answers do not verify personal ownership or unexecuted results."
+    },
+    {
+      "id": "screening-introduction",
+      "collection": "platform-prep",
+      "topic": "Interview communication",
+      "difficulty": "Core",
+      "title": "How would you introduce your experience in a role-focused AI interview?",
+      "short": "Lead with the relevant skill, choose one project that demonstrates it, and describe a concrete contribution and tradeoff. Keep claims tied to evidence you can explain.",
+      "answer": [
+        "For an ML engineering role, I would use a short structure: “My focus is ML and NLP systems. The project I would discuss first is HQDE, where the relevant design question is how independent models and synchronized training differ.” I would then identify my actual contribution rather than recite every repository.",
+        "A useful introduction gives the interviewer something specific to probe: a data-flow decision, a failure I investigated or an experiment I can reproduce. I would state a measured outcome only when I have the run and baseline. If asked about FH-RAG, I would use the supplied brief carefully and make clear which implementation details I can personally substantiate."
+      ],
+      "deep": "Build an evidence tuple for each resume claim: contribution, artifact, baseline, measurement and limitation. For “improved latency,” be ready with workload, hardware, p50/p95, warmup and quality constraints. Our suggested short-answer length is a rehearsal aid, not a platform scoring rule.",
+      "followups": [
+        {
+          "question": "What if you have several relevant projects?",
+          "answer": "Choose the project closest to the role, then offer a second example if it adds a distinct skill. A project list consumes time without showing depth."
+        },
+        {
+          "question": "What if you do not have measured gains?",
+          "answer": "Describe the implemented mechanism, what you verified and the next evaluation you would run. Never substitute an invented percentage."
+        }
+      ],
+      "pitfall": "A memorized biography can miss the role and make follow-up answers inconsistent.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Platform sources and preparation scope",
+          "url": "docs/PLATFORM_SOURCES.md"
+        }
+      ],
+      "evidence": "Original InterviewPrep practice exercise. It is not an actual, leaked, endorsed or guaranteed platform question. Suggested response structures are study advice, not official scoring rules. Replace hypothetical experience with your own verified example.",
+      "originalQuestions": []
+    },
+    {
+      "id": "screening-project-depth",
+      "collection": "platform-prep",
+      "topic": "AI assessment practice",
+      "difficulty": "Core",
+      "title": "A follow-up asks why you chose your project architecture. How do you answer?",
+      "short": "Explain the constraint first, compare one plausible alternative, and state what evidence would favor each option. Trace the actual implementation before describing aspirations.",
+      "answer": [
+        "For HQDE, I would start with the distinction between retaining several models for prediction diversity and synchronizing a shared model with FedAvg. If the goal is diversity, epoch-level weight averaging changes the objective; if communication is the constraint, synchronization frequency and delta compression become important.",
+        "For PsychoTA, I would connect token, utterance and conversation representations to the label granularity. I would acknowledge that its bidirectional GRU permits future context in full-conversation analysis. That limitation makes the architecture defensible for retrospective work but requires a different design for strict streaming."
+      ],
+      "deep": "A useful comparison holds dataset, compute budget and evaluation protocol fixed. Define the variable being changed, such as independent versus FedAvg training, and the outcome, such as accuracy, calibration and total inference cost. A plausible rationale is not a measured ablation.",
+      "followups": [
+        {
+          "question": "What if the interviewer challenges your choice?",
+          "answer": "Check whether the assumed constraint changed. A different latency, memory or causality requirement can make the alternative better."
+        },
+        {
+          "question": "How do you avoid overclaiming ownership?",
+          "answer": "Separate “the repository implements” from “I implemented.” Name your contribution and the relevant code path."
+        }
+      ],
+      "pitfall": "Do not defend every existing design as optimal.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Platform sources and preparation scope",
+          "url": "docs/PLATFORM_SOURCES.md"
+        }
+      ],
+      "evidence": "Original InterviewPrep practice exercise. It is not an actual, leaked, endorsed or guaranteed platform question. Suggested response structures are study advice, not official scoring rules. Replace hypothetical experience with your own verified example.",
+      "originalQuestions": []
+    },
+    {
+      "id": "screening-ml-scenario",
+      "collection": "platform-prep",
+      "topic": "AI assessment practice",
+      "difficulty": "Core",
+      "title": "An ML model performs well offline but fails after launch. What would you investigate?",
+      "short": "Check training-serving consistency, label and feature timing, distribution shift and the evaluation split before retraining. Diagnose the failure by slice and time.",
+      "answer": [
+        "I would first reproduce one failed prediction with the deployed model version and actual input. Verify tokenization, scaling, feature availability and class mapping. Then compare production traffic with training and validation data, looking for new sources, missing fields or changed prevalence.",
+        "A random offline split may have shared users or future information. I would rebuild a time- or group-aware evaluation and compare simple baselines. After isolating the cause, I would test a targeted fix with a rollback plan. Retraining without diagnosis can reproduce the same error and hide a data-contract problem."
+      ],
+      "deep": "A monitoring plan separates input drift, prediction drift and measured quality. Input drift alone does not prove quality loss; delayed labels make direct performance monitoring slower. Track model and feature-pipeline versions together to reproduce incidents.",
+      "followups": [
+        {
+          "question": "What if there are no production labels yet?",
+          "answer": "Inspect data contracts and representative cases, use delayed-label collection and clearly label proxy signals. Do not report drift statistics as measured accuracy."
+        },
+        {
+          "question": "What if only one language fails?",
+          "answer": "Inspect tokenizer coverage, truncation, label quality and domain differences for that language, with enough examples to quantify uncertainty."
+        }
+      ],
+      "pitfall": "Do not assume every production failure requires a larger model.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Platform sources and preparation scope",
+          "url": "docs/PLATFORM_SOURCES.md"
+        }
+      ],
+      "evidence": "Original InterviewPrep practice exercise. It is not an actual, leaked, endorsed or guaranteed platform question. Suggested response structures are study advice, not official scoring rules. Replace hypothetical experience with your own verified example.",
+      "originalQuestions": []
+    },
+    {
+      "id": "screening-code-review",
+      "collection": "platform-prep",
+      "topic": "AI assessment practice",
+      "difficulty": "Core",
+      "title": "How would you review an AI-generated solution that passes the sample tests?",
+      "short": "Treat sample tests as a starting point. Verify the contract, edge cases, complexity and failure behavior with independent reasoning and additional tests.",
+      "answer": [
+        "I would restate input constraints and the intended output, then walk through a small example. Next I would test empty inputs, duplicates, boundaries and adversarial ordering. A solution can pass illustrative examples while silently assuming unique values or small input size.",
+        "I would inspect complexity and dependencies before proposing a fix. If an API or helper is unfamiliar, I would verify it rather than accept a plausible name. My explanation would identify the exact failing case and the smallest correction, then demonstrate why the new behavior satisfies the contract."
+      ],
+      "deep": "For a frequency-based algorithm, a set loses multiplicity while a map preserves counts. For sorting-based solutions, distinguish O(n log n) time from a claimed O(n) scan. Test semantic correctness separately from formatting and style.",
+      "followups": [
+        {
+          "question": "What if both solutions pass your tests?",
+          "answer": "Compare their invariants and asymptotic behavior. Tests sample the input space; they do not replace a correctness argument."
+        },
+        {
+          "question": "How do you communicate a defect?",
+          "answer": "Provide the input, expected output, actual output, root cause and a focused fix, rather than saying the code “looks wrong.”"
+        }
+      ],
+      "pitfall": "Do not reward plausible code solely because it is fluent or well formatted.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Platform sources and preparation scope",
+          "url": "docs/PLATFORM_SOURCES.md"
+        }
+      ],
+      "evidence": "Original InterviewPrep practice exercise. It is not an actual, leaked, endorsed or guaranteed platform question. Suggested response structures are study advice, not official scoring rules. Replace hypothetical experience with your own verified example.",
+      "originalQuestions": []
+    },
+    {
+      "id": "screening-rank-answers",
+      "collection": "platform-prep",
+      "topic": "AI assessment practice",
+      "difficulty": "Core",
+      "title": "How would you rank two AI answers when one is fluent but contains a factual error?",
+      "short": "Apply the task rubric, verify the disputed claim, and explain the decisive difference. Fluency should not outweigh a material correctness failure unless the rubric explicitly defines a different objective.",
+      "answer": [
+        "I would evaluate the requested dimensions separately: correctness, instruction following, completeness and clarity. If one answer contradicts the evidence, I would identify the exact claim and its consequence instead of giving a vague low-quality label.",
+        "If both answers are weak, I would still follow the available ranking or tie rules and explain the uncertainty. I would not add private scoring criteria. A strong rationale cites the response text and task requirements so another reviewer can reproduce the judgment."
+      ],
+      "deep": "Pairwise preference data encodes a comparison under a specific rubric and prompt. It is not an absolute correctness label. If reviewers disagree because one values brevity and another values coverage, clarifying rubric priorities can improve consistency.",
+      "followups": [
+        {
+          "question": "What if the error is minor?",
+          "answer": "Assess whether it changes the requested result and use the rubric’s severity rules. A typo and a false conclusion should not receive the same treatment."
+        },
+        {
+          "question": "What if you cannot verify the claim?",
+          "answer": "Mark uncertainty through the permitted workflow and seek clarification or a reliable reference, rather than guessing."
+        }
+      ],
+      "pitfall": "Do not infer truth from confidence, length or polished wording.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Platform sources and preparation scope",
+          "url": "docs/PLATFORM_SOURCES.md"
+        }
+      ],
+      "evidence": "Original InterviewPrep practice exercise. It is not an actual, leaked, endorsed or guaranteed platform question. Suggested response structures are study advice, not official scoring rules. Replace hypothetical experience with your own verified example.",
+      "originalQuestions": []
+    },
+    {
+      "id": "screening-rubric",
+      "collection": "platform-prep",
+      "topic": "AI assessment practice",
+      "difficulty": "Core",
+      "title": "Two annotators disagree on a borderline answer. How would you resolve it?",
+      "short": "Find the specific rubric ambiguity, compare concrete examples and use adjudication when required. Preserve a consistent rule for similar cases.",
+      "answer": [
+        "I would ask each reviewer to point to the exact criterion and supporting text. The disagreement may reflect different severity thresholds, overlooked evidence or an unclear instruction. I would use the documented precedence rules before creating a new interpretation.",
+        "If the rubric does not resolve the case, I would record it for adjudication and update examples after the rule is clarified. For a larger batch I would sample earlier decisions to see whether the same ambiguity affected labels. One disputed case should not trigger an undocumented change across the dataset."
+      ],
+      "deep": "Agreement is a reliability signal, not a truth guarantee. Two reviewers can share the same misunderstanding. Use independently adjudicated examples to assess correctness, and examine disagreement by category rather than only reporting one aggregate statistic.",
+      "followups": [
+        {
+          "question": "Would you always choose the majority label?",
+          "answer": "No. Majority agreement can repeat a shared error. Follow the adjudication and evidence process."
+        },
+        {
+          "question": "How do you prevent the issue recurring?",
+          "answer": "Add a clear boundary example and a counterexample, version the guidance and communicate which existing labels need review."
+        }
+      ],
+      "pitfall": "Do not quietly invent a personal rubric for difficult cases.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Platform sources and preparation scope",
+          "url": "docs/PLATFORM_SOURCES.md"
+        }
+      ],
+      "evidence": "Original InterviewPrep practice exercise. It is not an actual, leaked, endorsed or guaranteed platform question. Suggested response structures are study advice, not official scoring rules. Replace hypothetical experience with your own verified example.",
+      "originalQuestions": []
+    },
+    {
+      "id": "screening-domain-explanation",
+      "collection": "platform-prep",
+      "topic": "AI assessment practice",
+      "difficulty": "Core",
+      "title": "Explain a technical concept to a non-specialist without losing its limits.",
+      "short": "Begin with the purpose, use one concrete example, and add the limitation that changes how the result should be used. Then offer the technical mechanism if needed.",
+      "answer": [
+        "For embeddings, I would say: “The model turns text into vectors so we can find passages that look relevant to a query. A nearby vector is a similarity signal, not proof that the passage answers the question.” Then I would use an example where a passage mentions the same product but gives an outdated specification.",
+        "I would adjust the explanation to the audience’s decision. A recruiter may need the business problem and tradeoff; a technical follow-up may need cosine similarity, normalization and evaluation. Simpler language should preserve uncertainty and avoid pretending the model performs exact semantic lookup."
+      ],
+      "deep": "An explanation has at least three layers: task-level behavior, computational mechanism and evidence boundary. Moving between them demonstrates understanding more effectively than substituting buzzwords for one another.",
+      "followups": [
+        {
+          "question": "How do you check whether the explanation worked?",
+          "answer": "Ask the listener to apply the idea to a new example or explain the limitation in their own words."
+        },
+        {
+          "question": "What if asked for the equation?",
+          "answer": "Give the equation, define symbols and units or shapes, then relate the result back to the original example."
+        }
+      ],
+      "pitfall": "An analogy should not turn model similarity into a claim of certainty.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Platform sources and preparation scope",
+          "url": "docs/PLATFORM_SOURCES.md"
+        }
+      ],
+      "evidence": "Original InterviewPrep practice exercise. It is not an actual, leaked, endorsed or guaranteed platform question. Suggested response structures are study advice, not official scoring rules. Replace hypothetical experience with your own verified example.",
+      "originalQuestions": []
+    },
+    {
+      "id": "screening-unknown",
+      "collection": "platform-prep",
+      "topic": "Interview communication",
+      "difficulty": "Core",
+      "title": "What should you do when a technical interviewer asks something you do not know?",
+      "short": "State the boundary of your knowledge, clarify assumptions and reason from what you do know. Give a verification plan instead of presenting a guess as fact.",
+      "answer": [
+        "I would distinguish forgetting a detail from lacking experience. For example: “I have not implemented that distributed aggregation rule. I can explain the failure model it would need to handle, and I would check the paper and active implementation before claiming its guarantee.” That answer gives a useful starting point for discussion.",
+        "If the question is ambiguous, I would ask a targeted clarification. If I propose an approach, I would label it as a proposal and test it with a small example. An honest partial answer is easier to defend when the interviewer asks for complexity, assumptions or counterexamples."
+      ],
+      "deep": "Use claim → assumption → consequence → test. For an algorithm, state the invariant you expect to hold and try a counterexample. For a library detail, identify the relevant contract rather than inventing an API.",
+      "followups": [
+        {
+          "question": "Should you apologize repeatedly?",
+          "answer": "No. Briefly state what you know and proceed with useful reasoning. Excessive apologies consume time without answering."
+        },
+        {
+          "question": "What if the interviewer changes the assumption?",
+          "answer": "Re-evaluate the conclusion. Updating an answer in response to a changed premise is better than defending the original blindly."
+        }
+      ],
+      "pitfall": "Do not turn an uncertain recollection into a confident implementation claim.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Platform sources and preparation scope",
+          "url": "docs/PLATFORM_SOURCES.md"
+        }
+      ],
+      "evidence": "Original InterviewPrep practice exercise. It is not an actual, leaked, endorsed or guaranteed platform question. Suggested response structures are study advice, not official scoring rules. Replace hypothetical experience with your own verified example.",
+      "originalQuestions": []
+    },
+    {
+      "id": "screening-coding",
+      "collection": "platform-prep",
+      "topic": "AI assessment practice",
+      "difficulty": "Core",
+      "title": "How would you explain a coding solution while solving it?",
+      "short": "Clarify the contract, describe a baseline, state the key invariant, then implement and test. Keep the explanation aligned with the code actually written.",
+      "answer": [
+        "For a duplicate-detection task, I would clarify whether values are hashable and whether input order matters. A nested comparison gives a simple O(n²) baseline. A hash set can find repeated values in expected O(n) time with O(n) extra storage, assuming ordinary hash behavior.",
+        "I would test an empty input, one value, all distinct values and an early or late duplicate. If asked to minimize extra memory, I would discuss sorting and whether mutating the input is permitted. The solution should follow the constraints rather than reflexively use the most familiar pattern."
+      ],
+      "deep": "State an invariant: after processing position i, the set contains values in the processed prefix. Before inserting the next value, membership detects whether it appeared earlier. Expected hash-table time is not a worst-case guarantee for every implementation.",
+      "followups": [
+        {
+          "question": "What if the input is a stream?",
+          "answer": "A set works for an unbounded-memory exact solution; fixed memory requires constraints or an approximate method with explicit error behavior."
+        },
+        {
+          "question": "What if duplicates must include counts?",
+          "answer": "Use a frequency map because a set preserves presence but not multiplicity."
+        }
+      ],
+      "pitfall": "Do not claim constant space while storing every input value.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Platform sources and preparation scope",
+          "url": "docs/PLATFORM_SOURCES.md"
+        }
+      ],
+      "evidence": "Original InterviewPrep practice exercise. It is not an actual, leaked, endorsed or guaranteed platform question. Suggested response structures are study advice, not official scoring rules. Replace hypothetical experience with your own verified example.",
+      "originalQuestions": []
+    },
+    {
+      "id": "screening-behavioral",
+      "collection": "platform-prep",
+      "topic": "Interview communication",
+      "difficulty": "Core",
+      "title": "How would you answer “Tell me about a difficult technical problem”?",
+      "short": "Describe one real situation, the decision you owned, the evidence you used and the result. Finish with what you would change next time.",
+      "answer": [
+        "I would choose a real incident rather than invent a successful launch. A useful project example might involve discovering that a model’s offline evaluation did not match its intended streaming behavior. I would explain the initial requirement and the evidence that changed my understanding.",
+        "Then I would identify my own action: tracing the model, testing future-context dependence or revising the evaluation. I would give a result only if I performed that work. Otherwise I would choose a different incident I can substantiate. The structure helps communication, but the underlying story must remain personal and true."
+      ],
+      "deep": "A STAR-style outline separates situation, task, action and result. Add reflection to expose judgment. Distinguish an observation from a causal claim: a score rising after several simultaneous changes does not isolate which change helped.",
+      "followups": [
+        {
+          "question": "What if the outcome was unsuccessful?",
+          "answer": "Explain what you learned, what evidence disproved the approach and how you changed the next decision. Failure can still demonstrate sound judgment."
+        },
+        {
+          "question": "How do you describe team work?",
+          "answer": "Name the team context and then the specific action you owned, without claiming others’ contributions."
+        }
+      ],
+      "pitfall": "Do not present the rehearsal example as an incident you actually experienced.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Platform sources and preparation scope",
+          "url": "docs/PLATFORM_SOURCES.md"
+        }
+      ],
+      "evidence": "Original InterviewPrep practice exercise. It is not an actual, leaked, endorsed or guaranteed platform question. Suggested response structures are study advice, not official scoring rules. Replace hypothetical experience with your own verified example.",
+      "originalQuestions": []
+    },
+    {
+      "id": "screening-instructions",
+      "collection": "platform-prep",
+      "topic": "AI assessment practice",
+      "difficulty": "Core",
+      "title": "An assessment instruction is ambiguous. How would you proceed?",
+      "short": "Read the full task and examples, identify the smallest ambiguity that changes the answer, and use the provided clarification process. Keep assumptions explicit when the workflow permits them.",
+      "answer": [
+        "I would separate a missing detail from a contradiction. If the examples establish a clear rule, I would apply it consistently. If two instructions disagree, I would follow any documented precedence rule and flag the unresolved part rather than quietly choosing my preferred interpretation.",
+        "In a coding task I would state assumptions about input constraints; in an annotation task I would use the permitted uncertainty or escalation option. I would avoid adding requirements that the rubric does not ask for. Reliable execution means matching the contract, not just producing an impressive-looking response."
+      ],
+      "deep": "Turn the instruction into a small set of observable checks: required output fields, allowed values, evidence requirements and failure behavior. A syntactically valid output can still violate the intended criterion, so validate meaning as well as structure.",
+      "followups": [
+        {
+          "question": "What if clarification is unavailable?",
+          "answer": "Use the task’s documented fallback. If assumptions are allowed, state the minimal assumption and avoid unnecessary extrapolation."
+        },
+        {
+          "question": "Why inspect examples?",
+          "answer": "They can reveal boundary behavior, but an example should not override an explicit instruction without a stated precedence rule."
+        }
+      ],
+      "pitfall": "Do not assume an assessment on one platform has the same rules as another.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Platform sources and preparation scope",
+          "url": "docs/PLATFORM_SOURCES.md"
+        }
+      ],
+      "evidence": "Original InterviewPrep practice exercise. It is not an actual, leaked, endorsed or guaranteed platform question. Suggested response structures are study advice, not official scoring rules. Replace hypothetical experience with your own verified example.",
+      "originalQuestions": []
+    },
+    {
+      "id": "screening-video",
+      "collection": "platform-prep",
+      "topic": "Interview communication",
+      "difficulty": "Core",
+      "title": "How do you make a recorded or conversational answer easy to follow?",
+      "short": "Answer the question directly, give one supporting example and close with the outcome or tradeoff. Use clear signposts and leave room for a follow-up.",
+      "answer": [
+        "I would rehearse a brief and an expanded version of each project story. The brief version states the problem and the main decision; the expanded version adds implementation detail and evidence. That keeps me from starting with a long background explanation and running out of time before answering.",
+        "For a one-way recording, I would use the instructions in the invitation to understand timing and retries. For a conversational interview, I would respond to the follow-up instead of restarting the memorized answer. Clear audio and a working device support communication, but no presentation trick replaces a technically correct answer."
+      ],
+      "deep": "A rehearsal check can score relevance, specificity, technical correctness and evidence separately. These are personal review criteria, not a platform’s disclosed scoring formula. Record practice locally only if you choose; this website does not access your camera or microphone.",
+      "followups": [
+        {
+          "question": "What if you are interrupted?",
+          "answer": "Acknowledge the new question, clarify whether the interviewer wants the unfinished point, and keep the response focused."
+        },
+        {
+          "question": "Should you memorize every sentence?",
+          "answer": "Memorize the structure and key facts instead. Exact scripts can make it harder to adapt to a changed question."
+        }
+      ],
+      "pitfall": "Do not assume universal time limits or retake rules from a different invitation.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Platform sources and preparation scope",
+          "url": "docs/PLATFORM_SOURCES.md"
+        }
+      ],
+      "evidence": "Original InterviewPrep practice exercise. It is not an actual, leaked, endorsed or guaranteed platform question. Suggested response structures are study advice, not official scoring rules. Replace hypothetical experience with your own verified example.",
+      "originalQuestions": []
     }
   ],
   "repositories": [
@@ -3051,6 +3455,228 @@
       ],
       "note": "Covered by repository collection.",
       "readmeInspected": true
+    }
+  ],
+  "platforms": [
+    {
+      "id": "mercor",
+      "name": "Mercor",
+      "initial": "M",
+      "kind": "Conversational AI interview",
+      "summary": "Role-focused screening for expert opportunities. Prepare to explain your experience and technical decisions clearly.",
+      "format": "Mercor documents an AI interviewer asking role-specific questions and producing a transcript for evaluation.",
+      "check": "Its help page contains conflicting statements about practice availability. Check your current dashboard for practice, retakes and the instructions for your assigned interview.",
+      "focus": [
+        "Project walkthroughs",
+        "ML / NLP depth",
+        "Concise follow-ups"
+      ],
+      "steps": [
+        "Match each role requirement to one real project and contribution.",
+        "Rehearse a brief introduction, then one architecture tradeoff and one evaluation limitation.",
+        "Test the camera and microphone and read the current interview instructions before starting."
+      ],
+      "questionIds": [
+        "screening-introduction",
+        "screening-project-depth",
+        "hqde-story",
+        "psychota-causality",
+        "fh-evaluation",
+        "screening-unknown"
+      ],
+      "sources": [
+        {
+          "label": "Official AI interview guide",
+          "url": "https://talent.docs.mercor.com/support/ai-interview"
+        },
+        {
+          "label": "Application process",
+          "url": "https://talent.docs.mercor.com/how-to/apply"
+        }
+      ],
+      "reviewed": "2026-09-15"
+    },
+    {
+      "id": "micro1",
+      "name": "micro1",
+      "initial": "m1",
+      "kind": "Conversational AI interview",
+      "summary": "Prepare for Zara’s skill-focused conversation with technical explanations and realistic scenarios.",
+      "format": "micro1’s guide describes role-based technical and scenario questions, with coding or human-data exercises where applicable. It also links a dedicated practice tool.",
+      "check": "Questions adapt to your background and selected expertise. A certificate or completed interview is not a promise of a project; use your dashboard for current next steps.",
+      "focus": [
+        "Technical scenarios",
+        "Code reasoning",
+        "Explain your decisions"
+      ],
+      "steps": [
+        "Select the core skill or role that best matches your actual experience.",
+        "Use the official practice tool, then review gaps with the exercises below.",
+        "Rehearse coding edge cases or rubric-based judgments according to the role."
+      ],
+      "questionIds": [
+        "screening-introduction",
+        "screening-ml-scenario",
+        "screening-code-review",
+        "screening-rank-answers",
+        "classification-metrics",
+        "screening-domain-explanation"
+      ],
+      "sources": [
+        {
+          "label": "Official interview guide",
+          "url": "https://www.micro1.ai/ai-interview-guide"
+        },
+        {
+          "label": "Official practice tool",
+          "url": "https://www.micro1.ai/interview-prep"
+        },
+        {
+          "label": "Published question categories",
+          "url": "https://www.micro1.ai/interview-questions"
+        }
+      ],
+      "reviewed": "2026-09-15"
+    },
+    {
+      "id": "alignerr",
+      "name": "Alignerr",
+      "initial": "A",
+      "kind": "AI-work qualification",
+      "summary": "Domain expertise and clear explanations for AI-training work, with steps determined by the project.",
+      "format": "Alignerr’s process page says job-specific steps may include a Zara AI interview or a domain assessment.",
+      "check": "An additional interview or assessment is conditional on the project. Follow the instructions sent for your opportunity rather than assuming one universal sequence.",
+      "focus": [
+        "Domain explanations",
+        "Rubric reasoning",
+        "Technical review"
+      ],
+      "steps": [
+        "Read the domain and deliverable requirements for the specific opportunity.",
+        "Practice explaining an ML concept, checking a proposed solution and identifying uncertainty.",
+        "Prepare one example showing careful quality review rather than only speed."
+      ],
+      "questionIds": [
+        "screening-domain-explanation",
+        "screening-code-review",
+        "screening-rubric",
+        "screening-instructions",
+        "embeddings",
+        "screening-unknown"
+      ],
+      "sources": [
+        {
+          "label": "Official application process",
+          "url": "https://www.alignerr.com/process"
+        }
+      ],
+      "reviewed": "2026-09-15"
+    },
+    {
+      "id": "outlier",
+      "name": "Outlier",
+      "initial": "O",
+      "kind": "AI-work qualification",
+      "summary": "Practice the expert judgment used in AI-training tasks, including response comparison and guideline interpretation.",
+      "format": "Outlier describes skill screenings followed by project-specific onboarding and assessment tasks. Work can include prompts, response ranking and answer improvement.",
+      "check": "Treat the assigned project guidelines as the assessment contract. This is not a promise that every Outlier opportunity uses a conversational AI interview or has tasks available.",
+      "focus": [
+        "Response ranking",
+        "Factual checking",
+        "Guideline consistency"
+      ],
+      "steps": [
+        "Read the complete task rubric and its examples before practicing.",
+        "Compare two answers using explicit evidence and the rubric’s priorities.",
+        "Rehearse how you would handle ambiguity or an unverifiable claim."
+      ],
+      "questionIds": [
+        "screening-rank-answers",
+        "screening-rubric",
+        "screening-instructions",
+        "screening-code-review",
+        "classification-metrics",
+        "screening-domain-explanation"
+      ],
+      "sources": [
+        {
+          "label": "Official contributor FAQ",
+          "url": "https://outlier.ai/faq"
+        }
+      ],
+      "reviewed": "2026-09-15"
+    },
+    {
+      "id": "turing",
+      "name": "Turing",
+      "initial": "T",
+      "kind": "Technical hiring assessments",
+      "summary": "Prepare coding, stack knowledge and project discussions for the particular engineering opportunity.",
+      "format": "Turing’s published developer guide describes technical vetting, including coding evaluation and discussion of developer skills.",
+      "check": "Stages depend on the role and invitation. Technical hiring assessments are not necessarily a conversational AI interview. Consult your current application rather than relying on older timing or retake claims.",
+      "focus": [
+        "Coding fundamentals",
+        "Stack depth",
+        "Project tradeoffs"
+      ],
+      "steps": [
+        "Choose your strongest programming language and rehearse boundary cases aloud.",
+        "Review complexity, data structures and your role-specific stack.",
+        "Connect a project design decision to its constraints and evaluation."
+      ],
+      "questionIds": [
+        "screening-coding",
+        "screening-code-review",
+        "screening-project-depth",
+        "researchhub-design",
+        "hqde-modes",
+        "underperformance"
+      ],
+      "sources": [
+        {
+          "label": "Official developer interview guide",
+          "url": "https://www.turing.com/blog/turing-com-review-good-for-remote-developer-jobs"
+        }
+      ],
+      "reviewed": "2026-09-15"
+    },
+    {
+      "id": "hirevue",
+      "name": "HireVue",
+      "initial": "Hv",
+      "kind": "Employer interview software",
+      "summary": "Prepare for the employer’s recorded interview or assessment format, with focused examples and clear spoken answers.",
+      "format": "HireVue’s candidate FAQ describes on-demand video interviews and assessment question types such as scenarios and past behavior.",
+      "check": "The employer’s invitation determines the format and rules. HireVue is interview software used by employers, not an open AI-work marketplace or a guarantee that every interview uses the same assessment.",
+      "focus": [
+        "Recorded answers",
+        "Behavioral examples",
+        "Situational judgment"
+      ],
+      "steps": [
+        "Read the employer’s role description and invitation instructions.",
+        "Rehearse one real challenge, your action and its outcome in a concise structure.",
+        "Use the provided equipment check and practice options before the official recording."
+      ],
+      "questionIds": [
+        "screening-video",
+        "screening-behavioral",
+        "screening-introduction",
+        "screening-ml-scenario",
+        "screening-unknown",
+        "screening-instructions"
+      ],
+      "sources": [
+        {
+          "label": "Official candidate FAQ",
+          "url": "https://www.hirevue.com/candidates/faq"
+        },
+        {
+          "label": "Official on-demand interview guide",
+          "url": "https://www.hirevue.com/blog/hiring/video-interviewing-guide"
+        }
+      ],
+      "reviewed": "2026-09-15"
     }
   ]
 }
