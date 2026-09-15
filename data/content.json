@@ -1,0 +1,3056 @@
+{
+  "version": 1,
+  "updated": "2026-09-13",
+  "collections": [
+    {
+      "id": "fh-rag",
+      "name": "FH-RAG",
+      "subtitle": "Hierarchical retrieval & grounded generation",
+      "repo": null,
+      "note": "Supplied project brief; matching public implementation not located.",
+      "color": "green"
+    },
+    {
+      "id": "hqde",
+      "name": "HQDE",
+      "subtitle": "Distributed ensembles & model aggregation",
+      "repo": "HQDE-PyPI",
+      "note": "README and core training / quantum aggregation code inspected.",
+      "color": "green"
+    },
+    {
+      "id": "psychota",
+      "name": "TA-RS / PsychoTA",
+      "subtitle": "Speaker-aware, multi-task dialogue modeling",
+      "repo": "PsychoTA",
+      "note": "TA-RS sample mapped to the matching PsychoTA architecture; project-name equivalence is inferred.",
+      "color": "green"
+    },
+    {
+      "id": "ml",
+      "name": "ML foundations",
+      "subtitle": "Training, evaluation & practical tradeoffs",
+      "repo": null,
+      "note": "Complete answers mapped to the uploaded question list.",
+      "color": "orange"
+    },
+    {
+      "id": "nlp",
+      "name": "NLP foundations",
+      "subtitle": "Language, embeddings & sequence models",
+      "repo": null,
+      "note": "Complete answers mapped to the uploaded question list.",
+      "color": "orange"
+    },
+    {
+      "id": "evidencemem",
+      "name": "EvidenceMem",
+      "subtitle": "Frozen vision-language features & evidence memory",
+      "repo": "evidencemem",
+      "note": "README-grounded architecture; proposed evaluation and improvements are distinguished from implementation claims.",
+      "color": "green"
+    },
+    {
+      "id": "treestack",
+      "name": "TreeStack-CNN",
+      "subtitle": "CNN diversity & leakage-free stacking",
+      "repo": "WeakEnsembleStrongDecisionTree",
+      "note": "README-grounded architecture; proposed evaluation and improvements are distinguished from implementation claims.",
+      "color": "green"
+    },
+    {
+      "id": "forecast",
+      "name": "ForecastForge",
+      "subtitle": "Time-aware forecasts & calibrated uncertainty",
+      "repo": "ForecastForge",
+      "note": "README-grounded architecture; proposed evaluation and improvements are distinguished from implementation claims.",
+      "color": "green"
+    },
+    {
+      "id": "consensus",
+      "name": "Neural Consensus Engine",
+      "subtitle": "Parallel specialists & response synthesis",
+      "repo": "Neural-Consensus-Engine",
+      "note": "README-grounded architecture; proposed evaluation and improvements are distinguished from implementation claims.",
+      "color": "green"
+    },
+    {
+      "id": "f1",
+      "name": "F1 Race Prediction",
+      "subtitle": "Feature engineering & temporal evaluation",
+      "repo": "F1-Race-Prediction",
+      "note": "README-grounded architecture; proposed evaluation and improvements are distinguished from implementation claims.",
+      "color": "green"
+    },
+    {
+      "id": "takeone",
+      "name": "TakeOne",
+      "subtitle": "Video indexing & semantic retrieval",
+      "repo": "TakeOne",
+      "note": "README-grounded architecture; proposed evaluation and improvements are distinguished from implementation claims.",
+      "color": "green"
+    },
+    {
+      "id": "janseva",
+      "name": "JanSeva AI",
+      "subtitle": "Multilingual voice & welfare information",
+      "repo": "AI4Bharat-JansevaAI",
+      "note": "README-grounded architecture; proposed evaluation and improvements are distinguished from implementation claims.",
+      "color": "green"
+    },
+    {
+      "id": "iris",
+      "name": "Iris Visual Agent",
+      "subtitle": "Local event collection & privacy boundaries",
+      "repo": "iris-visual-agent",
+      "note": "README-grounded architecture; proposed evaluation and improvements are distinguished from implementation claims.",
+      "color": "green"
+    },
+    {
+      "id": "researchhub",
+      "name": "ResearchHub",
+      "subtitle": "Roles, ownership & team workflows",
+      "repo": "ResearchHub",
+      "note": "README-grounded architecture; proposed evaluation and improvements are distinguished from implementation claims.",
+      "color": "green"
+    },
+    {
+      "id": "shortlist",
+      "name": "Shortlist’d",
+      "subtitle": "Evidence-based editing & guest-to-account data",
+      "repo": "ShortList-D",
+      "note": "README-grounded architecture; proposed evaluation and improvements are distinguished from implementation claims.",
+      "color": "green"
+    },
+    {
+      "id": "trace",
+      "name": "TRACE",
+      "subtitle": "Assisted grading & reviewable evidence",
+      "repo": "TRACE_Transparent_Results_and_Academic_Compliance_Engine",
+      "note": "README-grounded architecture; proposed evaluation and improvements are distinguished from implementation claims.",
+      "color": "green"
+    },
+    {
+      "id": "caniplay",
+      "name": "CanIPlay",
+      "subtitle": "Browser connectivity & measurement limits",
+      "repo": "CanIPlay",
+      "note": "README-grounded architecture; proposed evaluation and improvements are distinguished from implementation claims.",
+      "color": "green"
+    },
+    {
+      "id": "vanguard",
+      "name": "VanGuard prototype",
+      "subtitle": "Crowd dashboards & simulated data",
+      "repo": "SIH_Team_VanGuard_Prototype",
+      "note": "README-grounded architecture; proposed evaluation and improvements are distinguished from implementation claims.",
+      "color": "green"
+    },
+    {
+      "id": "ar",
+      "name": "AR Treasure Hunt",
+      "subtitle": "Marker detection & spatial interaction",
+      "repo": "AR-Treasure-Hunt",
+      "note": "README-grounded architecture; proposed evaluation and improvements are distinguished from implementation claims.",
+      "color": "green"
+    },
+    {
+      "id": "vsfeed",
+      "name": "VSFeed",
+      "subtitle": "Editor extension state & browser integration",
+      "repo": "vsfeed",
+      "note": "README-grounded architecture; proposed evaluation and improvements are distinguished from implementation claims.",
+      "color": "green"
+    },
+    {
+      "id": "python-guide",
+      "name": "Python, Clearly",
+      "subtitle": "Course architecture & runtime honesty",
+      "repo": "Python-Clearly",
+      "note": "Learning/tooling repository; README inspection, not a claim of production experience.",
+      "color": "green"
+    },
+    {
+      "id": "typescript-guide",
+      "name": "TypeScript Field Guide",
+      "subtitle": "Typed examples & static learning tools",
+      "repo": "TypeScript",
+      "note": "Learning/tooling repository; README inspection, not a claim of production experience.",
+      "color": "green"
+    },
+    {
+      "id": "system-guide",
+      "name": "System Design",
+      "subtitle": "Visual explanations & constrained tradeoffs",
+      "repo": "SystemDesign",
+      "note": "Learning/tooling repository; README inspection, not a claim of production experience.",
+      "color": "green"
+    },
+    {
+      "id": "agent-guide",
+      "name": "Agent Engineering Guide",
+      "subtitle": "Offline handbook & agent evaluation",
+      "repo": "AgenticEngineering",
+      "note": "Learning/tooling repository; README inspection, not a claim of production experience.",
+      "color": "green"
+    },
+    {
+      "id": "writing-skill",
+      "name": "Controlled Technical English",
+      "subtitle": "Meaning-preserving technical editing",
+      "repo": "controlled-technical-english-writing-skill",
+      "note": "Learning/tooling repository; README inspection, not a claim of production experience.",
+      "color": "green"
+    }
+  ],
+  "questions": [
+    {
+      "id": "nlp-overview",
+      "collection": "nlp",
+      "topic": "NLP foundations",
+      "difficulty": "Core",
+      "title": "What is NLP, and where do you use it?",
+      "short": "NLP turns language into useful predictions, retrieved evidence or generated text. Tasks include classification, extraction, translation and question answering.",
+      "answer": [
+        "I start with the decision the system needs to support. Spam filtering is classification; finding names in documents is sequence labeling; answering from documents combines retrieval and generation. Each task needs a different target and evaluation.",
+        "Language is ambiguous and context-dependent. A practical system must handle domain shift, rare words, multiple languages and privacy. I would compare a simple baseline with a pretrained model and inspect errors by language and text length."
+      ],
+      "deep": "A text classifier estimates P(label | text); a language model estimates probabilities over token sequences. Good language modeling does not automatically imply calibrated classification or factual answers.",
+      "followups": [
+        {
+          "question": "How does RAG relate to NLP?",
+          "answer": "RAG retrieves external text and conditions a generator on that evidence. Retrieval and generation need separate evaluation."
+        },
+        {
+          "question": "How do you select a metric?",
+          "answer": "Match the task: macro F1 for uneven classification, span F1 for extraction, and evidence support plus answer quality for question answering."
+        }
+      ],
+      "pitfall": "Do not equate fluent text with understanding or factual correctness.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Uploaded-question mapping",
+          "url": "data/source-questions.json"
+        }
+      ],
+      "evidence": "Concept explanation; adapt examples to your own experience.",
+      "originalQuestions": [
+        "Can you explain the concept of Natural Language Processing (NLP) and its applications in Machine Learning?"
+      ]
+    },
+    {
+      "id": "text-classification",
+      "collection": "nlp",
+      "topic": "NLP foundations",
+      "difficulty": "Core",
+      "title": "How would you build a text classifier?",
+      "short": "Define labels and split by the deployment boundary first. Compare TF-IDF plus logistic regression with a pretrained encoder, then evaluate errors and calibration.",
+      "answer": [
+        "I audit label quality, duplicates and class balance before choosing a model. I split by user, document or time where examples are related. Vocabulary, inverse document frequencies and resampling are fitted only inside the training partition.",
+        "A TF-IDF linear classifier gives a fast baseline. A pretrained transformer can improve contextual modeling at higher memory and latency cost. I tune on validation data, lock the configuration, and evaluate the test set once with per-class metrics and representative failures."
+      ],
+      "deep": "For single-label classification, logits z in R^C become probabilities through softmax. Cross-entropy is -log p(y). For multi-label data, use independent sigmoid outputs with binary cross-entropy, then tune thresholds on validation data.",
+      "followups": [
+        {
+          "question": "Why start with a linear model?",
+          "answer": "It is cheap, interpretable and can be strong on lexical tasks; it establishes whether transformer cost is justified."
+        },
+        {
+          "question": "Where can leakage enter?",
+          "answer": "Near-duplicate messages, shared authors, preprocessing fitted on all data, and resampling before splitting can all inflate scores."
+        }
+      ],
+      "pitfall": "Do not vectorize or oversample the entire dataset before splitting.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Uploaded-question mapping",
+          "url": "data/source-questions.json"
+        },
+        {
+          "label": "scikit-learn · data leakage guidance",
+          "url": "https://scikit-learn.org/stable/common_pitfalls.html"
+        }
+      ],
+      "evidence": "Concept explanation; adapt examples to your own experience.",
+      "originalQuestions": [
+        "How would you approach building a text classification model for NLP applications?"
+      ]
+    },
+    {
+      "id": "embeddings",
+      "collection": "nlp",
+      "topic": "NLP foundations",
+      "difficulty": "Core",
+      "title": "What are word embeddings, and why do they matter?",
+      "short": "Embeddings map discrete words or tokens to dense vectors. Similar contexts can produce similar vectors; contextual encoders produce different vectors for different uses of a word.",
+      "answer": [
+        "One-hot vectors do not express relationships between words. Learned embeddings let a downstream model share statistical strength: related words can induce similar behavior. Word2Vec and GloVe produce static word vectors; a transformer produces a token representation conditioned on its surrounding text.",
+        "I select embeddings using the downstream task, not only visual clusters. For semantic search I evaluate retrieval relevance, because pooled language-model states are not automatically good sentence embeddings. I also check domain and language coverage."
+      ],
+      "deep": "Cosine similarity is (u·v)/(||u|| ||v||). After L2 normalization it equals a dot product. A high cosine score is model-relative similarity, not a probability that two claims mean the same thing.",
+      "followups": [
+        {
+          "question": "How is polysemy handled?",
+          "answer": "A static vector merges senses of bank; a contextual vector can distinguish river bank from financial bank using neighboring tokens."
+        },
+        {
+          "question": "Why can retrieval embeddings fail?",
+          "answer": "Training objectives, domain mismatch and poor chunking can place lexically similar but irrelevant passages nearby."
+        }
+      ],
+      "pitfall": "Do not call an embedding dimension a directly interpretable semantic feature.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Uploaded-question mapping",
+          "url": "data/source-questions.json"
+        }
+      ],
+      "evidence": "Concept explanation; adapt examples to your own experience.",
+      "originalQuestions": [
+        "Can you explain the concept of word embeddings and their significance in NLP?",
+        "Explain the concept of Word Embeddings and its role in Natural Language Processing (NLP)?"
+      ]
+    },
+    {
+      "id": "word2vec",
+      "collection": "nlp",
+      "topic": "NLP foundations",
+      "difficulty": "Core",
+      "title": "How does Word2Vec train CBOW and skip-gram?",
+      "short": "CBOW predicts a center word from context; skip-gram predicts context words from a center word. Negative sampling avoids a full vocabulary softmax.",
+      "answer": [
+        "Training creates word-context pairs from a sliding window. Skip-gram learns to assign high scores to observed pairs and low scores to sampled noise pairs. CBOW pools context vectors before predicting the center word, which makes it efficient.",
+        "After training, one embedding table is usually used as the representation. Window size, minimum frequency, negative samples and frequent-word subsampling change what relationships the vectors capture. Static embeddings remain useful for light baselines, but one vector cannot separate different senses of a word."
+      ],
+      "deep": "The negative-sampling objective for a positive pair is log sigmoid(v_context·u_word) + sum_k log sigmoid(-v_negative_k·u_word). Two embedding tables are learned. The negative sampling distribution often smooths unigram frequency with power 3/4.",
+      "followups": [
+        {
+          "question": "Why sample negative words?",
+          "answer": "Computing scores for a small number of noise words is cheaper than normalizing over the entire vocabulary."
+        },
+        {
+          "question": "What happens to rare words?",
+          "answer": "They receive few updates and unreliable vectors. Subword models can share information across character fragments."
+        }
+      ],
+      "pitfall": "Word2Vec is not a transformer and does not return context-specific vectors.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Uploaded-question mapping",
+          "url": "data/source-questions.json"
+        }
+      ],
+      "evidence": "Concept explanation; adapt examples to your own experience.",
+      "originalQuestions": [
+        "Can you explain the concept of word2vec and how it is trained?"
+      ]
+    },
+    {
+      "id": "classification-metrics",
+      "collection": "ml",
+      "topic": "Evaluation",
+      "difficulty": "Core",
+      "title": "How do you evaluate text classification?",
+      "short": "Use per-class precision and recall, macro F1, a confusion matrix and a held-out split that resembles deployment. Accuracy alone can hide minority-class failures.",
+      "answer": [
+        "Precision asks how often a positive prediction is correct; recall asks how many actual positives are recovered. I choose a decision threshold using validation data and the cost of each mistake. For rare positives, a precision-recall curve is especially useful.",
+        "I report macro F1 to give each class equal weight, weighted F1 to reflect support, and accuracy when meaningful. I inspect calibration separately from ranking and evaluate slices such as language, text length and unseen authors. Confidence intervals or repeated seeds help distinguish improvement from noise."
+      ],
+      "deep": "Precision = TP/(TP+FP), recall = TP/(TP+FN), F1 = 2PR/(P+R). Macro F1 averages class F1 scores; it is not the F1 of averaged precision and recall. In single-label multiclass classification, micro F1 equals accuracy.",
+      "followups": [
+        {
+          "question": "What if there are no positive predictions?",
+          "answer": "Define zero-division behavior explicitly and show support counts rather than hiding the class."
+        },
+        {
+          "question": "How do you evaluate probabilities?",
+          "answer": "Use log loss or Brier score and reliability diagrams; a good ranking metric does not guarantee calibrated confidence."
+        }
+      ],
+      "pitfall": "Do not tune the threshold on the final test set.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Uploaded-question mapping",
+          "url": "data/source-questions.json"
+        }
+      ],
+      "evidence": "Concept explanation; adapt examples to your own experience.",
+      "originalQuestions": [
+        "How can you evaluate the performance of an NLP model for text classification?"
+      ]
+    },
+    {
+      "id": "rnn",
+      "collection": "nlp",
+      "topic": "Sequence modeling",
+      "difficulty": "Core",
+      "title": "How do RNNs, LSTMs and GRUs model sequences?",
+      "short": "An RNN updates a hidden state one step at a time. LSTM and GRU gates control information flow and make long-range learning easier, though processing remains sequential.",
+      "answer": [
+        "A recurrent state compresses previous inputs into a fixed-width representation. This suits text, time series and streaming signals. Ordinary RNNs can suffer vanishing or exploding gradients over long sequences; gating, clipping and careful initialization help.",
+        "A bidirectional RNN uses both earlier and later context, useful for offline labeling. A streaming predictor must use only information available at prediction time. PsychoTA uses a bidirectional conversation GRU, so its later representations can include future turns."
+      ],
+      "deep": "h_t = tanh(W_x x_t + W_h h_(t-1) + b). Repeated Jacobian products can shrink or amplify gradients. GRUs use reset and update gates; LSTMs maintain a separate cell state with input, forget and output gates.",
+      "followups": [
+        {
+          "question": "Does an LSTM eliminate vanishing gradients?",
+          "answer": "No. It gives gradients a better path through a gated cell state, but long dependencies and poor training can still be difficult."
+        },
+        {
+          "question": "Why use a GRU?",
+          "answer": "It has fewer gates and parameters than a comparable LSTM; measure quality and throughput on the actual task."
+        }
+      ],
+      "pitfall": "A bidirectional network is not suitable for strict online prediction without restricting input.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Uploaded-question mapping",
+          "url": "data/source-questions.json"
+        }
+      ],
+      "evidence": "Concept explanation; adapt examples to your own experience.",
+      "originalQuestions": [
+        "What are recurrent neural networks (RNNs) and how can they be used in NLP applications?",
+        "Explain the purpose of Recurrent Neural Networks (RNNs) in sequence modeling tasks."
+      ]
+    },
+    {
+      "id": "preprocessing",
+      "collection": "nlp",
+      "topic": "NLP foundations",
+      "difficulty": "Core",
+      "title": "How should text be preprocessed?",
+      "short": "Preserve meaning and match preprocessing to the tokenizer and task. Normalize encoding and obvious artifacts, but do not blindly remove punctuation, case, negation or stopwords.",
+      "answer": [
+        "For a classical bag-of-words pipeline I may normalize case and whitespace, but I test that choice. For a pretrained transformer I use its expected tokenizer and retain information such as punctuation and casing when the model expects it. Removing “not” can reverse sentiment.",
+        "I split before learning vocabulary or preprocessing statistics, deduplicate across splits and document truncation. I inspect URLs, emoji, code-switching and unusually long documents. Redaction of sensitive identifiers should be consistent across training and serving."
+      ],
+      "deep": "Tokenization is a model contract. A subword tokenizer maps text to token IDs and special tokens, then pads batches with an attention mask. Truncation at maximum length is lossy; chunking or hierarchical encoding can preserve late evidence.",
+      "followups": [
+        {
+          "question": "Should stopwords always be removed?",
+          "answer": "No. They carry syntax and negation. Removal may help certain lexical retrieval baselines but should be validated."
+        },
+        {
+          "question": "Should all text be lowercased?",
+          "answer": "Only if the task and tokenizer support it. Case can identify entities and carries information for cased pretrained models."
+        }
+      ],
+      "pitfall": "Preprocessing is not a universal checklist of destructive cleaning steps.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Uploaded-question mapping",
+          "url": "data/source-questions.json"
+        }
+      ],
+      "evidence": "Concept explanation; adapt examples to your own experience.",
+      "originalQuestions": [
+        "How would you handle the problem of text data preprocessing for NLP tasks?",
+        "How can you handle the problem of text data preprocessing for NLP tasks?"
+      ]
+    },
+    {
+      "id": "attention",
+      "collection": "nlp",
+      "topic": "Transformers",
+      "difficulty": "Deep dive",
+      "title": "How does scaled dot-product attention work?",
+      "short": "Queries score keys, softmax converts scores into weights, and those weights mix values. Masks restrict which positions are visible.",
+      "answer": [
+        "A token forms a query describing what it needs, a key describing how it can be matched, and a value containing information to pass on. Multiple heads learn different projections. Self-attention uses one sequence for all three; cross-attention uses queries from one sequence and keys/values from another.",
+        "Positional information distinguishes order. A causal mask prevents attention to future positions, and a padding mask suppresses padded inputs. These masks must agree with the rest of the architecture; a later bidirectional layer can reintroduce future context."
+      ],
+      "deep": "Attention(Q,K,V) = softmax(QK^T / sqrt(d_k) + M)V. Q has n×d_k, K has m×d_k, V has m×d_v; output is n×d_v. Dense attention forms n×m scores. For self-attention this is quadratic in sequence length.",
+      "followups": [
+        {
+          "question": "Why divide by sqrt(d_k)?",
+          "answer": "Dot-product variance grows with dimension under common assumptions; scaling prevents overly sharp softmax and weak gradients."
+        },
+        {
+          "question": "Are attention weights explanations?",
+          "answer": "They show an internal weighting, but do not establish causal feature importance. Use interventions or ablations for stronger evidence."
+        }
+      ],
+      "pitfall": "Softmax must run over the key dimension, and blocked positions need a mask before softmax.",
+      "diagram": "attention",
+      "sources": [
+        {
+          "label": "Uploaded-question mapping",
+          "url": "data/source-questions.json"
+        },
+        {
+          "label": "Attention Is All You Need",
+          "url": "https://arxiv.org/abs/1706.03762"
+        }
+      ],
+      "evidence": "Concept explanation; adapt examples to your own experience.",
+      "originalQuestions": [
+        "Can you explain the concept of attention mechanism and its role in NLP?"
+      ]
+    },
+    {
+      "id": "seq2seq",
+      "collection": "nlp",
+      "topic": "Sequence modeling",
+      "difficulty": "Core",
+      "title": "How do RNNs and transformers handle seq2seq tasks?",
+      "short": "An encoder represents the input and a decoder generates an output sequence. RNNs carry recurrent state; transformers use attention and causal decoding.",
+      "answer": [
+        "In translation or summarization the output length can differ from the input length. An attention-based RNN decoder can consult all encoder states rather than rely on one compressed vector. Transformers permit parallel computation across target positions during teacher-forced training.",
+        "At inference an autoregressive decoder still generates tokens sequentially. Beam search keeps multiple prefixes, while sampling trades determinism for diversity. I evaluate task quality, repetition, latency and failures on long inputs rather than assume a bigger beam always improves outputs."
+      ],
+      "deep": "Training often minimizes sum_t -log P(y_t | y_<t, x). Teacher forcing uses the gold prefix; inference uses generated tokens, creating exposure to its own mistakes. Decoder self-attention is causal; cross-attention can see the full encoded source.",
+      "followups": [
+        {
+          "question": "What is teacher forcing?",
+          "answer": "Feed the true previous output tokens during training, allowing supervised next-token loss at each position."
+        },
+        {
+          "question": "Why does beam search favor short outputs?",
+          "answer": "Multiplying probabilities decreases scores with length; length normalization and stopping rules change that bias."
+        }
+      ],
+      "pitfall": "Parallel training does not mean fully parallel autoregressive generation.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Uploaded-question mapping",
+          "url": "data/source-questions.json"
+        }
+      ],
+      "evidence": "Concept explanation; adapt examples to your own experience.",
+      "originalQuestions": [
+        "What is the role of recurrent neural networks (RNNs) and transformers in sequence-to-sequence (seq2seq) modeling for NLP?"
+      ]
+    },
+    {
+      "id": "oov",
+      "collection": "nlp",
+      "topic": "NLP foundations",
+      "difficulty": "Core",
+      "title": "How do you handle out-of-vocabulary words?",
+      "short": "Use subword, character or byte representations so unfamiliar words can be decomposed into known units. Check domain-specific token fragmentation.",
+      "answer": [
+        "A fixed word vocabulary maps unseen words to an unknown symbol and loses distinctions. FastText shares character n-grams; BPE and related subword tokenizers build words from reusable pieces. Byte-level representations can encode arbitrary byte sequences.",
+        "Representability is only the first step. A rare medical term may be encodable but poorly understood. I inspect tokens per word, retrieval failures and labeled examples before adapting a tokenizer or model, because vocabulary changes can break pretrained embeddings."
+      ],
+      "deep": "Subword composition reduces unknown tokens at the cost of longer sequences for rare forms. More tokens increase attention cost and make truncation more likely. An unknown-token rate alone misses this fragmentation problem.",
+      "followups": [
+        {
+          "question": "Can subwords solve all OOV problems?",
+          "answer": "No. They provide an encoding, not reliable semantic knowledge. Domain adaptation and examples may still be needed."
+        },
+        {
+          "question": "When use character models?",
+          "answer": "They can help noisy spelling and morphology in resource-constrained settings, though sequences become longer."
+        }
+      ],
+      "pitfall": "Do not replace a pretrained tokenizer without considering the learned embedding table.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Uploaded-question mapping",
+          "url": "data/source-questions.json"
+        }
+      ],
+      "evidence": "Concept explanation; adapt examples to your own experience.",
+      "originalQuestions": [
+        "How can you handle out-of-vocabulary (OOV) words in NLP tasks?"
+      ]
+    },
+    {
+      "id": "translation-attention",
+      "collection": "nlp",
+      "topic": "Transformers",
+      "difficulty": "Core",
+      "title": "What does attention contribute to machine translation?",
+      "short": "It lets each target token consult relevant source positions, avoiding a single fixed-vector bottleneck and supporting different word orders.",
+      "answer": [
+        "When generating a translated word, the decoder uses its current state or representation as a query over encoded source tokens. The resulting weighted context helps resolve agreement, ambiguity and long dependencies. Alignments are soft and can involve several source tokens.",
+        "I inspect omissions, hallucinations, named entities and long sentences. Automatic scores summarize quality but do not replace human checks for meaning preservation. Attention is an architectural mechanism, not a guarantee of faithful translation."
+      ],
+      "deep": "Cross-attention scores have target-length × source-length shape. Source padding is masked; full source visibility is allowed for offline translation. Streaming translation requires additional visibility constraints.",
+      "followups": [
+        {
+          "question": "Why not use only the last encoder state?",
+          "answer": "Long sentences strain a fixed bottleneck. Attention supplies direct paths to individual source representations."
+        },
+        {
+          "question": "Are attention alignments one-to-one?",
+          "answer": "No. Languages reorder and combine meaning differently, so several tokens can contribute to one output token."
+        }
+      ],
+      "pitfall": "Do not confuse source visibility in offline translation with causal target decoding.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Uploaded-question mapping",
+          "url": "data/source-questions.json"
+        }
+      ],
+      "evidence": "Concept explanation; adapt examples to your own experience.",
+      "originalQuestions": [
+        "What is the role of attention mechanisms in machine translation?"
+      ]
+    },
+    {
+      "id": "transfer",
+      "collection": "ml",
+      "topic": "Deep learning",
+      "difficulty": "Core",
+      "title": "What is transfer learning, and when does it help?",
+      "short": "Reuse a pretrained representation, then train a task head or fine-tune some or all layers. It helps with limited labels when pretraining knowledge transfers to the target domain.",
+      "answer": [
+        "I begin with a frozen encoder baseline. If the domain differs or more labels are available, I unfreeze selected layers with a smaller learning rate and monitor validation performance. Full fine-tuning costs more and can overwrite useful representations.",
+        "In NLP the tokenizer must match the checkpoint; in vision input resolution and normalization matter. I compare against a task baseline, check dataset overlap and evaluate subgroup errors. Domain mismatch can cause negative transfer, so pretraining is not an automatic win."
+      ],
+      "deep": "Frozen features train only a new head; full fine-tuning updates the backbone. Low-rank adaptation models a weight change as ΔW=BA with rank r much smaller than layer dimensions, reducing trainable parameters but not eliminating inference or activation costs.",
+      "followups": [
+        {
+          "question": "When would you freeze the backbone?",
+          "answer": "With few labels, limited compute or a domain close to pretraining; it is also a useful baseline."
+        },
+        {
+          "question": "How do you detect negative transfer?",
+          "answer": "Compare to simpler baselines and inspect held-out target-domain performance across seeds and data sizes."
+        }
+      ],
+      "pitfall": "Do not claim personal fine-tuning experience unless you can identify the run and your contribution.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Uploaded-question mapping",
+          "url": "data/source-questions.json"
+        }
+      ],
+      "evidence": "Concept explanation; adapt examples to your own experience.",
+      "originalQuestions": [
+        "Can you explain the concept of transfer learning in NLP and its benefits?",
+        "Can you explain the concept of transfer learning in NLP and its benefits?",
+        "What is transfer learning, and how can it be beneficial in the context of Deep Learning?",
+        "What is transfer learning in deep learning? How can it be useful?"
+      ]
+    },
+    {
+      "id": "generative",
+      "collection": "nlp",
+      "topic": "NLP foundations",
+      "difficulty": "Core",
+      "title": "What are generative models in NLP?",
+      "short": "They model text distributions and generate sequences, often conditioned on a prompt or input. A decoder language model predicts one token at a time.",
+      "answer": [
+        "A generative system can translate, summarize or draft responses. Unlike a classifier choosing a fixed label, it must choose a sequence from a huge output space. Pretraining teaches statistical regularities, while instruction tuning can shape how it follows requests.",
+        "Sampling temperature and top-p influence variability; they do not add factual knowledge. For factual work I would retrieve evidence, constrain output formats when possible and evaluate unsupported claims. A fluent answer can still be wrong."
+      ],
+      "deep": "Autoregressive factorization: P(x_1…x_T)=product_t P(x_t|x_<t). Taking logs turns the product into a sum for training. Temperature rescales logits before sampling; low temperature is not a factuality guarantee.",
+      "followups": [
+        {
+          "question": "How is generation evaluated?",
+          "answer": "Use task-specific quality, factual support, diversity and cost. Reference overlap alone can punish valid paraphrases."
+        },
+        {
+          "question": "Why use structured output?",
+          "answer": "It makes downstream parsing more reliable, but schema validity does not imply correct content."
+        }
+      ],
+      "pitfall": "Do not describe generation as database lookup.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Uploaded-question mapping",
+          "url": "data/source-questions.json"
+        }
+      ],
+      "evidence": "Concept explanation; adapt examples to your own experience.",
+      "originalQuestions": [
+        "Can you explain the concept of generative models in NLP and provide an example?"
+      ]
+    },
+    {
+      "id": "language-model",
+      "collection": "nlp",
+      "topic": "NLP foundations",
+      "difficulty": "Core",
+      "title": "What is language modeling?",
+      "short": "Language modeling estimates the probability of token sequences. Causal models predict the next token; masked models reconstruct hidden tokens using surrounding context.",
+      "answer": [
+        "A causal model can generate by repeatedly extending a prefix. A masked encoder is often used for representations and downstream classification. Their training objectives expose different information, so their evaluation scores are not directly interchangeable.",
+        "I assess likelihood on a held-out corpus and check whether the metric corresponds to the target task. Lower perplexity on one corpus does not establish better factual reasoning or better retrieval. Tokenization must match when comparing perplexity."
+      ],
+      "deep": "Cross-entropy averages negative log probability of correct tokens. Perplexity is exp(cross-entropy) when natural logs are used. Comparing models with different tokenizers by raw token perplexity can be misleading.",
+      "followups": [
+        {
+          "question": "Why use log probabilities?",
+          "answer": "They avoid numerical underflow and turn products into sums."
+        },
+        {
+          "question": "Can BERT generate like a causal decoder?",
+          "answer": "Its masked objective is different; direct left-to-right generation is not its standard use."
+        }
+      ],
+      "pitfall": "Do not compare perplexity across different tokenizations without normalization.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Uploaded-question mapping",
+          "url": "data/source-questions.json"
+        }
+      ],
+      "evidence": "Concept explanation; adapt examples to your own experience.",
+      "originalQuestions": [
+        "Can you explain the concept of language modeling in NLP and its applications?"
+      ]
+    },
+    {
+      "id": "nlp-challenges",
+      "collection": "nlp",
+      "topic": "NLP foundations",
+      "difficulty": "Core",
+      "title": "What challenges are specific to NLP?",
+      "short": "Ambiguity, sarcasm, language variation and domain shift make surface words unreliable. Evaluate realistic slices and preserve context instead of assuming cleaning solves semantics.",
+      "answer": [
+        "I separate data failures from modeling failures. For sarcasm, missing conversational context may matter more than architecture. For multilingual text, script and tokenizer coverage can dominate. For jargon, domain examples and retrieval may help more than a larger generic model.",
+        "I collect representative errors and evaluate slices such as dialect, language, text length and rare entities. Privacy-sensitive data needs controlled collection and redaction. When a task is ambiguous even to annotators, I report agreement and allow uncertain outcomes."
+      ],
+      "deep": "A global average can conceal opposite trends in subgroups. Track sample sizes and confidence intervals for slices; very small slices need additional annotation before drawing conclusions.",
+      "followups": [
+        {
+          "question": "How do you handle sarcasm?",
+          "answer": "Add relevant conversation context and labeled examples, then test that errors improve; no preprocessing rule reliably resolves all sarcasm."
+        },
+        {
+          "question": "What if annotators disagree?",
+          "answer": "Clarify the label policy, adjudicate a sample and measure agreement. Some ambiguity should remain visible."
+        }
+      ],
+      "pitfall": "Do not infer psychological traits reliably from isolated words.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Uploaded-question mapping",
+          "url": "data/source-questions.json"
+        }
+      ],
+      "evidence": "Concept explanation; adapt examples to your own experience.",
+      "originalQuestions": [
+        "What are some challenges specific to NLP applications, and how would you address them?"
+      ]
+    },
+    {
+      "id": "noisy-text",
+      "collection": "nlp",
+      "topic": "NLP foundations",
+      "difficulty": "Core",
+      "title": "How do you handle noisy or incomplete text?",
+      "short": "Measure the noise first, preserve the original, and test normalization or augmentation against a realistic noisy validation set. Avoid inventing missing meaning.",
+      "answer": [
+        "Typos, OCR errors, abbreviations and missing turns have different causes. I keep raw text for audit, normalize only supported artifacts and use subword representations. Spelling correction can corrupt names or technical terms, so it needs task-level evaluation.",
+        "For incomplete input I expose missingness and use available context rather than fabricate a replacement. I test clean and noisy slices separately and consider confidence thresholds or clarification prompts if the application can ask for more information."
+      ],
+      "deep": "A useful stress test applies controlled character substitutions, token deletion and OCR-like confusions at known rates. Compare degradation curves against naturally noisy samples; synthetic noise is not a substitute for real collection conditions.",
+      "followups": [
+        {
+          "question": "Should you autocorrect everything?",
+          "answer": "No. Correction can change entities, code and intended slang. Keep raw text and validate any transform."
+        },
+        {
+          "question": "How do you handle missing conversation turns?",
+          "answer": "Represent the gap explicitly and avoid claiming a complete causal history. Train with realistic missing-context examples if available."
+        }
+      ],
+      "pitfall": "Do not evaluate a denoiser only on clean text.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Uploaded-question mapping",
+          "url": "data/source-questions.json"
+        }
+      ],
+      "evidence": "Concept explanation; adapt examples to your own experience.",
+      "originalQuestions": [
+        "How can you handle noisy or incomplete textual data in NLP tasks?"
+      ]
+    },
+    {
+      "id": "overfitting",
+      "collection": "ml",
+      "topic": "Model training",
+      "difficulty": "Core",
+      "title": "What is overfitting, and how do you prevent it?",
+      "short": "Overfitting means learning training-specific patterns that do not generalize. Use valid splits, simpler models, regularization, early stopping and better data.",
+      "answer": [
+        "I compare training and validation learning curves. A widening gap suggests variance or leakage-sensitive features; poor scores on both may indicate underfitting or an optimization problem. More training alone can make overfitting worse.",
+        "For NLP I split related documents and authors together, remove cross-split duplicates and avoid augmentations that change the label. I tune dropout, weight decay or model capacity using validation data. More diverse, correctly labeled examples often help more than adding layers."
+      ],
+      "deep": "Regularization adds a penalty, such as λ||w||², to empirical loss. Early stopping selects a training checkpoint based on validation performance. Both are model choices and consume validation information; the final test set must remain untouched.",
+      "followups": [
+        {
+          "question": "Does dropout help at inference?",
+          "answer": "Standard dropout is disabled during ordinary inference; training-time noise discourages dependence on particular activations."
+        },
+        {
+          "question": "Can more data fix leakage?",
+          "answer": "No. A contaminated split still produces a biased estimate, however large it is."
+        }
+      ],
+      "pitfall": "Do not diagnose every bad test score as overfitting.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Uploaded-question mapping",
+          "url": "data/source-questions.json"
+        }
+      ],
+      "evidence": "Concept explanation; adapt examples to your own experience.",
+      "originalQuestions": [
+        "How can you mitigate the problem of overfitting in NLP models?",
+        "Explain the concept of overfitting and how to avoid it in Machine Learning models."
+      ]
+    },
+    {
+      "id": "imbalance",
+      "collection": "ml",
+      "topic": "Evaluation",
+      "difficulty": "Core",
+      "title": "How do you handle class imbalance?",
+      "short": "Choose metrics and thresholds for the cost of errors, then consider class-weighted loss or training-only resampling. Keep evaluation prevalence realistic.",
+      "answer": [
+        "I establish the majority baseline and inspect minority support. Macro F1, per-class recall and precision-recall curves reveal failures hidden by accuracy. If false negatives are costly, I choose an operating point with explicit recall and precision requirements.",
+        "Class weights change the loss contribution of examples; oversampling changes how often they appear. I apply these only within training folds. Synthetic samples in sparse text spaces can be unrealistic, so I compare them to weighting. Changed training prevalence can also affect calibration."
+      ],
+      "deep": "Weighted cross-entropy is -w_y log p_y. In binary classification, threshold selection trades FP against FN. An evaluation set with artificially balanced classes changes precision relative to deployment prevalence.",
+      "followups": [
+        {
+          "question": "Why not just oversample everything?",
+          "answer": "It can repeat noise and overfit scarce minority examples; oversampling before splitting also leaks duplicates."
+        },
+        {
+          "question": "What changes when prevalence shifts?",
+          "answer": "Precision and posterior calibration can change even if class-conditional score distributions stay similar."
+        }
+      ],
+      "pitfall": "Accuracy is not enough, and resampling is not a substitute for collecting minority examples.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Uploaded-question mapping",
+          "url": "data/source-questions.json"
+        }
+      ],
+      "evidence": "Concept explanation; adapt examples to your own experience.",
+      "originalQuestions": [
+        "How can you handle the problem of imbalanced classes in text classification?",
+        "How would you handle class imbalance in a classification problem?",
+        "How would you handle imbalanced class distribution in a classification problem?"
+      ]
+    },
+    {
+      "id": "big-data",
+      "collection": "ml",
+      "topic": "Data engineering",
+      "difficulty": "Core",
+      "title": "How is Big Data related to machine learning?",
+      "short": "Large, fast or diverse data needs storage and processing strategies beyond a single-machine workflow. ML learns patterns from that data, but not every ML task needs distributed computing.",
+      "answer": [
+        "I start with data size, arrival rate, access patterns and latency requirements. Columnar storage, partitioning and incremental processing can reduce cost before adding a cluster. Batch training and online feature serving have different consistency and freshness needs.",
+        "More data does not fix biased labels or a mismatched objective. I track schemas, provenance and data quality, then decide whether distributed processing is justified by measurements. Skewed partitions and excessive data movement can dominate runtime."
+      ],
+      "deep": "Map-style tasks work independently over partitions; reduce-style stages aggregate results and often require a shuffle. The expensive part can be network transfer rather than arithmetic. Measure bytes moved and straggler latency.",
+      "followups": [
+        {
+          "question": "When use streaming?",
+          "answer": "When decisions need fresh events and batch latency is unacceptable; define event-time handling and late-arrival policy."
+        },
+        {
+          "question": "Why can adding workers make jobs slower?",
+          "answer": "Scheduling, serialization, network shuffle and partition skew can exceed the saved compute time."
+        }
+      ],
+      "pitfall": "Do not equate a large dataset with a better model.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Uploaded-question mapping",
+          "url": "data/source-questions.json"
+        }
+      ],
+      "evidence": "Concept explanation; adapt examples to your own experience.",
+      "originalQuestions": [
+        "Can you explain what is Big Data and how it is related to Machine Learning?"
+      ]
+    },
+    {
+      "id": "supervised",
+      "collection": "ml",
+      "topic": "ML foundations",
+      "difficulty": "Core",
+      "title": "How do supervised and unsupervised learning differ?",
+      "short": "Supervised learning uses targets, such as spam labels or prices. Unsupervised learning finds structure without those targets, such as clusters or lower-dimensional representations.",
+      "answer": [
+        "The distinction is the training signal. Classification and regression learn a mapping to a target; clustering groups examples under a chosen similarity notion. Self-supervised learning creates targets from data itself, such as predicting hidden tokens.",
+        "I choose the method from the intended use. If a business needs a known outcome, a cluster ID is not a substitute for a supervised label. For clustering I inspect stability, usefulness and sensitivity to feature scaling, because several valid groupings may exist."
+      ],
+      "deep": "Supervised empirical risk minimizes (1/n) sum_i L(f(x_i),y_i). K-means minimizes within-cluster squared Euclidean distance and therefore assumes a particular geometry. Its objective does not imply meaningful real-world categories.",
+      "followups": [
+        {
+          "question": "Is self-supervision unsupervised?",
+          "answer": "It uses no human-provided labels, but optimizes a constructed prediction target; naming conventions vary."
+        },
+        {
+          "question": "How do you evaluate clusters?",
+          "answer": "Use internal geometry, stability and external task utility when labels or domain checks exist."
+        }
+      ],
+      "pitfall": "Clusters are not automatically true categories.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Uploaded-question mapping",
+          "url": "data/source-questions.json"
+        }
+      ],
+      "evidence": "Concept explanation; adapt examples to your own experience.",
+      "originalQuestions": [
+        "What is the difference between supervised and unsupervised learning? Provide examples of each.",
+        "Can you explain the concept of supervised learning and give an example of how it is used in machine learning?"
+      ]
+    },
+    {
+      "id": "missing",
+      "collection": "ml",
+      "topic": "Data preparation",
+      "difficulty": "Core",
+      "title": "How do you handle missing values?",
+      "short": "Understand why values are missing, then compare imputation, missingness indicators or models with native missing-value support. Fit all learned imputers on training data only.",
+      "answer": [
+        "I inspect missingness by feature, time and target and distinguish absent measurements from valid zeroes. Dropping rows can bias the population. Median or most-frequent imputation is a useful baseline; more complex conditional imputation needs validation.",
+        "A missingness indicator can preserve useful signal, but that signal may change when collection changes. I keep a documented serving-time fallback and test entirely missing fields. For longitudinal data, only earlier measurements should inform a prediction-time fill."
+      ],
+      "deep": "MCAR means missingness is independent of observed and unobserved values; MAR depends on observed information; MNAR can depend on the missing value itself. These assumptions affect bias and are not usually identifiable from observed data alone.",
+      "followups": [
+        {
+          "question": "Why add an indicator?",
+          "answer": "The absence of a measurement can carry information, such as a test ordered only for certain cases."
+        },
+        {
+          "question": "When is forward-fill unsafe?",
+          "answer": "When it crosses entities or uses future observations; split by entity and sort by time first."
+        }
+      ],
+      "pitfall": "Never interpret zero as missing without a domain definition.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Uploaded-question mapping",
+          "url": "data/source-questions.json"
+        }
+      ],
+      "evidence": "Concept explanation; adapt examples to your own experience.",
+      "originalQuestions": [
+        "How would you handle missing values in a dataset for training a Machine Learning model?",
+        "How would you handle missing values in a dataset? What are some common techniques?"
+      ]
+    },
+    {
+      "id": "scaling",
+      "collection": "ml",
+      "topic": "Data preparation",
+      "difficulty": "Core",
+      "title": "What is feature scaling, and when is it useful?",
+      "short": "Scaling aligns feature magnitudes for distance-based and gradient-based models. Standardization uses training mean and standard deviation; tree split models usually need less scaling.",
+      "answer": [
+        "A feature measured in thousands can dominate Euclidean distance over a feature measured in tenths. This affects k-NN, clustering and regularized linear models. Scaling can also improve optimization conditioning for neural networks.",
+        "I fit the scaler within training folds and apply the same transform at serving. Robust scaling can help with extreme values. I do not standardize target labels or categorical identifiers accidentally, and I preserve sparsity when handling large sparse matrices."
+      ],
+      "deep": "z=(x-μ_train)/σ_train. Regularization acts on coefficient magnitudes, so feature units influence the effective penalty. Ordinary axis-aligned tree splits depend on order, which monotonic scaling preserves.",
+      "followups": [
+        {
+          "question": "Should sparse TF-IDF be centered?",
+          "answer": "Usually no: subtracting a mean can densify the matrix and create a memory problem."
+        },
+        {
+          "question": "How do you handle a constant feature?",
+          "answer": "Drop it or use a scaler with defined zero-variance behavior; division by zero must not enter serving."
+        }
+      ],
+      "pitfall": "Do not refit scaling on each prediction batch.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Uploaded-question mapping",
+          "url": "data/source-questions.json"
+        }
+      ],
+      "evidence": "Concept explanation; adapt examples to your own experience.",
+      "originalQuestions": [
+        "What is feature scaling, and why is it important in Machine Learning?"
+      ]
+    },
+    {
+      "id": "bias-variance",
+      "collection": "ml",
+      "topic": "ML foundations",
+      "difficulty": "Core",
+      "title": "Explain bias and the bias-variance tradeoff.",
+      "short": "Bias is systematic error from model assumptions; variance is sensitivity to the training sample. Capacity and regularization affect both, but validation determines the useful balance.",
+      "answer": [
+        "An overly simple model may miss real structure, while a very flexible model may fit noise. I inspect learning curves, compare simpler baselines and use validation to select capacity. High variance can improve with more representative data or ensembling.",
+        "Statistical bias is different from social bias, although a model can have both. A small train-validation gap does not prove correctness: both sets may share the same sampling bias or leakage."
+      ],
+      "deep": "For squared error under standard assumptions, expected prediction error decomposes into squared bias + variance + irreducible noise. This exact decomposition does not transfer unchanged to every classification metric or modern overparameterized setting.",
+      "followups": [
+        {
+          "question": "Does increasing complexity always worsen variance?",
+          "answer": "No universal monotonic rule holds across all training regimes; use empirical validation and learning curves."
+        },
+        {
+          "question": "How does bagging help?",
+          "answer": "Averaging imperfectly correlated unstable learners can reduce variance."
+        }
+      ],
+      "pitfall": "Do not confuse statistical bias with fairness or assume every error is reducible.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Uploaded-question mapping",
+          "url": "data/source-questions.json"
+        }
+      ],
+      "evidence": "Concept explanation; adapt examples to your own experience.",
+      "originalQuestions": [
+        "Explain the bias-variance tradeoff in Machine Learning models.",
+        "What is bias in the context of Machine Learning models?",
+        "Can you explain the bias-variance tradeoff in machine learning?"
+      ]
+    },
+    {
+      "id": "roc",
+      "collection": "ml",
+      "topic": "Evaluation",
+      "difficulty": "Core",
+      "title": "What is an ROC curve?",
+      "short": "ROC plots true-positive rate against false-positive rate as a threshold varies. AUC measures ranking quality across thresholds, not performance at a particular operating point.",
+      "answer": [
+        "I use ROC to inspect discrimination, then choose a threshold for deployment costs. A high AUC can still yield poor precision when positives are rare because a small false-positive rate may produce many false alarms.",
+        "I report a precision-recall curve alongside ROC for imbalanced tasks and show a confusion matrix at the selected threshold. Thresholds come from validation data. Calibration needs separate checks because ROC depends on score ordering, not probability accuracy."
+      ],
+      "deep": "TPR=TP/(TP+FN); FPR=FP/(FP+TN). With random positive and negative examples, AUC is the probability the positive receives a higher score, with half credit for ties.",
+      "followups": [
+        {
+          "question": "Can a calibrated model have poor AUC?",
+          "answer": "Yes. Predicting the base rate can be calibrated yet offer no useful ranking."
+        },
+        {
+          "question": "Why can ROC be optimistic for rare positives?",
+          "answer": "The large negative denominator keeps FPR small even when false alarms outnumber true positives."
+        }
+      ],
+      "pitfall": "AUC is not accuracy and does not choose the business threshold.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Uploaded-question mapping",
+          "url": "data/source-questions.json"
+        }
+      ],
+      "evidence": "Concept explanation; adapt examples to your own experience.",
+      "originalQuestions": [
+        "What is the ROC curve, and how is it useful in evaluating a classification model?",
+        "What is the ROC curve? How is it used to evaluate a classification model?"
+      ]
+    },
+    {
+      "id": "categorical",
+      "collection": "ml",
+      "topic": "Data preparation",
+      "difficulty": "Core",
+      "title": "How do you encode categorical variables?",
+      "short": "Use one-hot encoding for small nominal categories, ordered encoding only for real order, and carefully validated alternatives for high cardinality. Define unseen-category behavior.",
+      "answer": [
+        "A numeric code for city creates a false distance or order in many models. One-hot avoids that but increases dimensionality. Native categorical handling or embeddings can be useful at larger scale. I avoid feeding IDs that merely memorize training entities.",
+        "Target encoding uses label statistics and can leak badly. I compute it out of fold within training, smooth rare categories and use a training-derived fallback for unseen values. Encoders must be versioned with the model."
+      ],
+      "deep": "A smoothed category mean can be (sum_y_category + α·global_mean)/(n_category + α). The training row must not contribute its own target to its encoded feature; out-of-fold construction prevents that shortcut.",
+      "followups": [
+        {
+          "question": "When is ordinal encoding valid?",
+          "answer": "For categories with a meaningful order, such as severity levels, while remembering that numeric spacing may still be artificial."
+        },
+        {
+          "question": "What about unseen categories?",
+          "answer": "Use an explicit unknown category or a fitted fallback; never silently change the column layout."
+        }
+      ],
+      "pitfall": "Do not target-encode before cross-validation.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Uploaded-question mapping",
+          "url": "data/source-questions.json"
+        }
+      ],
+      "evidence": "Concept explanation; adapt examples to your own experience.",
+      "originalQuestions": [
+        "How do you handle categorical variables in a Machine Learning model?"
+      ]
+    },
+    {
+      "id": "ensemble",
+      "collection": "ml",
+      "topic": "ML foundations",
+      "difficulty": "Deep dive",
+      "title": "How do bagging, boosting and stacking differ?",
+      "short": "Bagging trains models on resampled data and averages them. Boosting builds an additive model sequentially. Stacking trains a combiner on held-out base-model predictions.",
+      "answer": [
+        "Bagging often reduces variance in unstable learners, as with random forests. Boosting fits additional learners to improve the current objective; it can capture complex relationships but can also fit noise. Ensemble gains depend on diversity and individual quality.",
+        "Stacking learns how to combine outputs. The meta-model must see predictions for examples excluded from each base model’s training. TreeStack-CNN makes this separation explicit. I compare every ensemble with its best individual member and simple probability averaging."
+      ],
+      "deep": "For m equal-variance prediction errors with pairwise correlation ρ, the variance of their mean is σ²[ρ+(1-ρ)/m]. Correlated errors limit the benefit of adding models.",
+      "followups": [
+        {
+          "question": "Can a weak learner hurt the ensemble?",
+          "answer": "Yes, especially with biased or correlated errors. Validate selection and weights without using test labels."
+        },
+        {
+          "question": "Why are out-of-fold predictions needed?",
+          "answer": "Training predictions are overconfident; a combiner fitted on them learns a distribution it will not see at inference."
+        }
+      ],
+      "pitfall": "Averaging model weights is different from averaging predictions.",
+      "diagram": "ensemble",
+      "sources": [
+        {
+          "label": "Uploaded-question mapping",
+          "url": "data/source-questions.json"
+        }
+      ],
+      "evidence": "Concept explanation; adapt examples to your own experience.",
+      "originalQuestions": [
+        "Explain the difference between bagging and boosting in ensemble learning.",
+        "What is the difference between bagging and boosting in ensemble learning?",
+        "What is an ensemble learning? How can it improve model performance?"
+      ]
+    },
+    {
+      "id": "cross-validation",
+      "collection": "ml",
+      "topic": "Evaluation",
+      "difficulty": "Core",
+      "title": "Why use cross-validation?",
+      "short": "Cross-validation estimates generalization across several training/validation splits. The split strategy must respect time, groups and the way new data will arrive.",
+      "answer": [
+        "In k-fold validation, each fold is held out once and the estimator is refitted on the others. All preprocessing and resampling belong inside that loop. Stratification can preserve class proportions; group splits prevent related examples crossing the boundary.",
+        "For forecasting I train on earlier data and validate on later data. For model selection I use inner validation, leaving an outer evaluation or final test set untouched. Repeatedly selecting on the same validation set can overfit that set too."
+      ],
+      "deep": "K-fold requires roughly k fits per candidate. Nested cross-validation multiplies inner and outer fits but separates hyperparameter selection from performance estimation. Report fold variation without pretending overlapping folds are fully independent experiments.",
+      "followups": [
+        {
+          "question": "Can random folds evaluate forecasting?",
+          "answer": "Usually not: future patterns can leak backward and the task no longer resembles deployment."
+        },
+        {
+          "question": "When use group splits?",
+          "answer": "When multiple rows share a patient, customer, conversation or document whose identity could leak."
+        }
+      ],
+      "pitfall": "Preprocessing fitted once on the full dataset invalidates the fold boundary.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Uploaded-question mapping",
+          "url": "data/source-questions.json"
+        }
+      ],
+      "evidence": "Concept explanation; adapt examples to your own experience.",
+      "originalQuestions": [
+        "Explain the concept of cross-validation and why is it important in Machine Learning?",
+        "Explain the use of cross-validation in model evaluation."
+      ]
+    },
+    {
+      "id": "activation",
+      "collection": "ml",
+      "topic": "Deep learning",
+      "difficulty": "Core",
+      "title": "Why do neural networks need activation functions?",
+      "short": "Nonlinear activations let stacked layers represent nonlinear functions. Without them, a chain of affine layers collapses to one affine transform.",
+      "answer": [
+        "ReLU is simple and efficient, but units can become inactive. GELU is common in transformers. Sigmoid and tanh are bounded but can saturate, shrinking gradients. I choose activations together with initialization and normalization rather than in isolation.",
+        "Output activations depend on the task: linear outputs for unrestricted regression, softmax for exclusive classes and sigmoid for independent labels. Loss APIs may expect raw logits and apply the activation internally."
+      ],
+      "deep": "ReLU(x)=max(0,x). Its derivative is zero for negative inputs and one for positive inputs, with a convention at zero. Sigmoid derivative is σ(x)(1-σ(x)), which becomes small for large absolute x.",
+      "followups": [
+        {
+          "question": "Why avoid softmax before cross-entropy in PyTorch?",
+          "answer": "The standard cross-entropy loss expects logits and combines log-softmax with negative log likelihood for stability."
+        },
+        {
+          "question": "Can a deep linear network express nonlinear functions?",
+          "answer": "No; its parameterization may affect optimization, but its input-output map remains linear or affine."
+        }
+      ],
+      "pitfall": "Do not apply sigmoid to mutually exclusive classes merely because there are multiple outputs.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Uploaded-question mapping",
+          "url": "data/source-questions.json"
+        }
+      ],
+      "evidence": "Concept explanation; adapt examples to your own experience.",
+      "originalQuestions": [
+        "What is the purpose of activation functions in Neural Networks?",
+        "What is the purpose of activation functions in neural networks?"
+      ]
+    },
+    {
+      "id": "hyperparameters",
+      "collection": "ml",
+      "topic": "Model training",
+      "difficulty": "Core",
+      "title": "How do you tune hyperparameters?",
+      "short": "Define a validation objective, realistic search space and compute budget. Random search is a strong baseline; use early stopping and reserve an untouched evaluation set.",
+      "answer": [
+        "Hyperparameters control architecture or training rather than being directly fitted as model weights. Learning rate, regularization and tree depth are examples. I search influential parameters first and use log scales for quantities spanning orders of magnitude.",
+        "Bayesian optimization can use earlier trials to propose candidates; successive halving allocates more compute to promising runs. I repeat finalists across seeds and record the full configuration. The winning validation score is optimistic after many trials, so I report final held-out performance."
+      ],
+      "deep": "Grid search with k settings across d parameters needs k^d trials. Random search covers more distinct values of influential dimensions for the same budget. Multi-fidelity methods assume early performance is informative, which can fail for slow-starting configurations.",
+      "followups": [
+        {
+          "question": "Why search learning rate logarithmically?",
+          "answer": "Useful rates often span orders of magnitude; linear spacing wastes many trials on a narrow high-rate region."
+        },
+        {
+          "question": "What must be logged?",
+          "answer": "Data revision, split, seed, model settings, environment, budget, metrics and checkpoint selection rule."
+        }
+      ],
+      "pitfall": "Do not keep tuning after looking at test performance.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Uploaded-question mapping",
+          "url": "data/source-questions.json"
+        }
+      ],
+      "evidence": "Concept explanation; adapt examples to your own experience.",
+      "originalQuestions": [
+        "Describe the process of hyperparameter tuning and some common techniques for it.",
+        "Explain the concept of hyperparameters in machine learning models. How do you choose the optimal values?"
+      ]
+    },
+    {
+      "id": "eda",
+      "collection": "ml",
+      "topic": "Data preparation",
+      "difficulty": "Core",
+      "title": "What does exploratory data analysis contribute?",
+      "short": "EDA reveals data quality, distributions, missingness and leakage risks before modeling. It helps test whether the dataset actually represents the intended task.",
+      "answer": [
+        "I inspect schemas and units, target balance, duplicates, unexpected ranges and time coverage. I compare distributions across relevant groups and verify that features would exist when predictions are made. A suspiciously predictive column may be a post-outcome proxy.",
+        "Plots suggest hypotheses rather than prove causation. I use training data for model-design choices, keeping evaluation information protected. Findings become reproducible checks so future data imports cannot silently change assumptions."
+      ],
+      "deep": "A useful data contract specifies types, nullable fields, allowable ranges, category handling and uniqueness keys. Statistical drift checks complement these hard validations but require context and sample-size awareness.",
+      "followups": [
+        {
+          "question": "How do you spot leakage?",
+          "answer": "Inspect timestamp availability, duplicates and columns derived from outcomes; test suspiciously strong features separately."
+        },
+        {
+          "question": "Does correlation prove causation?",
+          "answer": "No. Confounding, selection and reverse causality can create associations."
+        }
+      ],
+      "pitfall": "Do not let repeated test-set exploration turn the test set into training feedback.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Uploaded-question mapping",
+          "url": "data/source-questions.json"
+        }
+      ],
+      "evidence": "Concept explanation; adapt examples to your own experience.",
+      "originalQuestions": [
+        "What is the importance of exploratory data analysis (EDA) in the context of Data Science?"
+      ]
+    },
+    {
+      "id": "cnn",
+      "collection": "ml",
+      "topic": "Deep learning",
+      "difficulty": "Core",
+      "title": "What are CNNs good at, and what are their limitations?",
+      "short": "CNNs learn local spatial patterns using shared filters. They are parameter-efficient for images, but global relationships and distribution shifts can still be difficult.",
+      "answer": [
+        "Small filters detect local features, and deeper layers combine them into larger receptive fields. Weight sharing reduces parameters compared with a fully connected layer over all pixels. Pooling or stride reduces spatial resolution and compute.",
+        "CNNs are not inherently invariant to every rotation, scale or lighting change. I use realistic augmentation and evaluate per-class failures. For small datasets a pretrained backbone can help. EvidenceMem offers a different design: frozen vision-language features with an external memory."
+      ],
+      "deep": "A 2D convolution with kernel k×k and channels C_in→C_out has k² C_in C_out weights before bias. Output size is floor((n+2p-d(k-1)-1)/s+1). Receptive field grows with depth and stride.",
+      "followups": [
+        {
+          "question": "What is depthwise separable convolution?",
+          "answer": "Apply one spatial filter per input channel, then a 1×1 convolution mixes channels, reducing compute relative to a full convolution."
+        },
+        {
+          "question": "Does pooling guarantee translation invariance?",
+          "answer": "It gives some local tolerance, but the full model can still be sensitive to shifts and boundaries."
+        }
+      ],
+      "pitfall": "Do not claim computer-vision experience from generic examples alone.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Uploaded-question mapping",
+          "url": "data/source-questions.json"
+        }
+      ],
+      "evidence": "Concept explanation; adapt examples to your own experience.",
+      "originalQuestions": [
+        "What are the advantages and disadvantages of using convolutional neural networks (CNNs) for computer vision tasks?"
+      ]
+    },
+    {
+      "id": "underperformance",
+      "collection": "ml",
+      "topic": "Model training",
+      "difficulty": "Core",
+      "title": "How would you debug an underperforming model?",
+      "short": "Verify data and evaluation first, then isolate optimization, capacity and distribution problems. Change one hypothesis at a time and compare with a simple baseline.",
+      "answer": [
+        "I check labels, split leakage, preprocessing consistency and metric implementation. A tiny-batch overfit test can reveal broken gradients or labels. I inspect learning curves: poor training fit points toward optimization or capacity, while a validation gap suggests generalization problems.",
+        "I categorize errors by class and input conditions, then prioritize the largest actionable failure. I compare with a dummy model and a simple trained baseline. Every change needs a controlled evaluation, not just a new overall score."
+      ],
+      "deep": "A debugging sequence is: validate one batch → verify output/target shapes → check finite loss and gradients → overfit a small subset → compare train/validation curves → inspect slices. Small-subset memorization validates mechanics, not generalization.",
+      "followups": [
+        {
+          "question": "What if training loss is NaN?",
+          "answer": "Check input ranges, invalid labels, division/log operations, learning rate and mixed-precision behavior."
+        },
+        {
+          "question": "What if validation is better than training?",
+          "answer": "Training augmentation, dropout or differing loss calculations may explain it; verify both evaluation modes before diagnosing."
+        }
+      ],
+      "pitfall": "Do not start by adding layers or collecting arbitrary extra data.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Uploaded-question mapping",
+          "url": "data/source-questions.json"
+        }
+      ],
+      "evidence": "Concept explanation; adapt examples to your own experience.",
+      "originalQuestions": [
+        "How would you handle a situation where your Machine Learning model is underperforming?"
+      ]
+    },
+    {
+      "id": "regularization",
+      "collection": "ml",
+      "topic": "Model training",
+      "difficulty": "Core",
+      "title": "How does regularization prevent overfitting?",
+      "short": "Regularization constrains what a model can fit, through penalties, noise, architecture or early stopping. It trades some training fit for better generalization when tuned well.",
+      "answer": [
+        "L2 discourages large weights, L1 can induce sparsity, and dropout prevents reliance on individual activations. Early stopping limits fitting late training noise. Augmentation encodes invariances, but it must preserve the target.",
+        "I select strength using validation data. Excessive regularization underfits, and none of these methods repairs an invalid split. In NLP, deleting words can flip sentiment, so augmentation must be more careful than random corruption."
+      ],
+      "deep": "Penalized objective: L_data + λR(w). L1 uses sum|w_i|; L2 uses sum w_i². Decoupled weight decay in adaptive optimizers is not generally identical to adding an L2 penalty to the gradient.",
+      "followups": [
+        {
+          "question": "Why might L1 create zeros?",
+          "answer": "Its nonsmooth penalty can favor sparse solutions; the optimizer and model determine the exact behavior."
+        },
+        {
+          "question": "Is augmentation always regularization?",
+          "answer": "It can constrain the learned function when transformations preserve labels; bad transforms inject wrong targets."
+        }
+      ],
+      "pitfall": "A larger penalty is not always better.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Uploaded-question mapping",
+          "url": "data/source-questions.json"
+        }
+      ],
+      "evidence": "Concept explanation; adapt examples to your own experience.",
+      "originalQuestions": [
+        "What is the purpose of regularization in machine learning? How does it prevent overfitting?"
+      ]
+    },
+    {
+      "id": "gradient-descent",
+      "collection": "ml",
+      "topic": "Model training",
+      "difficulty": "Core",
+      "title": "How does gradient descent train a neural network?",
+      "short": "Backpropagation computes loss gradients; the optimizer updates parameters in a direction intended to reduce loss. The learning rate controls step size.",
+      "answer": [
+        "I run a forward pass, compute the loss, clear old gradients, backpropagate and step the optimizer. Mini-batches give noisy but inexpensive gradient estimates. Momentum smooths updates; adaptive optimizers adjust updates using gradient statistics.",
+        "I monitor loss and gradient norms, use stable initialization and check for exploding values. A rate that is too large can diverge; too small can stall. Scheduler choices and batch size affect optimization, so I record them with each run."
+      ],
+      "deep": "Basic update: θ_(t+1)=θ_t-η∇L_batch(θ_t). Backpropagation applies the chain rule efficiently over the computation graph; it is distinct from the parameter-update algorithm.",
+      "followups": [
+        {
+          "question": "Why clear gradients?",
+          "answer": "Many frameworks accumulate them by default. Accumulation is useful only when deliberately scaled and scheduled."
+        },
+        {
+          "question": "What does clipping do?",
+          "answer": "It bounds gradient magnitude to reduce unstable steps; it does not fix invalid data or a fundamentally wrong loss."
+        }
+      ],
+      "pitfall": "Do not confuse backpropagation with gradient descent itself.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Uploaded-question mapping",
+          "url": "data/source-questions.json"
+        }
+      ],
+      "evidence": "Concept explanation; adapt examples to your own experience.",
+      "originalQuestions": [
+        "How does gradient descent work in the context of training a neural network?"
+      ]
+    },
+    {
+      "id": "regression-metrics",
+      "collection": "ml",
+      "topic": "Evaluation",
+      "difficulty": "Core",
+      "title": "Which metrics should evaluate regression?",
+      "short": "MAE measures typical absolute error, RMSE penalizes large errors more, and R² compares squared error with a mean predictor. Match the metric to the cost of mistakes.",
+      "answer": [
+        "I inspect residual plots and performance by target range, time and relevant groups. MAE is in target units and easy to explain; RMSE is also in target units but more sensitive to extreme misses. MAPE becomes unstable near zero and is undefined at zero.",
+        "For uncertainty forecasts I evaluate interval coverage and sharpness or quantile loss. For race positions, numeric error does not fully describe ordering, so ranking metrics and valid race-level outputs can add useful checks."
+      ],
+      "deep": "MAE=mean|y-ŷ|; RMSE=sqrt(mean(y-ŷ)²); R²=1-SSE/SST. R² can be negative on held-out data when worse than the test-mean reference and needs special handling for constant targets.",
+      "followups": [
+        {
+          "question": "Why report both MAE and RMSE?",
+          "answer": "Their gap reveals sensitivity to large errors; business costs decide which should drive selection."
+        },
+        {
+          "question": "How do you assess prediction intervals?",
+          "answer": "Check empirical coverage at nominal levels and interval width across slices and time."
+        }
+      ],
+      "pitfall": "Do not use MAPE blindly with zero or near-zero targets.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Uploaded-question mapping",
+          "url": "data/source-questions.json"
+        }
+      ],
+      "evidence": "Concept explanation; adapt examples to your own experience.",
+      "originalQuestions": [
+        "What evaluation metrics would you use to assess the performance of a regression model?"
+      ]
+    },
+    {
+      "id": "outliers",
+      "collection": "ml",
+      "topic": "Data preparation",
+      "difficulty": "Core",
+      "title": "How should you handle outliers?",
+      "short": "Determine whether they are errors, rare valid cases or a separate population. Correct verified errors and compare robust modeling before deleting observations.",
+      "answer": [
+        "I inspect units, sensor limits, duplicates and data-entry mistakes. A rare high value may be exactly what the model must predict. I document any exclusion rule and apply learned thresholds using training data only.",
+        "Robust losses, transformations and robust scaling can reduce extreme influence. I evaluate both typical cases and tail behavior. For fraud or anomaly detection, the outlier can be the target, so deletion would remove the signal."
+      ],
+      "deep": "Squared error gives large residuals quadratic influence. Huber loss is quadratic near zero and linear beyond a chosen threshold. IQR rules are descriptive heuristics, not proof an observation is wrong.",
+      "followups": [
+        {
+          "question": "When would you winsorize?",
+          "answer": "When domain knowledge supports bounding extreme values and held-out validation shows the tradeoff is acceptable."
+        },
+        {
+          "question": "Why preserve raw values?",
+          "answer": "They support audits and let future revisions distinguish data correction from modeling transformation."
+        }
+      ],
+      "pitfall": "Rare does not mean invalid.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Uploaded-question mapping",
+          "url": "data/source-questions.json"
+        }
+      ],
+      "evidence": "Concept explanation; adapt examples to your own experience.",
+      "originalQuestions": [
+        "How can you handle outliers in a dataset during the data preprocessing stage?"
+      ]
+    },
+    {
+      "id": "dimensions",
+      "collection": "ml",
+      "topic": "ML foundations",
+      "difficulty": "Core",
+      "title": "How do you reduce dimensionality or handle many features?",
+      "short": "Use feature selection, regularization or learned projections according to the task. Fit all selection and projection steps within the training split.",
+      "answer": [
+        "I remove constant and redundant features, then compare a regularized baseline with feature selection. PCA preserves directions of high variance, not necessarily label information. Sparse text can use truncated SVD without dense centering.",
+        "Nonlinear methods such as UMAP or t-SNE can help visualization, but attractive clusters are not proof of generalization. I compare predictive quality, latency and stability, and keep the original feature meaning where interpretability matters."
+      ],
+      "deep": "PCA projects centered data onto leading right singular vectors of X=UΣV^T. Explained variance describes reconstruction information under that geometry; a low-variance direction may still predict the target.",
+      "followups": [
+        {
+          "question": "Why does scaling matter for PCA?",
+          "answer": "High-variance units can dominate the principal directions; choose scaling to match the intended geometry."
+        },
+        {
+          "question": "Selection versus extraction?",
+          "answer": "Selection retains original columns; extraction creates new combinations such as principal components."
+        }
+      ],
+      "pitfall": "Never select features using all labels before cross-validation.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Uploaded-question mapping",
+          "url": "data/source-questions.json"
+        }
+      ],
+      "evidence": "Concept explanation; adapt examples to your own experience.",
+      "originalQuestions": [
+        "What are some common approaches for dimensionality reduction in machine learning?",
+        "How would you handle a data set with a large number of features?"
+      ]
+    },
+    {
+      "id": "multiclass",
+      "collection": "ml",
+      "topic": "ML foundations",
+      "difficulty": "Core",
+      "title": "How do you approach multiclass classification?",
+      "short": "Use a model with native multiclass outputs or combine binary classifiers with one-vs-rest or one-vs-one. Evaluate each class and distinguish multiclass from multi-label tasks.",
+      "answer": [
+        "For mutually exclusive labels, a softmax classifier learns a normalized distribution over classes. One-vs-rest trains one classifier per class; one-vs-one trains a classifier for every pair and combines decisions. Class balance and calibration remain important.",
+        "I inspect the confusion matrix for systematic swaps and use macro F1 when rare classes matter. A hierarchical label taxonomy may need hierarchical evaluation. If several labels can apply simultaneously, I use a multi-label objective instead."
+      ],
+      "deep": "One-vs-rest needs C binary models; one-vs-one needs C(C-1)/2. Softmax outputs sum to one, whereas independent sigmoid probabilities need not. The distinction changes both loss and thresholding.",
+      "followups": [
+        {
+          "question": "When is top-k accuracy useful?",
+          "answer": "When the application can show several candidates, such as retrieval or assisted classification; it does not replace top-1 quality."
+        },
+        {
+          "question": "How do you handle rare classes?",
+          "answer": "Review support and labels, use weighting when justified and report per-class uncertainty."
+        }
+      ],
+      "pitfall": "Do not use argmax for a genuinely multi-label task.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Uploaded-question mapping",
+          "url": "data/source-questions.json"
+        }
+      ],
+      "evidence": "Concept explanation; adapt examples to your own experience.",
+      "originalQuestions": [
+        "How do you handle multi-class classification problems? Can you explain any techniques or algorithms you have used?"
+      ]
+    },
+    {
+      "id": "nlp-experience",
+      "collection": "nlp",
+      "topic": "NLP foundations",
+      "difficulty": "Core",
+      "title": "How would you discuss your NLP project experience?",
+      "short": "Use one specific project and explain its data flow, your actual contribution, the evaluation and one limitation. PsychoTA and the supplied FH-RAG story provide useful rehearsal anchors.",
+      "answer": [
+        "For PsychoTA I would describe token and speaker information becoming utterance representations, then conversation representations and four task heads. I would explain why related tasks can share features and why noisy labels require an independent evaluation set.",
+        "For FH-RAG I would discuss hierarchical evidence retrieval only as described in the supplied project brief until the implementation is linked. I would bring one real experiment, code path or failure case to the interview rather than claim unverified benchmark improvements."
+      ],
+      "deep": "A defensible story separates system behavior from personal ownership. Use problem → contribution → design choice → evidence → limitation. Replace any result statement with a real recorded run before rehearsing it as an achievement.",
+      "followups": [
+        {
+          "question": "What if asked for a metric you do not have?",
+          "answer": "State that the current evidence does not establish it and describe the experiment needed, rather than invent a number."
+        },
+        {
+          "question": "How do you show depth?",
+          "answer": "Trace an input through shapes, losses and evaluation, then discuss a concrete failure and tradeoff."
+        }
+      ],
+      "pitfall": "These are rehearsal drafts, not verification of your personal contributions.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Uploaded-question mapping",
+          "url": "data/source-questions.json"
+        }
+      ],
+      "evidence": "Concept explanation; adapt examples to your own experience.",
+      "originalQuestions": [
+        "Have you worked on any natural language processing (NLP) tasks? If yes, can you explain the techniques or algorithms you used?"
+      ]
+    },
+    {
+      "id": "vision-experience",
+      "collection": "ml",
+      "topic": "Deep learning",
+      "difficulty": "Core",
+      "title": "How would you discuss computer-vision experience?",
+      "short": "Anchor the answer in a verified project such as EvidenceMem or TreeStack-CNN, and separate documented architecture from results you personally reproduced.",
+      "answer": [
+        "EvidenceMem documents frozen CLIP features with a bounded prototype memory and evidence retrieval. TreeStack-CNN documents small CNNs whose probabilities feed a held-out stacking model. These support different stories: adaptable memory versus learned ensemble fusion.",
+        "I would explain the input preprocessing, feature or probability representation, split design and evaluation. I would bring actual logs for any accuracy, latency or OOD claim, including the baseline and hardware. Generic statements about having used SIFT or OpenCV are not a substitute for a traceable contribution."
+      ],
+      "deep": "For three CNNs and C classes, concatenated soft probabilities have 3C dimensions. The meta learner must see examples not used to train those CNNs. For frozen CLIP retrieval, embedding normalization and consistent image preprocessing are essential.",
+      "followups": [
+        {
+          "question": "What can retrieval evidence prove?",
+          "answer": "It shows which stored examples influenced a decision; it does not prove a causal explanation or guarantee correctness."
+        },
+        {
+          "question": "What is the best interview example?",
+          "answer": "A real failure you analyzed, the hypothesis you tested and the evidence that changed your design."
+        }
+      ],
+      "pitfall": "Do not repeat the uploaded sample’s generic claims of personal vision experience as established facts.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Uploaded-question mapping",
+          "url": "data/source-questions.json"
+        }
+      ],
+      "evidence": "Concept explanation; adapt examples to your own experience.",
+      "originalQuestions": [
+        "Have you worked on any computer vision tasks? If yes, can you describe the techniques or algorithms you used?"
+      ]
+    },
+    {
+      "id": "fh-story",
+      "collection": "fh-rag",
+      "topic": "Retrieval & RAG",
+      "difficulty": "Deep dive",
+      "title": "Can you explain your experience developing FH-RAG at the University of Hyderabad?",
+      "short": "My supplied project brief describes a hierarchical RAG pipeline for long documents, with tree chunking, fuzzy relevance propagation, beam search and pruning. I would explain retrieval and generation quality separately.",
+      "answer": [
+        "Rehearsal draft based on the supplied sample: “I worked on retrieving useful evidence from long documents without placing the entire document into the generator context. The design organized chunks hierarchically and used relevance propagation to guide which branches to inspect.”",
+        "“I would compare this approach with a flat retrieval baseline and keep the generator and context budget fixed. The sample lists six retrieval variants and SQuAD/BookSum with MRR, nDCG@5, ROUGE, F1 and faithfulness. I need the actual run configuration and results before describing any measured improvement.”",
+        "The sample lists Python, PyTorch, Transformers, Sentence Transformers and Ray. A matching public FH-RAG repository was not found in the inspected account, so implementation, authorship details and evaluation claims remain supplied information."
+      ],
+      "deep": "A retrieval pipeline has two independent failure points: evidence may never reach the context, or the generator may misuse evidence that did arrive. Record query, candidate IDs, selected passages, answer and supported claims to diagnose those failures.",
+      "followups": [
+        {
+          "question": "Why use a hierarchy?",
+          "answer": "It preserves document context while allowing coarse-to-fine search. Bad upper-level scores can still hide a relevant leaf."
+        },
+        {
+          "question": "What would you show in an interview?",
+          "answer": "One query trace, the exact retrieval variants, a fixed-budget comparison and a failure analysis from real logs."
+        }
+      ],
+      "pitfall": "Do not present supplied sample outcomes as independently verified results.",
+      "diagram": "rag",
+      "sources": [
+        {
+          "label": "Supplied project brief and verification notes",
+          "url": "docs/SOURCE_AUDIT.md"
+        }
+      ],
+      "evidence": "Supplied FH-RAG sample, not independently verified. No matching public repository found in the 35-repository inventory. Formulas and proposed experiments are explanatory, not recovered implementation."
+    },
+    {
+      "id": "fh-search",
+      "collection": "fh-rag",
+      "topic": "Retrieval & RAG",
+      "difficulty": "Deep dive",
+      "title": "How do fuzzy propagation, beam search and pruning interact?",
+      "short": "Propagation shares relevance across a document tree; beam search limits active candidates; soft pruning reduces weak candidates without a rigid all-or-nothing cutoff. Their settings trade recall for work.",
+      "answer": [
+        "The supplied FH-RAG description motivates a coarse-to-fine search. I would score sections, keep several promising branches and then score their children. Propagated parent evidence can rescue a locally ambiguous chunk, but can also spread an early mistake.",
+        "A level-aware beam can allocate different widths at section and paragraph depth. Soft thresholds can reduce the influence of weak candidates instead of removing every candidate below one score. These are conceptual explanations, not a reconstruction of an uninspected implementation."
+      ],
+      "deep": "Illustrative rule only: s_child = α·local_similarity + (1-α)·s_parent; soft_gate = sigmoid((s_child-τ)/T). This is not asserted to be the FH-RAG formula. With depth L, beam B and branching factor b, candidate scoring is roughly O(LBb) if each active node expands b children.",
+      "followups": [
+        {
+          "question": "What can aggressive pruning lose?",
+          "answer": "A relevant leaf beneath a weakly scored parent; evaluate recall at a fixed compute budget."
+        },
+        {
+          "question": "How would you tune propagation?",
+          "answer": "Ablate α, thresholds and per-level beam widths on validation queries, keeping encoder and generator unchanged."
+        }
+      ],
+      "pitfall": "A conceptual equation is not evidence of the exact implemented algorithm.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Supplied project brief and verification notes",
+          "url": "docs/SOURCE_AUDIT.md"
+        }
+      ],
+      "evidence": "Supplied FH-RAG sample, not independently verified. No matching public repository found in the 35-repository inventory. Formulas and proposed experiments are explanatory, not recovered implementation."
+    },
+    {
+      "id": "fh-evaluation",
+      "collection": "fh-rag",
+      "topic": "Evaluation",
+      "difficulty": "Deep dive",
+      "title": "How would you evaluate a hierarchical RAG system fairly?",
+      "short": "Measure retrieval ranking, answer quality, faithfulness and cost separately. Hold corpus, splits, embeddings, generator and token budget constant across retrievers.",
+      "answer": [
+        "MRR measures where the first relevant result appears; nDCG rewards well-ordered graded relevance. Recall@k checks whether needed evidence is present. Answer token F1 and ROUGE capture overlap, while faithfulness asks whether generated claims are supported by retrieved text.",
+        "The supplied sample mentions SQuAD and BookSum, which represent different tasks. I would define passage relevance and answer/reference construction for each rather than combine their metrics as one comparable score. Include latency, tokens and memory, and use repeated paired query evaluations."
+      ],
+      "deep": "MRR=mean(1/rank_first_relevant), assigning zero when none is retrieved. DCG@k=sum_i (2^rel_i-1)/log2(i+1); nDCG divides by ideal DCG. Faithfulness is support by context, not necessarily truth outside that context.",
+      "followups": [
+        {
+          "question": "Why can ROUGE improve while faithfulness worsens?",
+          "answer": "An answer may copy reference-like wording while adding unsupported details; overlap does not inspect every claim."
+        },
+        {
+          "question": "What is a useful ablation?",
+          "answer": "Remove propagation, hierarchy or pruning one at a time under matched budgets and report both retrieval quality and cost."
+        }
+      ],
+      "pitfall": "Do not average unrelated metrics or datasets into an unexplained success number.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Supplied project brief and verification notes",
+          "url": "docs/SOURCE_AUDIT.md"
+        }
+      ],
+      "evidence": "Supplied FH-RAG sample, not independently verified. No matching public repository found in the 35-repository inventory. Formulas and proposed experiments are explanatory, not recovered implementation."
+    },
+    {
+      "id": "hqde-story",
+      "collection": "hqde",
+      "topic": "Distributed ML",
+      "difficulty": "Deep dive",
+      "title": "How did HQDE combine ensemble learning and distributed training?",
+      "short": "HQDE provides PyTorch model replicas with optional Ray execution. Independent mode preserves separate models; FedAvg mode aggregates updates at epoch boundaries. Quantum-inspired utilities are classical computations.",
+      "answer": [
+        "Rehearsal draft: “I would explain HQDE as an experimental ensemble framework with a common API for training and prediction. In independent mode, workers keep their own parameters and combine predictions. In FedAvg mode, the coordinator aggregates model deltas and broadcasts an updated state.”",
+        "The inspected README and core code support these two modes and adaptive delta quantization. Ray is optional, with local fallback. The older supplied answer bundles MapReduce, Byzantine tolerance and speed gains together; those should not be claimed as one fully validated default execution path.",
+        "For an outcome claim I would provide hardware, dataset split, seeds and executed logs. The README explicitly asks users not to treat placeholder accuracy, runtime or compression numbers as research results."
+      ],
+      "deep": "Mean logit aggregation averages z_m before classification. Softmax(mean(z_m)) is generally not mean(softmax(z_m)). Decide whether combining logits or probabilities, and compare calibration as well as accuracy.",
+      "followups": [
+        {
+          "question": "Is FedAvg the same as DDP?",
+          "answer": "No. DDP synchronizes gradients during steps; this documented HQDE mode synchronizes model updates at epoch boundaries."
+        },
+        {
+          "question": "Does installing Ray prove distributed speedup?",
+          "answer": "No. Verify remote worker execution and compare matched workloads including serialization and startup time."
+        }
+      ],
+      "pitfall": "Do not repeat “significant improvements” without measured, reproducible comparisons.",
+      "diagram": "hqde",
+      "sources": [
+        {
+          "label": "HQDE-PyPI · README",
+          "url": "https://github.com/Prathmesh333/HQDE-PyPI/blob/725a32adb5ac35d74df41ee51c55a6d533f1d957/README.md"
+        },
+        {
+          "label": "hqde/core/hqde_system.py",
+          "url": "https://github.com/Prathmesh333/HQDE-PyPI/blob/725a32adb5ac35d74df41ee51c55a6d533f1d957/hqde/core/hqde_system.py"
+        },
+        {
+          "label": "hqde/quantum/quantum_aggregator.py",
+          "url": "https://github.com/Prathmesh333/HQDE-PyPI/blob/725a32adb5ac35d74df41ee51c55a6d533f1d957/hqde/quantum/quantum_aggregator.py"
+        }
+      ],
+      "evidence": "README and core training / quantum aggregation code inspected. Inspected 13 September 2026. Rehearsal answers do not verify personal ownership or unexecuted results."
+    },
+    {
+      "id": "hqde-modes",
+      "collection": "hqde",
+      "topic": "Distributed ML",
+      "difficulty": "Deep dive",
+      "title": "When would you choose independent ensembles versus FedAvg?",
+      "short": "Independent models retain diversity for inference-time fusion. FedAvg coordinates a shared model by averaging updates after local training; it is a different objective and communication pattern.",
+      "answer": [
+        "Independent workers can vary by seed or data exposure. The benefit depends on error diversity, but serving several models increases inference cost. FedAvg workers start from a common server state, train locally and return deltas for aggregation.",
+        "The HQDE README describes sample-weighted aggregation and optional server optimization. I would test non-IID partitions because local updates can drift in different directions. Batch normalization requires an explicit policy, since local statistics may not represent the combined population."
+      ],
+      "deep": "A basic server update is θ_next=θ_server+sum_k(n_k/N)Δ_k. Adaptive server optimization changes that update. More local steps reduce communication frequency but can increase client drift.",
+      "followups": [
+        {
+          "question": "Why preserve local batch normalization?",
+          "answer": "Different worker distributions may have incompatible moments; averaging all statistics can degrade the shared model."
+        },
+        {
+          "question": "What do you measure besides accuracy?",
+          "answer": "Bytes per synchronization, wall time, worker imbalance, memory and total training compute."
+        }
+      ],
+      "pitfall": "Parameter averaging does not preserve the same function as prediction averaging.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "HQDE-PyPI · README",
+          "url": "https://github.com/Prathmesh333/HQDE-PyPI/blob/725a32adb5ac35d74df41ee51c55a6d533f1d957/README.md"
+        },
+        {
+          "label": "hqde/core/hqde_system.py",
+          "url": "https://github.com/Prathmesh333/HQDE-PyPI/blob/725a32adb5ac35d74df41ee51c55a6d533f1d957/hqde/core/hqde_system.py"
+        },
+        {
+          "label": "hqde/quantum/quantum_aggregator.py",
+          "url": "https://github.com/Prathmesh333/HQDE-PyPI/blob/725a32adb5ac35d74df41ee51c55a6d533f1d957/hqde/quantum/quantum_aggregator.py"
+        }
+      ],
+      "evidence": "README and core training / quantum aggregation code inspected. Inspected 13 September 2026. Rehearsal answers do not verify personal ownership or unexecuted results."
+    },
+    {
+      "id": "hqde-quantization",
+      "collection": "hqde",
+      "topic": "Distributed ML",
+      "difficulty": "Deep dive",
+      "title": "How does adaptive quantization reduce communication?",
+      "short": "Represent model deltas with fewer bits during aggregation. Precision and compression depend on tensor type, scale metadata, skipped tensors and error feedback.",
+      "answer": [
+        "HQDE’s documented quantizer applies to FedAvg deltas and skips small tensors, biases, normalization tensors and non-floating data by default. Warmup and bit-width bounds control how aggressively it compresses.",
+        "I would compare transmitted bytes and final model quality against an uncompressed run under the same partition and seed. A nominal change from 32 to 8 bits is not automatically a fourfold end-to-end reduction because metadata and uncompressed tensors remain."
+      ],
+      "deep": "Error feedback carries r_t forward: u_t=Δ_t+r_t; q_t=Q(u_t); r_(t+1)=u_t-q_t. It compensates for accumulated quantization residuals but requires extra state and careful checkpointing.",
+      "followups": [
+        {
+          "question": "Why quantize deltas rather than arbitrary model state?",
+          "answer": "Deltas are the intended communication payload in this mode, while counters and normalization state need separate handling."
+        },
+        {
+          "question": "What can go wrong with aggressive compression?",
+          "answer": "Small updates can vanish or become biased, slowing convergence and hurting minority-partition performance."
+        }
+      ],
+      "pitfall": "Do not report theoretical bit ratios as measured network compression.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "HQDE-PyPI · README",
+          "url": "https://github.com/Prathmesh333/HQDE-PyPI/blob/725a32adb5ac35d74df41ee51c55a6d533f1d957/README.md"
+        },
+        {
+          "label": "hqde/core/hqde_system.py",
+          "url": "https://github.com/Prathmesh333/HQDE-PyPI/blob/725a32adb5ac35d74df41ee51c55a6d533f1d957/hqde/core/hqde_system.py"
+        },
+        {
+          "label": "hqde/quantum/quantum_aggregator.py",
+          "url": "https://github.com/Prathmesh333/HQDE-PyPI/blob/725a32adb5ac35d74df41ee51c55a6d533f1d957/hqde/quantum/quantum_aggregator.py"
+        }
+      ],
+      "evidence": "README and core training / quantum aggregation code inspected. Inspected 13 September 2026. Rehearsal answers do not verify personal ownership or unexecuted results."
+    },
+    {
+      "id": "hqde-quantum",
+      "collection": "hqde",
+      "topic": "Ensemble learning",
+      "difficulty": "Deep dive",
+      "title": "What does “quantum-inspired” mean in HQDE?",
+      "short": "The inspected utility uses classical PyTorch tensors, cosine similarities, softmax weights and noise. It borrows quantum terminology but does not demonstrate quantum hardware or quantum speedup.",
+      "answer": [
+        "The utility initializes a symmetric interaction matrix, compares flattened ensemble states and turns interaction scores into weights. It then combines weighted predictions. A measurement-named method adds small random noise.",
+        "I would justify this as an aggregation heuristic and compare it against uniform averaging, validation-weighted averaging and stacking. I would isolate the influence of interaction terms and noise with ablations. The existence of this module does not establish that every training path invokes it."
+      ],
+      "deep": "The inspected weight calculation uses softmax(diag(S E)), where S contains pairwise cosine similarities and E is the initialized interaction matrix. State similarity is not the same as complementary prediction error.",
+      "followups": [
+        {
+          "question": "Does it provide entanglement?",
+          "answer": "It simulates an analogy in classical arithmetic; it is not physical quantum entanglement."
+        },
+        {
+          "question": "What would establish value?",
+          "answer": "Controlled repeated comparisons against simpler aggregators with equal compute and held-out evaluation."
+        }
+      ],
+      "pitfall": "Do not claim quantum advantage from naming conventions.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "HQDE-PyPI · README",
+          "url": "https://github.com/Prathmesh333/HQDE-PyPI/blob/725a32adb5ac35d74df41ee51c55a6d533f1d957/README.md"
+        },
+        {
+          "label": "hqde/core/hqde_system.py",
+          "url": "https://github.com/Prathmesh333/HQDE-PyPI/blob/725a32adb5ac35d74df41ee51c55a6d533f1d957/hqde/core/hqde_system.py"
+        },
+        {
+          "label": "hqde/quantum/quantum_aggregator.py",
+          "url": "https://github.com/Prathmesh333/HQDE-PyPI/blob/725a32adb5ac35d74df41ee51c55a6d533f1d957/hqde/quantum/quantum_aggregator.py"
+        }
+      ],
+      "evidence": "README and core training / quantum aggregation code inspected. Inspected 13 September 2026. Rehearsal answers do not verify personal ownership or unexecuted results."
+    },
+    {
+      "id": "hqde-faults",
+      "collection": "hqde",
+      "topic": "Distributed ML",
+      "difficulty": "Deep dive",
+      "title": "How would you validate Byzantine tolerance and worker failures?",
+      "short": "Separate crashed workers from malicious updates. Define a fault model, verify which aggregation path uses protection, and inject controlled failures before claiming resilience.",
+      "answer": [
+        "The supplied sample and older repository mention Byzantine tolerance. Those descriptions do not establish an end-to-end guarantee for the current HQDE core. I would inspect the active call path, then test timeouts, malformed tensors, stale updates and adversarial values separately.",
+        "A retry can recover a crash but cannot identify a plausible malicious gradient. Robust statistical aggregation has assumptions about honest workers and data heterogeneity. I would compare quality and availability as fault fraction rises, with clean runs as controls."
+      ],
+      "deep": "An ordinary mean can be moved arbitrarily by one unbounded update. Coordinate-wise median or trimmed means can resist some outliers, but require assumptions and can behave poorly when honest worker distributions differ.",
+      "followups": [
+        {
+          "question": "Why is a timeout insufficient?",
+          "answer": "A malicious worker can respond quickly with harmful values. Liveness and update integrity are separate concerns."
+        },
+        {
+          "question": "What should a fault benchmark record?",
+          "answer": "Fault type, fraction, timing, aggregation rule, honest-data partition and resulting accuracy plus completion rate."
+        }
+      ],
+      "pitfall": "Do not convert the existence of a fault_tolerance module into a proven production guarantee.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "HQDE-PyPI · README",
+          "url": "https://github.com/Prathmesh333/HQDE-PyPI/blob/725a32adb5ac35d74df41ee51c55a6d533f1d957/README.md"
+        },
+        {
+          "label": "hqde/core/hqde_system.py",
+          "url": "https://github.com/Prathmesh333/HQDE-PyPI/blob/725a32adb5ac35d74df41ee51c55a6d533f1d957/hqde/core/hqde_system.py"
+        },
+        {
+          "label": "hqde/quantum/quantum_aggregator.py",
+          "url": "https://github.com/Prathmesh333/HQDE-PyPI/blob/725a32adb5ac35d74df41ee51c55a6d533f1d957/hqde/quantum/quantum_aggregator.py"
+        }
+      ],
+      "evidence": "README and core training / quantum aggregation code inspected. Inspected 13 September 2026. Rehearsal answers do not verify personal ownership or unexecuted results."
+    },
+    {
+      "id": "psychota-story",
+      "collection": "psychota",
+      "topic": "Multi-task learning",
+      "difficulty": "Deep dive",
+      "title": "What strategies did TA-RS use for psychological-state predictions?",
+      "short": "The matching PsychoTA repository combines speaker-aware utterance encoding, windowed causal attention and a bidirectional GRU with ego, transaction, stroke and life-position heads.",
+      "answer": [
+        "Rehearsal draft: “I would describe the system at token, utterance and conversation levels. Speaker, position and utterance-type information help represent dialogue roles. Shared representations feed several related prediction tasks rather than training a separate encoder for each task.”",
+        "The inspected code combines classification losses with life-position regression. The README describes heuristic silver-label preparation and notes that a full weak-pretrain → gold-fine-tune → calibration sequence is not fully codified. I would explain that gap rather than claim a completed staged training protocol.",
+        "TA-RS is the supplied project name; mapping it to PsychoTA follows the matching architecture and remains an inference. Predictions are model labels for a research task, not validated psychological diagnoses."
+      ],
+      "deep": "The README specifies six ego classes, three transaction classes, four stroke classes, and per-speaker four-class life position plus two continuous scores in [-1,1]. Distinguish utterance, turn and speaker axes when building labels and masks.",
+      "followups": [
+        {
+          "question": "Why multi-task learning?",
+          "answer": "Related supervision can improve shared features, but conflicting gradients and unequal label quality can cause negative transfer."
+        },
+        {
+          "question": "How do you validate weak labels?",
+          "answer": "Use an independently annotated holdout and report agreement and per-task metrics; agreement with a labeling heuristic is not validity."
+        }
+      ],
+      "pitfall": "Do not claim clinical accuracy or a complete staged pipeline from the supplied sample.",
+      "diagram": "psychota",
+      "sources": [
+        {
+          "label": "PsychoTA · README",
+          "url": "https://github.com/Prathmesh333/PsychoTA/blob/c5ccc0c393bf76b7d4e45738f262fc0ad7984bd7/README.md"
+        },
+        {
+          "label": "psychota/model.py",
+          "url": "https://github.com/Prathmesh333/PsychoTA/blob/c5ccc0c393bf76b7d4e45738f262fc0ad7984bd7/psychota/model.py"
+        },
+        {
+          "label": "psychota/trainer.py",
+          "url": "https://github.com/Prathmesh333/PsychoTA/blob/c5ccc0c393bf76b7d4e45738f262fc0ad7984bd7/psychota/trainer.py"
+        }
+      ],
+      "evidence": "TA-RS sample mapped to the matching PsychoTA architecture; project-name equivalence is inferred. Inspected 13 September 2026. Rehearsal answers do not verify personal ownership or unexecuted results."
+    },
+    {
+      "id": "psychota-causality",
+      "collection": "psychota",
+      "topic": "Sequence modeling",
+      "difficulty": "Deep dive",
+      "title": "Is PsychoTA strictly causal?",
+      "short": "No. Its cross-utterance attention uses a causal window, but the following bidirectional GRU can incorporate future turns in a full conversation.",
+      "answer": [
+        "The code constructs a lower-triangular attention mask and limits the history window. The optimized attention call sets is_causal=False because an explicit mask supplies the constraint; that flag alone does not mean the layer is unmasked.",
+        "The conversation encoder explicitly sets bidirectional=True. Strict online predictions therefore require a redesign or prefix-only execution and evaluation. I would compare full-conversation and prefix-only settings to quantify how much future information helps."
+      ],
+      "deep": "A causality test changes turns after time t and checks whether outputs at or before t change. If they do, the end-to-end model is not causal, regardless of a mask in an earlier layer.",
+      "followups": [
+        {
+          "question": "Would a unidirectional GRU fix everything?",
+          "answer": "It removes that path, but all pooling, features and heads must also avoid future context; test the whole computation."
+        },
+        {
+          "question": "Why allow future turns offline?",
+          "answer": "Later context can disambiguate earlier utterances when the task is retrospective analysis."
+        }
+      ],
+      "pitfall": "Causality is an end-to-end property, not a label on one attention layer.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "PsychoTA · README",
+          "url": "https://github.com/Prathmesh333/PsychoTA/blob/c5ccc0c393bf76b7d4e45738f262fc0ad7984bd7/README.md"
+        },
+        {
+          "label": "psychota/model.py",
+          "url": "https://github.com/Prathmesh333/PsychoTA/blob/c5ccc0c393bf76b7d4e45738f262fc0ad7984bd7/psychota/model.py"
+        },
+        {
+          "label": "psychota/trainer.py",
+          "url": "https://github.com/Prathmesh333/PsychoTA/blob/c5ccc0c393bf76b7d4e45738f262fc0ad7984bd7/psychota/trainer.py"
+        }
+      ],
+      "evidence": "TA-RS sample mapped to the matching PsychoTA architecture; project-name equivalence is inferred. Inspected 13 September 2026. Rehearsal answers do not verify personal ownership or unexecuted results."
+    },
+    {
+      "id": "psychota-loss",
+      "collection": "psychota",
+      "topic": "Multi-task learning",
+      "difficulty": "Deep dive",
+      "title": "How should multiple losses and sparse labels be balanced?",
+      "short": "Use task-specific masks and a weighted sum of losses, then evaluate every task separately. More numerous or noisy labels should not silently dominate the shared encoder.",
+      "answer": [
+        "PsychoTA’s code combines ego, transaction, stroke and life-position classification with a life-position regression term. I would examine loss magnitudes, valid target counts and gradient behavior before tuning task weights.",
+        "Missing labels must be excluded rather than turned into a real class. A batch with no valid labels for a task needs a defined finite zero contribution. The code also detaches ego and stroke probabilities before script integration, limiting gradient flow from that path."
+      ],
+      "deep": "L=λ_e L_ego+λ_t L_transaction+λ_s L_stroke+λ_c L_life-class+λ_r L_life-regression. Normalize each loss over its valid observations. Macro F1 and regression error answer different questions and should not be hidden in one aggregate.",
+      "followups": [
+        {
+          "question": "What is negative transfer?",
+          "answer": "Shared training improves one task but harms another; compare against single-task baselines and inspect gradient conflicts."
+        },
+        {
+          "question": "Why does detach matter?",
+          "answer": "Later loss cannot train earlier logits through the detached probabilities, although other shared paths may still carry gradients."
+        }
+      ],
+      "pitfall": "A lower total loss does not prove that every task improved.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "PsychoTA · README",
+          "url": "https://github.com/Prathmesh333/PsychoTA/blob/c5ccc0c393bf76b7d4e45738f262fc0ad7984bd7/README.md"
+        },
+        {
+          "label": "psychota/model.py",
+          "url": "https://github.com/Prathmesh333/PsychoTA/blob/c5ccc0c393bf76b7d4e45738f262fc0ad7984bd7/psychota/model.py"
+        },
+        {
+          "label": "psychota/trainer.py",
+          "url": "https://github.com/Prathmesh333/PsychoTA/blob/c5ccc0c393bf76b7d4e45738f262fc0ad7984bd7/psychota/trainer.py"
+        }
+      ],
+      "evidence": "TA-RS sample mapped to the matching PsychoTA architecture; project-name equivalence is inferred. Inspected 13 September 2026. Rehearsal answers do not verify personal ownership or unexecuted results."
+    },
+    {
+      "id": "evidencemem-design",
+      "collection": "evidencemem",
+      "topic": "Vision & memory",
+      "difficulty": "Deep dive",
+      "title": "How does EvidenceMem classify without retraining the encoder?",
+      "short": "It stores representative image embeddings from a frozen CLIP encoder and combines retrieved visual evidence with text-class similarities. New labeled classes can be inserted into memory.",
+      "answer": [
+        "The README describes bounded real-image prototypes with reliability based on compactness, local purity and text alignment. Retrieval exposes examples used by the decision rule. This supports inspection, but the examples are not causal explanations.",
+        "I would test new-class insertion, old-class retention, memory budget and OOD rejection separately. The README explicitly reports that reliability weighting did not improve the default visual-only classifier, so I would not claim every component helped."
+      ],
+      "deep": "With normalized vectors, cosine search is a dot product. A finite prototype budget trades representation coverage against memory and search cost. OOD thresholds need held-out unknown distributions rather than test-set tuning.",
+      "followups": [
+        {
+          "question": "Why freeze CLIP?",
+          "answer": "It avoids encoder retraining and lets memory change independently, at the cost of inheriting encoder biases and domain limits."
+        },
+        {
+          "question": "How do you prove an OOD detector works?",
+          "answer": "Evaluate known-class accuracy plus unknown detection on several held-out shifts, with a threshold fixed on validation data."
+        }
+      ],
+      "pitfall": "Do not equate high similarity or retrieved evidence with certainty.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "evidencemem · README",
+          "url": "https://github.com/Prathmesh333/evidencemem/blob/1eb8badd97c341a24be726b912a92c6b190bad7d/README.md"
+        }
+      ],
+      "evidence": "README-grounded architecture; proposed evaluation and improvements are distinguished from implementation claims. Inspected 13 September 2026. Rehearsal answers do not verify personal ownership or unexecuted results."
+    },
+    {
+      "id": "treestack-design",
+      "collection": "treestack",
+      "topic": "Ensemble learning",
+      "difficulty": "Deep dive",
+      "title": "Why must TreeStack-CNN train its combiner on held-out predictions?",
+      "short": "A stacker needs realistic base-model predictions. If CNNs saw those examples during training, their overconfident outputs would leak labels into the combiner.",
+      "answer": [
+        "The README specifies three small CNNs and a shallow decision tree over their probability vectors. It separates base-model training and meta training, and reserves official test data for final evaluation.",
+        "I would compare the tree to best-single-model, majority vote, probability average and logistic stacking. A deeper tree can memorize the meta split, so depth and leaf size need validation. Soft probabilities preserve uncertainty that hard labels discard."
+      ],
+      "deep": "Three C-class CNNs produce a 3C-dimensional soft feature vector. Out-of-fold stacking can use more data but costs more base-model fits. A held-out meta split is simpler and needs enough examples to fit a stable combiner.",
+      "followups": [
+        {
+          "question": "Why a shallow tree?",
+          "answer": "It yields simple conditional fusion rules and limits meta-model variance."
+        },
+        {
+          "question": "Why can averaging beat stacking?",
+          "answer": "It has no fitted combiner to overfit and is stable when meta data is limited."
+        }
+      ],
+      "pitfall": "Stacked generalization is established; describe the specific experiment rather than invent a new ensemble family.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "WeakEnsembleStrongDecisionTree · README",
+          "url": "https://github.com/Prathmesh333/WeakEnsembleStrongDecisionTree/blob/dbfe9811ee58663f4bb5f42913f818bd6549136f/README.md"
+        }
+      ],
+      "evidence": "README-grounded architecture; proposed evaluation and improvements are distinguished from implementation claims. Inspected 13 September 2026. Rehearsal answers do not verify personal ownership or unexecuted results."
+    },
+    {
+      "id": "forecast-design",
+      "collection": "forecast",
+      "topic": "Forecasting",
+      "difficulty": "Deep dive",
+      "title": "How does ForecastForge handle sparse campaigns and forecast uncertainty?",
+      "short": "Its README describes empirical-Bayes peer estimates with a guarded XGBoost challenger and probabilistic revenue forecasts. Young campaigns receive less challenger influence.",
+      "answer": [
+        "Cold starts lack reliable history, so peer information supplies a prior. As observations arrive, campaign evidence can matter more. The README describes lifecycle handling, zero-aware simulation and 30/60/90-day horizons.",
+        "I would validate at rolling time origins and on unseen campaigns. Removing raw IDs helps avoid identity memorization, but all lag and target construction must still respect cutoffs. Attributed revenue is an observational forecast, not proof of causal advertising lift."
+      ],
+      "deep": "A simple shrinkage estimate is w·campaign_mean+(1-w)·peer_mean with w increasing with evidence. Quantiles of a sum are not generally sums of component quantiles; portfolio intervals need a coherent joint simulation or explicit reconciliation.",
+      "followups": [
+        {
+          "question": "Why cap the ML challenger?",
+          "answer": "To limit unsupported extrapolation when data is sparse or shifted; the cap itself requires validation."
+        },
+        {
+          "question": "How do you test P10/P90 intervals?",
+          "answer": "Measure whether about 80% of outcomes fall inside them, alongside width and coverage by horizon and lifecycle."
+        }
+      ],
+      "pitfall": "Do not sum marginal quantiles and call them a calibrated portfolio interval.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "ForecastForge · README",
+          "url": "https://github.com/Prathmesh333/ForecastForge/blob/5b5cf354c1c33b7f2508ae5e5b070aa1c528e2da/README.md"
+        }
+      ],
+      "evidence": "README-grounded architecture; proposed evaluation and improvements are distinguished from implementation claims. Inspected 13 September 2026. Rehearsal answers do not verify personal ownership or unexecuted results."
+    },
+    {
+      "id": "consensus-design",
+      "collection": "consensus",
+      "topic": "AI systems",
+      "difficulty": "Deep dive",
+      "title": "How would you explain multi-agent consensus in this project?",
+      "short": "The README describes parallel Creative, Logical and Ethical agents followed by a synthesizer. This is application-level orchestration of prompted agents, not a trained sparse MoE layer.",
+      "answer": [
+        "Specialized prompts can expose different aspects of a query. The synthesizer can preserve agreement and surface contradictions, but all agents may share the same base-model error. More votes do not create external evidence.",
+        "I would compare with one strong prompt under matched token budgets, evaluating factual support, useful disagreement, latency and cost. Timeout handling and partial results matter because one slow expert can delay the whole response."
+      ],
+      "deep": "Parallel expert latency is approximately max(T_expert)+T_synthesis plus orchestration overhead. Token cost roughly sums all expert and synthesis calls. Correlated errors limit consensus reliability.",
+      "followups": [
+        {
+          "question": "Why is this not a neural MoE?",
+          "answer": "A sparse MoE uses a learned router over expert subnetworks; these are separate prompted calls coordinated by application code."
+        },
+        {
+          "question": "How do you handle disagreement?",
+          "answer": "Preserve uncertainty, inspect evidence and avoid forcing a confident consensus when support is missing."
+        }
+      ],
+      "pitfall": "Do not treat agent agreement as factual verification.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Neural-Consensus-Engine · README",
+          "url": "https://github.com/Prathmesh333/Neural-Consensus-Engine/blob/2f62699714531abbf09d3adba3f6c000971610e7/README.md"
+        }
+      ],
+      "evidence": "README-grounded architecture; proposed evaluation and improvements are distinguished from implementation claims. Inspected 13 September 2026. Rehearsal answers do not verify personal ownership or unexecuted results."
+    },
+    {
+      "id": "f1-design",
+      "collection": "f1",
+      "topic": "Forecasting",
+      "difficulty": "Deep dive",
+      "title": "How do you prevent leakage in F1 race prediction?",
+      "short": "Every historical feature must use races completed before the prediction time. Split by race and time, and distinguish pre-qualifying from post-qualifying predictions.",
+      "answer": [
+        "The README describes GradientBoostingRegressor with driver, constructor, track, qualifying and sprint features. These features have different availability times. Season-wide averages computed using the target race or later races would leak outcomes.",
+        "I would use rolling evaluation and compute past averages with an explicit shift. Compare with grid-position and historical-average baselines. A numeric regressor can assign duplicate or invalid ranks, so race-level ranking is a separate serving decision."
+      ],
+      "deep": "For race t, historical mean must aggregate races s<t. Group all drivers from the same race in the same evaluation partition. Sorting predicted scores creates a valid order but changes the relationship between score error and position error.",
+      "followups": [
+        {
+          "question": "Can qualifying be used?",
+          "answer": "Yes for post-qualifying predictions; no for a model advertised as predicting before qualifying."
+        },
+        {
+          "question": "Which metrics matter?",
+          "answer": "MAE and RMSE describe position errors; ranking correlation and race-level behavior add ordering information."
+        }
+      ],
+      "pitfall": "A retrospective Gradio demo does not establish out-of-time generalization.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "F1-Race-Prediction · README",
+          "url": "https://github.com/Prathmesh333/F1-Race-Prediction/blob/cd389129e9cb42a855457ed35b728598684aeffd/README.md"
+        }
+      ],
+      "evidence": "README-grounded architecture; proposed evaluation and improvements are distinguished from implementation claims. Inspected 13 September 2026. Rehearsal answers do not verify personal ownership or unexecuted results."
+    },
+    {
+      "id": "takeone-design",
+      "collection": "takeone",
+      "topic": "Retrieval & RAG",
+      "difficulty": "Deep dive",
+      "title": "How does TakeOne turn video into searchable clips?",
+      "short": "Its README describes scene segmentation, Gemini scene descriptions, sentence embeddings and ChromaDB retrieval, with FFmpeg for clip extraction.",
+      "answer": [
+        "A video is divided into searchable units with timestamps. Scene descriptions become text embeddings, and a query retrieves nearby descriptions. The timestamp mapping makes a retrieved unit actionable as a clip.",
+        "I would evaluate scene-boundary quality and retrieval relevance separately. Caption errors can hide relevant scenes before search even begins. Multilingual query handling should be tested across languages, not assumed from one multilingual component."
+      ],
+      "deep": "End-to-end recall is limited by segmentation and representation recall. A correct vector lookup cannot recover an event omitted from the stored description. Measure query-to-relevant-clip recall and timestamp overlap.",
+      "followups": [
+        {
+          "question": "Why not index whole videos?",
+          "answer": "Whole-video vectors can blur brief events; scene-level units allow precise retrieval but require more indexing and boundary decisions."
+        },
+        {
+          "question": "What is a hard failure case?",
+          "answer": "A short action missed by sampling or captioning, or an abstract query poorly represented by scene text."
+        }
+      ],
+      "pitfall": "Do not present README marketing claims as measured retrieval quality.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "TakeOne · README",
+          "url": "https://github.com/Prathmesh333/TakeOne/blob/eacfaf107662b353d0b0c75d4d6dd9ea7dee4029/README.md"
+        }
+      ],
+      "evidence": "README-grounded architecture; proposed evaluation and improvements are distinguished from implementation claims. Inspected 13 September 2026. Rehearsal answers do not verify personal ownership or unexecuted results."
+    },
+    {
+      "id": "janseva-design",
+      "collection": "janseva",
+      "topic": "AI systems",
+      "difficulty": "Deep dive",
+      "title": "How would you make a voice-first welfare assistant reliable?",
+      "short": "The project targets multilingual voice access to welfare schemes. I would separate speech recognition, evidence retrieval, eligibility rules and user-approved form filling.",
+      "answer": [
+        "The README documents the voice-first welfare use case. A transcription error in income, location or age can change eligibility, so important fields need read-back and correction. Scheme information needs source dates and jurisdiction rather than free-form generation alone.",
+        "These are design and evaluation proposals around the documented project: measure task completion, entity transcription, source freshness and abstention. Separate finding a possible scheme from establishing eligibility, and avoid automatically submitting consequential forms."
+      ],
+      "deep": "Track intent and entities separately. Word error rate averages all word errors, while a single wrong number may dominate task failure. Test multilingual entity preservation and recovery from ASR mistakes.",
+      "followups": [
+        {
+          "question": "How would you handle low confidence?",
+          "answer": "Ask the user to confirm the critical field or offer text input, rather than silently guessing."
+        },
+        {
+          "question": "How do you evaluate retrieval?",
+          "answer": "Use jurisdiction-specific questions with dated official references and inspect unsupported or stale answers."
+        }
+      ],
+      "pitfall": "Do not claim verified benefit eligibility or user reach from project marketing text.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "AI4Bharat-JansevaAI · README",
+          "url": "https://github.com/Prathmesh333/AI4Bharat-JansevaAI/blob/f8689837d78d27b3a12fdb552d9686c9ff445930/README.md"
+        }
+      ],
+      "evidence": "README-grounded architecture; proposed evaluation and improvements are distinguished from implementation claims. Inspected 13 September 2026. Rehearsal answers do not verify personal ownership or unexecuted results."
+    },
+    {
+      "id": "iris-design",
+      "collection": "iris",
+      "topic": "Software engineering",
+      "difficulty": "Deep dive",
+      "title": "What makes Iris privacy controls part of the architecture?",
+      "short": "Its README describes opt-in visible-tab collection, client scrubbing, authenticated localhost storage and optional local visual classification. Controls constrain collection before analysis.",
+      "answer": [
+        "The extension captures only during an active session and avoids raw keystrokes or field values. The local API validates and scrubs again. Optional visual analysis is distinct from metadata-only summaries.",
+        "I would test capture pause behavior, denied domains, expired sessions and duplicate event delivery. Local storage reduces external transmission but still requires authentication, retention and deletion controls. A screenshot can contain sensitive content even without raw form logging."
+      ],
+      "deep": "Idempotent ingestion needs a stable event key so retries do not create duplicates. SQLite WAL can improve concurrent read/write behavior, but it does not replace access control or encrypt screenshots automatically.",
+      "followups": [
+        {
+          "question": "Why authenticate localhost?",
+          "answer": "Other local processes or browser-origin requests may reach it; loopback binding alone is not an authorization policy."
+        },
+        {
+          "question": "How do you make deletion testable?",
+          "answer": "Verify removal from metadata, image storage and any derived analysis, with defined retention behavior."
+        }
+      ],
+      "pitfall": "Local processing is not synonymous with risk-free collection.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "iris-visual-agent · README",
+          "url": "https://github.com/Prathmesh333/iris-visual-agent/blob/31041756dcde79e78c8c18330d461707a37e6245/README.md"
+        }
+      ],
+      "evidence": "README-grounded architecture; proposed evaluation and improvements are distinguished from implementation claims. Inspected 13 September 2026. Rehearsal answers do not verify personal ownership or unexecuted results."
+    },
+    {
+      "id": "researchhub-design",
+      "collection": "researchhub",
+      "topic": "Software engineering",
+      "difficulty": "Deep dive",
+      "title": "How should ResearchHub enforce project and task permissions?",
+      "short": "The README describes Admin and Member roles with server-side route protection. Resource ownership must be checked as well as the role.",
+      "answer": [
+        "A member should only change tasks assigned to them, and assignment should reference a member of the target project. UI visibility helps navigation but cannot enforce these rules. The backend must validate every relevant request.",
+        "I would test direct requests for another user’s task, forged role fields and stale project membership. Registration must not allow arbitrary self-assignment of privileged roles without an authorized policy. These are review questions, not a claim that an uninspected route is vulnerable."
+      ],
+      "deep": "Authorization is predicate-based: authenticated(user) AND allowed_action(role, action) AND resource_scope(user, task). Check it at the data-access boundary; use transactions for related membership and assignment updates.",
+      "followups": [
+        {
+          "question": "What is an IDOR?",
+          "answer": "Accessing another user’s resource by changing its identifier when server ownership checks are missing."
+        },
+        {
+          "question": "Is hiding an admin button enough?",
+          "answer": "No. Attackers can send requests directly; the server must enforce permissions."
+        }
+      ],
+      "pitfall": "Do not equate authentication with authorization.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "ResearchHub · README",
+          "url": "https://github.com/Prathmesh333/ResearchHub/blob/04316339e8b27e53ed31c566be1c8201cbd739b7/README.md"
+        }
+      ],
+      "evidence": "README-grounded architecture; proposed evaluation and improvements are distinguished from implementation claims. Inspected 13 September 2026. Rehearsal answers do not verify personal ownership or unexecuted results."
+    },
+    {
+      "id": "shortlist-design",
+      "collection": "shortlist",
+      "topic": "Software engineering",
+      "difficulty": "Deep dive",
+      "title": "What should be preserved when guest resume data moves into an account?",
+      "short": "Shortlist’d documents local guest records and private Firestore history after sign-in. Migration should preserve ownership, avoid duplicates and remain recoverable on failure.",
+      "answer": [
+        "Guest documents need stable IDs before upload. Account-linked writes must be authorized by Firebase UID, with source records retained until successful confirmation. A retry should not duplicate resumes or overwrite a newer account version silently.",
+        "Resume rewriting also needs evidence constraints: preserve real employers, dates and skills, and expose suggested wording for review. ATS signals are heuristics, not a hiring guarantee. The README establishes the workflow; exact migration behavior needs code-level verification."
+      ],
+      "deep": "An idempotent merge maps a stable guest ID to one account document and records completion only after a successful write. Firestore security rules must check request.auth.uid against the document owner independently of UI state.",
+      "followups": [
+        {
+          "question": "What if login succeeds but upload fails?",
+          "answer": "Keep local records and expose a retryable state; do not treat authentication as proof of persistence."
+        },
+        {
+          "question": "Why separate content review from formatting?",
+          "answer": "A valid PDF can still contain unsupported qualifications. Both need distinct checks."
+        }
+      ],
+      "pitfall": "Do not claim an ATS score predicts interview selection.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "ShortList-D · README",
+          "url": "https://github.com/Prathmesh333/ShortList-D/blob/0c614a3e3728141fedde7c6e4da61de90fc4a34a/README.md"
+        }
+      ],
+      "evidence": "README-grounded architecture; proposed evaluation and improvements are distinguished from implementation claims. Inspected 13 September 2026. Rehearsal answers do not verify personal ownership or unexecuted results."
+    },
+    {
+      "id": "trace-design",
+      "collection": "trace",
+      "topic": "AI systems",
+      "difficulty": "Deep dive",
+      "title": "How would you validate an AI-assisted grading system?",
+      "short": "TRACE’s README describes rubric parsing, scoring and verification. I would evaluate rubric agreement against adjudicated examples and keep teacher review for uncertain or disputed cases.",
+      "answer": [
+        "A grader should attach each score to rubric criteria and cited answer evidence. Schema checks can validate score ranges, but they cannot establish that the reasoning is correct. Model consensus may repeat correlated mistakes.",
+        "I would use blinded human adjudication, measure criterion-level agreement and inspect demographic or language slices where appropriate. The README includes large claimed gains; without underlying evaluated logs, those numbers should not appear as personal achievements in an interview."
+      ],
+      "deep": "Calibration asks whether cases given a confidence level are correct that often under the chosen gold standard. Set an auto-review threshold on held-out validation data and report both error rate and the fraction deferred.",
+      "followups": [
+        {
+          "question": "Why is agreement between two models insufficient?",
+          "answer": "Shared training and prompts can produce the same wrong score. Independent human reference and evidence checks remain necessary."
+        },
+        {
+          "question": "How do you handle appeals?",
+          "answer": "Retain rubric version, input, model output and human revision so a decision can be reproduced and corrected."
+        }
+      ],
+      "pitfall": "Do not repeat the README’s percentage claims as verified results.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "TRACE_Transparent_Results_and_Academic_Compliance_Engine · README",
+          "url": "https://github.com/Prathmesh333/TRACE_Transparent_Results_and_Academic_Compliance_Engine/blob/26177ebf5b223c27f38fd98726509334d604024c/README.md"
+        }
+      ],
+      "evidence": "README-grounded architecture; proposed evaluation and improvements are distinguished from implementation claims. Inspected 13 September 2026. Rehearsal answers do not verify personal ownership or unexecuted results."
+    },
+    {
+      "id": "caniplay-design",
+      "collection": "caniplay",
+      "topic": "Software engineering",
+      "difficulty": "Deep dive",
+      "title": "What can browser-based latency measurement actually tell you?",
+      "short": "CanIPlay documents HTTP-based round-trip estimates and jitter. These measurements describe browser requests, not direct ICMP ping or game UDP latency.",
+      "answer": [
+        "Connection setup, TLS, caches and browser policy can influence timing. A failed cross-origin fetch can reflect CORS rather than an unreachable server. Reachability and request readability are different observations.",
+        "I would repeat measurements, explain warm versus cold connections and report uncertainty. A successful HTTP endpoint does not guarantee that the game’s authentication, matchmaking and UDP traffic are permitted on the same network."
+      ],
+      "deep": "Measured time can include DNS+connection+TLS+server processing+transfer. Define jitter as an explicit statistic, such as standard deviation across comparable samples, rather than an unexplained label.",
+      "followups": [
+        {
+          "question": "Does a fetch error prove the game is blocked?",
+          "answer": "No. Browser policy, endpoint behavior or connectivity could each be responsible."
+        },
+        {
+          "question": "Why use repeated samples?",
+          "answer": "One request is sensitive to warmup and transient load; report a distribution and failures."
+        }
+      ],
+      "pitfall": "Do not label browser HTTP timing as raw network ping.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "CanIPlay · README",
+          "url": "https://github.com/Prathmesh333/CanIPlay/blob/acf951b5e5353830e8ead892eb83b23048d1f22f/README.md"
+        }
+      ],
+      "evidence": "README-grounded architecture; proposed evaluation and improvements are distinguished from implementation claims. Inspected 13 September 2026. Rehearsal answers do not verify personal ownership or unexecuted results."
+    },
+    {
+      "id": "vanguard-design",
+      "collection": "vanguard",
+      "topic": "Software engineering",
+      "difficulty": "Deep dive",
+      "title": "How would you take the crowd-management prototype toward a real deployment?",
+      "short": "The README identifies mock IoT crowd data. I would replace simulation with validated sensor ingestion and test stale data, capacity rules and operator escalation.",
+      "answer": [
+        "The prototype can demonstrate dashboard interactions and queue flows without proving field accuracy. A real system needs timestamped measurements, known sensor error and clear behavior when feeds stop. Operators should see uncertainty and data age.",
+        "I would validate against independently counted samples, load-test ingestion and exercise offline and delayed-event cases. Capacity thresholds need local operational review; a color change alone is not a safety intervention."
+      ],
+      "deep": "Track event time and ingestion time separately. A last-known reading must not look live indefinitely. Use monotonic sequence IDs or deduplication keys to handle retry and late delivery.",
+      "followups": [
+        {
+          "question": "How do you detect stale data?",
+          "answer": "Compare event timestamps against an explicit freshness budget and switch the display to an unavailable or stale state."
+        },
+        {
+          "question": "What does a mock demo establish?",
+          "answer": "Interaction and integration behavior under simulated inputs, not field performance or real crowd safety."
+        }
+      ],
+      "pitfall": "Do not describe mock sensor readings as a validated live deployment.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "SIH_Team_VanGuard_Prototype · README",
+          "url": "https://github.com/Prathmesh333/SIH_Team_VanGuard_Prototype/blob/25f5ec577b8cac9598d9dd211c737f3b08cb0111/README.md"
+        }
+      ],
+      "evidence": "README-grounded architecture; proposed evaluation and improvements are distinguished from implementation claims. Inspected 13 September 2026. Rehearsal answers do not verify personal ownership or unexecuted results."
+    },
+    {
+      "id": "ar-design",
+      "collection": "ar",
+      "topic": "Software engineering",
+      "difficulty": "Deep dive",
+      "title": "How would you explain the marker-based AR treasure hunt?",
+      "short": "The README describes a Vuforia marker-based game that reveals hints from specific markers. Recognition and stable tracking are separate user-experience requirements.",
+      "answer": [
+        "The documented interaction scans map, ship, island and cave markers. I would explain how a recognized image anchors an overlay, then discuss lighting, occlusion and viewing angle as practical constraints. The README is brief, so exact tracking and game-state code are not verified.",
+        "A useful test matrix varies distance, angle and lighting and measures recognition success and time to hint. Recovery after tracking loss matters as much as the first successful detection."
+      ],
+      "deep": "Conceptually, image features support matching and pose estimation; a pose maps virtual content into camera space. This is a general marker-AR explanation, not a claim about custom algorithms in this repository.",
+      "followups": [
+        {
+          "question": "Why use markers?",
+          "answer": "They constrain recognition and make the scene easier to anchor, at the cost of requiring prepared physical images."
+        },
+        {
+          "question": "What would you improve?",
+          "answer": "Clear scan guidance, tracking-loss feedback and hint state that does not reset unexpectedly."
+        }
+      ],
+      "pitfall": "Do not claim a custom SLAM implementation from a Vuforia project description.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "AR-Treasure-Hunt · README",
+          "url": "https://github.com/Prathmesh333/AR-Treasure-Hunt/blob/faa5d9ff931a4565ca0255260913bbdb57f9be2e/README.md"
+        }
+      ],
+      "evidence": "README-grounded architecture; proposed evaluation and improvements are distinguished from implementation claims. Inspected 13 September 2026. Rehearsal answers do not verify personal ownership or unexecuted results."
+    },
+    {
+      "id": "vsfeed-design",
+      "collection": "vsfeed",
+      "topic": "Software engineering",
+      "difficulty": "Deep dive",
+      "title": "What are the constraints of an in-editor social feed?",
+      "short": "VSFeed describes a timed browsing experience in VS Code’s integrated browser. Extension state and host-browser capabilities set the boundaries of the experience.",
+      "answer": [
+        "The README explicitly notes media-playback limitations in the integrated browser. I would distinguish host limitations from extension behavior and avoid promising universal video support. User timers and clear return-to-work controls define the intended interaction.",
+        "I would test extension activation, timer recovery, navigation and unsupported media states. External content must remain separated from privileged extension actions. Documentation establishes the product concept; implementation-specific security claims need source review."
+      ],
+      "deep": "Treat third-party page content as untrusted. A privileged extension message bridge should validate message type, sender and payload rather than pass arbitrary commands from page scripts.",
+      "followups": [
+        {
+          "question": "Why not embed everything in a webview?",
+          "answer": "Providers can restrict embedding, and webviews add security and compatibility work. The documented project uses the integrated browser."
+        },
+        {
+          "question": "What happens after a reload?",
+          "answer": "Define whether timers resume or reset, persist the needed timestamp and test the user-visible behavior."
+        }
+      ],
+      "pitfall": "Do not promise support the host browser does not provide.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "vsfeed · README",
+          "url": "https://github.com/Prathmesh333/vsfeed/blob/f7370ba6ae8da56b0c6333f2883b7755a0990f97/README.md"
+        }
+      ],
+      "evidence": "README-grounded architecture; proposed evaluation and improvements are distinguished from implementation claims. Inspected 13 September 2026. Rehearsal answers do not verify personal ownership or unexecuted results."
+    },
+    {
+      "id": "python-guide-design",
+      "collection": "python-guide",
+      "topic": "Software engineering",
+      "difficulty": "Deep dive",
+      "title": "Why distinguish a controlled simulation from executing Python?",
+      "short": "The README says its playgrounds are JavaScript simulations. They illustrate selected behaviors but do not execute arbitrary Python.",
+      "answer": [
+        "I would separate lesson data, examples, rendering and progress state so a real interpreter can later replace the simulator. The UI should explain supported inputs and errors. A simulation is useful when predictable exercises are the goal.",
+        "If adding a browser Python runtime, I would isolate execution, limit resources and measure startup cost. That would be a new capability, not a retroactive description of the current site."
+      ],
+      "deep": "A simulator maps a bounded set of inputs to modeled outputs. An interpreter implements language semantics for arbitrary valid programs; the test surface and resource requirements are much larger.",
+      "followups": [
+        {
+          "question": "How would you verify the design?",
+          "answer": "Use examples that exercise the stated boundary, test failures as well as success, and compare behavior with the documented promise."
+        },
+        {
+          "question": "What evidence should an interview answer include?",
+          "answer": "A specific code or document revision and an example you can explain, while separating proposed changes from completed work."
+        }
+      ],
+      "pitfall": "Do not turn educational material into a claim of production experience.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "Python-Clearly · README",
+          "url": "https://github.com/Prathmesh333/Python-Clearly/blob/04d3a4c21b57ec2c2aeb29b84e1881ff3bbee354/README.md"
+        }
+      ],
+      "evidence": "Learning/tooling repository; README inspection, not a claim of production experience. Inspected 13 September 2026. Rehearsal answers do not verify personal ownership or unexecuted results."
+    },
+    {
+      "id": "typescript-guide-design",
+      "collection": "typescript-guide",
+      "topic": "Software engineering",
+      "difficulty": "Deep dive",
+      "title": "What can TypeScript guarantee at runtime?",
+      "short": "TypeScript checks types before execution, but those types are erased. Runtime input still needs validation.",
+      "answer": [
+        "The repository documents a static TypeScript learning guide with lessons, exercises and browser-local progress. It offers a concrete context for explaining compile-time contracts. A typed interface cannot guarantee that a fetched JSON object matches it.",
+        "I would keep unknown external values as unknown until validated and show learners examples where assertions merely silence the compiler. Course progress should use stable IDs so content reordering does not lose completion."
+      ],
+      "deep": "A type assertion changes the checker’s interpretation, not the value. Discriminated unions can make internal states safer after runtime validation.",
+      "followups": [
+        {
+          "question": "How would you verify the design?",
+          "answer": "Use examples that exercise the stated boundary, test failures as well as success, and compare behavior with the documented promise."
+        },
+        {
+          "question": "What evidence should an interview answer include?",
+          "answer": "A specific code or document revision and an example you can explain, while separating proposed changes from completed work."
+        }
+      ],
+      "pitfall": "Do not turn educational material into a claim of production experience.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "TypeScript · README",
+          "url": "https://github.com/Prathmesh333/TypeScript/blob/e46dafc56d6a12de57775778ed0293db0a6e016d/README.md"
+        }
+      ],
+      "evidence": "Learning/tooling repository; README inspection, not a claim of production experience. Inspected 13 September 2026. Rehearsal answers do not verify personal ownership or unexecuted results."
+    },
+    {
+      "id": "system-guide-design",
+      "collection": "system-guide",
+      "topic": "Software engineering",
+      "difficulty": "Deep dive",
+      "title": "How do you structure a system-design interview answer?",
+      "short": "Clarify scale and requirements, define APIs and data, then examine the bottleneck and tradeoffs. A diagram should expose decisions rather than list technologies.",
+      "answer": [
+        "The repository is a static visual guide covering systems such as URL shorteners, queues and caches. I would use one scenario to estimate load, define consistency needs and walk through a request.",
+        "I would discuss failure and recovery after the happy path. A cache reduces reads but creates invalidation decisions; a queue absorbs bursts but introduces delay and duplicate processing concerns. These are study explanations, not evidence of operating those systems."
+      ],
+      "deep": "For arrival rate λ and average time in system W, Little’s law gives average occupancy L=λW under stable conditions. State units and whether the quantity describes a queue, service or whole system.",
+      "followups": [
+        {
+          "question": "How would you verify the design?",
+          "answer": "Use examples that exercise the stated boundary, test failures as well as success, and compare behavior with the documented promise."
+        },
+        {
+          "question": "What evidence should an interview answer include?",
+          "answer": "A specific code or document revision and an example you can explain, while separating proposed changes from completed work."
+        }
+      ],
+      "pitfall": "Do not turn educational material into a claim of production experience.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "SystemDesign · README",
+          "url": "https://github.com/Prathmesh333/SystemDesign/blob/26ef24d8e39d096669f4e728b2fbe4a8055638b2/README.md"
+        }
+      ],
+      "evidence": "Learning/tooling repository; README inspection, not a claim of production experience. Inspected 13 September 2026. Rehearsal answers do not verify personal ownership or unexecuted results."
+    },
+    {
+      "id": "agent-guide-design",
+      "collection": "agent-guide",
+      "topic": "Software engineering",
+      "difficulty": "Deep dive",
+      "title": "How would you evaluate an agent beyond its final response?",
+      "short": "Measure task success, tool correctness, recovery, cost and permission boundaries. A fluent final message can conceal failed actions.",
+      "answer": [
+        "The repository documents a static engineering handbook for agents with no backend or runtime dependencies. Its subject matter motivates this interview question, but does not establish production agent-operation experience.",
+        "I would evaluate traces with fixed tasks and explicit success criteria. Include tool failures, ambiguous instructions and untrusted content. Distinguish proposing an action from successfully executing and verifying it."
+      ],
+      "deep": "A trace-level evaluator checks action preconditions, tool arguments, observed results and postconditions. Aggregate completion rate should be accompanied by failure categories and cost distributions.",
+      "followups": [
+        {
+          "question": "How would you verify the design?",
+          "answer": "Use examples that exercise the stated boundary, test failures as well as success, and compare behavior with the documented promise."
+        },
+        {
+          "question": "What evidence should an interview answer include?",
+          "answer": "A specific code or document revision and an example you can explain, while separating proposed changes from completed work."
+        }
+      ],
+      "pitfall": "Do not turn educational material into a claim of production experience.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "AgenticEngineering · README",
+          "url": "https://github.com/Prathmesh333/AgenticEngineering/blob/a89e83be3d72f41ce3e6cbe1979fcd2e3c1c602c/README.md"
+        }
+      ],
+      "evidence": "Learning/tooling repository; README inspection, not a claim of production experience. Inspected 13 September 2026. Rehearsal answers do not verify personal ownership or unexecuted results."
+    },
+    {
+      "id": "writing-skill-design",
+      "collection": "writing-skill",
+      "topic": "Software engineering",
+      "difficulty": "Deep dive",
+      "title": "How do you simplify technical writing without changing its meaning?",
+      "short": "Preserve conditions, units, identifiers, negation and required actions. Simpler wording is only useful if the technical claim remains equivalent.",
+      "answer": [
+        "The repository documents a standalone writing skill with house rules and an equivalence checklist. It does not certify compliance with an external controlled-language standard.",
+        "I would compare the original and revised procedure for actor, action, order, condition and verification. Ambiguous terminology needs clarification instead of a plausible rewrite. A shorter sentence can still be wrong if it changes “must” to “may.”"
+      ],
+      "deep": "Treat values, units, modal force and conditional scope as invariants during editing. For example, “disconnect only after shutdown” must retain the ordering constraint.",
+      "followups": [
+        {
+          "question": "How would you verify the design?",
+          "answer": "Use examples that exercise the stated boundary, test failures as well as success, and compare behavior with the documented promise."
+        },
+        {
+          "question": "What evidence should an interview answer include?",
+          "answer": "A specific code or document revision and an example you can explain, while separating proposed changes from completed work."
+        }
+      ],
+      "pitfall": "Do not turn educational material into a claim of production experience.",
+      "diagram": null,
+      "sources": [
+        {
+          "label": "controlled-technical-english-writing-skill · README",
+          "url": "https://github.com/Prathmesh333/controlled-technical-english-writing-skill/blob/e6cb28449d07ffe8f20b8055ff6cf027705d41cd/README.md"
+        }
+      ],
+      "evidence": "Learning/tooling repository; README inspection, not a claim of production experience. Inspected 13 September 2026. Rehearsal answers do not verify personal ownership or unexecuted results."
+    }
+  ],
+  "repositories": [
+    {
+      "name": "AgenticEngineering",
+      "url": "https://github.com/Prathmesh333/AgenticEngineering",
+      "fork": false,
+      "description": "",
+      "coverage": [
+        "agent-guide"
+      ],
+      "note": "Covered by repository collection.",
+      "readmeInspected": true
+    },
+    {
+      "name": "ai-job-search",
+      "url": "https://github.com/Prathmesh333/ai-job-search",
+      "fork": true,
+      "description": "Codex-first AI job search workspace, adapted from MadsLorentzen/ai-job-search.",
+      "coverage": [],
+      "note": "Fork: no original-authorship claim; contribution history not audited.",
+      "readmeInspected": true
+    },
+    {
+      "name": "AI-Voice-Summarizer-using-LM-Studio",
+      "url": "https://github.com/Prathmesh333/AI-Voice-Summarizer-using-LM-Studio",
+      "fork": false,
+      "description": "",
+      "coverage": [],
+      "note": "Insufficient README evidence for a personal technical answer; retained in inventory.",
+      "readmeInspected": true
+    },
+    {
+      "name": "AI4Bharat-JansevaAI",
+      "url": "https://github.com/Prathmesh333/AI4Bharat-JansevaAI",
+      "fork": false,
+      "description": "JanSeva AI is a voice-first, multilingual AI assistant designed to help Indian citizens access government welfare schemes. The system addresses the critical problem of ₹1.5 lakh crore in unclaimed welfare benefits annually by providing conversational AI with intelligent form-filling capabilities. ",
+      "coverage": [
+        "janseva"
+      ],
+      "note": "Covered by repository collection.",
+      "readmeInspected": true
+    },
+    {
+      "name": "AR-Treasure-Hunt",
+      "url": "https://github.com/Prathmesh333/AR-Treasure-Hunt",
+      "fork": false,
+      "description": "Marker Based Treasure Hunt Game ",
+      "coverage": [
+        "ar"
+      ],
+      "note": "Covered by repository collection.",
+      "readmeInspected": true
+    },
+    {
+      "name": "CanIPlay",
+      "url": "https://github.com/Prathmesh333/CanIPlay",
+      "fork": false,
+      "description": "Network Feasibility & Latency Analysis Tool for Online Gaming",
+      "coverage": [
+        "caniplay"
+      ],
+      "note": "Covered by repository collection.",
+      "readmeInspected": true
+    },
+    {
+      "name": "controlled-technical-english-writing-skill",
+      "url": "https://github.com/Prathmesh333/controlled-technical-english-writing-skill",
+      "fork": false,
+      "description": "Independent controlled technical English writing skill and heuristic checker",
+      "coverage": [
+        "writing-skill"
+      ],
+      "note": "Covered by repository collection.",
+      "readmeInspected": true
+    },
+    {
+      "name": "cuda",
+      "url": "https://github.com/Prathmesh333/cuda",
+      "fork": false,
+      "description": "",
+      "coverage": [],
+      "note": "Insufficient README evidence for a personal technical answer; retained in inventory.",
+      "readmeInspected": false
+    },
+    {
+      "name": "DL",
+      "url": "https://github.com/Prathmesh333/DL",
+      "fork": false,
+      "description": "",
+      "coverage": [],
+      "note": "Insufficient README evidence for a personal technical answer; retained in inventory.",
+      "readmeInspected": false
+    },
+    {
+      "name": "evidencemem",
+      "url": "https://github.com/Prathmesh333/evidencemem",
+      "fork": false,
+      "description": "Prototype-based visual memory for evidence-grounded, continual, and OOD-aware classification with frozen vision-language encoders.",
+      "coverage": [
+        "evidencemem"
+      ],
+      "note": "Covered by repository collection.",
+      "readmeInspected": true
+    },
+    {
+      "name": "F1-Race-Prediction",
+      "url": "https://github.com/Prathmesh333/F1-Race-Prediction",
+      "fork": false,
+      "description": "",
+      "coverage": [
+        "f1"
+      ],
+      "note": "Covered by repository collection.",
+      "readmeInspected": true
+    },
+    {
+      "name": "ForecastForge",
+      "url": "https://github.com/Prathmesh333/ForecastForge",
+      "fork": false,
+      "description": "",
+      "coverage": [
+        "forecast"
+      ],
+      "note": "Covered by repository collection.",
+      "readmeInspected": true
+    },
+    {
+      "name": "github-slideshow",
+      "url": "https://github.com/Prathmesh333/github-slideshow",
+      "fork": false,
+      "description": "A robot powered training repository :robot:",
+      "coverage": [],
+      "note": "Profile, portfolio or GitHub training material; inventoried rather than treated as an engineering deployment.",
+      "readmeInspected": true
+    },
+    {
+      "name": "Hierarchical-Quantum-Distributed-Ensemble-Learning",
+      "url": "https://github.com/Prathmesh333/Hierarchical-Quantum-Distributed-Ensemble-Learning",
+      "fork": false,
+      "description": "",
+      "coverage": [],
+      "note": "Earlier HQDE repository: tree and README inspected; current package receives the detailed collection.",
+      "readmeInspected": true
+    },
+    {
+      "name": "HQDE-PyPI",
+      "url": "https://github.com/Prathmesh333/HQDE-PyPI",
+      "fork": false,
+      "description": "",
+      "coverage": [
+        "hqde"
+      ],
+      "note": "Covered by repository collection.",
+      "readmeInspected": true
+    },
+    {
+      "name": "InterviewPrep",
+      "url": "https://github.com/Prathmesh333/InterviewPrep",
+      "fork": false,
+      "description": "",
+      "coverage": [],
+      "note": "Empty at inspection; website implemented in this PR.",
+      "readmeInspected": false
+    },
+    {
+      "name": "iris-visual-agent",
+      "url": "https://github.com/Prathmesh333/iris-visual-agent",
+      "fork": false,
+      "description": "",
+      "coverage": [
+        "iris"
+      ],
+      "note": "Covered by repository collection.",
+      "readmeInspected": true
+    },
+    {
+      "name": "Neural-Consensus-Engine",
+      "url": "https://github.com/Prathmesh333/Neural-Consensus-Engine",
+      "fork": false,
+      "description": "",
+      "coverage": [
+        "consensus"
+      ],
+      "note": "Covered by repository collection.",
+      "readmeInspected": true
+    },
+    {
+      "name": "Prathmesh333",
+      "url": "https://github.com/Prathmesh333/Prathmesh333",
+      "fork": false,
+      "description": "Config files for my GitHub profile.",
+      "coverage": [],
+      "note": "Profile, portfolio or GitHub training material; inventoried rather than treated as an engineering deployment.",
+      "readmeInspected": true
+    },
+    {
+      "name": "prathmesh333.github.io",
+      "url": "https://github.com/Prathmesh333/prathmesh333.github.io",
+      "fork": false,
+      "description": "",
+      "coverage": [],
+      "note": "Profile, portfolio or GitHub training material; inventoried rather than treated as an engineering deployment.",
+      "readmeInspected": true
+    },
+    {
+      "name": "PsychoTA",
+      "url": "https://github.com/Prathmesh333/PsychoTA",
+      "fork": false,
+      "description": "",
+      "coverage": [
+        "psychota"
+      ],
+      "note": "Covered by repository collection.",
+      "readmeInspected": true
+    },
+    {
+      "name": "Python-Clearly",
+      "url": "https://github.com/Prathmesh333/Python-Clearly",
+      "fork": false,
+      "description": "",
+      "coverage": [
+        "python-guide"
+      ],
+      "note": "Covered by repository collection.",
+      "readmeInspected": true
+    },
+    {
+      "name": "ray",
+      "url": "https://github.com/Prathmesh333/ray",
+      "fork": true,
+      "description": "Ray is an AI compute engine. Ray consists of a core distributed runtime and a set of AI Libraries for accelerating ML workloads.",
+      "coverage": [],
+      "note": "Fork: no original-authorship claim; contribution history not audited.",
+      "readmeInspected": true
+    },
+    {
+      "name": "ResearchHub",
+      "url": "https://github.com/Prathmesh333/ResearchHub",
+      "fork": false,
+      "description": "",
+      "coverage": [
+        "researchhub"
+      ],
+      "note": "Covered by repository collection.",
+      "readmeInspected": true
+    },
+    {
+      "name": "SEM-",
+      "url": "https://github.com/Prathmesh333/SEM-",
+      "fork": false,
+      "description": "",
+      "coverage": [],
+      "note": "Insufficient README evidence for a personal technical answer; retained in inventory.",
+      "readmeInspected": false
+    },
+    {
+      "name": "ShortList-D",
+      "url": "https://github.com/Prathmesh333/ShortList-D",
+      "fork": false,
+      "description": "",
+      "coverage": [
+        "shortlist"
+      ],
+      "note": "Covered by repository collection.",
+      "readmeInspected": true
+    },
+    {
+      "name": "SIH_Team_VanGuard_Prototype",
+      "url": "https://github.com/Prathmesh333/SIH_Team_VanGuard_Prototype",
+      "fork": false,
+      "description": "",
+      "coverage": [
+        "vanguard"
+      ],
+      "note": "Covered by repository collection.",
+      "readmeInspected": true
+    },
+    {
+      "name": "SystemDesign",
+      "url": "https://github.com/Prathmesh333/SystemDesign",
+      "fork": false,
+      "description": "",
+      "coverage": [
+        "system-guide"
+      ],
+      "note": "Covered by repository collection.",
+      "readmeInspected": true
+    },
+    {
+      "name": "TakeOne",
+      "url": "https://github.com/Prathmesh333/TakeOne",
+      "fork": false,
+      "description": "",
+      "coverage": [
+        "takeone"
+      ],
+      "note": "Covered by repository collection.",
+      "readmeInspected": true
+    },
+    {
+      "name": "TRACE_Transparent_Results_and_Academic_Compliance_Engine",
+      "url": "https://github.com/Prathmesh333/TRACE_Transparent_Results_and_Academic_Compliance_Engine",
+      "fork": false,
+      "description": "",
+      "coverage": [
+        "trace"
+      ],
+      "note": "Covered by repository collection.",
+      "readmeInspected": true
+    },
+    {
+      "name": "TypeScript",
+      "url": "https://github.com/Prathmesh333/TypeScript",
+      "fork": false,
+      "description": "",
+      "coverage": [
+        "typescript-guide"
+      ],
+      "note": "Covered by repository collection.",
+      "readmeInspected": true
+    },
+    {
+      "name": "VedaAI",
+      "url": "https://github.com/Prathmesh333/VedaAI",
+      "fork": false,
+      "description": "",
+      "coverage": [],
+      "note": "Insufficient README evidence for a personal technical answer; retained in inventory.",
+      "readmeInspected": false
+    },
+    {
+      "name": "VOICETOTEXT",
+      "url": "https://github.com/Prathmesh333/VOICETOTEXT",
+      "fork": false,
+      "description": "SPEECH RECOGNITION APP FOR ANDROID DEVICES",
+      "coverage": [],
+      "note": "Insufficient README evidence for a personal technical answer; retained in inventory.",
+      "readmeInspected": false
+    },
+    {
+      "name": "vsfeed",
+      "url": "https://github.com/Prathmesh333/vsfeed",
+      "fork": false,
+      "description": "Social Media Web Browser for VS Code based IDEs, scroll while waiting for AI to finish the work",
+      "coverage": [
+        "vsfeed"
+      ],
+      "note": "Covered by repository collection.",
+      "readmeInspected": true
+    },
+    {
+      "name": "WeakEnsembleStrongDecisionTree",
+      "url": "https://github.com/Prathmesh333/WeakEnsembleStrongDecisionTree",
+      "fork": false,
+      "description": "",
+      "coverage": [
+        "treestack"
+      ],
+      "note": "Covered by repository collection.",
+      "readmeInspected": true
+    }
+  ]
+}
