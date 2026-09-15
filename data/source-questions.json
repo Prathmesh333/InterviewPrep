@@ -1,0 +1,302 @@
+[
+  {
+    "number": 1,
+    "question": "Can you explain the concept of Natural Language Processing (NLP) and its applications in Machine Learning?",
+    "answerId": "nlp-overview"
+  },
+  {
+    "number": 2,
+    "question": "How would you approach building a text classification model for NLP applications?",
+    "answerId": "text-classification"
+  },
+  {
+    "number": 3,
+    "question": "Can you explain the concept of word embeddings and their significance in NLP?",
+    "answerId": "embeddings"
+  },
+  {
+    "number": 4,
+    "question": "Can you explain the concept of word2vec and how it is trained?",
+    "answerId": "word2vec"
+  },
+  {
+    "number": 5,
+    "question": "How can you evaluate the performance of an NLP model for text classification?",
+    "answerId": "classification-metrics"
+  },
+  {
+    "number": 6,
+    "question": "What are recurrent neural networks (RNNs) and how can they be used in NLP applications?",
+    "answerId": "rnn"
+  },
+  {
+    "number": 7,
+    "question": "How would you handle the problem of text data preprocessing for NLP tasks?",
+    "answerId": "preprocessing"
+  },
+  {
+    "number": 8,
+    "question": "Can you explain the concept of attention mechanism and its role in NLP?",
+    "answerId": "attention"
+  },
+  {
+    "number": 9,
+    "question": "What is the role of recurrent neural networks (RNNs) and transformers in sequence-to-sequence (seq2seq) modeling for NLP?",
+    "answerId": "seq2seq"
+  },
+  {
+    "number": 10,
+    "question": "How can you handle out-of-vocabulary (OOV) words in NLP tasks?",
+    "answerId": "oov"
+  },
+  {
+    "number": 11,
+    "question": "What is the role of attention mechanisms in machine translation?",
+    "answerId": "translation-attention"
+  },
+  {
+    "number": 12,
+    "question": "Can you explain the concept of transfer learning in NLP and its benefits?",
+    "answerId": "transfer"
+  },
+  {
+    "number": 13,
+    "question": "Can you explain the concept of generative models in NLP and provide an example?",
+    "answerId": "generative"
+  },
+  {
+    "number": 14,
+    "question": "How can you mitigate the problem of overfitting in NLP models?",
+    "answerId": "overfitting"
+  },
+  {
+    "number": 15,
+    "question": "How can you handle the problem of imbalanced classes in text classification?",
+    "answerId": "imbalance"
+  },
+  {
+    "number": 16,
+    "question": "Can you explain the concept of transfer learning in NLP and its benefits?",
+    "answerId": "transfer"
+  },
+  {
+    "number": 17,
+    "question": "Can you explain the concept of language modeling in NLP and its applications?",
+    "answerId": "language-model"
+  },
+  {
+    "number": 18,
+    "question": "What are some challenges specific to NLP applications, and how would you address them?",
+    "answerId": "nlp-challenges"
+  },
+  {
+    "number": 19,
+    "question": "How can you handle noisy or incomplete textual data in NLP tasks?",
+    "answerId": "noisy-text"
+  },
+  {
+    "number": 20,
+    "question": "How can you handle the problem of text data preprocessing for NLP tasks?",
+    "answerId": "preprocessing"
+  },
+  {
+    "number": 21,
+    "question": "Can you explain what is Big Data and how it is related to Machine Learning?",
+    "answerId": "big-data"
+  },
+  {
+    "number": 22,
+    "question": "What is the difference between supervised and unsupervised learning? Provide examples of each.",
+    "answerId": "supervised"
+  },
+  {
+    "number": 23,
+    "question": "How would you handle missing values in a dataset for training a Machine Learning model?",
+    "answerId": "missing"
+  },
+  {
+    "number": 24,
+    "question": "Explain the concept of overfitting and how to avoid it in Machine Learning models.",
+    "answerId": "overfitting"
+  },
+  {
+    "number": 25,
+    "question": "How would you handle class imbalance in a classification problem?",
+    "answerId": "imbalance"
+  },
+  {
+    "number": 26,
+    "question": "What is feature scaling, and why is it important in Machine Learning?",
+    "answerId": "scaling"
+  },
+  {
+    "number": 27,
+    "question": "Explain the bias-variance tradeoff in Machine Learning models.",
+    "answerId": "bias-variance"
+  },
+  {
+    "number": 28,
+    "question": "What is the ROC curve, and how is it useful in evaluating a classification model?",
+    "answerId": "roc"
+  },
+  {
+    "number": 29,
+    "question": "How do you handle categorical variables in a Machine Learning model?",
+    "answerId": "categorical"
+  },
+  {
+    "number": 30,
+    "question": "Explain the difference between bagging and boosting in ensemble learning.",
+    "answerId": "ensemble"
+  },
+  {
+    "number": 31,
+    "question": "What is bias in the context of Machine Learning models?",
+    "answerId": "bias-variance"
+  },
+  {
+    "number": 32,
+    "question": "Explain the concept of cross-validation and why is it important in Machine Learning?",
+    "answerId": "cross-validation"
+  },
+  {
+    "number": 33,
+    "question": "What is the purpose of activation functions in Neural Networks?",
+    "answerId": "activation"
+  },
+  {
+    "number": 34,
+    "question": "Describe the process of hyperparameter tuning and some common techniques for it.",
+    "answerId": "hyperparameters"
+  },
+  {
+    "number": 35,
+    "question": "What is the importance of exploratory data analysis (EDA) in the context of Data Science?",
+    "answerId": "eda"
+  },
+  {
+    "number": 36,
+    "question": "What are the advantages and disadvantages of using convolutional neural networks (CNNs) for computer vision tasks?",
+    "answerId": "cnn"
+  },
+  {
+    "number": 37,
+    "question": "How would you handle a situation where your Machine Learning model is underperforming?",
+    "answerId": "underperformance"
+  },
+  {
+    "number": 38,
+    "question": "What is transfer learning, and how can it be beneficial in the context of Deep Learning?",
+    "answerId": "transfer"
+  },
+  {
+    "number": 39,
+    "question": "Explain the concept of Word Embeddings and its role in Natural Language Processing (NLP)?",
+    "answerId": "embeddings"
+  },
+  {
+    "number": 40,
+    "question": "Explain the purpose of Recurrent Neural Networks (RNNs) in sequence modeling tasks.",
+    "answerId": "rnn"
+  },
+  {
+    "number": 41,
+    "question": "Can you explain the concept of supervised learning and give an example of how it is used in machine learning?",
+    "answerId": "supervised"
+  },
+  {
+    "number": 42,
+    "question": "What is the difference between bagging and boosting in ensemble learning?",
+    "answerId": "ensemble"
+  },
+  {
+    "number": 43,
+    "question": "What is the purpose of regularization in machine learning? How does it prevent overfitting?",
+    "answerId": "regularization"
+  },
+  {
+    "number": 44,
+    "question": "How would you handle missing values in a dataset? What are some common techniques?",
+    "answerId": "missing"
+  },
+  {
+    "number": 45,
+    "question": "How would you handle imbalanced class distribution in a classification problem?",
+    "answerId": "imbalance"
+  },
+  {
+    "number": 46,
+    "question": "Explain the use of cross-validation in model evaluation.",
+    "answerId": "cross-validation"
+  },
+  {
+    "number": 47,
+    "question": "Can you explain the bias-variance tradeoff in machine learning?",
+    "answerId": "bias-variance"
+  },
+  {
+    "number": 48,
+    "question": "What is the ROC curve? How is it used to evaluate a classification model?",
+    "answerId": "roc"
+  },
+  {
+    "number": 49,
+    "question": "How does gradient descent work in the context of training a neural network?",
+    "answerId": "gradient-descent"
+  },
+  {
+    "number": 50,
+    "question": "What evaluation metrics would you use to assess the performance of a regression model?",
+    "answerId": "regression-metrics"
+  },
+  {
+    "number": 51,
+    "question": "Have you worked on any natural language processing (NLP) tasks? If yes, can you explain the techniques or algorithms you used?",
+    "answerId": "nlp-experience"
+  },
+  {
+    "number": 52,
+    "question": "What is transfer learning in deep learning? How can it be useful?",
+    "answerId": "transfer"
+  },
+  {
+    "number": 53,
+    "question": "How can you handle outliers in a dataset during the data preprocessing stage?",
+    "answerId": "outliers"
+  },
+  {
+    "number": 54,
+    "question": "What is the purpose of activation functions in neural networks?",
+    "answerId": "activation"
+  },
+  {
+    "number": 55,
+    "question": "Explain the concept of hyperparameters in machine learning models. How do you choose the optimal values?",
+    "answerId": "hyperparameters"
+  },
+  {
+    "number": 56,
+    "question": "What is an ensemble learning? How can it improve model performance?",
+    "answerId": "ensemble"
+  },
+  {
+    "number": 57,
+    "question": "What are some common approaches for dimensionality reduction in machine learning?",
+    "answerId": "dimensions"
+  },
+  {
+    "number": 58,
+    "question": "How would you handle a data set with a large number of features?",
+    "answerId": "dimensions"
+  },
+  {
+    "number": 59,
+    "question": "How do you handle multi-class classification problems? Can you explain any techniques or algorithms you have used?",
+    "answerId": "multiclass"
+  },
+  {
+    "number": 60,
+    "question": "Have you worked on any computer vision tasks? If yes, can you describe the techniques or algorithms you used?",
+    "answerId": "vision-experience"
+  }
+]
